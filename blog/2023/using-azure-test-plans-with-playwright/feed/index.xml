@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Using Azure Test Plans with Playwright	</title>
+	<atom:link href="/blog/2023/using-azure-test-plans-with-playwright/feed/" rel="self" type="application/rss+xml" />
+	<link>/blog/2023/using-azure-test-plans-with-playwright/</link>
+	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
+	<lastBuildDate>Tue, 24 Sep 2024 11:07:26 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+	<item>
+		<title>
+		By: Christelle		</title>
+		<link>/blog/2023/using-azure-test-plans-with-playwright/#comment-50514</link>
+
+		<dc:creator><![CDATA[Christelle]]></dc:creator>
+		<pubDate>Tue, 24 Sep 2024 11:07:26 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1237#comment-50514</guid>
+
+					<description><![CDATA[Is there a workaround to use a Linux agent instead of a Windows agent?]]></description>
+			<content:encoded><![CDATA[<p>Is there a workaround to use a Linux agent instead of a Windows agent?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Marcus		</title>
+		<link>/blog/2023/using-azure-test-plans-with-playwright/#comment-50479</link>
+
+		<dc:creator><![CDATA[Marcus]]></dc:creator>
+		<pubDate>Wed, 04 Sep 2024 13:48:38 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1237#comment-50479</guid>
+
+					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2023/using-azure-test-plans-with-playwright/#comment-50478&quot;&gt;Christelle Klein&lt;/a&gt;.
+
+Here is the YAML:
+steps:
+- powershell: &#124;
+   pwsh playwright.ps1 install --with-deps
+   
+  workingDirectory: &#039;$(System.DefaultWorkingDirectory)/_PlaywrightDotnet/PlaywrightTests/PlaywrightTests&#039;
+  displayName: &#039;Install Playwright browsers&#039;]]></description>
+			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2023/using-azure-test-plans-with-playwright/#comment-50478">Christelle Klein</a>.</p>
+<p>Here is the YAML:<br />
+steps:<br />
+&#8211; powershell: |<br />
+   pwsh playwright.ps1 install &#8211;with-deps</p>
+<p>  workingDirectory: &#8216;$(System.DefaultWorkingDirectory)/_PlaywrightDotnet/PlaywrightTests/PlaywrightTests&#8217;<br />
+  displayName: &#8216;Install Playwright browsers&#8217;</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Christelle Klein		</title>
+		<link>/blog/2023/using-azure-test-plans-with-playwright/#comment-50478</link>
+
+		<dc:creator><![CDATA[Christelle Klein]]></dc:creator>
+		<pubDate>Wed, 04 Sep 2024 11:07:20 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1237#comment-50478</guid>
+
+					<description><![CDATA[Thanks for the great tutorial! Just a question: 
+What is in the Powershell script called &quot;Install playwright browsers&quot; from the release pipeline (Playwright .NET)?]]></description>
+			<content:encoded><![CDATA[<p>Thanks for the great tutorial! Just a question:<br />
+What is in the Powershell script called &#8220;Install playwright browsers&#8221; from the release pipeline (Playwright .NET)?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Pete		</title>
+		<link>/blog/2023/using-azure-test-plans-with-playwright/#comment-50474</link>
+
+		<dc:creator><![CDATA[Pete]]></dc:creator>
+		<pubDate>Mon, 02 Sep 2024 12:41:11 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1237#comment-50474</guid>
+
+					<description><![CDATA[Hi, your implementation is awesome. But is there any possibility, how to report results for each test step?
+As an example i have a Test code with 3 assertions (3 test steps in ADO) and i want to see in test case result, which step exactly failed/passed (e.g. step 2 will fail).
+Then, when i open the test case result, i will see that steps 1 &#038; 3 were passed, and step 2 was failed. Then overall result of the test is failed]]></description>
+			<content:encoded><![CDATA[<p>Hi, your implementation is awesome. But is there any possibility, how to report results for each test step?<br />
+As an example i have a Test code with 3 assertions (3 test steps in ADO) and i want to see in test case result, which step exactly failed/passed (e.g. step 2 will fail).<br />
+Then, when i open the test case result, i will see that steps 1 &amp; 3 were passed, and step 2 was failed. Then overall result of the test is failed</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Ralph		</title>
+		<link>/blog/2023/using-azure-test-plans-with-playwright/#comment-50349</link>
+
+		<dc:creator><![CDATA[Ralph]]></dc:creator>
+		<pubDate>Mon, 24 Jun 2024 14:57:38 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1237#comment-50349</guid>
+
+					<description><![CDATA[Hello, thank you for the post but I have a question about on of the steps. 
+What to do to associate tests cases when working on Mac? Visual Studio on Mac doesn’t have a Test Explorer so the association in a way that is described in the post is not possible. Do you know what might be a way to associate the automated test cases on Mac?]]></description>
+			<content:encoded><![CDATA[<p>Hello, thank you for the post but I have a question about on of the steps.<br />
+What to do to associate tests cases when working on Mac? Visual Studio on Mac doesn’t have a Test Explorer so the association in a way that is described in the post is not possible. Do you know what might be a way to associate the automated test cases on Mac?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Amy		</title>
+		<link>/blog/2023/using-azure-test-plans-with-playwright/#comment-50281</link>
+
+		<dc:creator><![CDATA[Amy]]></dc:creator>
+		<pubDate>Wed, 22 May 2024 05:25:59 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1237#comment-50281</guid>
+
+					<description><![CDATA[For typescript can we run test case from test plan, any practice would be really appreciated!]]></description>
+			<content:encoded><![CDATA[<p>For typescript can we run test case from test plan, any practice would be really appreciated!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Marcus		</title>
+		<link>/blog/2023/using-azure-test-plans-with-playwright/#comment-50251</link>
+
+		<dc:creator><![CDATA[Marcus]]></dc:creator>
+		<pubDate>Thu, 09 May 2024 14:25:08 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1237#comment-50251</guid>
+
+					<description><![CDATA[1. You can see the pipeline yaml here: https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightTest?path=/playwright-test.yml
+2. Playwright docs have a guide on this here: https://playwright.dev/docs/ci#azure-pipelines]]></description>
+			<content:encoded><![CDATA[<p>1. You can see the pipeline yaml here: <a href="https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightTest?path=/playwright-test.yml" rel="nofollow ugc">https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightTest?path=/playwright-test.yml</a><br />
+2. Playwright docs have a guide on this here: <a href="https://playwright.dev/docs/ci#azure-pipelines" rel="nofollow ugc">https://playwright.dev/docs/ci#azure-pipelines</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Marcus		</title>
+		<link>/blog/2023/using-azure-test-plans-with-playwright/#comment-50250</link>
+
+		<dc:creator><![CDATA[Marcus]]></dc:creator>
+		<pubDate>Thu, 09 May 2024 14:23:44 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1237#comment-50250</guid>
+
+					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2023/using-azure-test-plans-with-playwright/#comment-48538&quot;&gt;Rahul&lt;/a&gt;.
+
+Correct. The Playwright config references an env variable for the PAT that is set by the pipeline: https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightTest?path=/playwright-test.yml&amp;version=GBmain&amp;line=17&amp;lineEnd=18&amp;lineStartColumn=1&amp;lineEndColumn=1&amp;lineStyle=plain&amp;_a=contents]]></description>
+			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2023/using-azure-test-plans-with-playwright/#comment-48538">Rahul</a>.</p>
+<p>Correct. The Playwright config references an env variable for the PAT that is set by the pipeline: <a href="https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightTest?path=/playwright-test.yml&#038;version=GBmain&#038;line=17&#038;lineEnd=18&#038;lineStartColumn=1&#038;lineEndColumn=1&#038;lineStyle=plain&#038;_a=contents" rel="nofollow ugc">https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightTest?path=/playwright-test.yml&#038;version=GBmain&#038;line=17&#038;lineEnd=18&#038;lineStartColumn=1&#038;lineEndColumn=1&#038;lineStyle=plain&#038;_a=contents</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Marcus		</title>
+		<link>/blog/2023/using-azure-test-plans-with-playwright/#comment-50249</link>
+
+		<dc:creator><![CDATA[Marcus]]></dc:creator>
+		<pubDate>Thu, 09 May 2024 14:20:11 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1237#comment-50249</guid>
+
+					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2023/using-azure-test-plans-with-playwright/#comment-48039&quot;&gt;Xavier P&lt;/a&gt;.
+
+1. Test plan: /wp-content/uploads/2024/05/testPlan.png
+Test Case: /wp-content/uploads/2024/05/testCase.png
+2,3 See config file here: https://gist.github.com/MarcusFelling/66356db19ecb20ff798150ddd91900da#file-playwright-config-ts-L35]]></description>
+			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2023/using-azure-test-plans-with-playwright/#comment-48039">Xavier P</a>.</p>
+<p>1. Test plan: <a href="/wp-content/uploads/2024/05/testPlan.png" rel="ugc">/wp-content/uploads/2024/05/testPlan.png</a><br />
+Test Case: <a href="/wp-content/uploads/2024/05/testCase.png" rel="ugc">/wp-content/uploads/2024/05/testCase.png</a><br />
+2,3 See config file here: <a href="https://gist.github.com/MarcusFelling/66356db19ecb20ff798150ddd91900da#file-playwright-config-ts-L35" rel="nofollow ugc">https://gist.github.com/MarcusFelling/66356db19ecb20ff798150ddd91900da#file-playwright-config-ts-L35</a></p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Elvis		</title>
+		<link>/blog/2023/using-azure-test-plans-with-playwright/#comment-50247</link>
+
+		<dc:creator><![CDATA[Elvis]]></dc:creator>
+		<pubDate>Wed, 08 May 2024 10:35:12 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1237#comment-50247</guid>
+
+					<description><![CDATA[Thank you so much for sharing this awesome article.
+I have the tests running and reporting to test plans though I have a challenge accessing the ADO token when set as a secret variable, only works when the token is set as a regular variable. Could you kindly share your pipeline YAML file for reference on how you are setting/accessing the token.
+
+I would also appreciate if you could write an article on setting up the pipelines for the Playwright Test (TypeScript).]]></description>
+			<content:encoded><![CDATA[<p>Thank you so much for sharing this awesome article.<br />
+I have the tests running and reporting to test plans though I have a challenge accessing the ADO token when set as a secret variable, only works when the token is set as a regular variable. Could you kindly share your pipeline YAML file for reference on how you are setting/accessing the token.</p>
+<p>I would also appreciate if you could write an article on setting up the pipelines for the Playwright Test (TypeScript).</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

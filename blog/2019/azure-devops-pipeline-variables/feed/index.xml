@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Azure DevOps Pipelines: Variables, $Variables, __Variables__, $env:Variables, $(Variables), %VARIABLES%	</title>
+	<atom:link href="/blog/2019/azure-devops-pipeline-variables/feed/" rel="self" type="application/rss+xml" />
+	<link>/blog/2019/azure-devops-pipeline-variables/</link>
+	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
+	<lastBuildDate>Wed, 09 Dec 2020 23:47:01 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+	<item>
+		<title>
+		By: Leif		</title>
+		<link>/blog/2019/azure-devops-pipeline-variables/#comment-14472</link>
+
+		<dc:creator><![CDATA[Leif]]></dc:creator>
+		<pubDate>Wed, 09 Dec 2020 23:47:01 +0000</pubDate>
+		<guid isPermaLink="false">/?p=693#comment-14472</guid>
+
+					<description><![CDATA[Maybe a post on the scope of variables, over-riding a global variable with a stage or job-specific value, working with variables containing secrets, and the life-cycles of variables (compile-time vs  runtime). Also if you use YAML templates, different strategies for passing variables between templates]]></description>
+			<content:encoded><![CDATA[<p>Maybe a post on the scope of variables, over-riding a global variable with a stage or job-specific value, working with variables containing secrets, and the life-cycles of variables (compile-time vs  runtime). Also if you use YAML templates, different strategies for passing variables between templates</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Zafar		</title>
+		<link>/blog/2019/azure-devops-pipeline-variables/#comment-13021</link>
+
+		<dc:creator><![CDATA[Zafar]]></dc:creator>
+		<pubDate>Fri, 25 Sep 2020 06:52:32 +0000</pubDate>
+		<guid isPermaLink="false">/?p=693#comment-13021</guid>
+
+					<description><![CDATA[Hi ,
+
+I have a repository containing a xml file with key value pair like (), can we extract this value (revision, name ) and store in pipeline variables or variables group ?please assist]]></description>
+			<content:encoded><![CDATA[<p>Hi ,</p>
+<p>I have a repository containing a xml file with key value pair like (), can we extract this value (revision, name ) and store in pipeline variables or variables group ?please assist</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Willian		</title>
+		<link>/blog/2019/azure-devops-pipeline-variables/#comment-10215</link>
+
+		<dc:creator><![CDATA[Willian]]></dc:creator>
+		<pubDate>Wed, 12 Feb 2020 14:21:20 +0000</pubDate>
+		<guid isPermaLink="false">/?p=693#comment-10215</guid>
+
+					<description><![CDATA[Hey!
+Is it possible to edit a variable value?
+Like, I&#039;d like to set a variable value during the build and read it during the release, however, this value have to be stored somewhere for future releases.
+
+Thank you!]]></description>
+			<content:encoded><![CDATA[<p>Hey!<br />
+Is it possible to edit a variable value?<br />
+Like, I&#8217;d like to set a variable value during the build and read it during the release, however, this value have to be stored somewhere for future releases.</p>
+<p>Thank you!</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

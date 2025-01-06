@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Removing Sensitive Data from Git History with BFG and VS Code	</title>
+	<atom:link href="/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/feed/" rel="self" type="application/rss+xml" />
+	<link>/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/</link>
+	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
+	<lastBuildDate>Tue, 23 Apr 2024 16:40:34 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+</channel>
+</rss>

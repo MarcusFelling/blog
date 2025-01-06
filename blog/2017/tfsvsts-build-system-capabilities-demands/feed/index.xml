@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: TFS/VSTS Build &#8211; System Capabilities and Demands	</title>
+	<atom:link href="/blog/2017/tfsvsts-build-system-capabilities-demands/feed/" rel="self" type="application/rss+xml" />
+	<link>/blog/2017/tfsvsts-build-system-capabilities-demands/</link>
+	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
+	<lastBuildDate>Sat, 22 Sep 2018 23:55:09 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	
+	<item>
+		<title>
+		By: MasterFriva		</title>
+		<link>/blog/2017/tfsvsts-build-system-capabilities-demands/#comment-1774</link>
+
+		<dc:creator><![CDATA[MasterFriva]]></dc:creator>
+		<pubDate>Sat, 22 Sep 2018 23:55:09 +0000</pubDate>
+		<guid isPermaLink="false">/?p=426#comment-1774</guid>
+
+					<description><![CDATA[The new capabilities and demands system in Build vNext gives us the same features as the old tagging system but makes a lot more sense in context. Additionally with the new web interface and the auto detection on the agent of many of the needed values the whole process gets a lot simpler.]]></description>
+			<content:encoded><![CDATA[<p>The new capabilities and demands system in Build vNext gives us the same features as the old tagging system but makes a lot more sense in context. Additionally with the new web interface and the auto detection on the agent of many of the needed values the whole process gets a lot simpler.</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>
