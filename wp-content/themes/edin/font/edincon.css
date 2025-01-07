@@ -1,0 +1,30 @@
+@font-face {
+	font-family: 'Edincon';
+	src:url('/wp-content/themes/edin/font/edincon.eot?-yw7mjc');
+	src:url('/wp-content/themes/edin/font/edincon.eot#iefix-yw7mjc') format('embedded-opentype'),
+	    url('/wp-content/themes/edin/font/edincon.woff?-yw7mjc') format('woff'),
+	    url('/wp-content/themes/edin/font/edincon.ttf?-yw7mjc') format('truetype'),
+	    url('/wp-content/themes/edin/font/edincon.svg?-yw7mjc#edincon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="edincon-"], [class*=" edincon-"] {
+	font-family: 'Edincon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.edincon-edincon-close:before {
+	content: "\e600";
+}
+.edincon-edincon-menu:before {
+	content: "\e601";
+}
+.edincon-edincon-search:before {
+	content: "\e602";
+}
