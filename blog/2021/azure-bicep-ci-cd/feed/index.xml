@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: 💪 Azure Bicep CI/CD 🚀	</title>
+	<atom:link href="/blog/2021/azure-bicep-ci-cd/feed/" rel="self" type="application/rss+xml" />
+	<link>/blog/2021/azure-bicep-ci-cd/</link>
+	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
+	<lastBuildDate>Mon, 05 Feb 2024 23:35:10 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.7.1</generator>
+	<item>
+		<title>
+		By: Paul McDonald		</title>
+		<link>/blog/2021/azure-bicep-ci-cd/#comment-33547</link>
+
+		<dc:creator><![CDATA[Paul McDonald]]></dc:creator>
+		<pubDate>Wed, 11 Aug 2021 17:53:27 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1007#comment-33547</guid>
+
+					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2021/azure-bicep-ci-cd/#comment-33485&quot;&gt;Marcus&lt;/a&gt;.
+
+Thanks for replying Marcus, I’m just going to stick with the linter now then as it works a treat so far
+
+I’m looking forward to testing out deployment stacks. I can imagine more people are moving towards subscription scope deploys now, so this will prove very useful!]]></description>
+			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2021/azure-bicep-ci-cd/#comment-33485">Marcus</a>.</p>
+<p>Thanks for replying Marcus, I’m just going to stick with the linter now then as it works a treat so far</p>
+<p>I’m looking forward to testing out deployment stacks. I can imagine more people are moving towards subscription scope deploys now, so this will prove very useful!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Marcus		</title>
+		<link>/blog/2021/azure-bicep-ci-cd/#comment-33485</link>
+
+		<dc:creator><![CDATA[Marcus]]></dc:creator>
+		<pubDate>Sat, 07 Aug 2021 16:15:16 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1007#comment-33485</guid>
+
+					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2021/azure-bicep-ci-cd/#comment-33477&quot;&gt;Paul McDonald&lt;/a&gt;.
+
+Thanks, Paul!
+
+1. The &lt;a href=&quot;https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/linter&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow ugc&quot;&gt;Bicep linter&lt;/a&gt; shifts more validations left, into VS Code while you&#039;re authoring templates. We&#039;re working to meet parity with all of the arm-ttk tests that make sense. We&#039;ve had quite a few ideas submitted for linting rules (see &lt;a href=&quot;https://github.com/Azure/bicep/issues?q=is%3Aopen+is%3Aissue+label%3Alinting-rule-idea&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow ugc&quot;&gt;here&lt;/a&gt;). Beyond IDE tests, I&#039;d recommend leveraging pre-flight validation and what-if, as mentioned above.
+
+2.  The ARM Deployments team is working on a new feature called &lt;a href=&quot;https://www.youtube.com/watch?v=-4E5DsC-RcU&#038;t=1658s&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow ugc&quot;&gt;Deployment Stacks&lt;/a&gt; that will improve resource lifecycle management. It should be in private preview soon!]]></description>
+			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2021/azure-bicep-ci-cd/#comment-33477">Paul McDonald</a>.</p>
+<p>Thanks, Paul!</p>
+<p>1. The <a href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/linter" target="_blank" rel="noopener nofollow ugc">Bicep linter</a> shifts more validations left, into VS Code while you&#8217;re authoring templates. We&#8217;re working to meet parity with all of the arm-ttk tests that make sense. We&#8217;ve had quite a few ideas submitted for linting rules (see <a href="https://github.com/Azure/bicep/issues?q=is%3Aopen+is%3Aissue+label%3Alinting-rule-idea" target="_blank" rel="noopener nofollow ugc">here</a>). Beyond IDE tests, I&#8217;d recommend leveraging pre-flight validation and what-if, as mentioned above.</p>
+<p>2.  The ARM Deployments team is working on a new feature called <a href="https://www.youtube.com/watch?v=-4E5DsC-RcU&amp;t=1658s" target="_blank" rel="noopener nofollow ugc">Deployment Stacks</a> that will improve resource lifecycle management. It should be in private preview soon!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Paul McDonald		</title>
+		<link>/blog/2021/azure-bicep-ci-cd/#comment-33477</link>
+
+		<dc:creator><![CDATA[Paul McDonald]]></dc:creator>
+		<pubDate>Sat, 07 Aug 2021 11:31:55 +0000</pubDate>
+		<guid isPermaLink="false">/?p=1007#comment-33477</guid>
+
+					<description><![CDATA[This is a great blog post Marcus, thanks for posting!
+
+I tend to use the CLI tasks for my deployments (I’ve been using your repo mentioned above as a starting point) and it works really well
+
+Few questions if I may:
+
+1) What are your opinions on testing the templates, is there a tool similar to the ARM-TTK coming for bicep? Testing for things like out of date API versions etc
+
+2) I like the subscription scope deployment, but doing it that way means missing out on switching from incremental/complete modes when needed, to remove resources that are no longer in the template, like you can do with a RG scope. Is something like that coming soon?
+
+Thanks]]></description>
+			<content:encoded><![CDATA[<p>This is a great blog post Marcus, thanks for posting!</p>
+<p>I tend to use the CLI tasks for my deployments (I’ve been using your repo mentioned above as a starting point) and it works really well</p>
+<p>Few questions if I may:</p>
+<p>1) What are your opinions on testing the templates, is there a tool similar to the ARM-TTK coming for bicep? Testing for things like out of date API versions etc</p>
+<p>2) I like the subscription scope deployment, but doing it that way means missing out on switching from incremental/complete modes when needed, to remove resources that are no longer in the template, like you can do with a RG scope. Is something like that coming soon?</p>
+<p>Thanks</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

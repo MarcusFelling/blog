@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Using Terraform&#8217;s Azure provider (azurerm) with GitHub Actions and Terraform Cloud	</title>
+	<atom:link href="/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/feed/" rel="self" type="application/rss+xml" />
+	<link>/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/</link>
+	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
+	<lastBuildDate>Tue, 23 May 2023 15:00:56 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.7.1</generator>
+	<item>
+		<title>
+		By: Kuba		</title>
+		<link>/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/#comment-46362</link>
+
+		<dc:creator><![CDATA[Kuba]]></dc:creator>
+		<pubDate>Tue, 23 May 2023 15:00:56 +0000</pubDate>
+		<guid isPermaLink="false">/?p=969#comment-46362</guid>
+
+					<description><![CDATA[Thanks a lot for this! I&#039;ve tried all env variables combinations. Should get reported to HashiCorp for misleading errors, wasted hours on this.]]></description>
+			<content:encoded><![CDATA[<p>Thanks a lot for this! I&#8217;ve tried all env variables combinations. Should get reported to HashiCorp for misleading errors, wasted hours on this.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Stephen Martin		</title>
+		<link>/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/#comment-39744</link>
+
+		<dc:creator><![CDATA[Stephen Martin]]></dc:creator>
+		<pubDate>Fri, 24 Jun 2022 18:29:33 +0000</pubDate>
+		<guid isPermaLink="false">/?p=969#comment-39744</guid>
+
+					<description><![CDATA[Hello,
+ Where are these settings, as I am running into this error.
+Thanks Stephen]]></description>
+			<content:encoded><![CDATA[<p>Hello,<br />
+ Where are these settings, as I am running into this error.<br />
+Thanks Stephen</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Haddrick		</title>
+		<link>/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/#comment-39393</link>
+
+		<dc:creator><![CDATA[Haddrick]]></dc:creator>
+		<pubDate>Fri, 10 Jun 2022 13:50:49 +0000</pubDate>
+		<guid isPermaLink="false">/?p=969#comment-39393</guid>
+
+					<description><![CDATA[Also suitable, if needing to run remotely, to have environment variables stored in Terraform Cloud right?]]></description>
+			<content:encoded><![CDATA[<p>Also suitable, if needing to run remotely, to have environment variables stored in Terraform Cloud right?</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Jameson		</title>
+		<link>/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/#comment-38097</link>
+
+		<dc:creator><![CDATA[Jameson]]></dc:creator>
+		<pubDate>Fri, 08 Apr 2022 21:30:18 +0000</pubDate>
+		<guid isPermaLink="false">/?p=969#comment-38097</guid>
+
+					<description><![CDATA[Bruh, you are the GOAT. I was beating my head against the wall for at least an hour on this.]]></description>
+			<content:encoded><![CDATA[<p>Bruh, you are the GOAT. I was beating my head against the wall for at least an hour on this.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: asaf		</title>
+		<link>/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/#comment-36972</link>
+
+		<dc:creator><![CDATA[asaf]]></dc:creator>
+		<pubDate>Wed, 16 Feb 2022 14:48:10 +0000</pubDate>
+		<guid isPermaLink="false">/?p=969#comment-36972</guid>
+
+					<description><![CDATA[Thx!!!!! was struggling with this!]]></description>
+			<content:encoded><![CDATA[<p>Thx!!!!! was struggling with this!</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Gonzalo		</title>
+		<link>/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/#comment-35943</link>
+
+		<dc:creator><![CDATA[Gonzalo]]></dc:creator>
+		<pubDate>Wed, 22 Dec 2021 08:48:13 +0000</pubDate>
+		<guid isPermaLink="false">/?p=969#comment-35943</guid>
+
+					<description><![CDATA[dude you made my day]]></description>
+			<content:encoded><![CDATA[<p>dude you made my day</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: John		</title>
+		<link>/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/#comment-32380</link>
+
+		<dc:creator><![CDATA[John]]></dc:creator>
+		<pubDate>Thu, 24 Jun 2021 16:27:26 +0000</pubDate>
+		<guid isPermaLink="false">/?p=969#comment-32380</guid>
+
+					<description><![CDATA[Thank you for this. I sadly went down all the same roads ala SP before finding it but once I finally did it was my smoking gun. Saved me from hours of trying different versions of tf and az anyway :)]]></description>
+			<content:encoded><![CDATA[<p>Thank you for this. I sadly went down all the same roads ala SP before finding it but once I finally did it was my smoking gun. Saved me from hours of trying different versions of tf and az anyway 🙂</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

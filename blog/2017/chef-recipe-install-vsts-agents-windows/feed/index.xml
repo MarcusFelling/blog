@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Chef recipe to install VSTS agents (Windows)	</title>
+	<atom:link href="/blog/2017/chef-recipe-install-vsts-agents-windows/feed/" rel="self" type="application/rss+xml" />
+	<link>/blog/2017/chef-recipe-install-vsts-agents-windows/</link>
+	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
+	<lastBuildDate>Sun, 29 Jul 2018 20:21:14 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.7.1</generator>
+	<item>
+		<title>
+		By: sivakumarvaddi		</title>
+		<link>/blog/2017/chef-recipe-install-vsts-agents-windows/#comment-1346</link>
+
+		<dc:creator><![CDATA[sivakumarvaddi]]></dc:creator>
+		<pubDate>Sun, 29 Jul 2018 20:21:14 +0000</pubDate>
+		<guid isPermaLink="false">/?p=534#comment-1346</guid>
+
+					<description><![CDATA[Hi Marcus,
+
+Great post!
+
+looking for similar recipe to install VS2015 can you help.
+
+1. vs2015 was in localwebserver say http://locahost/VS2015
+2.Install vs2015 profession 64 bit or 32 bit depend on OS.
+
+Thanks,
+Sivas]]></description>
+			<content:encoded><![CDATA[<p>Hi Marcus,</p>
+<p>Great post!</p>
+<p>looking for similar recipe to install VS2015 can you help.</p>
+<p>1. vs2015 was in localwebserver say <a href="http://locahost/VS2015" rel="nofollow ugc">http://locahost/VS2015</a><br />
+2.Install vs2015 profession 64 bit or 32 bit depend on OS.</p>
+<p>Thanks,<br />
+Sivas</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Dillon Thompson		</title>
+		<link>/blog/2017/chef-recipe-install-vsts-agents-windows/#comment-105</link>
+
+		<dc:creator><![CDATA[Dillon Thompson]]></dc:creator>
+		<pubDate>Fri, 23 Feb 2018 02:48:49 +0000</pubDate>
+		<guid isPermaLink="false">/?p=534#comment-105</guid>
+
+					<description><![CDATA[Man, I never even thought of being able to automate this. Life saver!]]></description>
+			<content:encoded><![CDATA[<p>Man, I never even thought of being able to automate this. Life saver!</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>

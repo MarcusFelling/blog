@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	
+	>
+<channel>
+	<title>
+	Comments on: Deploying IIS hosted ASP.NET Core apps using app_offline.htm	</title>
+	<atom:link href="/blog/2018/deploying-iis-hosted-asp-net-core-apps-using-app_offline-htm/feed/" rel="self" type="application/rss+xml" />
+	<link>/blog/2018/deploying-iis-hosted-asp-net-core-apps-using-app_offline-htm/</link>
+	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
+	<lastBuildDate>Mon, 06 Apr 2020 17:44:56 +0000</lastBuildDate>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.7.1</generator>
+	<item>
+		<title>
+		By: Cristian Suciava		</title>
+		<link>/blog/2018/deploying-iis-hosted-asp-net-core-apps-using-app_offline-htm/#comment-10861</link>
+
+		<dc:creator><![CDATA[Cristian Suciava]]></dc:creator>
+		<pubDate>Mon, 06 Apr 2020 17:44:56 +0000</pubDate>
+		<guid isPermaLink="false">/?p=603#comment-10861</guid>
+
+					<description><![CDATA[but cannot copy the files in the folder for a new version, because some dll.]]></description>
+			<content:encoded><![CDATA[<p>but cannot copy the files in the folder for a new version, because some dll.</p>
+]]></content:encoded>
+		
+			</item>
+		<item>
+		<title>
+		By: Thomson		</title>
+		<link>/blog/2018/deploying-iis-hosted-asp-net-core-apps-using-app_offline-htm/#comment-8749</link>
+
+		<dc:creator><![CDATA[Thomson]]></dc:creator>
+		<pubDate>Tue, 12 Nov 2019 13:23:27 +0000</pubDate>
+		<guid isPermaLink="false">/?p=603#comment-8749</guid>
+
+					<description><![CDATA[Thank you so much for the article. Adding app_offline.htm file to root directory did the trick. Thanks]]></description>
+			<content:encoded><![CDATA[<p>Thank you so much for the article. Adding app_offline.htm file to root directory did the trick. Thanks</p>
+]]></content:encoded>
+		
+			</item>
+	</channel>
+</rss>
