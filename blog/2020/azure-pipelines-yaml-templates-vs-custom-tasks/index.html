@@ -6,7 +6,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="/xmlrpc.php">
 
-<title>Marcus &#8211; Page 5 &#8211; Marcus Felling</title>
+<title>Azure Pipelines: YAML Templates VS. Custom Tasks &#8211; Marcus Felling</title>
 <meta name="robots" content="max-image-preview:large">
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
 	
@@ -16,7 +16,7 @@
         <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Feed" href="/feed/">
 <link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Comments Feed" href="/comments/feed/">
-<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Posts by Marcus Feed" href="/blog/author/marcus-fellinggmail-com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Azure Pipelines: YAML Templates VS. Custom Tasks Comments Feed" href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/feed/">
 <script type="text/javascript">
 /* <![CDATA[ */
 window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.1"}};
@@ -61,14 +61,19 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel="stylesheet" id="edin-edincon-css" href="/wp-content/themes/edin/font/edincon.css?ver=20140606" type="text/css" media="all">
 <link rel="stylesheet" id="genericons-css" href="/wp-content/themes/edin/font/genericons.css?ver=3.4.1" type="text/css" media="all">
 <link rel="stylesheet" id="edin-style-css" href="/wp-content/themes/edin/style.css?ver=6.7.1" type="text/css" media="all">
+<style id="edin-style-inline-css" type="text/css">.hero.with-featured-image { background-image: url(/wp-content/uploads/2020/11/extensionORTemplate-1230x1230.png); }</style>
 <link rel="stylesheet" id="btnsx-css" href="/wp-content/plugins/buttons-x/assets/css/common/button.min.css?ver=0.8.6" type="text/css" media="all">
 <script type="text/javascript" data-pagespeed-no-defer src="/wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle.min.js?ver=6.47" id="ct_public_functions-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 <link rel="https://api.w.org/" href="/wp-json/">
-<link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/users/1">
+<link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/posts/937">
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
 <meta name="generator" content="WordPress 6.7.1">
+<link rel="canonical" href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/">
+<link rel="shortlink" href="/?p=937">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2Fblog%2F2020%2Fazure-pipelines-yaml-templates-vs-custom-tasks%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2Fblog%2F2020%2Fazure-pipelines-yaml-templates-vs-custom-tasks%2F#038;format=xml">
 
 <style>body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -117,7 +122,7 @@ a:hover {
 			<!-- This code is added by Analytify (5.5.0) !--><meta name="generator" content="Powered by Buttons X - Powerful Button Builder for WordPress.">
 </head>
 
-<body class="archive paged author author-marcus-fellinggmail-com author-1 paged-5 author-paged-5 has-header-search navigation-classic no-sidebar">
+<body class="post-template-default single single-post postid-937 single-format-standard has-header-search navigation-classic no-sidebar">
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
@@ -177,238 +182,277 @@ a:hover {
   gtag('config', 'UA-66330215-1');</script>
 
 
-	<div class="hero without-featured-image">
-		
-			<div class="hero-wrapper">
-				<h1 class="page-title">
-					Author: <span class="vcard">Marcus</span>				</h1>
-							</div>
-
-			</div>
-<!-- .hero -->
-
 	<div class="content-wrapper clear">
 
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 
 				
-										
-						
-<article id="post-319" class="post-319 post type-post status-publish format-standard hentry category-uncategorized">
+					
+<article id="post-937" class="post-937 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/visual-studio-marketplace-metrics/" rel="bookmark">Visual Studio Marketplace Metrics</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/visual-studio-marketplace-metrics/" rel="bookmark"><time class="entry-date published" datetime="2017-07-18T18:58:07+00:00">July 18, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+		<h1 class="entry-title">Azure Pipelines: YAML Templates VS. Custom Tasks</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/" rel="bookmark"><time class="entry-date published" datetime="2020-11-05T19:07:10+00:00">November 5, 2020</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
-			</header><!-- .entry-header -->
+	</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/visual-studio-marketplace-metrics/">
-			</a>
+	<a class="post-thumbnail" href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/">
+		<img width="648" height="301" src="/wp-content/uploads/2020/11/extensionORTemplate-648x301.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="/wp-content/uploads/2020/11/extensionORTemplate-648x301.png 648w, /wp-content/uploads/2020/11/extensionORTemplate-300x140.png 300w, /wp-content/uploads/2020/11/extensionORTemplate-1024x476.png 1024w, /wp-content/uploads/2020/11/extensionORTemplate-768x357.png 768w, /wp-content/uploads/2020/11/extensionORTemplate-1536x714.png 1536w, /wp-content/uploads/2020/11/extensionORTemplate-2048x953.png 2048w, /wp-content/uploads/2020/11/extensionORTemplate-413x192.png 413w" sizes="(max-width: 648px) 100vw, 648px">	</a>
 
 
 	<div class="entry-content">
-		<p>Earlier this year I decided to create some Visual Studio Marketplace build extensions. I was re-using the same tasks in multiple build definitions and there wasn&#8217;t anything published to the marketplace that accomplished what I needed. The first extension I created is used to <a href="https://marketplace.visualstudio.com/items?itemName=MFelling.AWSS3Upload">upload files to AWS S3</a>; this was the very first AWS related extension in the marketplace which was kind of cool. It took me longer than I expected because of all the ceremony in setting up the metadata and manifest json files, and packaging with <a href="https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task#cli" data-linktype="self-bookmark">tfx-cli</a>. More details on creating a build task here: <a href="https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task">https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task</a> Creating my <a href="https://marketplace.visualstudio.com/items?itemName=MFelling.AzureStorageUpload">second extension</a> went a lot faster since I could re-use and modify most of the files. Now that these extensions were published, I was interested to see metrics on them.</p>
-<p> <a href="/blog/2017/visual-studio-marketplace-metrics/#more-319" class="more-link">Continue reading <span class="screen-reader-text">Visual Studio Marketplace Metrics</span></a></p>
+		
+<p>There are two main ways to create re-usable components for Azure Pipelines. I&#8217;ll review the pros and cons of each and talk about when it makes sense to use one over the other. Keep in mind that the two are not mutually exclusive, so it may make sense to use a combination of both.</p>
+
+
+
+<span id="more-937"></span>
+
+
+
+<p>Note: I won&#8217;t be including <a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/azure/devops/pipelines/library/task-groups?view=azure-devops" target="_blank">task groups</a> as they&#8217;re not supported in YAML pipelines. Why use YAML over Classic Editor? See my previous blog post here: <a rel="noreferrer noopener" href="/blog/2020/azure-pipelines-classic-editor-vs-yaml" target="_blank">Classic Editor VS. YAML</a></p>
+
+
+
+<h2 class="wp-block-heading"><strong>Custom pipeline task extension</strong></h2>
+
+
+<div class="i2-pros-cons-icons i2-pros-cons-main-wrapper theme-i2pc-theme-00 no-title no-button no-space-between-column no-outer-border no-round-corner no-heading-icon"><div class="i2-pros-cons-wrapper">
+<div class="i2-pros">
+<strong class="i2-pros-title">Pros</strong><div class="section"><ul class="has-icon">
+<li>
+<i class="icon icon-thumbs-o-up"></i>Discoverability </li>
+<li>
+<i class="icon icon-thumbs-o-up"></i>Helpers can assist users with parameters</li>
+<li>
+<i class="icon icon-thumbs-o-up"></i>Azure Pipelines Task SDK</li>
+</ul></div>
+</div>
+<div class="i2-cons">
+<strong class="i2-cons-title">Cons</strong><div class="section"><ul class="has-icon">
+<li>
+<i class="icon icon-thumbs-o-down"></i>Learning curve and effort that comes with creating, testing, packaging, versioning, publishing, and installing extension</li>
+<li>
+<i class="icon icon-thumbs-o-down"></i>Complexity</li>
+</ul></div>
+</div>
+</div></div>
+
+
+<p>Why would you use a <a href="https://docs.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?view=azure-devops" target="_blank" rel="noreferrer noopener">custom pipeline task extension</a> over a YAML template?</p>
+
+
+
+<p><strong>Pros</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>
+<strong>Discoverability </strong>&#8211; Once installed, the pipeline consumers can search for custom tasks using the <a rel="noreferrer noopener" href="https://devblogs.microsoft.com/devops/whats-new-with-azure-pipelines/#getting-going-with-yaml" target="_blank">Task Assistant</a>.</li>
+<li>
+<strong>Helpers &#8211; </strong>You can add helpers (<a rel="noreferrer noopener" href="https://github.com/Microsoft/azure-pipelines-task-lib/blob/master/tasks.schema.json#L200" target="_blank">helpMarkDown </a>in task.json) that assist users with filling in the necessary param&#8217;s for the task, through the Task Assistant.</li>
+<li>
+<strong>SDK &#8211; </strong>Extensions make it easy to bundle and utilize the functions available in the <a rel="noreferrer noopener" href="https://github.com/microsoft/azure-pipelines-task-lib" target="_blank">Azure Pipelines Task SDK</a>.</li>
+</ul>
+
+
+
+<p><strong>Cons</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>
+<strong>Learning curve </strong>&#8211; There is definitely a learning curve that comes with figuring out how to author, test, package, version, publish, and install extensions. </li>
+<li>
+<strong>More than 1 file required</strong> &#8211;  There is complexity that comes with the required config files, dependencies, and <a rel="noreferrer noopener" href="https://www.npmjs.com/package/tfx-cli" target="_blank">TFX CLI</a>, compared to a single YAML template file.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">
+<strong>YAML template</strong>s</h2>
+
+
+<div class="i2-pros-cons-icons i2-pros-cons-main-wrapper theme-i2pc-theme-00 no-title no-button no-space-between-column no-outer-border no-round-corner no-heading-icon"><div class="i2-pros-cons-wrapper">
+<div class="i2-pros">
+<strong class="i2-pros-title">Pros</strong><div class="section"><ul class="has-icon">
+<li>
+<i class="icon icon-thumbs-o-up"></i>Simplicity</li>
+<li>
+<i class="icon icon-thumbs-o-up"></i>Security and governance features</li>
+<li>
+<i class="icon icon-thumbs-o-up"></i>Easy updates</li>
+</ul></div>
+</div>
+<div class="i2-cons">
+<strong class="i2-cons-title">Cons</strong><div class="section"><ul class="has-icon">
+<li>
+<i class="icon icon-thumbs-o-down"></i>Difficult to discover templates that are available</li>
+<li>
+<i class="icon icon-thumbs-o-down"></i>Figuring out parameters may not be obvious</li>
+</ul></div>
+</div>
+</div></div>
+
+
+<p>Why would you use a <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/templates?view=azure-devops" target="_blank" rel="noreferrer noopener">YAML template</a> over a custom pipeline task extension?</p>
+
+
+
+<p><strong>Pros</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>
+<strong>Simplicity </strong>&#8211;  Only a single file required.</li>
+<li>
+<strong>Security and governance  features </strong>&#8211; There are bunch of <a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/azure/devops/pipelines/security/templates?view=azure-devops#security-features-enforced-through-yaml" target="_blank">security features that can be enforced through YAML</a>. My favorite is the <a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&amp;tabs=check-pass#required-template" target="_blank">required template check</a>. You can set up certain environments or service connections (e.g. production) to require that a template is referenced in the pipeline. This enables an <a rel="noreferrer noopener" href="https://resources.github.com/whitepapers/introduction-to-innersource/" target="_blank">inner sourcing workflow</a> where SME&#8217;s (security, database, networking teams) define their standards in templates, then only allow contributions through a pull request to sign off on changes. Ideally the pipeline consumers have read-access to the template repo&#8217;s so they have visibility into what the templates do and can submit a pull request with changes to extend the functionality or fix a bug. This way the SME&#8217;s aren&#8217;t a bottleneck. </li>
+<li>
+<strong>Easy updates &#8211; </strong>Git branches can be used to isolate and test changes, then pull requests can be used to collaborate with others on changes.</li>
+</ul>
+
+
+
+<p><strong>Cons</strong></p>
+
+
+
+<ul class="wp-block-list">
+<li>
+<strong>Parameters </strong>&#8211; Consumers would need to go to the template YAML file and/or documentation to understand parameters. Having README markdown files alongside templates helps.</li>
+<li>
+<strong>What templates can I use? &#8211; </strong>Discovering all of the templates available requires searching across repositories.</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Use them together</h2>
+
+
+
+<p>Sometimes it makes sense to create a custom task extension, then reference it in templates. In that case, consumers can still use the task individually (outside of the template), but things like security can be enforced when it makes sense. I have some examples of this on GitHub; I have a template repo <a rel="noreferrer noopener" href="https://github.com/MarcusFelling/Demo.Templates" data-type="URL" data-id="https://github.com/MarcusFelling/Demo.Templates" target="_blank">here</a>, that get&#8217;s referenced in my YAML pipeline <a href="https://github.com/MarcusFelling/Demo.SpaceGame/blob/master/azure-pipelines.yml" target="_blank" rel="noreferrer noopener">here</a>.</p>
 	</div>
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/visual-studio-marketplace-metrics/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
+		<span class="comments-link"><a href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#comments">3 Comments</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
-					
-						
-<article id="post-305" class="post-305 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/custom-build-conditions-vsts/" rel="bookmark">Custom Build Conditions in VSTS</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/custom-build-conditions-vsts/" rel="bookmark"><time class="entry-date published" datetime="2017-06-18T17:27:50+00:00">June 18, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/custom-build-conditions-vsts/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>On March 29th, 2017 the VSTS team released a new feature that added the ability to specify conditions for running a build task. This provides more control over your build tasks, for things such as a task to clean things up (even if a build fails), or send a message when something goes wrong, under conditions such as certain branches or with certain triggers. Custom Conditions appear in the new build definition editor under Control Options. Custom conditions are not currently available for Task Groups because they still use the old build definition editor (this is on the backlog).</p>
-<p> <a href="/blog/2017/custom-build-conditions-vsts/#more-305" class="more-link">Continue reading <span class="screen-reader-text">Custom Build Conditions in VSTS</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/custom-build-conditions-vsts/#comments">6 Comments</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-287" class="post-287 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/" rel="bookmark">Migrating Team Foundation Server to Visual Studio Team Services</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/" rel="bookmark"><time class="entry-date published" datetime="2017-06-03T17:21:53+00:00">June 3, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>Last month I migrated our TFS collection to VSTS using Microsoft&#8217;s Database Import Service and <a href="https://www.visualstudio.com/team-services/migrate-tfs-vsts">migration guide</a>. To be frank, it was a long process and it took a lot of going back and forth to make sure I fully understood the guide which is a PDF that is 58 pages long. The guide comes with several checklists and things you need to check and prep before your migration.</p>
-<p> <a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/#more-287" class="more-link">Continue reading <span class="screen-reader-text">Migrating Team Foundation Server to Visual Studio Team Services</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-230" class="post-230 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/" rel="bookmark">A simple explanation of private pipeline billing in VSTS</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/" rel="bookmark"><time class="entry-date published" datetime="2017-06-02T21:23:26+00:00">June 2, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/">
-			</a>
-
-
-	<div class="entry-content">
-		<p><strong>Update: Unlimited private pipelines are now free for Build!!</strong></p>
-<p>Microsoft caused a lot of confusion when they announced that you will need to pay to run private build agents, since this was free in TFS. Why should we have to pay to use our own server resources to run a build agent?!? You can see the outcry in the reviews on the Marketplace: 1.7/5 stars: <a href="https://marketplace.visualstudio.com/items?itemName=ms.build-release-private-pipelines#review-details">https://marketplace.visualstudio.com/items?itemName=ms.build-release-private-pipelines#review-details</a></p>
-<p>Once I fully understood how and why the billing is setup this way, I wasn&#8217;t as frustrated.</p>
-<p> <a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/#more-230" class="more-link">Continue reading <span class="screen-reader-text">A simple explanation of private pipeline billing in VSTS</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-274" class="post-274 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/" rel="bookmark">Octopus Deploy: Running deployment steps in parallel</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/" rel="bookmark"><time class="entry-date published" datetime="2017-06-02T21:22:33+00:00">June 2, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>When I first got started with <a href="https://octopus.com/">Octopus Deploy</a> I would setup projects to have one long deploy process that ran steps in serial. Each step would wait until finished before another one would start.  Deploy times got longer and longer, so I set out to find a way to cut down deploy times.</p>
-<p> <a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/#more-274" class="more-link">Continue reading <span class="screen-reader-text">Octopus Deploy: Running deployment steps in parallel</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-261" class="post-261 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/gitflow-visual-studio-team-services/" rel="bookmark">Gitflow and Visual Studio Team Services</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/gitflow-visual-studio-team-services/" rel="bookmark"><time class="entry-date published" datetime="2017-06-01T23:35:59+00:00">June 1, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/gitflow-visual-studio-team-services/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>This last year our team made the decision to move from Team Foundation Version Control (TFVC) to Git.</p>
-<p> <a href="/blog/2017/gitflow-visual-studio-team-services/#more-261" class="more-link">Continue reading <span class="screen-reader-text">Gitflow and Visual Studio Team Services</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/gitflow-visual-studio-team-services/#comments">3 Comments</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-249" class="post-249 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/" rel="bookmark">VSTS Marketplace Extension: Queue Build(s) Task</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/" rel="bookmark"><time class="entry-date published" datetime="2017-05-30T23:31:56+00:00">May 30, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/vsts-marketplace-extension-queue-builds-task/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>Currently the TFS/VSTS build system has a pretty big bottleneck: tasks run in serial. For build steps that run PowerShell, I&#8217;ve implemented runspaces to run processes in parallel (<a href="https://gallery.technet.microsoft.com/scriptcenter/Run-Parallel-Parallel-377fd430">Invoke-Parallel</a> is amazing). However, that only works for one build step. The rest have to wait until it&#8217;s finished.</p>
-<p>Enter <a href="https://marketplace.visualstudio.com/items?itemName=jb.queue-build">Queue Build(s) Task</a>. This extension sounds pretty simple, right? Queue a build as part of a build&#8230;. But it has potential to do much more.  It has the ability to use configurations (JSON) to pass variables from the build that&#8217;s queuing other builds, including <a href="https://www.visualstudio.com/en-us/docs/build/define/variables">system variables</a> (source branch name, build id, build name, etc.).</p>
-<p> <a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/#more-249" class="more-link">Continue reading <span class="screen-reader-text">VSTS Marketplace Extension: Queue Build(s) Task</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-232" class="post-232 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/using-task-groups-tfsvsts/" rel="bookmark">Using Task Groups in TFS/VSTS</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/using-task-groups-tfsvsts/" rel="bookmark"><time class="entry-date published" datetime="2017-05-29T15:32:13+00:00">May 29, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/using-task-groups-tfsvsts/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>When Microsoft announced <a href="https://www.visualstudio.com/en-us/docs/build/concepts/library/task-groups">Task Groups</a> in TFS and VSTS, I couldn&#8217;t think of a practical use for them. When creating build definitions I always try to reduce the number of overall definitions by using prompted variables when possible, this way the user can modify the variable when queuing a build rather than duplicating a definition that has the same steps. Of course this doesn&#8217;t work well for things like working directory which warrant a separate build definition. This is where I found Task Groups shine.</p>
-<p> <a href="/blog/2017/using-task-groups-tfsvsts/#more-232" class="more-link">Continue reading <span class="screen-reader-text">Using Task Groups in TFS/VSTS</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/using-task-groups-tfsvsts/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						<nav class="navigation paging-navigation" role="navigation">
-		<h2 class="screen-reader-text">Posts navigation</h2>
+						<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
 		<div class="nav-links">
-
-			
-							<div class="nav-next">
-					<a href="/blog/author/marcus-fellinggmail-com/page/4/">Newer posts <span class="meta-nav">&rarr;</span></a>				</div>
-			
-		</div>
+			<div class="nav-previous"><a href="/blog/2020/the-importance-of-definition-of-done/" rel="prev"><span class="meta-nav">&larr;</span> The importance of the Definition of &#8220;Done&#8221;</a></div>
+<div class="nav-next"><a href="/blog/2021/reasons-to-use-bicep-over-terraform/" rel="next">Reasons to use Bicep over Terraform <span class="meta-nav">&rarr;</span></a></div>		</div>
 <!-- .nav-links -->
 	</nav><!-- .navigation -->
 	
+					
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			3 thoughts on &ldquo;<span>Azure Pipelines: YAML Templates VS. Custom Tasks</span>&rdquo;		</h2>
+
+		<ol class="comment-list">
+					<li id="comment-14146" class="comment even thread-even depth-1">
+			<article id="div-comment-14146" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/3798c2a29578e12974bb0f62f5fda466?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/3798c2a29578e12974bb0f62f5fda466?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" decoding="async">						<b class="fn">Tomasz</b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#comment-14146"><time datetime="2020-11-23T13:26:21+00:00">November 23, 2020 at 1:26 pm</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>If I may add my observations:<br>
+Using Custom tasks has this benefit that if:<br>
+&#8211; you want to use your custom step in the &#8220;deployment&#8221; type of Stage (where your repository is not being checkout)<br>
+&#8211; you want to keep your custom step logic in the seprerate repository</p>
+<p>you don&#8217;t need to worry about downloading those steps artifacts<br>
+With templates, you might need to add &#8220;push artifact&#8221; in one stage and &#8220;download artifact&#8221; in the second. </p>
+<p>We&#8217;ve started using templates with the Azure Artifact repository to simplify that.</p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/?replytocom=14146#respond" data-commentid="14146" data-postid="937" data-belowelement="div-comment-14146" data-respondelement="respond" data-replyto="Reply to Tomasz" aria-label="Reply to Tomasz">Reply</a></div>			</article><!-- .comment-body -->
+		</li>
+<!-- #comment-## -->
+		<li id="comment-14169" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-14169" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/90f671f90cb29e4b39522c4e653a2707?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/90f671f90cb29e4b39522c4e653a2707?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" decoding="async">						<b class="fn"><a href="http://travisgosselin.com/" class="url" rel="ugc external nofollow">Travis</a></b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#comment-14169"><time datetime="2020-11-25T14:42:16+00:00">November 25, 2020 at 2:42 pm</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Great discussion and comparison. We additionally use Custom Tasks for functionality that we may want both in YAML pipelines as well as the visual &#8220;Release&#8221; workflow for deployments. Our teams are in transition between moving from &#8220;Releases&#8221; to YAML Pipelines and this is effective in allowing teams to transition over easily.</p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/?replytocom=14169#respond" data-commentid="14169" data-postid="937" data-belowelement="div-comment-14169" data-respondelement="respond" data-replyto="Reply to Travis" aria-label="Reply to Travis">Reply</a></div>			</article><!-- .comment-body -->
+		</li>
+<!-- #comment-## -->
+		<li id="comment-15071" class="comment even thread-even depth-1">
+			<article id="div-comment-15071" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/01709ec1c031677267f9110cad18c1fa?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/01709ec1c031677267f9110cad18c1fa?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy" decoding="async">						<b class="fn"><a href="https://josh-ops.com/" class="url" rel="ugc external nofollow">Josh Johanning</a></b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#comment-15071"><time datetime="2020-12-20T21:30:00+00:00">December 20, 2020 at 9:30 pm</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>@Tomasz:<br>
+If you’re using a Repository resource and referencing a job template, you wouldn’t have to worry about a checkout of the yaml? You would just reference via path-to-yaml@templates, for example. </p>
+<p>I also think one benefit a team might consider when creating their own custom task is the added ability in managing versions of the task. If you don’t want teams using old code, you just push a (minor or patch) update. With yaml, a team can pin to the specific commit, branch, or tag, which may be beneficial for backwards compatibility but if you are in a situation where an older version of the template has a crucial bug or security vulnerability, finding out whose using what version of the yaml is tricky.</p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/?replytocom=15071#respond" data-commentid="15071" data-postid="937" data-belowelement="div-comment-15071" data-respondelement="respond" data-replyto="Reply to Josh Johanning" aria-label="Reply to Josh Johanning">Reply</a></div>			</article><!-- .comment-body -->
+		</li>
+<!-- #comment-## -->
+		</ol>
+<!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#respond" style="display:none;">Cancel reply</a></small>
+</h3>
+<form action="https://marcusfelling.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p>
+<p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p>
+<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="937" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>
+</form>	</div>
+<!-- #respond -->
+	
+</div>
+<!-- #comments -->
+
 				
 			</main><!-- #main -->
 		</div>
@@ -429,18 +473,18 @@ a:hover {
 							<div class="footer-widget">
 					<aside id="email-subscribers-form-2" class="widget widget_email-subscribers-form"><h2 class="widget-title"> Subscribe </h2>
 <div class="emaillist" id="es_form_f2-n1">
-<form action="/blog/author/marcus-fellinggmail-com/page/5/?simply_static_page=1800#es_form_f2-n1" method="post" class="es_subscription_form es_shortcode_form  es_ajax_subscription_form" id="es_subscription_form_677d35bce6296" data-source="ig-es" data-form-id="2">
+<form action="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/?simply_static_page=1156#es_form_f2-n1" method="post" class="es_subscription_form es_shortcode_form  es_ajax_subscription_form" id="es_subscription_form_677d359a8ad42" data-source="ig-es" data-form-id="2">
 <div class="es-field-wrap"><label>Name<br><input type="text" name="esfpx_name" class="ig_es_form_field_name" placeholder="" value=""></label></div>
 <div class="es-field-wrap"><label>Email*<br><input class="es_required_field es_txt_email ig_es_form_field_email" type="email" name="esfpx_email" value="" placeholder="" required="required"></label></div>
 <input type="hidden" name="esfpx_lists[]" value="eb102e951801"><input type="hidden" name="esfpx_form_id" value="2"><input type="hidden" name="es" value="subscribe">
 			<input type="hidden" name="esfpx_es_form_identifier" value="f2-n1">
-			<input type="hidden" name="esfpx_es_email_page" value="232">
-			<input type="hidden" name="esfpx_es_email_page_url" value="https://marcusfelling.com/blog/2017/using-task-groups-tfsvsts/">
+			<input type="hidden" name="esfpx_es_email_page" value="937">
+			<input type="hidden" name="esfpx_es_email_page_url" value="https://marcusfelling.com/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/">
 			<input type="hidden" name="esfpx_status" value="Unconfirmed">
-			<input type="hidden" name="esfpx_es-subscribe" id="es-subscribe-677d35bce6296" value="a857904665">
-			<label style="position:absolute;top:-99999px;left:-99999px;z-index:-99;" aria-hidden="true"><span hidden>Please leave this field empty.</span><input type="email" name="esfpx_es_hp_email" class="es_required_field" tabindex="-1" autocomplete="-1" value=""></label><input type="submit" name="submit" class="es_subscription_form_submit es_submit_button es_textbox_button" id="es_subscription_form_submit_677d35bce6296" value="Submit"><span class="es_spinner_image" id="spinner-image"><img src="/wp-content/plugins/email-subscribers/lite/public/images/spinner.gif" alt="Loading"></span>
+			<input type="hidden" name="esfpx_es-subscribe" id="es-subscribe-677d359a8ad42" value="a857904665">
+			<label style="position:absolute;top:-99999px;left:-99999px;z-index:-99;" aria-hidden="true"><span hidden>Please leave this field empty.</span><input type="email" name="esfpx_es_hp_email" class="es_required_field" tabindex="-1" autocomplete="-1" value=""></label><input type="submit" name="submit" class="es_subscription_form_submit es_submit_button es_textbox_button" id="es_subscription_form_submit_677d359a8ad42" value="Submit"><span class="es_spinner_image" id="spinner-image"><img src="/wp-content/plugins/email-subscribers/lite/public/images/spinner.gif" alt="Loading"></span>
 </form>
-<span class="es_subscription_message " id="es_subscription_message_677d35bce6296" role="alert" aria-live="assertive"></span>
+<span class="es_subscription_message " id="es_subscription_message_677d359a8ad42" role="alert" aria-live="assertive"></span>
 </div></aside>				</div>
 <!-- .footer-widget -->
 			
@@ -495,7 +539,7 @@ a:hover {
 </div>
 <!-- #page -->
 
-        <span class="ssp-id" style="display:none">319</span>
+        <span class="ssp-id" style="display:none">937</span>
 		<link rel="stylesheet" id="rpwe-style-css" href="/wp-content/plugins/recent-posts-widget-extended/assets/css/rpwe-frontend.css?ver=2.0.2" type="text/css" media="all">
 <script type="text/javascript" src="/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
 <script type="text/javascript" src="/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
@@ -524,14 +568,14 @@ var es_data = {"messages":{"es_empty_email_notice":"Please enter email address",
 <script type="text/javascript" src="/wp-content/plugins/email-subscribers/lite/public/js/email-subscribers-public.js?ver=5.7.47" id="email-subscribers-js"></script>
 <script type="text/javascript" id="custom-script-js-extra">
 /* <![CDATA[ */
-var wpdata = {"object_id":"1","site_url":""};
+var wpdata = {"object_id":"937","site_url":""};
 /* ]]> */
 </script>
 <script type="text/javascript" src="/wp-content/plugins/wp-meta-and-date-remover/assets/js/inspector.js?ver=1.1" id="custom-script-js"></script>
 <script type="text/javascript" src="/wp-content/plugins/simply-static-pro/assets/ssp-comment-webhook.js?ver=1.6.4.2" id="ssp-comment-webhook-js"></script>
 <script type="text/javascript" id="analytify_track_miscellaneous-js-extra">
 /* <![CDATA[ */
-var miscellaneous_tracking_options = {"ga_mode":"ga4","tracking_mode":"gtag","track_404_page":{"should_track":"off","is_404":false,"current_url":"\/blog\/author\/marcus-fellinggmail-com\/page\/5\/?simply_static_page=1800"},"track_js_error":"off","track_ajax_error":"off"};
+var miscellaneous_tracking_options = {"ga_mode":"ga4","tracking_mode":"gtag","track_404_page":{"should_track":"off","is_404":false,"current_url":"\/blog\/2020\/azure-pipelines-yaml-templates-vs-custom-tasks\/?simply_static_page=1156"},"track_js_error":"off","track_ajax_error":"off"};
 /* ]]> */
 </script>
 <script type="text/javascript" src="/wp-content/plugins/wp-analytify/assets/js/miscellaneous-tracking.js?ver=5.5.0" id="analytify_track_miscellaneous-js"></script>
@@ -543,6 +587,7 @@ var screen_reader_text = {"expand":"<span class=\"screen-reader-text\">expand ch
 <script type="text/javascript" src="/wp-content/themes/edin/js/navigation.js?ver=20140718" id="edin-navigation-js"></script>
 <script type="text/javascript" src="/wp-content/themes/edin/js/search.js?ver=20140707" id="edin-search-js"></script>
 <script type="text/javascript" src="/wp-content/themes/edin/js/skip-link-focus-fix.js?ver=20130115" id="edin-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="/wp-includes/js/comment-reply.min.js?ver=6.7.1" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
 <script type="text/javascript" id="edin-script-js-extra">
 /* <![CDATA[ */
 var screen_reader_text = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};

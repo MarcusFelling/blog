@@ -6,7 +6,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="/xmlrpc.php">
 
-<title>Marcus &#8211; Page 5 &#8211; Marcus Felling</title>
+<title>Porting an Azure Pipeline (YAML) to a GitHub Action &#8211; Marcus Felling</title>
 <meta name="robots" content="max-image-preview:large">
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
 	
@@ -16,7 +16,7 @@
         <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Feed" href="/feed/">
 <link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Comments Feed" href="/comments/feed/">
-<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Posts by Marcus Feed" href="/blog/author/marcus-fellinggmail-com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Porting an Azure Pipeline (YAML) to a GitHub Action Comments Feed" href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/feed/">
 <script type="text/javascript">
 /* <![CDATA[ */
 window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.1"}};
@@ -53,6 +53,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}</style>
 <link rel="stylesheet" id="ct_public_css-css" href="/wp-content/plugins/cleantalk-spam-protect/css/cleantalk-public.min.css?ver=6.47" type="text/css" media="all">
 <link rel="stylesheet" id="ct_email_decoder_css-css" href="/wp-content/plugins/cleantalk-spam-protect/css/cleantalk-email-decoder.min.css?ver=6.47" type="text/css" media="all">
+<link rel="stylesheet" id="mkaz-code-syntax-prism-css-css" href="/wp-content/plugins/code-syntax-block/assets/prism-a11y-dark.css?ver=1715198387" type="text/css" media="all">
 <link rel="stylesheet" id="contact-form-7-css" href="/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.0.2" type="text/css" media="all">
 <link rel="stylesheet" id="email-subscribers-css" href="/wp-content/plugins/email-subscribers/lite/public/css/email-subscribers-public.css?ver=5.7.47" type="text/css" media="all">
 <link rel="stylesheet" id="edin-pt-sans-css" href="https://fonts.googleapis.com/css?family=PT+Sans%3A400%2C700%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext" type="text/css" media="all">
@@ -61,14 +62,19 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <link rel="stylesheet" id="edin-edincon-css" href="/wp-content/themes/edin/font/edincon.css?ver=20140606" type="text/css" media="all">
 <link rel="stylesheet" id="genericons-css" href="/wp-content/themes/edin/font/genericons.css?ver=3.4.1" type="text/css" media="all">
 <link rel="stylesheet" id="edin-style-css" href="/wp-content/themes/edin/style.css?ver=6.7.1" type="text/css" media="all">
+<style id="edin-style-inline-css" type="text/css">.hero.with-featured-image { background-image: url(/wp-content/uploads/2020/07/GitHubActionsAzurePipelines.png); }</style>
 <link rel="stylesheet" id="btnsx-css" href="/wp-content/plugins/buttons-x/assets/css/common/button.min.css?ver=0.8.6" type="text/css" media="all">
 <script type="text/javascript" data-pagespeed-no-defer src="/wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle.min.js?ver=6.47" id="ct_public_functions-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 <link rel="https://api.w.org/" href="/wp-json/">
-<link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/users/1">
+<link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/posts/904">
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
 <meta name="generator" content="WordPress 6.7.1">
+<link rel="canonical" href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/">
+<link rel="shortlink" href="/?p=904">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2Fblog%2F2020%2Fporting-an-azure-pipeline-yaml-to-a-github-action%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2Fblog%2F2020%2Fporting-an-azure-pipeline-yaml-to-a-github-action%2F#038;format=xml">
 
 <style>body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -117,7 +123,7 @@ a:hover {
 			<!-- This code is added by Analytify (5.5.0) !--><meta name="generator" content="Powered by Buttons X - Powerful Button Builder for WordPress.">
 </head>
 
-<body class="archive paged author author-marcus-fellinggmail-com author-1 paged-5 author-paged-5 has-header-search navigation-classic no-sidebar">
+<body class="post-template-default single single-post postid-904 single-format-standard has-header-search navigation-classic no-sidebar">
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
@@ -177,238 +183,324 @@ a:hover {
   gtag('config', 'UA-66330215-1');</script>
 
 
-	<div class="hero without-featured-image">
-		
-			<div class="hero-wrapper">
-				<h1 class="page-title">
-					Author: <span class="vcard">Marcus</span>				</h1>
-							</div>
-
-			</div>
-<!-- .hero -->
-
 	<div class="content-wrapper clear">
 
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 
 				
-										
-						
-<article id="post-319" class="post-319 post type-post status-publish format-standard hentry category-uncategorized">
+					
+<article id="post-904" class="post-904 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/visual-studio-marketplace-metrics/" rel="bookmark">Visual Studio Marketplace Metrics</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/visual-studio-marketplace-metrics/" rel="bookmark"><time class="entry-date published" datetime="2017-07-18T18:58:07+00:00">July 18, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+		<h1 class="entry-title">Porting an Azure Pipeline (YAML) to a GitHub Action</h1>
+		<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/" rel="bookmark"><time class="entry-date published" datetime="2020-07-26T20:04:31+00:00">July 26, 2020</time><time class="updated" datetime="2020-08-22T12:34:51+00:00">August 22, 2020</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
-			</header><!-- .entry-header -->
+	</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/visual-studio-marketplace-metrics/">
-			</a>
+	<a class="post-thumbnail" href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/">
+		<img width="456" height="302" src="/wp-content/uploads/2020/07/GitHubActionsAzurePipelines.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="/wp-content/uploads/2020/07/GitHubActionsAzurePipelines.png 456w, /wp-content/uploads/2020/07/GitHubActionsAzurePipelines-300x199.png 300w, /wp-content/uploads/2020/07/GitHubActionsAzurePipelines-290x192.png 290w" sizes="(max-width: 456px) 100vw, 456px">	</a>
 
 
 	<div class="entry-content">
-		<p>Earlier this year I decided to create some Visual Studio Marketplace build extensions. I was re-using the same tasks in multiple build definitions and there wasn&#8217;t anything published to the marketplace that accomplished what I needed. The first extension I created is used to <a href="https://marketplace.visualstudio.com/items?itemName=MFelling.AWSS3Upload">upload files to AWS S3</a>; this was the very first AWS related extension in the marketplace which was kind of cool. It took me longer than I expected because of all the ceremony in setting up the metadata and manifest json files, and packaging with <a href="https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task#cli" data-linktype="self-bookmark">tfx-cli</a>. More details on creating a build task here: <a href="https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task">https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task</a> Creating my <a href="https://marketplace.visualstudio.com/items?itemName=MFelling.AzureStorageUpload">second extension</a> went a lot faster since I could re-use and modify most of the files. Now that these extensions were published, I was interested to see metrics on them.</p>
-<p> <a href="/blog/2017/visual-studio-marketplace-metrics/#more-319" class="more-link">Continue reading <span class="screen-reader-text">Visual Studio Marketplace Metrics</span></a></p>
+		
+<p>I&#8217;ve been a long time user of Azure Pipelines. It&#8217;s a very mature and powerful platform, that integrates really well with other parts of the Azure DevOps suite, to provide end-to-end traceability of the software development lifecycle. However, Microsoft is investing heavily in GitHub which now has some very appealing capabilities: source code security, development insights and analytics, open source and innersource management, etc. As these new capabilities get built out in GitHub, I&#8217;d like to explore what is takes to move things over. In this post I&#8217;ll be documenting what it takes to port one of my existing Azure Pipelines (YAML) to GitHub Actions.</p>
+
+
+
+<span id="more-904"></span>
+
+
+
+<h2 class="wp-block-heading">The Space Game Azure Pipeline</h2>
+
+
+
+<p>My existing Azure Pipeline builds and deploys the open source <a rel="noreferrer noopener" href="https://github.com/MicrosoftDocs/mslearn-tailspin-spacegame-web" target="_blank">MSLearn Tailspin Space Game</a>. I have a fork of the repo hosted in my GitHub repo <a href="https://github.com/MarcusFelling/Demo.SpaceGame/tree/port-pipeline">here</a>, which includes <strong>azure-pipelines.yml</strong>. The <code>build</code> stage builds the dotnet web project, runs unit tests, then publishes a pipeline artifact named <code>drop</code>. The <code>Dev</code> stage takes the <code>drop</code> artifact and deploys it to an Azure Web App.</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="1023" height="459" src="/wp-content/uploads/2020/07/image-3.png" alt="" class="wp-image-908" srcset="/wp-content/uploads/2020/07/image-3.png 1023w, /wp-content/uploads/2020/07/image-3-300x135.png 300w, /wp-content/uploads/2020/07/image-3-768x345.png 768w, /wp-content/uploads/2020/07/image-3-648x291.png 648w, /wp-content/uploads/2020/07/image-3-428x192.png 428w" sizes="(max-width: 1023px) 100vw, 1023px"></figure>
+
+
+
+<h2 class="wp-block-heading">Taking an inventory of dependencies</h2>
+
+
+
+<p>Before I get started porting this over to GitHub Actions, I need to take an inventory of the Azure DevOps dependencies I&#8217;m using in my pipeline. </p>
+
+
+
+<ul class="wp-block-list">
+<li>
+<strong>Variables</strong>: I try to use predefined/system variables when possible to dynamically assign values and prevent hardcoding, e.g. Build.BuildId, Build.ArtifactStagingDirectory, Build.SourcesDirectory. I&#8217;ll need to convert these to what GitHub Actions calls <a href="https://docs.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables#default-environment-variables">environment variables</a>.</li>
+<li>
+<strong>Variable Group: </strong>My pipeline also uses a variable group to store variables that are shared across some of my other pipelines. I can move sensitive variables to GitHub <a rel="noreferrer noopener" href="https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets" target="_blank">encrypted secrets</a>, which offers similar functionality. </li>
+<li>
+<strong>Service Connection</strong>: My pipeline uses an Azure DevOps <a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops" target="_blank">Service Connection</a> to authenticate the pipeline agent to my Azure Resource Group in order to deploy the web app.  In GitHub, I&#8217;ll authenticate using&nbsp;<a rel="noreferrer noopener" href="https://github.com/projectkudu/kudu/wiki/Deployment-credentials#site-credentials-aka-publish-profile-credentials" target="_blank">Azure Web App Publish Profile</a>.</li>
+<li>
+<strong>Microsoft-Hosted Agents:</strong> My pipeline is setup to execute the pipeline tasks on a Microsoft-Hosted agent. The build stage uses the vs2017-win2016 image, and the deploy stage uses the Ubuntu-16.04 image. The equivalent in GitHub Actions is the&nbsp;<a rel="noreferrer noopener" href="https://github.com/actions/virtual-environments" target="_blank">hosted machine pools</a>, which offers images for Windows Server 2016 (<a rel="noreferrer noopener" href="https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md" target="_blank">windows-2016</a>) and Ubuntu 16.04 (<a rel="noreferrer noopener" href="https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1604-README.md" target="_blank">ubuntu-16.04</a>).</li>
+</ul>
+
+
+
+<h2 class="wp-block-heading">Porting to GitHub Actions</h2>
+
+
+
+<p>Rumor has it the Microsoft and GitHub teams are working together on migration tools to help with this, but for now I&#8217;ll need to manually port by mapping each piece of my Azure Pipeline to a new GitHub Action.  I&#8217;ll start by creating a new GitHub Action by creating a workflow. &#8220;Workflow&#8221; is a suitable name, because Actions can do more than just CI/CD. They&#8217;re capable of automating just about anything in your workflow processes, such as creating an issue or tagging a new release. </p>
+
+
+
+<p>As soon as I click on the Actions tab in my repository, GitHub will come up with suggested starter templates, based on the language/framework in my source code. I have the option to start with the dotnet core template, but I&#8217;m going to start from scratch then try to mimic my Azure Pipeline.  This gets me a new yaml file in the directory repositoryname/<a href="https://github.com/MarcusFelling/github-branch-protector/tree/master/.github">.</a>github/<strong>workflows</strong>.</p>
+
+
+
+<h2 class="wp-block-heading">Starting at the top</h2>
+
+
+
+<p>In my Azure Pipeline I generate the build number by using semantic major.minor.patch version, in which major and minor are defined variables, and patch uses a <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/expressions?view=azure-devops">counter expression</a> to reset to 0 if major or minor are changed: <code>$[counter(format('{0}.{1}',&nbsp;variables['Major'],&nbsp;variables['Minor']),&nbsp;0)]</code> In GitHub Actions, the name of the pipeline is defined at the top of the document and the run # is incremented each run. I&#8217;ll stick with the same naming convention and call my Action &#8220;MarcusFelling.Demo.SpaceGame&#8221;.</p>
+
+
+
+<p>To mirror what I have in the Azure Pipeline, I&#8217;ll set up the Action to trigger on all pushes to my repo. In Azure Pipelines, this is the default when no trigger is defined.</p>
+
+
+
+<pre class="wp-block-code"><code># Trigger on push
+on: push</code></pre>
+
+
+
+<p>Next, I&#8217;ll define my static variables. I can copy the variables section and rename if to env. I can then add the non-secret variables from my variable group and copy the secret variables to my repositories&#8217; secret configuration. Later on, I&#8217;ll swap out predefined variables that are referenced in tasks with fitting environment variables, using the syntax ${{ env.VARIABLENAME }}.</p>
+
+
+
+<pre class="wp-block-code"><code>env:
+  buildConfiguration: 'Release'
+  serviceConnection: 'tailspin-space-game-rg'
+  appName: 'tailspin-space-game-web'
+  appID: '26178'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  environmentName: 'Dev'</code></pre>
+
+
+
+<h2 class="wp-block-heading">Stages -&gt; Jobs, Jobs -&gt; Jobs, Tasks -&gt; Steps</h2>
+
+
+
+<p>A workflow is made up of one or more jobs. I can map my stages and jobs from Azure Pipelines to jobs, then map tasks to steps.</p>
+
+
+
+<p>In my Build and Deploy jobs, I&#8217;ll change <code>vmImage</code> to <code>runs-on</code>, and <code>dependsOn</code> to <code>needs</code>, to make sure the build job always runs before the deploy:</p>
+
+
+
+<pre class="wp-block-code"><code>jobs:
+  build:
+    runs-on: windows-2016
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build</code></pre>
+
+
+
+<p>Next, I can download my source code to the agent using: <code>actions/checkout@v2</code>, as apposed to the Azure Pipelines sources tab. I&#8217;ll only need this for my build job.</p>
+
+
+
+<pre class="wp-block-code"><code>jobs:
+  build:
+    runs-on: windows-2016
+    steps:
+    - uses: actions/checkout@v2</code></pre>
+
+
+
+<p>Now that I have my scaffolding, I can convert my tasks to steps. I&#8217;ll be able to use the <code>run</code> Action to run inline scripts for most things.</p>
+
+
+
+<pre class="wp-block-code"><code>      - name: Run npm install
+        run: npm install
+
+      - name: Compile Sass assets
+        run: ./node_modules/.bin/node-sass ${{ env.wwwrootDir }} --output ${{ env.wwwrootDir }}
+
+      - name: Install Gulp CLI
+        run: npm install gulp-cli
+        
+      - name: Run Gulp tasks
+        run: gulp --gulpfile "${{ github.workspace }}\gulpfile.js"
+          
+      - name: Install dependencies
+        run: dotnet restore
+        
+      - name: Build web project
+        run: dotnet build "${{ github.workspace }}\Tailspin.SpaceGame.Web\Tailspin.SpaceGame.Web.csproj" --configuration ${{ env.buildConfiguration }} --no-restore
+        
+      - name: Test
+        run: dotnet test "${{ github.workspace }}\Tailspin.SpaceGame.Web.Tests\Tailspin.SpaceGame.Web.Tests.csproj" --no-restore --verbosity normal
+   
+      - name: publish
+        run: dotnet publish "${{ github.workspace }}\Tailspin.SpaceGame.Web\Tailspin.SpaceGame.Web.csproj" --no-build --configuration ${{ env.buildConfiguration }} --output ${{ github.workspace }}\${{ env.buildConfiguration }}\Artifact</code></pre>
+
+
+
+<p>Lastly, I&#8217;ll upload my published .zip as an artifact using the <code>actions/upload-artifact@v2</code> Action.</p>
+
+
+
+<pre class="wp-block-code"><code>        # Publish zip as build artifact
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: drop
+          path: ${{ github.workspace }}\${{ env.buildConfiguration }}\Artifact\*</code></pre>
+
+
+
+<h2 class="wp-block-heading">Deploy</h2>
+
+
+
+<p>I&#8217;ll start the deploy job by downloading my build artifact to the agent&#8217;s workspace by using the <code>actions/download-artifact@v2</code> Action.</p>
+
+
+
+<pre class="wp-block-code"><code>  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v2
+      with:
+        # Artifact name
+        name: drop
+        # Destination path
+        path: ${{ github.workspace }}</code></pre>
+
+
+
+<p>Then I can use the <code>azure/webapps-deploy@v2</code> Action to deploy the .zip package, using my publish profile that saved as an <a href="https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets" target="_blank" rel="noreferrer noopener">encrypted secret</a>.</p>
+
+
+
+<pre class="wp-block-code"><code>    - name: 'Deploy to Azure WebApp'
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.appName }}-${{ env.environmentName }}-${{ env.appID }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}</code></pre>
+
+
+
+<h2 class="wp-block-heading">Summary</h2>
+
+
+
+<p>Every push to my repository will now trigger the workflow to run:</p>
+
+
+
+<figure class="wp-block-image size-large"><img decoding="async" width="650" height="534" src="/wp-content/uploads/2020/07/image-4.png" alt="" class="wp-image-917" srcset="/wp-content/uploads/2020/07/image-4.png 650w, /wp-content/uploads/2020/07/image-4-300x246.png 300w, /wp-content/uploads/2020/07/image-4-648x532.png 648w, /wp-content/uploads/2020/07/image-4-234x192.png 234w" sizes="(max-width: 650px) 100vw, 650px"></figure>
+
+
+
+<p>GitHubs Actions has a lot in common with Azure Pipelines, so it&#8217;s less of a learning curve compared to starting out with a completely different platform, such as CircleCI, Jenkins, or GitLab. If you&#8217;re using other areas of the Azure DevOps suite, you&#8217;ll also get a bunch of integrations between the platforms such as <a href="https://docs.microsoft.com/en-us/azure/devops/boards/github/?view=azure-devops">Azure Boards</a>. For anybody currently using Azure Pipelines, I&#8217;d recommend identifying opportunities to automate workflows with GitHub Actions. Azure DevOps isn&#8217;t going away any time soon, but GitHub has some compelling capabilities, with the largest developer community and platform in the world.</p>
 	</div>
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/visual-studio-marketplace-metrics/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
+		<span class="comments-link"><a href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/#comments">2 Comments</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
-					
-						
-<article id="post-305" class="post-305 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/custom-build-conditions-vsts/" rel="bookmark">Custom Build Conditions in VSTS</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/custom-build-conditions-vsts/" rel="bookmark"><time class="entry-date published" datetime="2017-06-18T17:27:50+00:00">June 18, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/custom-build-conditions-vsts/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>On March 29th, 2017 the VSTS team released a new feature that added the ability to specify conditions for running a build task. This provides more control over your build tasks, for things such as a task to clean things up (even if a build fails), or send a message when something goes wrong, under conditions such as certain branches or with certain triggers. Custom Conditions appear in the new build definition editor under Control Options. Custom conditions are not currently available for Task Groups because they still use the old build definition editor (this is on the backlog).</p>
-<p> <a href="/blog/2017/custom-build-conditions-vsts/#more-305" class="more-link">Continue reading <span class="screen-reader-text">Custom Build Conditions in VSTS</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/custom-build-conditions-vsts/#comments">6 Comments</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-287" class="post-287 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/" rel="bookmark">Migrating Team Foundation Server to Visual Studio Team Services</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/" rel="bookmark"><time class="entry-date published" datetime="2017-06-03T17:21:53+00:00">June 3, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>Last month I migrated our TFS collection to VSTS using Microsoft&#8217;s Database Import Service and <a href="https://www.visualstudio.com/team-services/migrate-tfs-vsts">migration guide</a>. To be frank, it was a long process and it took a lot of going back and forth to make sure I fully understood the guide which is a PDF that is 58 pages long. The guide comes with several checklists and things you need to check and prep before your migration.</p>
-<p> <a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/#more-287" class="more-link">Continue reading <span class="screen-reader-text">Migrating Team Foundation Server to Visual Studio Team Services</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-230" class="post-230 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/" rel="bookmark">A simple explanation of private pipeline billing in VSTS</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/" rel="bookmark"><time class="entry-date published" datetime="2017-06-02T21:23:26+00:00">June 2, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/">
-			</a>
-
-
-	<div class="entry-content">
-		<p><strong>Update: Unlimited private pipelines are now free for Build!!</strong></p>
-<p>Microsoft caused a lot of confusion when they announced that you will need to pay to run private build agents, since this was free in TFS. Why should we have to pay to use our own server resources to run a build agent?!? You can see the outcry in the reviews on the Marketplace: 1.7/5 stars: <a href="https://marketplace.visualstudio.com/items?itemName=ms.build-release-private-pipelines#review-details">https://marketplace.visualstudio.com/items?itemName=ms.build-release-private-pipelines#review-details</a></p>
-<p>Once I fully understood how and why the billing is setup this way, I wasn&#8217;t as frustrated.</p>
-<p> <a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/#more-230" class="more-link">Continue reading <span class="screen-reader-text">A simple explanation of private pipeline billing in VSTS</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-274" class="post-274 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/" rel="bookmark">Octopus Deploy: Running deployment steps in parallel</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/" rel="bookmark"><time class="entry-date published" datetime="2017-06-02T21:22:33+00:00">June 2, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>When I first got started with <a href="https://octopus.com/">Octopus Deploy</a> I would setup projects to have one long deploy process that ran steps in serial. Each step would wait until finished before another one would start.  Deploy times got longer and longer, so I set out to find a way to cut down deploy times.</p>
-<p> <a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/#more-274" class="more-link">Continue reading <span class="screen-reader-text">Octopus Deploy: Running deployment steps in parallel</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-261" class="post-261 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/gitflow-visual-studio-team-services/" rel="bookmark">Gitflow and Visual Studio Team Services</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/gitflow-visual-studio-team-services/" rel="bookmark"><time class="entry-date published" datetime="2017-06-01T23:35:59+00:00">June 1, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/gitflow-visual-studio-team-services/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>This last year our team made the decision to move from Team Foundation Version Control (TFVC) to Git.</p>
-<p> <a href="/blog/2017/gitflow-visual-studio-team-services/#more-261" class="more-link">Continue reading <span class="screen-reader-text">Gitflow and Visual Studio Team Services</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/gitflow-visual-studio-team-services/#comments">3 Comments</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-249" class="post-249 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/" rel="bookmark">VSTS Marketplace Extension: Queue Build(s) Task</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/" rel="bookmark"><time class="entry-date published" datetime="2017-05-30T23:31:56+00:00">May 30, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/vsts-marketplace-extension-queue-builds-task/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>Currently the TFS/VSTS build system has a pretty big bottleneck: tasks run in serial. For build steps that run PowerShell, I&#8217;ve implemented runspaces to run processes in parallel (<a href="https://gallery.technet.microsoft.com/scriptcenter/Run-Parallel-Parallel-377fd430">Invoke-Parallel</a> is amazing). However, that only works for one build step. The rest have to wait until it&#8217;s finished.</p>
-<p>Enter <a href="https://marketplace.visualstudio.com/items?itemName=jb.queue-build">Queue Build(s) Task</a>. This extension sounds pretty simple, right? Queue a build as part of a build&#8230;. But it has potential to do much more.  It has the ability to use configurations (JSON) to pass variables from the build that&#8217;s queuing other builds, including <a href="https://www.visualstudio.com/en-us/docs/build/define/variables">system variables</a> (source branch name, build id, build name, etc.).</p>
-<p> <a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/#more-249" class="more-link">Continue reading <span class="screen-reader-text">VSTS Marketplace Extension: Queue Build(s) Task</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-232" class="post-232 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/using-task-groups-tfsvsts/" rel="bookmark">Using Task Groups in TFS/VSTS</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/using-task-groups-tfsvsts/" rel="bookmark"><time class="entry-date published" datetime="2017-05-29T15:32:13+00:00">May 29, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/using-task-groups-tfsvsts/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>When Microsoft announced <a href="https://www.visualstudio.com/en-us/docs/build/concepts/library/task-groups">Task Groups</a> in TFS and VSTS, I couldn&#8217;t think of a practical use for them. When creating build definitions I always try to reduce the number of overall definitions by using prompted variables when possible, this way the user can modify the variable when queuing a build rather than duplicating a definition that has the same steps. Of course this doesn&#8217;t work well for things like working directory which warrant a separate build definition. This is where I found Task Groups shine.</p>
-<p> <a href="/blog/2017/using-task-groups-tfsvsts/#more-232" class="more-link">Continue reading <span class="screen-reader-text">Using Task Groups in TFS/VSTS</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/using-task-groups-tfsvsts/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						<nav class="navigation paging-navigation" role="navigation">
-		<h2 class="screen-reader-text">Posts navigation</h2>
+						<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
 		<div class="nav-links">
-
-			
-							<div class="nav-next">
-					<a href="/blog/author/marcus-fellinggmail-com/page/4/">Newer posts <span class="meta-nav">&rarr;</span></a>				</div>
-			
-		</div>
+			<div class="nav-previous"><a href="/blog/2020/how-to-reduce-the-size-of-your-tfs-azure-devops-server-collection-databases/" rel="prev"><span class="meta-nav">&larr;</span> How to reduce the size of your TFS/Azure DevOps Server collection databases</a></div>
+<div class="nav-next"><a href="/blog/2020/the-importance-of-definition-of-done/" rel="next">The importance of the Definition of &#8220;Done&#8221; <span class="meta-nav">&rarr;</span></a></div>		</div>
 <!-- .nav-links -->
 	</nav><!-- .navigation -->
 	
+					
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			2 thoughts on &ldquo;<span>Porting an Azure Pipeline (YAML) to a GitHub Action</span>&rdquo;		</h2>
+
+		<ol class="comment-list">
+					<li id="comment-12092" class="comment even thread-even depth-1">
+			<article id="div-comment-12092" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/df0d62707d9c4a004bcc8f7d4a2c8f2c?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/df0d62707d9c4a004bcc8f7d4a2c8f2c?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy" decoding="async">						<b class="fn"><a href="https://nimblehq.co/" class="url" rel="ugc external nofollow">Carlos Herrera</a></b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/#comment-12092"><time datetime="2020-07-28T12:11:49+00:00">July 28, 2020 at 12:11 pm</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thank you for sharing your process. I personally feel working on Azure is better since GitHub Actions require you to separate stages into separate YAML workflow files. But sometimes it&#8217;s essential to migrate to Github so as to integrate with other systems.</p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/?replytocom=12092#respond" data-commentid="12092" data-postid="904" data-belowelement="div-comment-12092" data-respondelement="respond" data-replyto="Reply to Carlos Herrera" aria-label="Reply to Carlos Herrera">Reply</a></div>			</article><!-- .comment-body -->
+		</li>
+<!-- #comment-## -->
+		<li id="comment-14147" class="comment odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-14147" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/67da4fc845ee53a04bce4e7d2934055f?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/67da4fc845ee53a04bce4e7d2934055f?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy" decoding="async">						<b class="fn"><a href="http://www.mattruma.com/" class="url" rel="ugc external nofollow">Matt Ruma</a></b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/#comment-14147"><time datetime="2020-11-23T14:52:55+00:00">November 23, 2020 at 2:52 pm</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thanks for the article! It will be interesting to see how this plays out. I have been dabbling in GitHub actions, still some gaps as far as it comes to Azure DevOps, e.g. approval gates, but love how easy it is to create custom actions. Time will tell.</p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/?replytocom=14147#respond" data-commentid="14147" data-postid="904" data-belowelement="div-comment-14147" data-respondelement="respond" data-replyto="Reply to Matt Ruma" aria-label="Reply to Matt Ruma">Reply</a></div>			</article><!-- .comment-body -->
+		</li>
+<!-- #comment-## -->
+		</ol>
+<!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/#respond" style="display:none;">Cancel reply</a></small>
+</h3>
+<form action="https://marcusfelling.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p>
+<p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p>
+<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="904" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>
+</form>	</div>
+<!-- #respond -->
+	
+</div>
+<!-- #comments -->
+
 				
 			</main><!-- #main -->
 		</div>
@@ -429,18 +521,18 @@ a:hover {
 							<div class="footer-widget">
 					<aside id="email-subscribers-form-2" class="widget widget_email-subscribers-form"><h2 class="widget-title"> Subscribe </h2>
 <div class="emaillist" id="es_form_f2-n1">
-<form action="/blog/author/marcus-fellinggmail-com/page/5/?simply_static_page=1800#es_form_f2-n1" method="post" class="es_subscription_form es_shortcode_form  es_ajax_subscription_form" id="es_subscription_form_677d35bce6296" data-source="ig-es" data-form-id="2">
+<form action="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/?simply_static_page=1158#es_form_f2-n1" method="post" class="es_subscription_form es_shortcode_form  es_ajax_subscription_form" id="es_subscription_form_677d359b04f25" data-source="ig-es" data-form-id="2">
 <div class="es-field-wrap"><label>Name<br><input type="text" name="esfpx_name" class="ig_es_form_field_name" placeholder="" value=""></label></div>
 <div class="es-field-wrap"><label>Email*<br><input class="es_required_field es_txt_email ig_es_form_field_email" type="email" name="esfpx_email" value="" placeholder="" required="required"></label></div>
 <input type="hidden" name="esfpx_lists[]" value="eb102e951801"><input type="hidden" name="esfpx_form_id" value="2"><input type="hidden" name="es" value="subscribe">
 			<input type="hidden" name="esfpx_es_form_identifier" value="f2-n1">
-			<input type="hidden" name="esfpx_es_email_page" value="232">
-			<input type="hidden" name="esfpx_es_email_page_url" value="https://marcusfelling.com/blog/2017/using-task-groups-tfsvsts/">
+			<input type="hidden" name="esfpx_es_email_page" value="904">
+			<input type="hidden" name="esfpx_es_email_page_url" value="https://marcusfelling.com/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/">
 			<input type="hidden" name="esfpx_status" value="Unconfirmed">
-			<input type="hidden" name="esfpx_es-subscribe" id="es-subscribe-677d35bce6296" value="a857904665">
-			<label style="position:absolute;top:-99999px;left:-99999px;z-index:-99;" aria-hidden="true"><span hidden>Please leave this field empty.</span><input type="email" name="esfpx_es_hp_email" class="es_required_field" tabindex="-1" autocomplete="-1" value=""></label><input type="submit" name="submit" class="es_subscription_form_submit es_submit_button es_textbox_button" id="es_subscription_form_submit_677d35bce6296" value="Submit"><span class="es_spinner_image" id="spinner-image"><img src="/wp-content/plugins/email-subscribers/lite/public/images/spinner.gif" alt="Loading"></span>
+			<input type="hidden" name="esfpx_es-subscribe" id="es-subscribe-677d359b04f25" value="a857904665">
+			<label style="position:absolute;top:-99999px;left:-99999px;z-index:-99;" aria-hidden="true"><span hidden>Please leave this field empty.</span><input type="email" name="esfpx_es_hp_email" class="es_required_field" tabindex="-1" autocomplete="-1" value=""></label><input type="submit" name="submit" class="es_subscription_form_submit es_submit_button es_textbox_button" id="es_subscription_form_submit_677d359b04f25" value="Submit"><span class="es_spinner_image" id="spinner-image"><img src="/wp-content/plugins/email-subscribers/lite/public/images/spinner.gif" alt="Loading"></span>
 </form>
-<span class="es_subscription_message " id="es_subscription_message_677d35bce6296" role="alert" aria-live="assertive"></span>
+<span class="es_subscription_message " id="es_subscription_message_677d359b04f25" role="alert" aria-live="assertive"></span>
 </div></aside>				</div>
 <!-- .footer-widget -->
 			
@@ -495,8 +587,14 @@ a:hover {
 </div>
 <!-- #page -->
 
-        <span class="ssp-id" style="display:none">319</span>
+        <span class="ssp-id" style="display:none">904</span>
 		<link rel="stylesheet" id="rpwe-style-css" href="/wp-content/plugins/recent-posts-widget-extended/assets/css/rpwe-frontend.css?ver=2.0.2" type="text/css" media="all">
+<script type="text/javascript" id="mkaz-code-syntax-prism-js-js-extra">
+/* <![CDATA[ */
+var prism_settings = {"pluginUrl":"\/wp-content\/plugins\/code-syntax-block\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp-content/plugins/code-syntax-block/assets/prism/prism.js?ver=1715198387" id="mkaz-code-syntax-prism-js-js"></script>
 <script type="text/javascript" src="/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
 <script type="text/javascript" src="/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
 <script type="text/javascript" id="wp-i18n-js-after">
@@ -524,14 +622,14 @@ var es_data = {"messages":{"es_empty_email_notice":"Please enter email address",
 <script type="text/javascript" src="/wp-content/plugins/email-subscribers/lite/public/js/email-subscribers-public.js?ver=5.7.47" id="email-subscribers-js"></script>
 <script type="text/javascript" id="custom-script-js-extra">
 /* <![CDATA[ */
-var wpdata = {"object_id":"1","site_url":""};
+var wpdata = {"object_id":"904","site_url":""};
 /* ]]> */
 </script>
 <script type="text/javascript" src="/wp-content/plugins/wp-meta-and-date-remover/assets/js/inspector.js?ver=1.1" id="custom-script-js"></script>
 <script type="text/javascript" src="/wp-content/plugins/simply-static-pro/assets/ssp-comment-webhook.js?ver=1.6.4.2" id="ssp-comment-webhook-js"></script>
 <script type="text/javascript" id="analytify_track_miscellaneous-js-extra">
 /* <![CDATA[ */
-var miscellaneous_tracking_options = {"ga_mode":"ga4","tracking_mode":"gtag","track_404_page":{"should_track":"off","is_404":false,"current_url":"\/blog\/author\/marcus-fellinggmail-com\/page\/5\/?simply_static_page=1800"},"track_js_error":"off","track_ajax_error":"off"};
+var miscellaneous_tracking_options = {"ga_mode":"ga4","tracking_mode":"gtag","track_404_page":{"should_track":"off","is_404":false,"current_url":"\/blog\/2020\/porting-an-azure-pipeline-yaml-to-a-github-action\/?simply_static_page=1158"},"track_js_error":"off","track_ajax_error":"off"};
 /* ]]> */
 </script>
 <script type="text/javascript" src="/wp-content/plugins/wp-analytify/assets/js/miscellaneous-tracking.js?ver=5.5.0" id="analytify_track_miscellaneous-js"></script>
@@ -543,6 +641,7 @@ var screen_reader_text = {"expand":"<span class=\"screen-reader-text\">expand ch
 <script type="text/javascript" src="/wp-content/themes/edin/js/navigation.js?ver=20140718" id="edin-navigation-js"></script>
 <script type="text/javascript" src="/wp-content/themes/edin/js/search.js?ver=20140707" id="edin-search-js"></script>
 <script type="text/javascript" src="/wp-content/themes/edin/js/skip-link-focus-fix.js?ver=20130115" id="edin-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="/wp-includes/js/comment-reply.min.js?ver=6.7.1" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
 <script type="text/javascript" id="edin-script-js-extra">
 /* <![CDATA[ */
 var screen_reader_text = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};

@@ -6,7 +6,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="/xmlrpc.php">
 
-<title>Marcus &#8211; Page 5 &#8211; Marcus Felling</title>
+<title>Marcus &#8211; Marcus Felling</title>
 <meta name="robots" content="max-image-preview:large">
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
 	
@@ -53,6 +53,7 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}</style>
 <link rel="stylesheet" id="ct_public_css-css" href="/wp-content/plugins/cleantalk-spam-protect/css/cleantalk-public.min.css?ver=6.47" type="text/css" media="all">
 <link rel="stylesheet" id="ct_email_decoder_css-css" href="/wp-content/plugins/cleantalk-spam-protect/css/cleantalk-email-decoder.min.css?ver=6.47" type="text/css" media="all">
+<link rel="stylesheet" id="mkaz-code-syntax-prism-css-css" href="/wp-content/plugins/code-syntax-block/assets/prism-a11y-dark.css?ver=1715198387" type="text/css" media="all">
 <link rel="stylesheet" id="contact-form-7-css" href="/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.0.2" type="text/css" media="all">
 <link rel="stylesheet" id="email-subscribers-css" href="/wp-content/plugins/email-subscribers/lite/public/css/email-subscribers-public.css?ver=5.7.47" type="text/css" media="all">
 <link rel="stylesheet" id="edin-pt-sans-css" href="https://fonts.googleapis.com/css?family=PT+Sans%3A400%2C700%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext" type="text/css" media="all">
@@ -117,7 +118,7 @@ a:hover {
 			<!-- This code is added by Analytify (5.5.0) !--><meta name="generator" content="Powered by Buttons X - Powerful Button Builder for WordPress.">
 </head>
 
-<body class="archive paged author author-marcus-fellinggmail-com author-1 paged-5 author-paged-5 has-header-search navigation-classic no-sidebar">
+<body class="archive author author-marcus-fellinggmail-com author-1 has-header-search navigation-classic no-sidebar">
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
@@ -195,205 +196,302 @@ a:hover {
 				
 										
 						
-<article id="post-319" class="post-319 post type-post status-publish format-standard hentry category-uncategorized">
+<article id="post-1264" class="post-1264 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/visual-studio-marketplace-metrics/" rel="bookmark">Visual Studio Marketplace Metrics</a></h2>
+		<h2 class="entry-title"><a href="/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/" rel="bookmark">Removing Sensitive Data from Git History with BFG and VS Code</a></h2>
 				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/visual-studio-marketplace-metrics/" rel="bookmark"><time class="entry-date published" datetime="2017-07-18T18:58:07+00:00">July 18, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+			<span class="posted-on">Posted on <a href="/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/" rel="bookmark"><time class="entry-date published" datetime="2024-04-23T14:06:19+00:00">April 23, 2024</time><time class="updated" datetime="2024-04-23T16:40:34+00:00">April 23, 2024</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/visual-studio-marketplace-metrics/">
-			</a>
+	<a class="post-thumbnail" href="/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/">
+		<img width="287" height="189" src="/wp-content/uploads/2024/04/icon.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" fetchpriority="high">	</a>
 
 
 	<div class="entry-content">
-		<p>Earlier this year I decided to create some Visual Studio Marketplace build extensions. I was re-using the same tasks in multiple build definitions and there wasn&#8217;t anything published to the marketplace that accomplished what I needed. The first extension I created is used to <a href="https://marketplace.visualstudio.com/items?itemName=MFelling.AWSS3Upload">upload files to AWS S3</a>; this was the very first AWS related extension in the marketplace which was kind of cool. It took me longer than I expected because of all the ceremony in setting up the metadata and manifest json files, and packaging with <a href="https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task#cli" data-linktype="self-bookmark">tfx-cli</a>. More details on creating a build task here: <a href="https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task">https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task</a> Creating my <a href="https://marketplace.visualstudio.com/items?itemName=MFelling.AzureStorageUpload">second extension</a> went a lot faster since I could re-use and modify most of the files. Now that these extensions were published, I was interested to see metrics on them.</p>
-<p> <a href="/blog/2017/visual-studio-marketplace-metrics/#more-319" class="more-link">Continue reading <span class="screen-reader-text">Visual Studio Marketplace Metrics</span></a></p>
-	</div>
+		
+<p>I was recently notified that an old API key was discovered in one of the repos I own. Even if you remove the sensitive data in a new commit, it can still be found in the Git history.</p>
+
+
+
+<p>To remove the API key, I decided to use the <a href="https://rtyley.github.io/bfg-repo-cleaner/">BFG Repo-Cleaner</a> for cleansing bad data out of your Git repository history. However, I found myself fumbling around with the BFG CLI and spending way too much time trying to remove the key from the Git history.</p>
+
+
+
+<p>That&#8217;s when I realized there had to be a better way. As a frequent user of Visual Studio Code, I thought, &#8220;Why not create a VS Code extension that simplifies this process?&#8221; And that&#8217;s exactly what I did.</p>
+
+
+
+ <a href="/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/#more-1264" class="more-link">Continue reading <span class="screen-reader-text">Removing Sensitive Data from Git History with BFG and VS Code</span></a>	</div>
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/visual-studio-marketplace-metrics/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
+		<span class="comments-link"><a href="/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
 					
 						
-<article id="post-305" class="post-305 post type-post status-publish format-standard hentry category-uncategorized">
+<article id="post-1237" class="post-1237 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/custom-build-conditions-vsts/" rel="bookmark">Custom Build Conditions in VSTS</a></h2>
+		<h2 class="entry-title"><a href="/blog/2023/using-azure-test-plans-with-playwright/" rel="bookmark">Using Azure Test Plans with Playwright</a></h2>
 				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/custom-build-conditions-vsts/" rel="bookmark"><time class="entry-date published" datetime="2017-06-18T17:27:50+00:00">June 18, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+			<span class="posted-on">Posted on <a href="/blog/2023/using-azure-test-plans-with-playwright/" rel="bookmark"><time class="entry-date published" datetime="2023-09-17T21:01:58+00:00">September 17, 2023</time><time class="updated" datetime="2024-05-09T14:11:28+00:00">May 9, 2024</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/custom-build-conditions-vsts/">
-			</a>
+	<a class="post-thumbnail" href="/blog/2023/using-azure-test-plans-with-playwright/">
+		<img width="648" height="272" src="/wp-content/uploads/2023/09/test-run-ado-648x272.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" srcset="/wp-content/uploads/2023/09/test-run-ado-648x272.png 648w, /wp-content/uploads/2023/09/test-run-ado-300x126.png 300w, /wp-content/uploads/2023/09/test-run-ado-1024x430.png 1024w, /wp-content/uploads/2023/09/test-run-ado-768x322.png 768w, /wp-content/uploads/2023/09/test-run-ado-457x192.png 457w, /wp-content/uploads/2023/09/test-run-ado.png 1301w" sizes="(max-width: 648px) 100vw, 648px">	</a>
 
 
 	<div class="entry-content">
-		<p>On March 29th, 2017 the VSTS team released a new feature that added the ability to specify conditions for running a build task. This provides more control over your build tasks, for things such as a task to clean things up (even if a build fails), or send a message when something goes wrong, under conditions such as certain branches or with certain triggers. Custom Conditions appear in the new build definition editor under Control Options. Custom conditions are not currently available for Task Groups because they still use the old build definition editor (this is on the backlog).</p>
-<p> <a href="/blog/2017/custom-build-conditions-vsts/#more-305" class="more-link">Continue reading <span class="screen-reader-text">Custom Build Conditions in VSTS</span></a></p>
-	</div>
+		
+<p>In 2020, I blogged about associating<a rel="noreferrer noopener" href="/blog/2020/associating-automated-tests-with-azure-test-cases/" data-type="link" data-id="https://marcusfelling.com/blog/2020/associating-automated-tests-with-azure-test-cases/" target="_blank"> automated tests with Azure Test Cases</a>. The post had 18 questions, which indicates there is still confusion on how this works, especially how to set it up with Playwright (which was pre-stable release at the time).</p>
+
+
+
+<p>In this post, I&#8217;ll walk through how to configure both Playwright Test (JavaScript/TypeScript) and Playwright .NET to get test results in Azure Test Plans. Each option uses abstractions built on the Azure DevOps <a href="https://learn.microsoft.com/en-us/rest/api/azure/devops/test/?view=azure-devops-rest-5.0" target="_blank" rel="noreferrer noopener">REST API</a> so you don&#8217;t have to write additional code to accomplish this.</p>
+
+
+
+ <a href="/blog/2023/using-azure-test-plans-with-playwright/#more-1237" class="more-link">Continue reading <span class="screen-reader-text">Using Azure Test Plans with Playwright</span></a>	</div>
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/custom-build-conditions-vsts/#comments">6 Comments</a></span>	</footer><!-- .entry-footer -->
+		<span class="comments-link"><a href="/blog/2023/using-azure-test-plans-with-playwright/#comments">18 Comments</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
 					
 						
-<article id="post-287" class="post-287 post type-post status-publish format-standard hentry category-uncategorized">
+<article id="post-1216" class="post-1216 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/" rel="bookmark">Migrating Team Foundation Server to Visual Studio Team Services</a></h2>
+		<h2 class="entry-title"><a href="/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/" rel="bookmark">Measuring Website Performance with Playwright Test and Navigation Timing API</a></h2>
 				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/" rel="bookmark"><time class="entry-date published" datetime="2017-06-03T17:21:53+00:00">June 3, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+			<span class="posted-on">Posted on <a href="/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/" rel="bookmark"><time class="entry-date published" datetime="2023-04-27T14:40:19+00:00">April 27, 2023</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/">
-			</a>
+	<a class="post-thumbnail" href="/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/">
+		<img width="648" height="252" src="/wp-content/uploads/2023/04/playwright-performance-testing-648x252.jpg" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" srcset="/wp-content/uploads/2023/04/playwright-performance-testing-648x252.jpg 648w, /wp-content/uploads/2023/04/playwright-performance-testing-300x116.jpg 300w, /wp-content/uploads/2023/04/playwright-performance-testing-495x192.jpg 495w, /wp-content/uploads/2023/04/playwright-performance-testing.jpg 711w" sizes="(max-width: 648px) 100vw, 648px">	</a>
 
 
 	<div class="entry-content">
-		<p>Last month I migrated our TFS collection to VSTS using Microsoft&#8217;s Database Import Service and <a href="https://www.visualstudio.com/team-services/migrate-tfs-vsts">migration guide</a>. To be frank, it was a long process and it took a lot of going back and forth to make sure I fully understood the guide which is a PDF that is 58 pages long. The guide comes with several checklists and things you need to check and prep before your migration.</p>
-<p> <a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/#more-287" class="more-link">Continue reading <span class="screen-reader-text">Migrating Team Foundation Server to Visual Studio Team Services</span></a></p>
-	</div>
+		
+<p>I was recently tasked with measuring the impact of a Redis cache on an e-commerce site. This was pretty simple with <a href="https://azure.microsoft.com/en-us/products/load-testing/" target="_blank" rel="noreferrer noopener">Azure Load Testing</a>, by comparing the results of 2 sites, one with cache, and one without. However, to better exercise the site and understand the user experience, I wanted also to use Playwright.</p>
+
+
+
+ <a href="/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/#more-1216" class="more-link">Continue reading <span class="screen-reader-text">Measuring Website Performance with Playwright Test and Navigation Timing API</span></a>	</div>
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
+		<span class="comments-link"><a href="/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
 					
 						
-<article id="post-230" class="post-230 post type-post status-publish format-standard hentry category-uncategorized">
+<article id="post-1197" class="post-1197 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/" rel="bookmark">A simple explanation of private pipeline billing in VSTS</a></h2>
+		<h2 class="entry-title"><a href="/blog/2023/6-nifty-github-actions-features/" rel="bookmark">6 Nifty GitHub Actions Features 🚀</a></h2>
 				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/" rel="bookmark"><time class="entry-date published" datetime="2017-06-02T21:23:26+00:00">June 2, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+			<span class="posted-on">Posted on <a href="/blog/2023/6-nifty-github-actions-features/" rel="bookmark"><time class="entry-date published" datetime="2023-03-08T19:23:17+00:00">March 8, 2023</time><time class="updated" datetime="2024-02-05T23:34:41+00:00">February 5, 2024</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/">
-			</a>
+	<a class="post-thumbnail" href="/blog/2023/6-nifty-github-actions-features/">
+		<img width="375" height="371" src="/wp-content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="Octocat-with-sunglasses-launching-rocket" decoding="async" loading="lazy" srcset="/wp-content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket.png 375w, /wp-content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket-300x297.png 300w, /wp-content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket-96x96.png 96w, /wp-content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket-194x192.png 194w, /wp-content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket-45x45.png 45w" sizes="auto, (max-width: 375px) 100vw, 375px">	</a>
 
 
 	<div class="entry-content">
-		<p><strong>Update: Unlimited private pipelines are now free for Build!!</strong></p>
-<p>Microsoft caused a lot of confusion when they announced that you will need to pay to run private build agents, since this was free in TFS. Why should we have to pay to use our own server resources to run a build agent?!? You can see the outcry in the reviews on the Marketplace: 1.7/5 stars: <a href="https://marketplace.visualstudio.com/items?itemName=ms.build-release-private-pipelines#review-details">https://marketplace.visualstudio.com/items?itemName=ms.build-release-private-pipelines#review-details</a></p>
-<p>Once I fully understood how and why the billing is setup this way, I wasn&#8217;t as frustrated.</p>
-<p> <a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/#more-230" class="more-link">Continue reading <span class="screen-reader-text">A simple explanation of private pipeline billing in VSTS</span></a></p>
-	</div>
+		
+<p>I&#8217;ve been having a lot of fun with GitHub Actions lately and wanted to document some of the features I regularly use, including some tips and tricks.</p>
+
+
+
+ <a href="/blog/2023/6-nifty-github-actions-features/#more-1197" class="more-link">Continue reading <span class="screen-reader-text">6 Nifty GitHub Actions Features 🚀</span></a>	</div>
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
+		<span class="comments-link"><a href="/blog/2023/6-nifty-github-actions-features/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
 					
 						
-<article id="post-274" class="post-274 post type-post status-publish format-standard hentry category-uncategorized">
+<article id="post-1178" class="post-1178 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/" rel="bookmark">Octopus Deploy: Running deployment steps in parallel</a></h2>
+		<h2 class="entry-title"><a href="/blog/2023/handling-azure-ad-authentication-with-playwright/" rel="bookmark">Handling Azure AD/Entra ID Authentication with Playwright</a></h2>
 				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/" rel="bookmark"><time class="entry-date published" datetime="2017-06-02T21:22:33+00:00">June 2, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+			<span class="posted-on">Posted on <a href="/blog/2023/handling-azure-ad-authentication-with-playwright/" rel="bookmark"><time class="entry-date published" datetime="2023-02-21T19:29:38+00:00">February 21, 2023</time><time class="updated" datetime="2023-09-19T14:52:03+00:00">September 19, 2023</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/">
-			</a>
+	<a class="post-thumbnail" href="/blog/2023/handling-azure-ad-authentication-with-playwright/">
+		<img width="409" height="391" src="/wp-content/uploads/2023/02/DALL·E-3d-render-of-a-theatre-mask-with-a-key.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="DALL·E 3d render of a theatre mask with a key" decoding="async" loading="lazy" srcset="/wp-content/uploads/2023/02/DALL·E-3d-render-of-a-theatre-mask-with-a-key.png 409w, /wp-content/uploads/2023/02/DALL·E-3d-render-of-a-theatre-mask-with-a-key-300x287.png 300w, /wp-content/uploads/2023/02/DALL·E-3d-render-of-a-theatre-mask-with-a-key-201x192.png 201w" sizes="auto, (max-width: 409px) 100vw, 409px">	</a>
 
 
 	<div class="entry-content">
-		<p>When I first got started with <a href="https://octopus.com/">Octopus Deploy</a> I would setup projects to have one long deploy process that ran steps in serial. Each step would wait until finished before another one would start.  Deploy times got longer and longer, so I set out to find a way to cut down deploy times.</p>
-<p> <a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/#more-274" class="more-link">Continue reading <span class="screen-reader-text">Octopus Deploy: Running deployment steps in parallel</span></a></p>
-	</div>
+		
+<p>One of the most frequently asked questions I get is how to test web apps that use Azure AD/Entra ID. Rather than repeating myself, I figured I&#8217;d write a blog post to expand on the <a rel="noreferrer noopener" href="https://playwright.dev/docs/auth" target="_blank">official docs</a>. </p>
+
+
+
+<p><em>NOTE: the creepy feature image for this post was generated via <a rel="noreferrer noopener" href="https://openai.com/dall-e-2/" target="_blank">DALL-E</a>?</em></p>
+
+
+
+ <a href="/blog/2023/handling-azure-ad-authentication-with-playwright/#more-1178" class="more-link">Continue reading <span class="screen-reader-text">Handling Azure AD/Entra ID Authentication with Playwright</span></a>	</div>
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
+		<span class="comments-link"><a href="/blog/2023/handling-azure-ad-authentication-with-playwright/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
 					
 						
-<article id="post-261" class="post-261 post type-post status-publish format-standard hentry category-uncategorized">
+<article id="post-1117" class="post-1117 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized tag-api-testing tag-browser-automation tag-cypress tag-e2e-testing tag-selenium tag-web-testing">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/gitflow-visual-studio-team-services/" rel="bookmark">Gitflow and Visual Studio Team Services</a></h2>
+		<h2 class="entry-title"><a href="/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/" rel="bookmark">25 reasons to choose Playwright as your next web testing framework</a></h2>
 				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/gitflow-visual-studio-team-services/" rel="bookmark"><time class="entry-date published" datetime="2017-06-01T23:35:59+00:00">June 1, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+			<span class="posted-on">Posted on <a href="/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/" rel="bookmark"><time class="entry-date published" datetime="2022-04-13T16:44:00+00:00">April 13, 2022</time><time class="updated" datetime="2023-03-30T20:55:33+00:00">March 30, 2023</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/gitflow-visual-studio-team-services/">
-			</a>
+	<a class="post-thumbnail" href="/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/">
+		<img width="648" height="382" src="/wp-content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay-648x382.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" loading="lazy" srcset="/wp-content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay-648x382.png 648w, /wp-content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay-300x177.png 300w, /wp-content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay-768x453.png 768w, /wp-content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay-325x192.png 325w, /wp-content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay.png 910w" sizes="auto, (max-width: 648px) 100vw, 648px">	</a>
 
 
 	<div class="entry-content">
-		<p>This last year our team made the decision to move from Team Foundation Version Control (TFVC) to Git.</p>
-<p> <a href="/blog/2017/gitflow-visual-studio-team-services/#more-261" class="more-link">Continue reading <span class="screen-reader-text">Gitflow and Visual Studio Team Services</span></a></p>
-	</div>
+		
+<p>I wanted a place to capture a list of highlights that make Playwright awesome. Here it is, in no particular order:</p>
+
+
+
+ <a href="/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/#more-1117" class="more-link">Continue reading <span class="screen-reader-text">25 reasons to choose Playwright as your next web testing framework</span></a>	</div>
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/gitflow-visual-studio-team-services/#comments">3 Comments</a></span>	</footer><!-- .entry-footer -->
+		<span class="tags-links">Tagged <a href="/blog/tag/api-testing/" rel="tag">api testing</a>, <a href="/blog/tag/browser-automation/" rel="tag">browser automation</a>, <a href="/blog/tag/cypress/" rel="tag">cypress</a>, <a href="/blog/tag/e2e-testing/" rel="tag">e2e testing</a>, <a href="/blog/tag/selenium/" rel="tag">selenium</a>, <a href="/blog/tag/web-testing/" rel="tag">web testing</a></span><span class="comments-link"><a href="/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/#comments">3 Comments</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
 					
 						
-<article id="post-249" class="post-249 post type-post status-publish format-standard hentry category-uncategorized">
+<article id="post-1065" class="post-1065 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/" rel="bookmark">VSTS Marketplace Extension: Queue Build(s) Task</a></h2>
+		<h2 class="entry-title"><a href="/blog/2022/create-more-reliable-playwright-tests-with-locators/" rel="bookmark">Create resilient 🎭 Playwright e2e tests with locators</a></h2>
 				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/" rel="bookmark"><time class="entry-date published" datetime="2017-05-30T23:31:56+00:00">May 30, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+			<span class="posted-on">Posted on <a href="/blog/2022/create-more-reliable-playwright-tests-with-locators/" rel="bookmark"><time class="entry-date published" datetime="2022-01-09T19:36:48+00:00">January 9, 2022</time><time class="updated" datetime="2024-02-05T23:35:58+00:00">February 5, 2024</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/vsts-marketplace-extension-queue-builds-task/">
-			</a>
+	<a class="post-thumbnail" href="/blog/2022/create-more-reliable-playwright-tests-with-locators/">
+		<img width="631" height="428" src="/wp-content/uploads/2022/01/playwrighttestlocatorexample.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" loading="lazy" srcset="/wp-content/uploads/2022/01/playwrighttestlocatorexample.png 631w, /wp-content/uploads/2022/01/playwrighttestlocatorexample-300x203.png 300w, /wp-content/uploads/2022/01/playwrighttestlocatorexample-283x192.png 283w" sizes="auto, (max-width: 631px) 100vw, 631px">	</a>
 
 
 	<div class="entry-content">
-		<p>Currently the TFS/VSTS build system has a pretty big bottleneck: tasks run in serial. For build steps that run PowerShell, I&#8217;ve implemented runspaces to run processes in parallel (<a href="https://gallery.technet.microsoft.com/scriptcenter/Run-Parallel-Parallel-377fd430">Invoke-Parallel</a> is amazing). However, that only works for one build step. The rest have to wait until it&#8217;s finished.</p>
-<p>Enter <a href="https://marketplace.visualstudio.com/items?itemName=jb.queue-build">Queue Build(s) Task</a>. This extension sounds pretty simple, right? Queue a build as part of a build&#8230;. But it has potential to do much more.  It has the ability to use configurations (JSON) to pass variables from the build that&#8217;s queuing other builds, including <a href="https://www.visualstudio.com/en-us/docs/build/define/variables">system variables</a> (source branch name, build id, build name, etc.).</p>
-<p> <a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/#more-249" class="more-link">Continue reading <span class="screen-reader-text">VSTS Marketplace Extension: Queue Build(s) Task</span></a></p>
-	</div>
+		
+<p>Modern web apps introduce some testing challenges — dynamic controls can cause flakiness and unexpected behaviors. This is where the magic of the Playwright <a rel="noreferrer noopener" href="https://playwright.dev/docs/api/class-locator" data-type="URL" data-id="https://playwright.dev/docs/api/class-locator" target="_blank">locator API</a> can help us build more resilient tests. </p>
+
+
+
+ <a href="/blog/2022/create-more-reliable-playwright-tests-with-locators/#more-1065" class="more-link">Continue reading <span class="screen-reader-text">Create resilient 🎭 Playwright e2e tests with locators</span></a>	</div>
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
+		<span class="comments-link"><a href="/blog/2022/create-more-reliable-playwright-tests-with-locators/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
 					
 						
-<article id="post-232" class="post-232 post type-post status-publish format-standard hentry category-uncategorized">
+<article id="post-1044" class="post-1044 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/using-task-groups-tfsvsts/" rel="bookmark">Using Task Groups in TFS/VSTS</a></h2>
+		<h2 class="entry-title"><a href="/blog/2021/publishing-playwright-test-results-to-github-pages/" rel="bookmark">Publishing 🎭 Playwright test results to GitHub Pages</a></h2>
 				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/using-task-groups-tfsvsts/" rel="bookmark"><time class="entry-date published" datetime="2017-05-29T15:32:13+00:00">May 29, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+			<span class="posted-on">Posted on <a href="/blog/2021/publishing-playwright-test-results-to-github-pages/" rel="bookmark"><time class="entry-date published" datetime="2021-11-22T19:49:09+00:00">November 22, 2021</time><time class="updated" datetime="2024-02-05T23:35:44+00:00">February 5, 2024</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
 			</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/using-task-groups-tfsvsts/">
-			</a>
+	<a class="post-thumbnail" href="/blog/2021/publishing-playwright-test-results-to-github-pages/">
+		<img width="648" height="223" src="/wp-content/uploads/2021/11/playwright-test-results-648x223.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" loading="lazy" srcset="/wp-content/uploads/2021/11/playwright-test-results-648x223.png 648w, /wp-content/uploads/2021/11/playwright-test-results-300x103.png 300w, /wp-content/uploads/2021/11/playwright-test-results-1024x353.png 1024w, /wp-content/uploads/2021/11/playwright-test-results-768x265.png 768w, /wp-content/uploads/2021/11/playwright-test-results-1536x529.png 1536w, /wp-content/uploads/2021/11/playwright-test-results-2048x706.png 2048w, /wp-content/uploads/2021/11/playwright-test-results-557x192.png 557w" sizes="auto, (max-width: 648px) 100vw, 648px">	</a>
 
 
 	<div class="entry-content">
-		<p>When Microsoft announced <a href="https://www.visualstudio.com/en-us/docs/build/concepts/library/task-groups">Task Groups</a> in TFS and VSTS, I couldn&#8217;t think of a practical use for them. When creating build definitions I always try to reduce the number of overall definitions by using prompted variables when possible, this way the user can modify the variable when queuing a build rather than duplicating a definition that has the same steps. Of course this doesn&#8217;t work well for things like working directory which warrant a separate build definition. This is where I found Task Groups shine.</p>
-<p> <a href="/blog/2017/using-task-groups-tfsvsts/#more-232" class="more-link">Continue reading <span class="screen-reader-text">Using Task Groups in TFS/VSTS</span></a></p>
-	</div>
+		
+<p>Now that <a rel="noreferrer noopener" href="https://playwright.dev/" data-type="URL" data-id="https://playwright.dev/" target="_blank">Playwright </a>has a fancy new <a rel="noreferrer noopener" href="https://playwright.dev/docs/test-reporters/#html-reporter" target="_blank">HTML reporter</a>, I wanted to host test results to show the latest state of my GitHub Action test runs. Adding a step to my pipeline that publishes the results to GitHub Pages made this pretty simple. </p>
+
+
+
+ <a href="/blog/2021/publishing-playwright-test-results-to-github-pages/#more-1044" class="more-link">Continue reading <span class="screen-reader-text">Publishing 🎭 Playwright test results to GitHub Pages</span></a>	</div>
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/using-task-groups-tfsvsts/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
+		<span class="comments-link"><a href="/blog/2021/publishing-playwright-test-results-to-github-pages/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+					
+						
+<article id="post-1007" class="post-1007 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="/blog/2021/azure-bicep-ci-cd/" rel="bookmark">💪 Azure Bicep CI/CD 🚀</a></h2>
+				<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="/blog/2021/azure-bicep-ci-cd/" rel="bookmark"><time class="entry-date published" datetime="2021-07-11T22:32:36+00:00">July 11, 2021</time><time class="updated" datetime="2024-02-05T23:35:10+00:00">February 5, 2024</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+<!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<a class="post-thumbnail" href="/blog/2021/azure-bicep-ci-cd/">
+		<img width="648" height="78" src="/wp-content/uploads/2021/07/githubactionspipelinebicepazure-648x78.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" loading="lazy" srcset="/wp-content/uploads/2021/07/githubactionspipelinebicepazure-648x78.png 648w, /wp-content/uploads/2021/07/githubactionspipelinebicepazure-300x36.png 300w, /wp-content/uploads/2021/07/githubactionspipelinebicepazure-1024x123.png 1024w, /wp-content/uploads/2021/07/githubactionspipelinebicepazure-768x93.png 768w, /wp-content/uploads/2021/07/githubactionspipelinebicepazure-1536x185.png 1536w, /wp-content/uploads/2021/07/githubactionspipelinebicepazure-2048x247.png 2048w, /wp-content/uploads/2021/07/githubactionspipelinebicepazure-583x70.png 583w" sizes="auto, (max-width: 648px) 100vw, 648px">	</a>
+
+
+	<div class="entry-content">
+		
+<p>Hey, you. You&#8217;re not manually deploying your <a rel="noreferrer noopener" href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview" target="_blank">Azure Bicep</a> Infrastructure as Code, are you?!? Let&#8217;s prevent that next production outage, help your team collaborate on changes, and enable more frequent deployments. In this post, I&#8217;ll outline what tooling is available to integrate Bicep in your pipelines, and some good practices for building and deploying.</p>
+
+
+
+ <a href="/blog/2021/azure-bicep-ci-cd/#more-1007" class="more-link">Continue reading <span class="screen-reader-text">💪 Azure Bicep CI/CD 🚀</span></a>	</div>
+<!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="comments-link"><a href="/blog/2021/azure-bicep-ci-cd/#comments">3 Comments</a></span>	</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+					
+						
+<article id="post-969" class="post-969 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+	<header class="entry-header">
+		<h2 class="entry-title"><a href="/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/" rel="bookmark">Using Terraform&#8217;s Azure provider (azurerm) with GitHub Actions and Terraform Cloud</a></h2>
+				<div class="entry-meta">
+			<span class="posted-on">Posted on <a href="/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/" rel="bookmark"><time class="entry-date published" datetime="2021-02-06T18:38:44+00:00">February 6, 2021</time><time class="updated" datetime="2021-02-06T18:50:47+00:00">February 6, 2021</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+<!-- .entry-meta -->
+			</header><!-- .entry-header -->
+
+	
+	<a class="post-thumbnail" href="/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/">
+		<img width="648" height="336" src="/wp-content/uploads/2021/02/error-648x336.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" loading="lazy" srcset="/wp-content/uploads/2021/02/error-648x336.png 648w, /wp-content/uploads/2021/02/error-300x155.png 300w, /wp-content/uploads/2021/02/error-1024x530.png 1024w, /wp-content/uploads/2021/02/error-768x398.png 768w, /wp-content/uploads/2021/02/error-1536x796.png 1536w, /wp-content/uploads/2021/02/error-2048x1061.png 2048w, /wp-content/uploads/2021/02/error-371x192.png 371w" sizes="auto, (max-width: 648px) 100vw, 648px">	</a>
+
+
+	<div class="entry-content">
+		
+<p>I wanted to document this after spending a frustrating amount of time troubleshooting getting this setup. I was getting this error when running Terraform Plan: </p>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow"><p><code>Error building AzureRM Client: obtain subscription() from Azure CLI: Error parsing json result from the Azure CLI: Error waiting for the Azure CLI: exit status 1: ERROR: Please run 'az login' to setup account.</code></p></blockquote>
+
+
+
+ <a href="/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/#more-969" class="more-link">Continue reading <span class="screen-reader-text">Using Terraform&#8217;s Azure provider (azurerm) with GitHub Actions and Terraform Cloud</span></a>	</div>
+<!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="comments-link"><a href="/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/#comments">7 Comments</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
 					
@@ -401,9 +499,9 @@ a:hover {
 		<h2 class="screen-reader-text">Posts navigation</h2>
 		<div class="nav-links">
 
+							<div class="nav-previous">
+					<a href="/blog/author/marcus-fellinggmail-com/page/2/"><span class="meta-nav">&larr;</span> Older posts</a>				</div>
 			
-							<div class="nav-next">
-					<a href="/blog/author/marcus-fellinggmail-com/page/4/">Newer posts <span class="meta-nav">&rarr;</span></a>				</div>
 			
 		</div>
 <!-- .nav-links -->
@@ -429,18 +527,18 @@ a:hover {
 							<div class="footer-widget">
 					<aside id="email-subscribers-form-2" class="widget widget_email-subscribers-form"><h2 class="widget-title"> Subscribe </h2>
 <div class="emaillist" id="es_form_f2-n1">
-<form action="/blog/author/marcus-fellinggmail-com/page/5/?simply_static_page=1800#es_form_f2-n1" method="post" class="es_subscription_form es_shortcode_form  es_ajax_subscription_form" id="es_subscription_form_677d35bce6296" data-source="ig-es" data-form-id="2">
+<form action="/blog/author/marcus-fellinggmail-com/?simply_static_page=967#es_form_f2-n1" method="post" class="es_subscription_form es_shortcode_form  es_ajax_subscription_form" id="es_subscription_form_677d358d081e6" data-source="ig-es" data-form-id="2">
 <div class="es-field-wrap"><label>Name<br><input type="text" name="esfpx_name" class="ig_es_form_field_name" placeholder="" value=""></label></div>
 <div class="es-field-wrap"><label>Email*<br><input class="es_required_field es_txt_email ig_es_form_field_email" type="email" name="esfpx_email" value="" placeholder="" required="required"></label></div>
 <input type="hidden" name="esfpx_lists[]" value="eb102e951801"><input type="hidden" name="esfpx_form_id" value="2"><input type="hidden" name="es" value="subscribe">
 			<input type="hidden" name="esfpx_es_form_identifier" value="f2-n1">
-			<input type="hidden" name="esfpx_es_email_page" value="232">
-			<input type="hidden" name="esfpx_es_email_page_url" value="https://marcusfelling.com/blog/2017/using-task-groups-tfsvsts/">
+			<input type="hidden" name="esfpx_es_email_page" value="969">
+			<input type="hidden" name="esfpx_es_email_page_url" value="https://marcusfelling.com/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/">
 			<input type="hidden" name="esfpx_status" value="Unconfirmed">
-			<input type="hidden" name="esfpx_es-subscribe" id="es-subscribe-677d35bce6296" value="a857904665">
-			<label style="position:absolute;top:-99999px;left:-99999px;z-index:-99;" aria-hidden="true"><span hidden>Please leave this field empty.</span><input type="email" name="esfpx_es_hp_email" class="es_required_field" tabindex="-1" autocomplete="-1" value=""></label><input type="submit" name="submit" class="es_subscription_form_submit es_submit_button es_textbox_button" id="es_subscription_form_submit_677d35bce6296" value="Submit"><span class="es_spinner_image" id="spinner-image"><img src="/wp-content/plugins/email-subscribers/lite/public/images/spinner.gif" alt="Loading"></span>
+			<input type="hidden" name="esfpx_es-subscribe" id="es-subscribe-677d358d081e6" value="a857904665">
+			<label style="position:absolute;top:-99999px;left:-99999px;z-index:-99;" aria-hidden="true"><span hidden>Please leave this field empty.</span><input type="email" name="esfpx_es_hp_email" class="es_required_field" tabindex="-1" autocomplete="-1" value=""></label><input type="submit" name="submit" class="es_subscription_form_submit es_submit_button es_textbox_button" id="es_subscription_form_submit_677d358d081e6" value="Submit"><span class="es_spinner_image" id="spinner-image"><img src="/wp-content/plugins/email-subscribers/lite/public/images/spinner.gif" alt="Loading"></span>
 </form>
-<span class="es_subscription_message " id="es_subscription_message_677d35bce6296" role="alert" aria-live="assertive"></span>
+<span class="es_subscription_message " id="es_subscription_message_677d358d081e6" role="alert" aria-live="assertive"></span>
 </div></aside>				</div>
 <!-- .footer-widget -->
 			
@@ -495,8 +593,14 @@ a:hover {
 </div>
 <!-- #page -->
 
-        <span class="ssp-id" style="display:none">319</span>
+        <span class="ssp-id" style="display:none">1264</span>
 		<link rel="stylesheet" id="rpwe-style-css" href="/wp-content/plugins/recent-posts-widget-extended/assets/css/rpwe-frontend.css?ver=2.0.2" type="text/css" media="all">
+<script type="text/javascript" id="mkaz-code-syntax-prism-js-js-extra">
+/* <![CDATA[ */
+var prism_settings = {"pluginUrl":"\/wp-content\/plugins\/code-syntax-block\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp-content/plugins/code-syntax-block/assets/prism/prism.js?ver=1715198387" id="mkaz-code-syntax-prism-js-js"></script>
 <script type="text/javascript" src="/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
 <script type="text/javascript" src="/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
 <script type="text/javascript" id="wp-i18n-js-after">
@@ -531,7 +635,7 @@ var wpdata = {"object_id":"1","site_url":""};
 <script type="text/javascript" src="/wp-content/plugins/simply-static-pro/assets/ssp-comment-webhook.js?ver=1.6.4.2" id="ssp-comment-webhook-js"></script>
 <script type="text/javascript" id="analytify_track_miscellaneous-js-extra">
 /* <![CDATA[ */
-var miscellaneous_tracking_options = {"ga_mode":"ga4","tracking_mode":"gtag","track_404_page":{"should_track":"off","is_404":false,"current_url":"\/blog\/author\/marcus-fellinggmail-com\/page\/5\/?simply_static_page=1800"},"track_js_error":"off","track_ajax_error":"off"};
+var miscellaneous_tracking_options = {"ga_mode":"ga4","tracking_mode":"gtag","track_404_page":{"should_track":"off","is_404":false,"current_url":"\/blog\/author\/marcus-fellinggmail-com\/?simply_static_page=967"},"track_js_error":"off","track_ajax_error":"off"};
 /* ]]> */
 </script>
 <script type="text/javascript" src="/wp-content/plugins/wp-analytify/assets/js/miscellaneous-tracking.js?ver=5.5.0" id="analytify_track_miscellaneous-js"></script>

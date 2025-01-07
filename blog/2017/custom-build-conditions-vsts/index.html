@@ -6,7 +6,7 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="/xmlrpc.php">
 
-<title>Marcus &#8211; Page 5 &#8211; Marcus Felling</title>
+<title>Custom Build Conditions in VSTS &#8211; Marcus Felling</title>
 <meta name="robots" content="max-image-preview:large">
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
 	
@@ -16,7 +16,7 @@
         <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Feed" href="/feed/">
 <link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Comments Feed" href="/comments/feed/">
-<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Posts by Marcus Feed" href="/blog/author/marcus-fellinggmail-com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Custom Build Conditions in VSTS Comments Feed" href="/blog/2017/custom-build-conditions-vsts/feed/">
 <script type="text/javascript">
 /* <![CDATA[ */
 window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.1"}};
@@ -66,9 +66,13 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
 <script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
 <link rel="https://api.w.org/" href="/wp-json/">
-<link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/users/1">
+<link rel="alternate" title="JSON" type="application/json" href="/wp-json/wp/v2/posts/305">
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd">
 <meta name="generator" content="WordPress 6.7.1">
+<link rel="canonical" href="/blog/2017/custom-build-conditions-vsts/">
+<link rel="shortlink" href="/?p=305">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2Fblog%2F2017%2Fcustom-build-conditions-vsts%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2Fblog%2F2017%2Fcustom-build-conditions-vsts%2F#038;format=xml">
 
 <style>body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -117,7 +121,7 @@ a:hover {
 			<!-- This code is added by Analytify (5.5.0) !--><meta name="generator" content="Powered by Buttons X - Powerful Button Builder for WordPress.">
 </head>
 
-<body class="archive paged author author-marcus-fellinggmail-com author-1 paged-5 author-paged-5 has-header-search navigation-classic no-sidebar">
+<body class="post-template-default single single-post postid-305 single-format-standard has-header-search navigation-classic no-sidebar">
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
@@ -177,65 +181,32 @@ a:hover {
   gtag('config', 'UA-66330215-1');</script>
 
 
-	<div class="hero without-featured-image">
-		
-			<div class="hero-wrapper">
-				<h1 class="page-title">
-					Author: <span class="vcard">Marcus</span>				</h1>
-							</div>
-
-			</div>
-<!-- .hero -->
-
 	<div class="content-wrapper clear">
 
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
 
 				
-										
-						
-<article id="post-319" class="post-319 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/visual-studio-marketplace-metrics/" rel="bookmark">Visual Studio Marketplace Metrics</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/visual-studio-marketplace-metrics/" rel="bookmark"><time class="entry-date published" datetime="2017-07-18T18:58:07+00:00">July 18, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/visual-studio-marketplace-metrics/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>Earlier this year I decided to create some Visual Studio Marketplace build extensions. I was re-using the same tasks in multiple build definitions and there wasn&#8217;t anything published to the marketplace that accomplished what I needed. The first extension I created is used to <a href="https://marketplace.visualstudio.com/items?itemName=MFelling.AWSS3Upload">upload files to AWS S3</a>; this was the very first AWS related extension in the marketplace which was kind of cool. It took me longer than I expected because of all the ceremony in setting up the metadata and manifest json files, and packaging with <a href="https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task#cli" data-linktype="self-bookmark">tfx-cli</a>. More details on creating a build task here: <a href="https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task">https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task</a> Creating my <a href="https://marketplace.visualstudio.com/items?itemName=MFelling.AzureStorageUpload">second extension</a> went a lot faster since I could re-use and modify most of the files. Now that these extensions were published, I was interested to see metrics on them.</p>
-<p> <a href="/blog/2017/visual-studio-marketplace-metrics/#more-319" class="more-link">Continue reading <span class="screen-reader-text">Visual Studio Marketplace Metrics</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/visual-studio-marketplace-metrics/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
 					
-						
 <article id="post-305" class="post-305 post type-post status-publish format-standard hentry category-uncategorized">
 	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/custom-build-conditions-vsts/" rel="bookmark">Custom Build Conditions in VSTS</a></h2>
-				<div class="entry-meta">
+		<h1 class="entry-title">Custom Build Conditions in VSTS</h1>
+		<div class="entry-meta">
 			<span class="posted-on">Posted on <a href="/blog/2017/custom-build-conditions-vsts/" rel="bookmark"><time class="entry-date published" datetime="2017-06-18T17:27:50+00:00">June 18, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
-			</header><!-- .entry-header -->
+	</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="/blog/2017/custom-build-conditions-vsts/">
-			</a>
-
-
 	<div class="entry-content">
 		<p>On March 29th, 2017 the VSTS team released a new feature that added the ability to specify conditions for running a build task. This provides more control over your build tasks, for things such as a task to clean things up (even if a build fails), or send a message when something goes wrong, under conditions such as certain branches or with certain triggers. Custom Conditions appear in the new build definition editor under Control Options. Custom conditions are not currently available for Task Groups because they still use the old build definition editor (this is on the backlog).</p>
-<p> <a href="/blog/2017/custom-build-conditions-vsts/#more-305" class="more-link">Continue reading <span class="screen-reader-text">Custom Build Conditions in VSTS</span></a></p>
+<p><span id="more-305"></span></p>
+<p><a href="/wp-content/uploads/2017/06/VSTSCustomConditions.png"><img fetchpriority="high" decoding="async" class="alignnone size-full wp-image-306" src="/wp-content/uploads/2017/06/VSTSCustomConditions.png" alt="" width="463" height="355" srcset="/wp-content/uploads/2017/06/VSTSCustomConditions.png 463w, /wp-content/uploads/2017/06/VSTSCustomConditions-300x230.png 300w, /wp-content/uploads/2017/06/VSTSCustomConditions-250x192.png 250w" sizes="(max-width: 463px) 100vw, 463px"></a></p>
+<p>Microsoft provides examples for various conditions here: <a href="https://www.visualstudio.com/en-us/docs/build/concepts/process/conditions">https://www.visualstudio.com/en-us/docs/build/concepts/process/conditions</a></p>
+<p>I found the most useful condition was checking variable values, in particular, the build.reason variable. I used this to combine multiple build definitions into one by setting conditions on certain tasks so they only ran based on what triggered the build. I had a separate build definition for CI (compilation and unit tests only) that was triggered by pull requests. Setting the following condition, the compilation and unit tests would run if the build was triggered by a pull request:</p>
+<p><code>and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))</code></p>
+<p>I had another build definition that would run CI, along with packaging and pushing packages to our artifact repository. By setting the build conditions I could combine the two definitions and only run the extra steps to package and push if the build was manually queued or scheduled as part of our nightly build.</p>
+<p>Note: I encountered a bug where conditions do not save the first time. Reload the build definition editor, re-enter the conditions and they should save the second time around.</p>
+<p>Have you used custom conditions? Leave a comment below!</p>
 	</div>
 <!-- .entry-content -->
 
@@ -243,172 +214,185 @@ a:hover {
 		<span class="comments-link"><a href="/blog/2017/custom-build-conditions-vsts/#comments">6 Comments</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
-					
-						
-<article id="post-287" class="post-287 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/" rel="bookmark">Migrating Team Foundation Server to Visual Studio Team Services</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/" rel="bookmark"><time class="entry-date published" datetime="2017-06-03T17:21:53+00:00">June 3, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>Last month I migrated our TFS collection to VSTS using Microsoft&#8217;s Database Import Service and <a href="https://www.visualstudio.com/team-services/migrate-tfs-vsts">migration guide</a>. To be frank, it was a long process and it took a lot of going back and forth to make sure I fully understood the guide which is a PDF that is 58 pages long. The guide comes with several checklists and things you need to check and prep before your migration.</p>
-<p> <a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/#more-287" class="more-link">Continue reading <span class="screen-reader-text">Migrating Team Foundation Server to Visual Studio Team Services</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-230" class="post-230 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/" rel="bookmark">A simple explanation of private pipeline billing in VSTS</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/" rel="bookmark"><time class="entry-date published" datetime="2017-06-02T21:23:26+00:00">June 2, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/">
-			</a>
-
-
-	<div class="entry-content">
-		<p><strong>Update: Unlimited private pipelines are now free for Build!!</strong></p>
-<p>Microsoft caused a lot of confusion when they announced that you will need to pay to run private build agents, since this was free in TFS. Why should we have to pay to use our own server resources to run a build agent?!? You can see the outcry in the reviews on the Marketplace: 1.7/5 stars: <a href="https://marketplace.visualstudio.com/items?itemName=ms.build-release-private-pipelines#review-details">https://marketplace.visualstudio.com/items?itemName=ms.build-release-private-pipelines#review-details</a></p>
-<p>Once I fully understood how and why the billing is setup this way, I wasn&#8217;t as frustrated.</p>
-<p> <a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/#more-230" class="more-link">Continue reading <span class="screen-reader-text">A simple explanation of private pipeline billing in VSTS</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/simple-explanation-private-pipeline-billing-vsts/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-274" class="post-274 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/" rel="bookmark">Octopus Deploy: Running deployment steps in parallel</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/" rel="bookmark"><time class="entry-date published" datetime="2017-06-02T21:22:33+00:00">June 2, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>When I first got started with <a href="https://octopus.com/">Octopus Deploy</a> I would setup projects to have one long deploy process that ran steps in serial. Each step would wait until finished before another one would start.  Deploy times got longer and longer, so I set out to find a way to cut down deploy times.</p>
-<p> <a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/#more-274" class="more-link">Continue reading <span class="screen-reader-text">Octopus Deploy: Running deployment steps in parallel</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/octopus-deploy-running-deployment-steps-parallel/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-261" class="post-261 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/gitflow-visual-studio-team-services/" rel="bookmark">Gitflow and Visual Studio Team Services</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/gitflow-visual-studio-team-services/" rel="bookmark"><time class="entry-date published" datetime="2017-06-01T23:35:59+00:00">June 1, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/gitflow-visual-studio-team-services/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>This last year our team made the decision to move from Team Foundation Version Control (TFVC) to Git.</p>
-<p> <a href="/blog/2017/gitflow-visual-studio-team-services/#more-261" class="more-link">Continue reading <span class="screen-reader-text">Gitflow and Visual Studio Team Services</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/gitflow-visual-studio-team-services/#comments">3 Comments</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-249" class="post-249 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/" rel="bookmark">VSTS Marketplace Extension: Queue Build(s) Task</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/" rel="bookmark"><time class="entry-date published" datetime="2017-05-30T23:31:56+00:00">May 30, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/vsts-marketplace-extension-queue-builds-task/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>Currently the TFS/VSTS build system has a pretty big bottleneck: tasks run in serial. For build steps that run PowerShell, I&#8217;ve implemented runspaces to run processes in parallel (<a href="https://gallery.technet.microsoft.com/scriptcenter/Run-Parallel-Parallel-377fd430">Invoke-Parallel</a> is amazing). However, that only works for one build step. The rest have to wait until it&#8217;s finished.</p>
-<p>Enter <a href="https://marketplace.visualstudio.com/items?itemName=jb.queue-build">Queue Build(s) Task</a>. This extension sounds pretty simple, right? Queue a build as part of a build&#8230;. But it has potential to do much more.  It has the ability to use configurations (JSON) to pass variables from the build that&#8217;s queuing other builds, including <a href="https://www.visualstudio.com/en-us/docs/build/define/variables">system variables</a> (source branch name, build id, build name, etc.).</p>
-<p> <a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/#more-249" class="more-link">Continue reading <span class="screen-reader-text">VSTS Marketplace Extension: Queue Build(s) Task</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/vsts-marketplace-extension-queue-builds-task/#comments">1 Comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						
-<article id="post-232" class="post-232 post type-post status-publish format-standard hentry category-uncategorized">
-	<header class="entry-header">
-		<h2 class="entry-title"><a href="/blog/2017/using-task-groups-tfsvsts/" rel="bookmark">Using Task Groups in TFS/VSTS</a></h2>
-				<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="/blog/2017/using-task-groups-tfsvsts/" rel="bookmark"><time class="entry-date published" datetime="2017-05-29T15:32:13+00:00">May 29, 2017</time><time class="updated" datetime="2017-11-15T14:59:38+00:00">November 15, 2017</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
-<!-- .entry-meta -->
-			</header><!-- .entry-header -->
-
-	
-	<a class="post-thumbnail" href="/blog/2017/using-task-groups-tfsvsts/">
-			</a>
-
-
-	<div class="entry-content">
-		<p>When Microsoft announced <a href="https://www.visualstudio.com/en-us/docs/build/concepts/library/task-groups">Task Groups</a> in TFS and VSTS, I couldn&#8217;t think of a practical use for them. When creating build definitions I always try to reduce the number of overall definitions by using prompted variables when possible, this way the user can modify the variable when queuing a build rather than duplicating a definition that has the same steps. Of course this doesn&#8217;t work well for things like working directory which warrant a separate build definition. This is where I found Task Groups shine.</p>
-<p> <a href="/blog/2017/using-task-groups-tfsvsts/#more-232" class="more-link">Continue reading <span class="screen-reader-text">Using Task Groups in TFS/VSTS</span></a></p>
-	</div>
-<!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<span class="comments-link"><a href="/blog/2017/using-task-groups-tfsvsts/#respond">Leave a comment</a></span>	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
-
-					
-						<nav class="navigation paging-navigation" role="navigation">
-		<h2 class="screen-reader-text">Posts navigation</h2>
+						<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
 		<div class="nav-links">
-
-			
-							<div class="nav-next">
-					<a href="/blog/author/marcus-fellinggmail-com/page/4/">Newer posts <span class="meta-nav">&rarr;</span></a>				</div>
-			
-		</div>
+			<div class="nav-previous"><a href="/blog/2017/migrating-team-foundation-server-visual-studio-team-services/" rel="prev"><span class="meta-nav">&larr;</span> Migrating Team Foundation Server to Visual Studio Team Services</a></div>
+<div class="nav-next"><a href="/blog/2017/visual-studio-marketplace-metrics/" rel="next">Visual Studio Marketplace Metrics <span class="meta-nav">&rarr;</span></a></div>		</div>
 <!-- .nav-links -->
 	</nav><!-- .navigation -->
 	
+					
+<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			6 thoughts on &ldquo;<span>Custom Build Conditions in VSTS</span>&rdquo;		</h2>
+
+		<ol class="comment-list">
+					<li id="comment-102" class="comment even thread-even depth-1">
+			<article id="div-comment-102" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/edf327c9749d0f22d8080fe040c046ce?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/edf327c9749d0f22d8080fe040c046ce?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" decoding="async">						<b class="fn">Thakkar Ankit</b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2017/custom-build-conditions-vsts/#comment-102"><time datetime="2018-02-21T09:29:21+00:00">February 21, 2018 at 9:29 am</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello All,</p>
+<p>I have list of build definitions and each has different Build Number Format(Total 3 types of build format). So I want to set a release definitions, but it will check correct build number format then only start deployment in VSTS. Can anyone help me ?</p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2017/custom-build-conditions-vsts/?replytocom=102#respond" data-commentid="102" data-postid="305" data-belowelement="div-comment-102" data-respondelement="respond" data-replyto="Reply to Thakkar Ankit" aria-label="Reply to Thakkar Ankit">Reply</a></div>			</article><!-- .comment-body -->
+		</li>
+<!-- #comment-## -->
+		<li id="comment-104" class="comment byuser comment-author-marcus-fellinggmail-com bypostauthor odd alt thread-odd thread-alt depth-1">
+			<article id="div-comment-104" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/045502470efeb95baab1b766a91c41f5?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/045502470efeb95baab1b766a91c41f5?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" decoding="async">						<b class="fn">Marcus</b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2017/custom-build-conditions-vsts/#comment-104"><time datetime="2018-02-22T14:53:52+00:00">February 22, 2018 at 2:53 pm</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Thakkar, </p>
+<p>Are you saying you want to trigger a release if the build number format matches a Custom Condition? I&#8217;m not sure what formats you&#8217;re working with but you could probably come up with something using the functions here: <a href="https://www.visualstudio.com/en-us/docs/build/concepts/process/conditions#general-functions" rel="nofollow ugc">https://www.visualstudio.com/en-us/docs/build/concepts/process/conditions#general-functions</a></p>
+<p>To simplify things, would it be possible to trigger a release based on the build definition name? If so, the condition would look something like &#8220;and(succeeded(), eq(variables[&#8216;Build.DefinitionName&#8217;], &#8216;BUILDDEFINITIONNAME&#8217;))&#8221;</p>
+<p>Hopefully that helps,<br>
+Marcus</p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2017/custom-build-conditions-vsts/?replytocom=104#respond" data-commentid="104" data-postid="305" data-belowelement="div-comment-104" data-respondelement="respond" data-replyto="Reply to Marcus" aria-label="Reply to Marcus">Reply</a></div>			</article><!-- .comment-body -->
+		</li>
+<!-- #comment-## -->
+		<li id="comment-5323" class="comment even thread-even depth-1 parent">
+			<article id="div-comment-5323" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/dc16f8ddd18c82932af6153281625d0f?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/dc16f8ddd18c82932af6153281625d0f?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy" decoding="async">						<b class="fn">priya garg</b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2017/custom-build-conditions-vsts/#comment-5323"><time datetime="2019-09-09T08:25:27+00:00">September 9, 2019 at 8:25 am</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>I want to trigger a build based on any changes in particular folder(this is in context with yarn workspaces packages)..can u help plz.</p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2017/custom-build-conditions-vsts/?replytocom=5323#respond" data-commentid="5323" data-postid="305" data-belowelement="div-comment-5323" data-respondelement="respond" data-replyto="Reply to priya garg" aria-label="Reply to priya garg">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-5339" class="comment byuser comment-author-marcus-fellinggmail-com bypostauthor odd alt depth-2">
+			<article id="div-comment-5339" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/045502470efeb95baab1b766a91c41f5?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/045502470efeb95baab1b766a91c41f5?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy" decoding="async">						<b class="fn">Marcus</b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2017/custom-build-conditions-vsts/#comment-5339"><time datetime="2019-09-09T17:59:20+00:00">September 9, 2019 at 5:59 pm</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Take a look at the build pipeline triggers doc: <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&#038;tabs=yaml" rel="nofollow ugc">https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&#038;tabs=yaml</a></p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2017/custom-build-conditions-vsts/?replytocom=5339#respond" data-commentid="5339" data-postid="305" data-belowelement="div-comment-5339" data-respondelement="respond" data-replyto="Reply to Marcus" aria-label="Reply to Marcus">Reply</a></div>			</article><!-- .comment-body -->
+		</li>
+<!-- #comment-## -->
+</ol>
+<!-- .children -->
+</li>
+<!-- #comment-## -->
+		<li id="comment-10417" class="comment even thread-odd thread-alt depth-1 parent">
+			<article id="div-comment-10417" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/c3b52dedc2bf937f7e2a1a28247b2d81?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/c3b52dedc2bf937f7e2a1a28247b2d81?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy" decoding="async">						<b class="fn">saipavan enuguru</b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2017/custom-build-conditions-vsts/#comment-10417"><time datetime="2020-02-28T18:39:45+00:00">February 28, 2020 at 6:39 pm</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hello Marcus,</p>
+<p>I we have three build definitions that need to be complete first and after that successful build of all the three build defination. i want to trigger after completion of three build pipeline as this pipeline for packaging pipeline to create the singe exe our application to deploy to the servers. can you help me what type custom condition do i need to use.</p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2017/custom-build-conditions-vsts/?replytocom=10417#respond" data-commentid="10417" data-postid="305" data-belowelement="div-comment-10417" data-respondelement="respond" data-replyto="Reply to saipavan enuguru" aria-label="Reply to saipavan enuguru">Reply</a></div>			</article><!-- .comment-body -->
+		<ol class="children">
+		<li id="comment-11084" class="comment byuser comment-author-marcus-fellinggmail-com bypostauthor odd alt depth-2">
+			<article id="div-comment-11084" class="comment-body">
+				<footer class="comment-meta">
+					<div class="comment-author vcard">
+						<img alt="" src="https://secure.gravatar.com/avatar/045502470efeb95baab1b766a91c41f5?s=48&#038;d=mm&#038;r=g" srcset="https://secure.gravatar.com/avatar/045502470efeb95baab1b766a91c41f5?s=96&#038;d=mm&#038;r=g 2x" class="avatar avatar-48 photo" height="48" width="48" loading="lazy" decoding="async">						<b class="fn">Marcus</b> <span class="says">says:</span>					</div>
+<!-- .comment-author -->
+
+					<div class="comment-metadata">
+						<a href="/blog/2017/custom-build-conditions-vsts/#comment-11084"><time datetime="2020-04-22T17:01:48+00:00">April 22, 2020 at 5:01 pm</time></a>					</div>
+<!-- .comment-metadata -->
+
+									</footer><!-- .comment-meta -->
+
+				<div class="comment-content">
+					<p>Hey Saipavan,</p>
+<p>That sounds like a good fit for <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops&amp;tabs=classic" target="_blank" rel="noopener noreferrer nofollow ugc">pipeline completion triggers</a>. Give that a shot and let me know if you have any other questions.</p>
+<p>Marcus</p>
+				</div>
+<!-- .comment-content -->
+
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="/blog/2017/custom-build-conditions-vsts/?replytocom=11084#respond" data-commentid="11084" data-postid="305" data-belowelement="div-comment-11084" data-respondelement="respond" data-replyto="Reply to Marcus" aria-label="Reply to Marcus">Reply</a></div>			</article><!-- .comment-body -->
+		</li>
+<!-- #comment-## -->
+</ol>
+<!-- .children -->
+</li>
+<!-- #comment-## -->
+		</ol>
+<!-- .comment-list -->
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/2017/custom-build-conditions-vsts/#respond" style="display:none;">Cancel reply</a></small>
+</h3>
+<form action="https://marcusfelling.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
+<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p>
+<p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p>
+<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment"> <input type="hidden" name="comment_post_ID" value="305" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p>
+</form>	</div>
+<!-- #respond -->
+	
+</div>
+<!-- #comments -->
+
 				
 			</main><!-- #main -->
 		</div>
@@ -429,18 +413,18 @@ a:hover {
 							<div class="footer-widget">
 					<aside id="email-subscribers-form-2" class="widget widget_email-subscribers-form"><h2 class="widget-title"> Subscribe </h2>
 <div class="emaillist" id="es_form_f2-n1">
-<form action="/blog/author/marcus-fellinggmail-com/page/5/?simply_static_page=1800#es_form_f2-n1" method="post" class="es_subscription_form es_shortcode_form  es_ajax_subscription_form" id="es_subscription_form_677d35bce6296" data-source="ig-es" data-form-id="2">
+<form action="/blog/2017/custom-build-conditions-vsts/?simply_static_page=1185#es_form_f2-n1" method="post" class="es_subscription_form es_shortcode_form  es_ajax_subscription_form" id="es_subscription_form_677d35a103390" data-source="ig-es" data-form-id="2">
 <div class="es-field-wrap"><label>Name<br><input type="text" name="esfpx_name" class="ig_es_form_field_name" placeholder="" value=""></label></div>
 <div class="es-field-wrap"><label>Email*<br><input class="es_required_field es_txt_email ig_es_form_field_email" type="email" name="esfpx_email" value="" placeholder="" required="required"></label></div>
 <input type="hidden" name="esfpx_lists[]" value="eb102e951801"><input type="hidden" name="esfpx_form_id" value="2"><input type="hidden" name="es" value="subscribe">
 			<input type="hidden" name="esfpx_es_form_identifier" value="f2-n1">
-			<input type="hidden" name="esfpx_es_email_page" value="232">
-			<input type="hidden" name="esfpx_es_email_page_url" value="https://marcusfelling.com/blog/2017/using-task-groups-tfsvsts/">
+			<input type="hidden" name="esfpx_es_email_page" value="305">
+			<input type="hidden" name="esfpx_es_email_page_url" value="https://marcusfelling.com/blog/2017/custom-build-conditions-vsts/">
 			<input type="hidden" name="esfpx_status" value="Unconfirmed">
-			<input type="hidden" name="esfpx_es-subscribe" id="es-subscribe-677d35bce6296" value="a857904665">
-			<label style="position:absolute;top:-99999px;left:-99999px;z-index:-99;" aria-hidden="true"><span hidden>Please leave this field empty.</span><input type="email" name="esfpx_es_hp_email" class="es_required_field" tabindex="-1" autocomplete="-1" value=""></label><input type="submit" name="submit" class="es_subscription_form_submit es_submit_button es_textbox_button" id="es_subscription_form_submit_677d35bce6296" value="Submit"><span class="es_spinner_image" id="spinner-image"><img src="/wp-content/plugins/email-subscribers/lite/public/images/spinner.gif" alt="Loading"></span>
+			<input type="hidden" name="esfpx_es-subscribe" id="es-subscribe-677d35a103390" value="a857904665">
+			<label style="position:absolute;top:-99999px;left:-99999px;z-index:-99;" aria-hidden="true"><span hidden>Please leave this field empty.</span><input type="email" name="esfpx_es_hp_email" class="es_required_field" tabindex="-1" autocomplete="-1" value=""></label><input type="submit" name="submit" class="es_subscription_form_submit es_submit_button es_textbox_button" id="es_subscription_form_submit_677d35a103390" value="Submit"><span class="es_spinner_image" id="spinner-image"><img src="/wp-content/plugins/email-subscribers/lite/public/images/spinner.gif" alt="Loading"></span>
 </form>
-<span class="es_subscription_message " id="es_subscription_message_677d35bce6296" role="alert" aria-live="assertive"></span>
+<span class="es_subscription_message " id="es_subscription_message_677d35a103390" role="alert" aria-live="assertive"></span>
 </div></aside>				</div>
 <!-- .footer-widget -->
 			
@@ -495,7 +479,7 @@ a:hover {
 </div>
 <!-- #page -->
 
-        <span class="ssp-id" style="display:none">319</span>
+        <span class="ssp-id" style="display:none">305</span>
 		<link rel="stylesheet" id="rpwe-style-css" href="/wp-content/plugins/recent-posts-widget-extended/assets/css/rpwe-frontend.css?ver=2.0.2" type="text/css" media="all">
 <script type="text/javascript" src="/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
 <script type="text/javascript" src="/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
@@ -524,14 +508,14 @@ var es_data = {"messages":{"es_empty_email_notice":"Please enter email address",
 <script type="text/javascript" src="/wp-content/plugins/email-subscribers/lite/public/js/email-subscribers-public.js?ver=5.7.47" id="email-subscribers-js"></script>
 <script type="text/javascript" id="custom-script-js-extra">
 /* <![CDATA[ */
-var wpdata = {"object_id":"1","site_url":""};
+var wpdata = {"object_id":"305","site_url":""};
 /* ]]> */
 </script>
 <script type="text/javascript" src="/wp-content/plugins/wp-meta-and-date-remover/assets/js/inspector.js?ver=1.1" id="custom-script-js"></script>
 <script type="text/javascript" src="/wp-content/plugins/simply-static-pro/assets/ssp-comment-webhook.js?ver=1.6.4.2" id="ssp-comment-webhook-js"></script>
 <script type="text/javascript" id="analytify_track_miscellaneous-js-extra">
 /* <![CDATA[ */
-var miscellaneous_tracking_options = {"ga_mode":"ga4","tracking_mode":"gtag","track_404_page":{"should_track":"off","is_404":false,"current_url":"\/blog\/author\/marcus-fellinggmail-com\/page\/5\/?simply_static_page=1800"},"track_js_error":"off","track_ajax_error":"off"};
+var miscellaneous_tracking_options = {"ga_mode":"ga4","tracking_mode":"gtag","track_404_page":{"should_track":"off","is_404":false,"current_url":"\/blog\/2017\/custom-build-conditions-vsts\/?simply_static_page=1185"},"track_js_error":"off","track_ajax_error":"off"};
 /* ]]> */
 </script>
 <script type="text/javascript" src="/wp-content/plugins/wp-analytify/assets/js/miscellaneous-tracking.js?ver=5.5.0" id="analytify_track_miscellaneous-js"></script>
@@ -543,6 +527,7 @@ var screen_reader_text = {"expand":"<span class=\"screen-reader-text\">expand ch
 <script type="text/javascript" src="/wp-content/themes/edin/js/navigation.js?ver=20140718" id="edin-navigation-js"></script>
 <script type="text/javascript" src="/wp-content/themes/edin/js/search.js?ver=20140707" id="edin-search-js"></script>
 <script type="text/javascript" src="/wp-content/themes/edin/js/skip-link-focus-fix.js?ver=20130115" id="edin-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="/wp-includes/js/comment-reply.min.js?ver=6.7.1" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
 <script type="text/javascript" id="edin-script-js-extra">
 /* <![CDATA[ */
 var screen_reader_text = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
