@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: 6 Nifty GitHub Actions Features 🚀	</title>
-	<atom:link href="/blog/2023/6-nifty-github-actions-features/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2023/6-nifty-github-actions-features/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2023/6-nifty-github-actions-features/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2023/6-nifty-github-actions-features/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Mon, 05 Feb 2024 23:34:41 +0000</lastBuildDate>
 	<sy:updatePeriod>

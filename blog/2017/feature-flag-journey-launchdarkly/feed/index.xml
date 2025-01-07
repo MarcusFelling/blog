@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Feature Flag journey with LaunchDarkly &#8211; Part 1	</title>
-	<atom:link href="/blog/2017/feature-flag-journey-launchdarkly/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2017/feature-flag-journey-launchdarkly/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2017/feature-flag-journey-launchdarkly/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2017/feature-flag-journey-launchdarkly/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Fri, 13 Apr 2018 12:34:52 +0000</lastBuildDate>
 	<sy:updatePeriod>

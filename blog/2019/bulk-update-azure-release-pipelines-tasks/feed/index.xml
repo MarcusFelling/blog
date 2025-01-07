@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Bulk update Azure Release Pipelines tasks	</title>
-	<atom:link href="/blog/2019/bulk-update-azure-release-pipelines-tasks/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2019/bulk-update-azure-release-pipelines-tasks/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2019/bulk-update-azure-release-pipelines-tasks/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2019/bulk-update-azure-release-pipelines-tasks/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Wed, 06 Mar 2019 14:37:01 +0000</lastBuildDate>
 	<sy:updatePeriod>

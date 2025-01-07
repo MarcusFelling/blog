@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Custom Build Conditions in VSTS	</title>
-	<atom:link href="/blog/2017/custom-build-conditions-vsts/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2017/custom-build-conditions-vsts/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Wed, 22 Apr 2020 17:01:48 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,20 +20,20 @@
 	<item>
 		<title>
 		By: Marcus		</title>
-		<link>/blog/2017/custom-build-conditions-vsts/#comment-11084</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/#comment-11084</link>
 
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Wed, 22 Apr 2020 17:01:48 +0000</pubDate>
-		<guid isPermaLink="false">/?p=305#comment-11084</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=305#comment-11084</guid>
 
-					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2017/custom-build-conditions-vsts/#comment-10417&quot;&gt;saipavan enuguru&lt;/a&gt;.
+					<description><![CDATA[In reply to &lt;a href=&quot;https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/#comment-10417&quot;&gt;saipavan enuguru&lt;/a&gt;.
 
 Hey Saipavan,
 
 That sounds like a good fit for &lt;a href=&quot;https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops&#038;tabs=classic&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer nofollow ugc&quot;&gt;pipeline completion triggers&lt;/a&gt;. Give that a shot and let me know if you have any other questions.
 
 Marcus]]></description>
-			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2017/custom-build-conditions-vsts/#comment-10417">saipavan enuguru</a>.</p>
+			<content:encoded><![CDATA[<p>In reply to <a href="https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/#comment-10417">saipavan enuguru</a>.</p>
 <p>Hey Saipavan,</p>
 <p>That sounds like a good fit for <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/process/pipeline-triggers?view=azure-devops&amp;tabs=classic" target="_blank" rel="noopener noreferrer nofollow ugc">pipeline completion triggers</a>. Give that a shot and let me know if you have any other questions.</p>
 <p>Marcus</p>
@@ -43,11 +43,11 @@ Marcus]]></description>
 		<item>
 		<title>
 		By: saipavan enuguru		</title>
-		<link>/blog/2017/custom-build-conditions-vsts/#comment-10417</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/#comment-10417</link>
 
 		<dc:creator><![CDATA[saipavan enuguru]]></dc:creator>
 		<pubDate>Fri, 28 Feb 2020 18:39:45 +0000</pubDate>
-		<guid isPermaLink="false">/?p=305#comment-10417</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=305#comment-10417</guid>
 
 					<description><![CDATA[Hello Marcus,
 
@@ -60,16 +60,16 @@ I we have three build definitions that need to be complete first and after that 
 		<item>
 		<title>
 		By: Marcus		</title>
-		<link>/blog/2017/custom-build-conditions-vsts/#comment-5339</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/#comment-5339</link>
 
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Mon, 09 Sep 2019 17:59:20 +0000</pubDate>
-		<guid isPermaLink="false">/?p=305#comment-5339</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=305#comment-5339</guid>
 
-					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2017/custom-build-conditions-vsts/#comment-5323&quot;&gt;priya garg&lt;/a&gt;.
+					<description><![CDATA[In reply to &lt;a href=&quot;https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/#comment-5323&quot;&gt;priya garg&lt;/a&gt;.
 
 Take a look at the build pipeline triggers doc: https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&amp;tabs=yaml]]></description>
-			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2017/custom-build-conditions-vsts/#comment-5323">priya garg</a>.</p>
+			<content:encoded><![CDATA[<p>In reply to <a href="https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/#comment-5323">priya garg</a>.</p>
 <p>Take a look at the build pipeline triggers doc: <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&#038;tabs=yaml" rel="nofollow ugc">https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers?view=azure-devops&#038;tabs=yaml</a></p>
 ]]></content:encoded>
 		
@@ -77,11 +77,11 @@ Take a look at the build pipeline triggers doc: https://docs.microsoft.com/en-us
 		<item>
 		<title>
 		By: priya garg		</title>
-		<link>/blog/2017/custom-build-conditions-vsts/#comment-5323</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/#comment-5323</link>
 
 		<dc:creator><![CDATA[priya garg]]></dc:creator>
 		<pubDate>Mon, 09 Sep 2019 08:25:27 +0000</pubDate>
-		<guid isPermaLink="false">/?p=305#comment-5323</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=305#comment-5323</guid>
 
 					<description><![CDATA[I want to trigger a build based on any changes in particular folder(this is in context with yarn workspaces packages)..can u help plz.]]></description>
 			<content:encoded><![CDATA[<p>I want to trigger a build based on any changes in particular folder(this is in context with yarn workspaces packages)..can u help plz.</p>
@@ -91,11 +91,11 @@ Take a look at the build pipeline triggers doc: https://docs.microsoft.com/en-us
 		<item>
 		<title>
 		By: Marcus		</title>
-		<link>/blog/2017/custom-build-conditions-vsts/#comment-104</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/#comment-104</link>
 
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Thu, 22 Feb 2018 14:53:52 +0000</pubDate>
-		<guid isPermaLink="false">/?p=305#comment-104</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=305#comment-104</guid>
 
 					<description><![CDATA[Thakkar, 
 
@@ -116,11 +116,11 @@ Marcus</p>
 		<item>
 		<title>
 		By: Thakkar Ankit		</title>
-		<link>/blog/2017/custom-build-conditions-vsts/#comment-102</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/custom-build-conditions-vsts/#comment-102</link>
 
 		<dc:creator><![CDATA[Thakkar Ankit]]></dc:creator>
 		<pubDate>Wed, 21 Feb 2018 09:29:21 +0000</pubDate>
-		<guid isPermaLink="false">/?p=305#comment-102</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=305#comment-102</guid>
 
 					<description><![CDATA[Hello All,
 

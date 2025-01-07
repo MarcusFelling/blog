@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Porting an Azure Pipeline (YAML) to a GitHub Action	</title>
-	<atom:link href="/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Mon, 23 Nov 2020 14:52:55 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,11 +20,11 @@
 	<item>
 		<title>
 		By: Matt Ruma		</title>
-		<link>/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/#comment-14147</link>
+		<link>https://marcusfelling.github.io/blog/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/#comment-14147</link>
 
 		<dc:creator><![CDATA[Matt Ruma]]></dc:creator>
 		<pubDate>Mon, 23 Nov 2020 14:52:55 +0000</pubDate>
-		<guid isPermaLink="false">/?p=904#comment-14147</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=904#comment-14147</guid>
 
 					<description><![CDATA[Thanks for the article! It will be interesting to see how this plays out. I have been dabbling in GitHub actions, still some gaps as far as it comes to Azure DevOps, e.g. approval gates, but love how easy it is to create custom actions. Time will tell.]]></description>
 			<content:encoded><![CDATA[<p>Thanks for the article! It will be interesting to see how this plays out. I have been dabbling in GitHub actions, still some gaps as far as it comes to Azure DevOps, e.g. approval gates, but love how easy it is to create custom actions. Time will tell.</p>
@@ -34,11 +34,11 @@
 		<item>
 		<title>
 		By: Carlos Herrera		</title>
-		<link>/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/#comment-12092</link>
+		<link>https://marcusfelling.github.io/blog/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/#comment-12092</link>
 
 		<dc:creator><![CDATA[Carlos Herrera]]></dc:creator>
 		<pubDate>Tue, 28 Jul 2020 12:11:49 +0000</pubDate>
-		<guid isPermaLink="false">/?p=904#comment-12092</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=904#comment-12092</guid>
 
 					<description><![CDATA[Thank you for sharing your process. I personally feel working on Azure is better since GitHub Actions require you to separate stages into separate YAML workflow files. But sometimes it&#039;s essential to migrate to Github so as to integrate with other systems.]]></description>
 			<content:encoded><![CDATA[<p>Thank you for sharing your process. I personally feel working on Azure is better since GitHub Actions require you to separate stages into separate YAML workflow files. But sometimes it&#8217;s essential to migrate to Github so as to integrate with other systems.</p>

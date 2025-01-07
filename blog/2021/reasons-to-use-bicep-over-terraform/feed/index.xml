@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Reasons to use Bicep over Terraform	</title>
-	<atom:link href="/blog/2021/reasons-to-use-bicep-over-terraform/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2021/reasons-to-use-bicep-over-terraform/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2021/reasons-to-use-bicep-over-terraform/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2021/reasons-to-use-bicep-over-terraform/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Wed, 11 Jan 2023 09:54:51 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,11 +20,11 @@
 	<item>
 		<title>
 		By: Carl		</title>
-		<link>/blog/2021/reasons-to-use-bicep-over-terraform/#comment-44189</link>
+		<link>https://marcusfelling.github.io/blog/blog/2021/reasons-to-use-bicep-over-terraform/#comment-44189</link>
 
 		<dc:creator><![CDATA[Carl]]></dc:creator>
 		<pubDate>Wed, 11 Jan 2023 09:54:51 +0000</pubDate>
-		<guid isPermaLink="false">/?p=949#comment-44189</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=949#comment-44189</guid>
 
 					<description><![CDATA[Some reasons we prefer Terraform:
 - multiple provider support such as GitHub / Azure DevOps / Azure Active Directory 
@@ -41,11 +41,11 @@ I would say Hashicorp and Microsoft should work together to get both technologie
 		<item>
 		<title>
 		By: Evgeny Rudinsky		</title>
-		<link>/blog/2021/reasons-to-use-bicep-over-terraform/#comment-36348</link>
+		<link>https://marcusfelling.github.io/blog/blog/2021/reasons-to-use-bicep-over-terraform/#comment-36348</link>
 
 		<dc:creator><![CDATA[Evgeny Rudinsky]]></dc:creator>
 		<pubDate>Thu, 13 Jan 2022 07:29:47 +0000</pubDate>
-		<guid isPermaLink="false">/?p=949#comment-36348</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=949#comment-36348</guid>
 
 					<description><![CDATA[I am currently exploring bicep to use in one project, thanks for sharing your perspective!]]></description>
 			<content:encoded><![CDATA[<p>I am currently exploring bicep to use in one project, thanks for sharing your perspective!</p>
@@ -55,11 +55,11 @@ I would say Hashicorp and Microsoft should work together to get both technologie
 		<item>
 		<title>
 		By: Brian		</title>
-		<link>/blog/2021/reasons-to-use-bicep-over-terraform/#comment-34107</link>
+		<link>https://marcusfelling.github.io/blog/blog/2021/reasons-to-use-bicep-over-terraform/#comment-34107</link>
 
 		<dc:creator><![CDATA[Brian]]></dc:creator>
 		<pubDate>Wed, 15 Sep 2021 02:58:37 +0000</pubDate>
-		<guid isPermaLink="false">/?p=949#comment-34107</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=949#comment-34107</guid>
 
 					<description><![CDATA[Thanks for this!  Just what I was looking for.  Appetite is whet!]]></description>
 			<content:encoded><![CDATA[<p>Thanks for this!  Just what I was looking for.  Appetite is whet!</p>
@@ -69,16 +69,16 @@ I would say Hashicorp and Microsoft should work together to get both technologie
 		<item>
 		<title>
 		By: Marcus		</title>
-		<link>/blog/2021/reasons-to-use-bicep-over-terraform/#comment-33741</link>
+		<link>https://marcusfelling.github.io/blog/blog/2021/reasons-to-use-bicep-over-terraform/#comment-33741</link>
 
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Tue, 24 Aug 2021 17:22:37 +0000</pubDate>
-		<guid isPermaLink="false">/?p=949#comment-33741</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=949#comment-33741</guid>
 
-					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2021/reasons-to-use-bicep-over-terraform/#comment-33736&quot;&gt;Jens Kruse&lt;/a&gt;.
+					<description><![CDATA[In reply to &lt;a href=&quot;https://marcusfelling.github.io/blog/blog/2021/reasons-to-use-bicep-over-terraform/#comment-33736&quot;&gt;Jens Kruse&lt;/a&gt;.
 
 <img src="https://s.w.org/images/core/emoji/15.0.3/72x72/2764.png" alt="❤" class="wp-smiley" style="height: 1em; max-height: 1em;" /> Great to hear Jens!]]></description>
-			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2021/reasons-to-use-bicep-over-terraform/#comment-33736">Jens Kruse</a>.</p>
+			<content:encoded><![CDATA[<p>In reply to <a href="https://marcusfelling.github.io/blog/blog/2021/reasons-to-use-bicep-over-terraform/#comment-33736">Jens Kruse</a>.</p>
 <p>❤️ Great to hear Jens!</p>
 ]]></content:encoded>
 		
@@ -86,11 +86,11 @@ I would say Hashicorp and Microsoft should work together to get both technologie
 		<item>
 		<title>
 		By: Jens Kruse		</title>
-		<link>/blog/2021/reasons-to-use-bicep-over-terraform/#comment-33736</link>
+		<link>https://marcusfelling.github.io/blog/blog/2021/reasons-to-use-bicep-over-terraform/#comment-33736</link>
 
 		<dc:creator><![CDATA[Jens Kruse]]></dc:creator>
 		<pubDate>Tue, 24 Aug 2021 13:50:54 +0000</pubDate>
-		<guid isPermaLink="false">/?p=949#comment-33736</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=949#comment-33736</guid>
 
 					<description><![CDATA[Nice comparison.
 After nearly two years working with Terraform in  Azure environments, I would not choose it again (though it is a really nice tool).
@@ -104,11 +104,11 @@ But Bicep with its day 0 support for Azure would be meanwhile my tool of choice.
 		<item>
 		<title>
 		By: Mark Allison		</title>
-		<link>/blog/2021/reasons-to-use-bicep-over-terraform/#comment-28132</link>
+		<link>https://marcusfelling.github.io/blog/blog/2021/reasons-to-use-bicep-over-terraform/#comment-28132</link>
 
 		<dc:creator><![CDATA[Mark Allison]]></dc:creator>
 		<pubDate>Thu, 08 Apr 2021 10:26:02 +0000</pubDate>
-		<guid isPermaLink="false">/?p=949#comment-28132</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=949#comment-28132</guid>
 
 					<description><![CDATA[Very interesting, I&#039;ve always shied away from Terraform due to the lack of support with new Azure features. I will investigate and play with this a bit more. Great article!]]></description>
 			<content:encoded><![CDATA[<p>Very interesting, I&#8217;ve always shied away from Terraform due to the lack of support with new Azure features. I will investigate and play with this a bit more. Great article!</p>

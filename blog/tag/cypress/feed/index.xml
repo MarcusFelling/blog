@@ -9,8 +9,8 @@
 
 <channel>
 	<title>cypress &#8211; Marcus Felling</title>
-	<atom:link href="/blog/tag/cypress/feed/" rel="self" type="application/rss+xml" />
-	<link>/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/tag/cypress/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Thu, 30 Mar 2023 20:55:33 +0000</lastBuildDate>
 	<language>en-US</language>
@@ -21,8 +21,8 @@
 	<generator>https://wordpress.org/?v=6.7.1</generator>
 	<item>
 		<title>25 reasons to choose Playwright as your next web testing framework</title>
-		<link>/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/</link>
-					<comments>/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/#comments</comments>
+		<link>https://marcusfelling.github.io/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/</link>
+					<comments>https://marcusfelling.github.io/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/#comments</comments>
 		
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Wed, 13 Apr 2022 16:44:00 +0000</pubDate>
@@ -33,9 +33,9 @@
 		<category><![CDATA[e2e testing]]></category>
 		<category><![CDATA[selenium]]></category>
 		<category><![CDATA[web testing]]></category>
-		<guid isPermaLink="false">/?p=1117</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=1117</guid>
 
-					<description><![CDATA[I wanted a place to capture a list of highlights that make Playwright awesome. Here it is, in no particular order: Did I miss anything? Post your thoughts in the comments&#8230; Happy testing! EDIT: I wanted to add a comment from a former colleague (Adam Bjerstedt), with his list of Playwright favorites, in comparison to &#8230; <a href="/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/" class="more-link">Continue reading <span class="screen-reader-text">25 reasons to choose Playwright as your next web testing framework</span></a>]]></description>
+					<description><![CDATA[I wanted a place to capture a list of highlights that make Playwright awesome. Here it is, in no particular order: Did I miss anything? Post your thoughts in the comments&#8230; Happy testing! EDIT: I wanted to add a comment from a former colleague (Adam Bjerstedt), with his list of Playwright favorites, in comparison to &#8230; <a href="https://marcusfelling.github.io/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/" class="more-link">Continue reading <span class="screen-reader-text">25 reasons to choose Playwright as your next web testing framework</span></a>]]></description>
 										<content:encoded><![CDATA[
 <p>I wanted a place to capture a list of highlights that make Playwright awesome. Here it is, in no particular order:</p>
 
@@ -58,7 +58,7 @@
 
 
 
-<li><a rel="noreferrer noopener" href="https://playwright.dev/docs/release-notes#html-report-update" target="_blank">HTML report</a> to view execution results in your browser. Includes visual diffs, and artifacts like traces, error logs, video recordings, and screenshots. The entire report is a self-contained page that can be <a rel="noreferrer noopener" href="/blog/2021/publishing-playwright-test-results-to-github-pages/" target="_blank">easily hosted anywhere</a>.</li>
+<li><a rel="noreferrer noopener" href="https://playwright.dev/docs/release-notes#html-report-update" target="_blank">HTML report</a> to view execution results in your browser. Includes visual diffs, and artifacts like traces, error logs, video recordings, and screenshots. The entire report is a self-contained page that can be <a rel="noreferrer noopener" href="https://marcusfelling.github.io/blog/blog/2021/publishing-playwright-test-results-to-github-pages/" target="_blank">easily hosted anywhere</a>.</li>
 
 
 
@@ -130,7 +130,7 @@
 
 
 
-<li>The <a rel="noreferrer noopener" href="/blog/2022/create-more-reliable-playwright-tests-with-locators/" target="_blank">magic of Locators</a> eliminates flakiness caused by dynamic controls.</li>
+<li>The <a rel="noreferrer noopener" href="https://marcusfelling.github.io/blog/blog/2022/create-more-reliable-playwright-tests-with-locators/" target="_blank">magic of Locators</a> eliminates flakiness caused by dynamic controls.</li>
 
 
 
@@ -164,7 +164,7 @@
 </blockquote>
 ]]></content:encoded>
 					
-					<wfw:commentRss>/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/feed/</wfw:commentRss>
+					<wfw:commentRss>https://marcusfelling.github.io/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/feed/</wfw:commentRss>
 			<slash:comments>3</slash:comments>
 		
 		

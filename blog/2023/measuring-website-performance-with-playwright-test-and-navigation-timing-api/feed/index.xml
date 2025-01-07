@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Measuring Website Performance with Playwright Test and Navigation Timing API	</title>
-	<atom:link href="/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Thu, 27 Apr 2023 14:40:19 +0000</lastBuildDate>
 	<sy:updatePeriod>

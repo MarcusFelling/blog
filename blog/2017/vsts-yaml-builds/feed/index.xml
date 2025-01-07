@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Azure Pipelines YAML Builds (Pipeline as code)	</title>
-	<atom:link href="/blog/2017/vsts-yaml-builds/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2017/vsts-yaml-builds/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Wed, 06 Feb 2019 21:58:39 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,16 +20,16 @@
 	<item>
 		<title>
 		By: Marcus		</title>
-		<link>/blog/2017/vsts-yaml-builds/#comment-3210</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-3210</link>
 
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Wed, 06 Feb 2019 01:53:58 +0000</pubDate>
-		<guid isPermaLink="false">/?p=517#comment-3210</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=517#comment-3210</guid>
 
-					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2017/vsts-yaml-builds/#comment-3207&quot;&gt;James Michael&lt;/a&gt;.
+					<description><![CDATA[In reply to &lt;a href=&quot;https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-3207&quot;&gt;James Michael&lt;/a&gt;.
 
 Ha! So true. Not that I experienced that pain, but it sounds like Microsoft finally figured things out with their new focus on YAML pipelines. They actually make it a touch harder to even find the visual designer option when creating new definitions. A step in the right direction...]]></description>
-			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2017/vsts-yaml-builds/#comment-3207">James Michael</a>.</p>
+			<content:encoded><![CDATA[<p>In reply to <a href="https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-3207">James Michael</a>.</p>
 <p>Ha! So true. Not that I experienced that pain, but it sounds like Microsoft finally figured things out with their new focus on YAML pipelines. They actually make it a touch harder to even find the visual designer option when creating new definitions. A step in the right direction&#8230;</p>
 ]]></content:encoded>
 		
@@ -37,11 +37,11 @@ Ha! So true. Not that I experienced that pain, but it sounds like Microsoft fina
 		<item>
 		<title>
 		By: James Michael		</title>
-		<link>/blog/2017/vsts-yaml-builds/#comment-3207</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-3207</link>
 
 		<dc:creator><![CDATA[James Michael]]></dc:creator>
 		<pubDate>Tue, 05 Feb 2019 18:16:17 +0000</pubDate>
-		<guid isPermaLink="false">/?p=517#comment-3207</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=517#comment-3207</guid>
 
 					<description><![CDATA[The funny thing about this, is how history repeats itself.  I was storing my build definitions in VSS 15 years ago.  And then came xaml which was mess.  Then came vNext, with a web interface (what a mess, I export my defs to json, edit them, and reimport them).
 
@@ -57,13 +57,13 @@ It&#039;s like I always said, if you manage the data, the process doesn&#039;t r
 		<item>
 		<title>
 		By: Marcus		</title>
-		<link>/blog/2017/vsts-yaml-builds/#comment-3071</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-3071</link>
 
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Wed, 23 Jan 2019 00:52:01 +0000</pubDate>
-		<guid isPermaLink="false">/?p=517#comment-3071</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=517#comment-3071</guid>
 
-					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2017/vsts-yaml-builds/#comment-3054&quot;&gt;P&lt;/a&gt;.
+					<description><![CDATA[In reply to &lt;a href=&quot;https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-3054&quot;&gt;P&lt;/a&gt;.
 
 A,
 
@@ -75,7 +75,7 @@ I would suggest using &lt;a href=&quot;https://docs.microsoft.com/en-us/azure/de
 
 Cheers,
 Marcus]]></description>
-			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2017/vsts-yaml-builds/#comment-3054">P</a>.</p>
+			<content:encoded><![CDATA[<p>In reply to <a href="https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-3054">P</a>.</p>
 <p>A,</p>
 <p>I highly recommend using the <a href="https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines" target="_blank" rel="noopener nofollow">Azure Pipelines Visual Studio Code extension</a>. It has syntax highlighting and autocompletion for Azure Pipelines YAML. You can use the Azure Pipelines Web UI to create the steps, click &#8220;View YAML&#8221; in the upper right, then copy paste that into VS Code. </p>
 <p>Here is an example of what I would use for your snippet: <a href="https://gist.github.com/MarcusFelling/0f0b49001354206de6d2be7f6915b3f5" target="_blank" rel="noopener nofollow">https://gist.github.com/MarcusFelling/0f0b49001354206de6d2be7f6915b3f5</a></p>
@@ -88,11 +88,11 @@ Marcus</p>
 		<item>
 		<title>
 		By: P		</title>
-		<link>/blog/2017/vsts-yaml-builds/#comment-3054</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-3054</link>
 
 		<dc:creator><![CDATA[P]]></dc:creator>
 		<pubDate>Mon, 21 Jan 2019 10:57:36 +0000</pubDate>
-		<guid isPermaLink="false">/?p=517#comment-3054</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=517#comment-3054</guid>
 
 					<description><![CDATA[Hi Marcus,
 
@@ -162,11 +162,11 @@ A</p>
 		<item>
 		<title>
 		By: Rusty Pritt		</title>
-		<link>/blog/2017/vsts-yaml-builds/#comment-1710</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-1710</link>
 
 		<dc:creator><![CDATA[Rusty Pritt]]></dc:creator>
 		<pubDate>Wed, 12 Sep 2018 21:05:14 +0000</pubDate>
-		<guid isPermaLink="false">/?p=517#comment-1710</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=517#comment-1710</guid>
 
 					<description><![CDATA[It&#039;s a pity you don&#039;t have a donate button! I&#039;d definitely donate to this brilⅼiant Ьlog! I suppose for noᴡ i&#039;ll settleе for bookmarking and adding your RSS feed to my Google account.]]></description>
 			<content:encoded><![CDATA[<p>It&#8217;s a pity you don&#8217;t have a donate button! I&#8217;d definitely donate to this brilⅼiant Ьlog! I suppose for noᴡ i&#8217;ll settleе for bookmarking and adding your RSS feed to my Google account.</p>
@@ -176,16 +176,16 @@ A</p>
 		<item>
 		<title>
 		By: Marcus		</title>
-		<link>/blog/2017/vsts-yaml-builds/#comment-581</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-581</link>
 
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Wed, 23 May 2018 02:58:35 +0000</pubDate>
-		<guid isPermaLink="false">/?p=517#comment-581</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=517#comment-581</guid>
 
-					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2017/vsts-yaml-builds/#comment-442&quot;&gt;David Atkinson&lt;/a&gt;.
+					<description><![CDATA[In reply to &lt;a href=&quot;https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-442&quot;&gt;David Atkinson&lt;/a&gt;.
 
 David, yes it is! Here is an example: https://roadtoalm.com/2016/08/11/set-output-variable-in-a-powershell-vsts-build-task/]]></description>
-			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2017/vsts-yaml-builds/#comment-442">David Atkinson</a>.</p>
+			<content:encoded><![CDATA[<p>In reply to <a href="https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-442">David Atkinson</a>.</p>
 <p>David, yes it is! Here is an example: <a href="https://roadtoalm.com/2016/08/11/set-output-variable-in-a-powershell-vsts-build-task/" rel="nofollow ugc">https://roadtoalm.com/2016/08/11/set-output-variable-in-a-powershell-vsts-build-task/</a></p>
 ]]></content:encoded>
 		
@@ -193,11 +193,11 @@ David, yes it is! Here is an example: https://roadtoalm.com/2016/08/11/set-outpu
 		<item>
 		<title>
 		By: David Atkinson		</title>
-		<link>/blog/2017/vsts-yaml-builds/#comment-442</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-442</link>
 
 		<dc:creator><![CDATA[David Atkinson]]></dc:creator>
 		<pubDate>Wed, 16 May 2018 10:34:33 +0000</pubDate>
-		<guid isPermaLink="false">/?p=517#comment-442</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=517#comment-442</guid>
 
 					<description><![CDATA[Thanks for this. Is it possible to capture the exit code from one task and use this as an input to another task?]]></description>
 			<content:encoded><![CDATA[<p>Thanks for this. Is it possible to capture the exit code from one task and use this as an input to another task?</p>
@@ -207,11 +207,11 @@ David, yes it is! Here is an example: https://roadtoalm.com/2016/08/11/set-outpu
 		<item>
 		<title>
 		By: rock walls		</title>
-		<link>/blog/2017/vsts-yaml-builds/#comment-98</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/#comment-98</link>
 
 		<dc:creator><![CDATA[rock walls]]></dc:creator>
 		<pubDate>Thu, 15 Feb 2018 09:27:45 +0000</pubDate>
-		<guid isPermaLink="false">/?p=517#comment-98</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=517#comment-98</guid>
 
 					<description><![CDATA[Just wanted to say I love reading your blog and look forward to 
 all your posts! Keep up the superb work!]]></description>

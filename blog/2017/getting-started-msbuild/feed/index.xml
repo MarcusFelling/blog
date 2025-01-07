@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Getting started with MSBuild	</title>
-	<atom:link href="/blog/2017/getting-started-msbuild/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2017/getting-started-msbuild/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2017/getting-started-msbuild/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2017/getting-started-msbuild/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Wed, 15 Nov 2017 14:59:37 +0000</lastBuildDate>
 	<sy:updatePeriod>

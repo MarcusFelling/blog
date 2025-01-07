@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: TFS/VSTS Build &#8211; System Capabilities and Demands	</title>
-	<atom:link href="/blog/2017/tfsvsts-build-system-capabilities-demands/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2017/tfsvsts-build-system-capabilities-demands/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2017/tfsvsts-build-system-capabilities-demands/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2017/tfsvsts-build-system-capabilities-demands/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Sat, 22 Sep 2018 23:55:09 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,11 +20,11 @@
 	<item>
 		<title>
 		By: MasterFriva		</title>
-		<link>/blog/2017/tfsvsts-build-system-capabilities-demands/#comment-1774</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/tfsvsts-build-system-capabilities-demands/#comment-1774</link>
 
 		<dc:creator><![CDATA[MasterFriva]]></dc:creator>
 		<pubDate>Sat, 22 Sep 2018 23:55:09 +0000</pubDate>
-		<guid isPermaLink="false">/?p=426#comment-1774</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=426#comment-1774</guid>
 
 					<description><![CDATA[The new capabilities and demands system in Build vNext gives us the same features as the old tagging system but makes a lot more sense in context. Additionally with the new web interface and the auto detection on the agent of many of the needed values the whole process gets a lot simpler.]]></description>
 			<content:encoded><![CDATA[<p>The new capabilities and demands system in Build vNext gives us the same features as the old tagging system but makes a lot more sense in context. Additionally with the new web interface and the auto detection on the agent of many of the needed values the whole process gets a lot simpler.</p>

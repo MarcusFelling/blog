@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Start-IISCommitDelay / Stop-IISCommitDelay	</title>
-	<atom:link href="/blog/2019/start-iiscommitdelay-stop-iiscommitdelay/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2019/start-iiscommitdelay-stop-iiscommitdelay/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2019/start-iiscommitdelay-stop-iiscommitdelay/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2019/start-iiscommitdelay-stop-iiscommitdelay/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Wed, 19 Jun 2019 17:46:53 +0000</lastBuildDate>
 	<sy:updatePeriod>

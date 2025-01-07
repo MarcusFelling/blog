@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Gitflow and Visual Studio Team Services	</title>
-	<atom:link href="/blog/2017/gitflow-visual-studio-team-services/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2017/gitflow-visual-studio-team-services/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2017/gitflow-visual-studio-team-services/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2017/gitflow-visual-studio-team-services/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Sat, 14 Apr 2018 14:23:28 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,20 +20,20 @@
 	<item>
 		<title>
 		By: Marcus		</title>
-		<link>/blog/2017/gitflow-visual-studio-team-services/#comment-279</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/gitflow-visual-studio-team-services/#comment-279</link>
 
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Sat, 14 Apr 2018 14:23:28 +0000</pubDate>
-		<guid isPermaLink="false">/?p=261#comment-279</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=261#comment-279</guid>
 
-					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2017/gitflow-visual-studio-team-services/#comment-265&quot;&gt;Stan&lt;/a&gt;.
+					<description><![CDATA[In reply to &lt;a href=&quot;https://marcusfelling.github.io/blog/blog/2017/gitflow-visual-studio-team-services/#comment-265&quot;&gt;Stan&lt;/a&gt;.
 
 Stan,
 
 I probably didn&#039;t word that correctly. I didn&#039;t mean to say that we didn&#039;t use a release branch, I meant to say we merge develop -&gt; release (via Pull Request) instead of creating a NEW release branch.
 
 Marcus]]></description>
-			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2017/gitflow-visual-studio-team-services/#comment-265">Stan</a>.</p>
+			<content:encoded><![CDATA[<p>In reply to <a href="https://marcusfelling.github.io/blog/blog/2017/gitflow-visual-studio-team-services/#comment-265">Stan</a>.</p>
 <p>Stan,</p>
 <p>I probably didn&#8217;t word that correctly. I didn&#8217;t mean to say that we didn&#8217;t use a release branch, I meant to say we merge develop -> release (via Pull Request) instead of creating a NEW release branch.</p>
 <p>Marcus</p>
@@ -43,11 +43,11 @@ Marcus]]></description>
 		<item>
 		<title>
 		By: Stan		</title>
-		<link>/blog/2017/gitflow-visual-studio-team-services/#comment-265</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/gitflow-visual-studio-team-services/#comment-265</link>
 
 		<dc:creator><![CDATA[Stan]]></dc:creator>
 		<pubDate>Fri, 06 Apr 2018 06:33:58 +0000</pubDate>
-		<guid isPermaLink="false">/?p=261#comment-265</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=261#comment-265</guid>
 
 					<description><![CDATA[Good read!
 
@@ -68,11 +68,11 @@ The reason we create a release branch is to prepare everything before we create 
 		<item>
 		<title>
 		By: Mike-EEE		</title>
-		<link>/blog/2017/gitflow-visual-studio-team-services/#comment-25</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/gitflow-visual-studio-team-services/#comment-25</link>
 
 		<dc:creator><![CDATA[Mike-EEE]]></dc:creator>
 		<pubDate>Sun, 12 Nov 2017 14:26:36 +0000</pubDate>
-		<guid isPermaLink="false">/?p=261#comment-25</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=261#comment-25</guid>
 
 					<description><![CDATA[Really awesome explanation here.  Thank you for taking the time to explain it!]]></description>
 			<content:encoded><![CDATA[<p>Really awesome explanation here.  Thank you for taking the time to explain it!</p>

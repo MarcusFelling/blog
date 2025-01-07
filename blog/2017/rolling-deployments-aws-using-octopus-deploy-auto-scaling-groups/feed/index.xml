@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Rolling deployments to AWS using Octopus Deploy and Auto Scaling Groups	</title>
-	<atom:link href="/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Thu, 09 Sep 2021 22:00:10 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,16 +20,16 @@
 	<item>
 		<title>
 		By: Marcus		</title>
-		<link>/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3144</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3144</link>
 
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Wed, 30 Jan 2019 15:50:20 +0000</pubDate>
-		<guid isPermaLink="false">/?p=528#comment-3144</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=528#comment-3144</guid>
 
-					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3138&quot;&gt;Kelly&lt;/a&gt;.
+					<description><![CDATA[In reply to &lt;a href=&quot;https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3138&quot;&gt;Kelly&lt;/a&gt;.
 
 Hey Kelly, my experience with Octopus Deploy was with an EC2 hosted instance. I have not used Octopus Deploy Cloud yet. It was just &lt;a href=&quot;https://octopus.com/blog/announcing-octopus-cloud&quot; rel=&quot;nofollow&quot;&gt;announced in July&lt;/a&gt;.]]></description>
-			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3138">Kelly</a>.</p>
+			<content:encoded><![CDATA[<p>In reply to <a href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3138">Kelly</a>.</p>
 <p>Hey Kelly, my experience with Octopus Deploy was with an EC2 hosted instance. I have not used Octopus Deploy Cloud yet. It was just <a href="https://octopus.com/blog/announcing-octopus-cloud" rel="nofollow">announced in July</a>.</p>
 ]]></content:encoded>
 		
@@ -37,11 +37,11 @@ Hey Kelly, my experience with Octopus Deploy was with an EC2 hosted instance. I 
 		<item>
 		<title>
 		By: Kelly		</title>
-		<link>/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3138</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3138</link>
 
 		<dc:creator><![CDATA[Kelly]]></dc:creator>
 		<pubDate>Wed, 30 Jan 2019 04:21:09 +0000</pubDate>
-		<guid isPermaLink="false">/?p=528#comment-3138</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=528#comment-3138</guid>
 
 					<description><![CDATA[Are you running Octopus Deploy in the cloud?]]></description>
 			<content:encoded><![CDATA[<p>Are you running Octopus Deploy in the cloud?</p>
@@ -51,11 +51,11 @@ Hey Kelly, my experience with Octopus Deploy was with an EC2 hosted instance. I 
 		<item>
 		<title>
 		By: Julio Wilcoxon		</title>
-		<link>/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-192</link>
+		<link>https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-192</link>
 
 		<dc:creator><![CDATA[Julio Wilcoxon]]></dc:creator>
 		<pubDate>Wed, 21 Mar 2018 17:11:32 +0000</pubDate>
-		<guid isPermaLink="false">/?p=528#comment-192</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=528#comment-192</guid>
 
 					<description><![CDATA[Thank you so much for the great article, it was fluent and to the point. Cheers.]]></description>
 			<content:encoded><![CDATA[<p>Thank you so much for the great article, it was fluent and to the point. Cheers.</p>

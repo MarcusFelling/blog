@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Azure Pipelines: YAML Templates VS. Custom Tasks	</title>
-	<atom:link href="/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Sun, 20 Dec 2020 21:30:00 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,11 +20,11 @@
 	<item>
 		<title>
 		By: Josh Johanning		</title>
-		<link>/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#comment-15071</link>
+		<link>https://marcusfelling.github.io/blog/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#comment-15071</link>
 
 		<dc:creator><![CDATA[Josh Johanning]]></dc:creator>
 		<pubDate>Sun, 20 Dec 2020 21:30:00 +0000</pubDate>
-		<guid isPermaLink="false">/?p=937#comment-15071</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=937#comment-15071</guid>
 
 					<description><![CDATA[@Tomasz:
 If you’re using a Repository resource and referencing a job template, you wouldn’t have to worry about a checkout of the yaml? You would just reference via path-to-yaml@templates, for example. 
@@ -40,11 +40,11 @@ If you’re using a Repository resource and referencing a job template, you woul
 		<item>
 		<title>
 		By: Travis		</title>
-		<link>/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#comment-14169</link>
+		<link>https://marcusfelling.github.io/blog/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#comment-14169</link>
 
 		<dc:creator><![CDATA[Travis]]></dc:creator>
 		<pubDate>Wed, 25 Nov 2020 14:42:16 +0000</pubDate>
-		<guid isPermaLink="false">/?p=937#comment-14169</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=937#comment-14169</guid>
 
 					<description><![CDATA[Great discussion and comparison. We additionally use Custom Tasks for functionality that we may want both in YAML pipelines as well as the visual &quot;Release&quot; workflow for deployments. Our teams are in transition between moving from &quot;Releases&quot; to YAML Pipelines and this is effective in allowing teams to transition over easily.]]></description>
 			<content:encoded><![CDATA[<p>Great discussion and comparison. We additionally use Custom Tasks for functionality that we may want both in YAML pipelines as well as the visual &#8220;Release&#8221; workflow for deployments. Our teams are in transition between moving from &#8220;Releases&#8221; to YAML Pipelines and this is effective in allowing teams to transition over easily.</p>
@@ -54,11 +54,11 @@ If you’re using a Repository resource and referencing a job template, you woul
 		<item>
 		<title>
 		By: Tomasz		</title>
-		<link>/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#comment-14146</link>
+		<link>https://marcusfelling.github.io/blog/blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/#comment-14146</link>
 
 		<dc:creator><![CDATA[Tomasz]]></dc:creator>
 		<pubDate>Mon, 23 Nov 2020 13:26:21 +0000</pubDate>
-		<guid isPermaLink="false">/?p=937#comment-14146</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=937#comment-14146</guid>
 
 					<description><![CDATA[If I may add my observations:
 Using Custom tasks has this benefit that if:

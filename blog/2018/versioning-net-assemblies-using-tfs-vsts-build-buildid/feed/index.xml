@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Versioning .Net assemblies using TFS/VSTS Build.BuildID	</title>
-	<atom:link href="/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/feed/" rel="self" type="application/rss+xml" />
-	<link>/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/</link>
+	<atom:link href="https://marcusfelling.github.io/blog/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.github.io/blog/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Mon, 20 Aug 2018 20:01:31 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,11 +20,11 @@
 	<item>
 		<title>
 		By: Thelaunchconference		</title>
-		<link>/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/#comment-1533</link>
+		<link>https://marcusfelling.github.io/blog/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/#comment-1533</link>
 
 		<dc:creator><![CDATA[Thelaunchconference]]></dc:creator>
 		<pubDate>Mon, 20 Aug 2018 20:01:31 +0000</pubDate>
-		<guid isPermaLink="false">/?p=546#comment-1533</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=546#comment-1533</guid>
 
 					<description><![CDATA[This is really useful, thanks.]]></description>
 			<content:encoded><![CDATA[<p>This is really useful, thanks.</p>
@@ -34,20 +34,20 @@
 		<item>
 		<title>
 		By: Marcus		</title>
-		<link>/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/#comment-137</link>
+		<link>https://marcusfelling.github.io/blog/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/#comment-137</link>
 
 		<dc:creator><![CDATA[Marcus]]></dc:creator>
 		<pubDate>Mon, 12 Mar 2018 13:53:22 +0000</pubDate>
-		<guid isPermaLink="false">/?p=546#comment-137</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=546#comment-137</guid>
 
-					<description><![CDATA[In reply to &lt;a href=&quot;/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/#comment-136&quot;&gt;Yann&lt;/a&gt;.
+					<description><![CDATA[In reply to &lt;a href=&quot;https://marcusfelling.github.io/blog/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/#comment-136&quot;&gt;Yann&lt;/a&gt;.
 
 Yann,
 
 Versioning based on Git commit is an excellent idea! Going to take it for a test drive. I really appreciate your help. Thanks for chiming in.
 
 Marcus]]></description>
-			<content:encoded><![CDATA[<p>In reply to <a href="/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/#comment-136">Yann</a>.</p>
+			<content:encoded><![CDATA[<p>In reply to <a href="https://marcusfelling.github.io/blog/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/#comment-136">Yann</a>.</p>
 <p>Yann,</p>
 <p>Versioning based on Git commit is an excellent idea! Going to take it for a test drive. I really appreciate your help. Thanks for chiming in.</p>
 <p>Marcus</p>
@@ -57,11 +57,11 @@ Marcus]]></description>
 		<item>
 		<title>
 		By: Yann		</title>
-		<link>/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/#comment-136</link>
+		<link>https://marcusfelling.github.io/blog/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/#comment-136</link>
 
 		<dc:creator><![CDATA[Yann]]></dc:creator>
 		<pubDate>Sun, 11 Mar 2018 21:51:26 +0000</pubDate>
-		<guid isPermaLink="false">/?p=546#comment-136</guid>
+		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=546#comment-136</guid>
 
 					<description><![CDATA[Hi. I haven&#039;t used it yet, but maybe https://github.com/AArnott/Nerdbank.GitVersioning would be helpful? It&#039;s on my backlog to move to using it. 
 
