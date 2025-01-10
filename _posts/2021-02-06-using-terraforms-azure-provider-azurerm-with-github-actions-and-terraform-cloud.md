@@ -4,7 +4,7 @@ title: 'Using Terraform&#8217;s Azure provider (azurerm) with GitHub Actions and
 date: '2021-02-06T18:38:44+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=969'
+guid: 'https://marcusfelling.com/?p=969'
 permalink: /blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/
 wpmdr_menu:
     - '1'
@@ -25,6 +25,6 @@ For some reason, the Terraform Plan command was not picking them up and kept thr
 
 I re-generated the service principal, re-added the values to the GitHub Secrets, tried setting the values for the service principal in the provider block, all to no avail. I finally discovered that Terraform Cloud workspaces have a default execution mode of “Remote”, meaning plans and applies occur on Terraform Cloud’s infrastructure. Because of this, the Plan command could not pick up the environment variables from the GitHub Action. Switching the workspace to local resolved my issue (workspace -&gt; settings -&gt; General):
 
-<figure class="wp-block-image size-large">[![](https://test.local/wp-content/uploads/2021/02/image-1024x252.png)](https://test.local/wp-content/uploads/2021/02/image.png)</figure>This is what the complete GitHub Action looks like:
+<figure class="wp-block-image size-large">[![](https://marcusfelling.com/wp-content/uploads/2021/02/image-1024x252.png)](https://marcusfelling.com/wp-content/uploads/2021/02/image.png)</figure>This is what the complete GitHub Action looks like:
 
 <script src="https://gist.github.com/MarcusFelling/de04b04ab801b3fb22f0992a3ab79533.js"></script>I hope this post will help others who were desperately weeding through search results like I was.

@@ -4,7 +4,7 @@ title: 'TFS Release Management: Create Release via REST API'
 date: '2018-09-09T20:21:08+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=592'
+guid: 'https://marcusfelling.com/?p=592'
 permalink: /blog/2018/tfs-release-management-create-release-via-rest-api/
 wpmdr_menu:
     - '1'

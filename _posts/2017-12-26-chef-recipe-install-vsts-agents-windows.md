@@ -4,7 +4,7 @@ title: 'Chef recipe to install VSTS agents (Windows)'
 date: '2017-12-26T16:47:20+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=534'
+guid: 'https://marcusfelling.com/?p=534'
 permalink: /blog/2017/chef-recipe-install-vsts-agents-windows/
 wpmdr_menu:
     - '1'

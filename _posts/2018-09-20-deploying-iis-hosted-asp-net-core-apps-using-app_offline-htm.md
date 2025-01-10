@@ -4,7 +4,7 @@ title: 'Deploying IIS hosted ASP.NET Core apps using app_offline.htm'
 date: '2018-09-20T20:12:14+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=603'
+guid: 'https://marcusfelling.com/?p=603'
 permalink: /blog/2018/deploying-iis-hosted-asp-net-core-apps-using-app_offline-htm/
 wpmdr_menu:
     - '1'
@@ -13,7 +13,7 @@ categories:
     - Uncategorized
 ---
 
-In the past, I’ve used the method of placing a app\_offline.htm file at the root of an IIS website to throw up a maintenance page. This has been available since ASP.NET 2.0 / 3.5. Lately I’ve got used to deploying sites with no downtime approaches, such as [rolling](https://test.local/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/) and blue/green. I had forgot about app\_offline.htm when I recently set up deployment pipelines for some ASP.NET Core sites.
+In the past, I’ve used the method of placing a app\_offline.htm file at the root of an IIS website to throw up a maintenance page. This has been available since ASP.NET 2.0 / 3.5. Lately I’ve got used to deploying sites with no downtime approaches, such as [rolling](https://marcusfelling.com/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/) and blue/green. I had forgot about app\_offline.htm when I recently set up deployment pipelines for some ASP.NET Core sites.
 
 Downtime wasn’t a concern for these sites and I didn’t really think a maintenance page was necessary. These were internal apps only that are rarely updated.
 

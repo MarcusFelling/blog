@@ -4,7 +4,7 @@ title: 'Azure Release Pipelines: What releases haven&#8217;t been deployed to Pr
 date: '2019-01-15T00:46:28+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=627'
+guid: 'https://marcusfelling.com/?p=627'
 permalink: /blog/2019/azure-release-pipelines-what-releases-havent-been-deployed-to-production-yet/
 wpmdr_menu:
     - '1'

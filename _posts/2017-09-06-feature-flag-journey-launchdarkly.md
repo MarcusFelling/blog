@@ -4,7 +4,7 @@ title: 'Feature Flag journey with LaunchDarkly &#8211; Part 1'
 date: '2017-09-06T21:09:43+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=399'
+guid: 'https://marcusfelling.com/?p=399'
 permalink: /blog/2017/feature-flag-journey-launchdarkly/
 wpmdr_menu:
     - '1'
@@ -18,7 +18,7 @@ At [DevOpsDays Minneapolis](https://www.devopsdays.org/events/2017-minneapolis/w
 
 If you aren’t familiar, feature flagging is a way to control the visibility and on/off state of a particular feature by wrapping the code in a conditional. This can be done as a front-end flag, back-end flag, or both (front-end flags to control UI visibility, back-end flags can control APIs, configurations, etc.). When the new feature is deployed to lower environments it should be tested in both on and off states. When the feature is ready for production, it is dark launched (in the off state). It can then be rolled out to a percentage or group of users (tools like [LaunchDarkly](https://launchdarkly.com/) make this easy).
 
-![kill switch for the internet](https://test.local/wp-content/uploads/2017/09/killSwitch-300x279.png)
+![kill switch for the internet](https://marcusfelling.com/wp-content/uploads/2017/09/killSwitch-300x279.png)
 
 ## Speed up the feedback loop!
 
@@ -28,4 +28,4 @@ Our sprint teams would be able to change the definition of done to “Working In
 
 I signed up for a trial with LaunchDarkly and helped our dev team get started. We’ll be starting our pilot off by using the flags for two new features that are not operationally critical to the business. Looking forward to seeing how this works out!
 
-[See Part 2 Here](https://test.local/blog/2017/feature-flag-journey-launchdarkly-part-2/)
+[See Part 2 Here](https://marcusfelling.com/blog/2017/feature-flag-journey-launchdarkly-part-2/)

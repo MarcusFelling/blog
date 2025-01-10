@@ -4,7 +4,7 @@ title: 'How to reduce the size of your TFS/Azure DevOps Server collection databa
 date: '2020-06-22T14:58:08+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=891'
+guid: 'https://marcusfelling.com/?p=891'
 permalink: /blog/2020/how-to-reduce-the-size-of-your-tfs-azure-devops-server-collection-databases/
 wpmdr_menu:
     - '1'

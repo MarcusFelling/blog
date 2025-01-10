@@ -4,7 +4,7 @@ title: 'Create resilient 🎭 Playwright e2e tests with locators'
 date: '2022-01-09T19:36:48+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=1065'
+guid: 'https://marcusfelling.com/?p=1065'
 permalink: /blog/2022/create-more-reliable-playwright-tests-with-locators/
 wpmdr_menu:
     - '1'

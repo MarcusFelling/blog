@@ -4,7 +4,7 @@ title: 'Feature Flag journey with LaunchDarkly &#8211; Part 2'
 date: '2017-10-06T20:28:39+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=432'
+guid: 'https://marcusfelling.com/?p=432'
 permalink: /blog/2017/feature-flag-journey-launchdarkly-part-2/
 wpmdr_menu:
     - '1'
@@ -12,9 +12,9 @@ categories:
     - Uncategorized
 ---
 
-![LaunchDarkly Logo](https://test.local/wp-content/uploads/2017/10/LaunchDarklyLogo-1-300x89.png)
+![LaunchDarkly Logo](https://marcusfelling.com/wp-content/uploads/2017/10/LaunchDarklyLogo-1-300x89.png)
 
-I previously posted about how I discovered LaunchDarkly and wanted to introduce it at my current employer. See Part 1 [here](https://test.local/blog/2017/feature-flag-journey-launchdarkly/). Our pilot with LaunchDarkly went great. So great that we purchased a subscription.
+I previously posted about how I discovered LaunchDarkly and wanted to introduce it at my current employer. See Part 1 [here](https://marcusfelling.com/blog/2017/feature-flag-journey-launchdarkly/). Our pilot with LaunchDarkly went great. So great that we purchased a subscription.
 
 The product will help give us fine grained control over who will see particular features: internal vs external users; particular clients; groups of users; a percentage of randomized users/clients (canary model), and so on. This has some very significant potential benefits, including:
 

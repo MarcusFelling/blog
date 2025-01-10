@@ -4,7 +4,7 @@ title: 'Tips for governing Azure subscriptions'
 date: '2020-06-03T15:54:49+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=881'
+guid: 'https://marcusfelling.com/?p=881'
 permalink: /blog/2020/tips-for-governing-azure-subscriptions/
 wpmdr_menu:
     - '1'

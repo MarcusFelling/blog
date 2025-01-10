@@ -4,7 +4,7 @@ title: '25 reasons to choose Playwright as your next web testing framework'
 date: '2022-04-13T16:44:00+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=1117'
+guid: 'https://marcusfelling.com/?p=1117'
 permalink: /blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/
 wpmdr_menu:
     - '1'
@@ -27,7 +27,7 @@ I wanted a place to capture a list of highlights that make Playwright awesome. H
 1. Supports testing scenarios for [multi-tab](https://playwright.dev/docs/pages#multiple-pages), [multi-user](https://playwright.dev/docs/test-auth#multiple-signed-in-roles), multi-origin/domain, and [iframes](https://playwright.dev/docs/frames). *“Playwright is an out-of-process automation driver that is not limited by the scope of in-page JavaScript execution”*
 2. Uses the concept of [browser contexts ](https://playwright.dev/docs/browser-contexts)(equivalent to a brand new browser profile) to run tests in isolation with zero overhead (super fast!).
 3. [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) has features to run tests with a single click, debug step by step, explore selectors, and record new tests (codegen).
-4. [HTML report](https://playwright.dev/docs/release-notes#html-report-update) to view execution results in your browser. Includes visual diffs, and artifacts like traces, error logs, video recordings, and screenshots. The entire report is a self-contained page that can be [easily hosted anywhere](https://test.local/blog/2021/publishing-playwright-test-results-to-github-pages/).
+4. [HTML report](https://playwright.dev/docs/release-notes#html-report-update) to view execution results in your browser. Includes visual diffs, and artifacts like traces, error logs, video recordings, and screenshots. The entire report is a self-contained page that can be [easily hosted anywhere](https://marcusfelling.com/blog/2021/publishing-playwright-test-results-to-github-pages/).
 5. Fastest test execution time in [Checkly’s benchmarks](https://rag0g.medium.com/cypress-vs-selenium-vs-playwright-vs-puppeteer-speed-comparison-73fd057c2ae9) versus Cypress, Selenium, and Puppeteer.
 6. Built-in [toMatchScreenshot()](https://playwright.dev/docs/test-snapshots) to support visual regression testing, with [recent improvements such as disabling animations and masking elements](https://github.com/microsoft/playwright/issues?q=+label%3Afeature-visual-regression-testing+).
 7. [Parallel test execution](https://playwright.dev/docs/test-parallel) is supported locally, or remotely for grids such as Selenium Grid. In addition, you can [shard tests between machines](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) to run different tests in parallel e.g. using a [GitHub Action CI job matrix.](https://docs.github.com/en/github-ae@latest/actions/using-jobs/using-a-build-matrix-for-your-jobs)
@@ -45,7 +45,7 @@ I wanted a place to capture a list of highlights that make Playwright awesome. H
 19. Support for recording user actions as Playwright test code aka [Test Generator](https://playwright.dev/docs/codegen), that can be run via CLI or the [record button in VS Code](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright#record-new-tests).
 20. Supports device-specific events like [hovering with mouse](https://playwright.dev/docs/api/class-locator#locator-hover), [tapping on mobile](https://playwright.dev/docs/api/class-locator#locator-tap), and [keyboard shortcuts](https://playwright.dev/docs/api/class-locator#locator-press).
 21. [Upload](https://playwright.dev/docs/input#upload-files) and [download](https://playwright.dev/docs/downloads) files supported out of the box.
-22. The [magic of Locators](https://test.local/blog/2022/create-more-reliable-playwright-tests-with-locators/) eliminates flakiness caused by dynamic controls.
+22. The [magic of Locators](https://marcusfelling.com/blog/2022/create-more-reliable-playwright-tests-with-locators/) eliminates flakiness caused by dynamic controls.
 23. Playwright Test uses the same Expect assertion library as Jest which will be familiar to many JS devs.
 24. Supports [tagging of tests](https://playwright.dev/docs/test-annotations#tag-tests) so you can run groups of related tests e.g. `@priority=high`, `@duration=short`.
 25. Provides [docker images](https://playwright.dev/docs/docker) that have dependencies and browsers baked in. This makes [CI configuration](https://playwright.dev/docs/ci) simple and fast.

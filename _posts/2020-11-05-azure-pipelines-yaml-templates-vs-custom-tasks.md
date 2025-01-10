@@ -4,7 +4,7 @@ title: 'Azure Pipelines: YAML Templates VS. Custom Tasks'
 date: '2020-11-05T19:07:10+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=937'
+guid: 'https://marcusfelling.com/?p=937'
 permalink: /blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/
 wpmdr_menu:
     - '1'
@@ -15,7 +15,7 @@ categories:
 
 There are two main ways to create re-usable components for Azure Pipelines. I’ll review the pros and cons of each and talk about when it makes sense to use one over the other. Keep in mind that the two are not mutually exclusive, so it may make sense to use a combination of both.
 
-Note: I won’t be including [task groups](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/task-groups?view=azure-devops) as they’re not supported in YAML pipelines. Why use YAML over Classic Editor? See my previous blog post here: [Classic Editor VS. YAML](https://test.local/blog/2020/azure-pipelines-classic-editor-vs-yaml)
+Note: I won’t be including [task groups](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/task-groups?view=azure-devops) as they’re not supported in YAML pipelines. Why use YAML over Classic Editor? See my previous blog post here: [Classic Editor VS. YAML](https://marcusfelling.com/blog/2020/azure-pipelines-classic-editor-vs-yaml)
 
 ## **Custom pipeline task extension**
 

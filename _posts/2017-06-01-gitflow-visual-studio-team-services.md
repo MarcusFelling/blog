@@ -4,7 +4,7 @@ title: 'Gitflow and Visual Studio Team Services'
 date: '2017-06-01T23:35:59+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=261'
+guid: 'https://marcusfelling.com/?p=261'
 permalink: /blog/2017/gitflow-visual-studio-team-services/
 wpmdr_menu:
     - '1'
@@ -35,19 +35,19 @@ Some examples of policies to enforce:
 
 Minimum # of reviewers. This comes down to preference.
 
-[![](https://test.local/wp-content/uploads/2017/06/minNumberofApprovers.png)](https://test.local/wp-content/uploads/2017/06/minNumberofApprovers.png)
+[![](https://marcusfelling.com/wp-content/uploads/2017/06/minNumberofApprovers.png)](https://marcusfelling.com/wp-content/uploads/2017/06/minNumberofApprovers.png)
 
 Enforce a work item to be linked to the pull request. This really helps tractability when digging through history.
 
-[![](https://test.local/wp-content/uploads/2017/06/checkForLinkedWorkItems.png)](https://test.local/wp-content/uploads/2017/06/checkForLinkedWorkItems.png)
+[![](https://marcusfelling.com/wp-content/uploads/2017/06/checkForLinkedWorkItems.png)](https://marcusfelling.com/wp-content/uploads/2017/06/checkForLinkedWorkItems.png)
 
 Set up a build to be triggered when a pull request is submitted. I recommend setting up CI builds that run unit tests to ensure the code compiles and passes tests before it is merged. If the build fails, the pull request cannot be completed (yes you can override policies).
 
-[![](https://test.local/wp-content/uploads/2017/06/buildpolicy.png)](https://test.local/wp-content/uploads/2017/06/buildpolicy.png)
+[![](https://marcusfelling.com/wp-content/uploads/2017/06/buildpolicy.png)](https://marcusfelling.com/wp-content/uploads/2017/06/buildpolicy.png)
 
 Have subject matter experts in different parts of the code base? This is where you’d setup the policy to require certain reviewers based on the code that has changed.
 
-[![](https://test.local/wp-content/uploads/2017/06/codereviewers.png)](https://test.local/wp-content/uploads/2017/06/codereviewers.png)
+[![](https://marcusfelling.com/wp-content/uploads/2017/06/codereviewers.png)](https://marcusfelling.com/wp-content/uploads/2017/06/codereviewers.png)
 
 Once the policies are setup, developers can start working on topic branches, deploying, and testing their changes. Once they’re ready to merge their changes into the main line, they create a pull request. The team collaborates on the changes, ensure they all agree, then complete the pull request when they’re ready.
 

@@ -4,7 +4,7 @@ title: 'Reasons to use Bicep over Terraform'
 date: '2021-01-14T21:30:09+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=949'
+guid: 'https://marcusfelling.com/?p=949'
 permalink: /blog/2021/reasons-to-use-bicep-over-terraform/
 wpmdr_menu:
     - '1'

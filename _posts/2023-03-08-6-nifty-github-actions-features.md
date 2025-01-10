@@ -4,7 +4,7 @@ title: '6 Nifty GitHub Actions Features 🚀'
 date: '2023-03-08T19:23:17+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=1197'
+guid: 'https://marcusfelling.com/?p=1197'
 permalink: /blog/2023/6-nifty-github-actions-features/
 wpmdr_menu:
     - '1'
@@ -21,19 +21,19 @@ I’ve been having a lot of fun with GitHub Actions lately and wanted to documen
 
 GitHub Actions has an [environments feature](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment) to describe a deployment target such as dev, staging, or production. By referencing the environment in a job, you can take advantage of [protection rules](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules) and/or [secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) that get scoped to the environment. Some potential use cases include requiring a particular person or team to approve workflow jobs that reference an environment (e.g. manual approval before production deploy), or limiting which branches can deploy to a particular environment. I also like to set the environment URL so it’s easily accessible from the summary page:
 
-<figure class="wp-block-image size-full">[![](https://test.local/wp-content/uploads/2023/03/image.png)](https://test.local/wp-content/uploads/2023/03/image.png)</figure>## 2. Establish workflow breakpoints with dependencies
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/03/image.png)](https://marcusfelling.com/wp-content/uploads/2023/03/image.png)</figure>## 2. Establish workflow breakpoints with dependencies
 
 By default, GitHub Actions runs multiple commands simultaneously. However, you can utilize the `needs` keyword to [create dependencies between jobs](https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs), meaning that if a job fails (e.g. tests), dependent jobs won’t run. This also helps you control jobs which jobs run in parallel; if there aren’t dependencies between steps, break them out into separate jobs, then set their `needs` to the next step in the process.
 
 e.g. my app, database, and infra as code projects can be built at the same time before deploying to dev:
 
-<figure class="wp-block-image size-full">[![](https://test.local/wp-content/uploads/2023/03/image-1.png)](https://test.local/wp-content/uploads/2023/03/image-1.png)</figure>## 3. Use secrets to store sensitive workflow data
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/03/image-1.png)](https://marcusfelling.com/wp-content/uploads/2023/03/image-1.png)</figure>## 3. Use secrets to store sensitive workflow data
 
 GitHub’s secrets allow you to securely store sensitive data, including passwords, tokens, certificates, etc. You can directly reference secrets in workflows, meaning that you can create and share workflows with colleagues that employ secrets for secure values without hardcoding them directly into YAML workflow files. I like to scope the secrets close to the steps that require them. For example, rather than setting a secret for the entire workflow to access, it can be set for the job that contains steps that reference the secret.
 
 e.g. Only the Playwright test job needs to reference AzureAD creds:
 
-<figure class="wp-block-image size-full">[![](https://test.local/wp-content/uploads/2023/03/image-2.png)](https://test.local/wp-content/uploads/2023/03/image-2.png)</figure>## 4. Conditionals can aid in differences between environments
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/03/image-2.png)](https://marcusfelling.com/wp-content/uploads/2023/03/image-2.png)</figure>## 4. Conditionals can aid in differences between environments
 
 GitHub Actions allows you to use conditionals that employ the “if” keyword to decide whether a step should run. You can use this feature to develop dependencies so that if a dependent job fails, the workflow can continue running. You can also use specific built-in functions for data operations, as well as leverage status check functions to determine whether preceding steps have succeeded, failed, canceled, or disrupted. Moreover, you can use conditionals to share workflow data among different branches and forks, with steps tailored to different triggers or environments. The conditions can also be set in reusable workflows to toggle different steps between environments:
 

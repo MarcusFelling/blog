@@ -4,7 +4,7 @@ title: 'Measuring Website Performance with Playwright Test and Navigation Timing
 date: '2023-04-27T14:40:19+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=1216'
+guid: 'https://marcusfelling.com/?p=1216'
 permalink: /blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/
 wpmdr_menu:
     - '1'
@@ -19,10 +19,10 @@ I was recently tasked with measuring the impact of a Redis cache on an e-commerc
 
 Playwright already has useful features built in to report on things like the HTML report test step timing and the trace viewer that includes the call duration of each action.
 
-<figure class="wp-block-image size-full">[![](https://test.local/wp-content/uploads/2023/04/test-step-example.png)](https://test.local/wp-content/uploads/2023/04/test-step-example.png)<figcaption class="wp-element-caption">HTML report test step duration</figcaption></figure>I wanted to take this a step further by using the Navigation Timing API, measuring start to loadEventEnd. All of the examples I found online used [performance.timing](https://developer.mozilla.org/en-US/docs/Web/API/Performance/timing), which is now deprecated. This is a very simple code snippet, but posting this will hopefully help others find a solution faster.
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/04/test-step-example.png)](https://marcusfelling.com/wp-content/uploads/2023/04/test-step-example.png)<figcaption class="wp-element-caption">HTML report test step duration</figcaption></figure>I wanted to take this a step further by using the Navigation Timing API, measuring start to loadEventEnd. All of the examples I found online used [performance.timing](https://developer.mozilla.org/en-US/docs/Web/API/Performance/timing), which is now deprecated. This is a very simple code snippet, but posting this will hopefully help others find a solution faster.
 
 Here we have a function **measurePerformance** that can be called inside any test case to get navigation start to load event end times. This could easily be wrapped in a conditional to fail the test based on times. In my case, I just wanted it to be surfaced in the HTML report as a custom annotation to compare between sites, by toggling baseURL.
 
 <script src="https://gist.github.com/MarcusFelling/88f8ddde9941ec1cef19667892dbe2d0.js"></script>As a result, this is what the HTML report looks like:
 
-<figure class="wp-block-image size-full">[![](https://test.local/wp-content/uploads/2023/04/performance-playwright-html-report.png)](https://test.local/wp-content/uploads/2023/04/performance-playwright-html-report.png)</figure>Happy testing!
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/04/performance-playwright-html-report.png)](https://marcusfelling.com/wp-content/uploads/2023/04/performance-playwright-html-report.png)</figure>Happy testing!

@@ -4,7 +4,7 @@ title: 'Custom Build Conditions in VSTS'
 date: '2017-06-18T17:27:50+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=305'
+guid: 'https://marcusfelling.com/?p=305'
 permalink: /blog/2017/custom-build-conditions-vsts/
 wpmdr_menu:
     - '1'
@@ -14,7 +14,7 @@ categories:
 
 On March 29th, 2017 the VSTS team released a new feature that added the ability to specify conditions for running a build task. This provides more control over your build tasks, for things such as a task to clean things up (even if a build fails), or send a message when something goes wrong, under conditions such as certain branches or with certain triggers. Custom Conditions appear in the new build definition editor under Control Options. Custom conditions are not currently available for Task Groups because they still use the old build definition editor (this is on the backlog).
 
-[![](https://test.local/wp-content/uploads/2017/06/VSTSCustomConditions.png)](https://test.local/wp-content/uploads/2017/06/VSTSCustomConditions.png)
+[![](https://marcusfelling.com/wp-content/uploads/2017/06/VSTSCustomConditions.png)](https://marcusfelling.com/wp-content/uploads/2017/06/VSTSCustomConditions.png)
 
 Microsoft provides examples for various conditions here: <https://www.visualstudio.com/en-us/docs/build/concepts/process/conditions>
 

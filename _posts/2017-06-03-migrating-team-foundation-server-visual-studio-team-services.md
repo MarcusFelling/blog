@@ -4,7 +4,7 @@ title: 'Migrating Team Foundation Server to Visual Studio Team Services'
 date: '2017-06-03T17:21:53+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=287'
+guid: 'https://marcusfelling.com/?p=287'
 permalink: /blog/2017/migrating-team-foundation-server-visual-studio-team-services/
 wpmdr_menu:
     - '1'
@@ -32,6 +32,6 @@ An Azure storage account needs to be setup so that you can upload your assets fo
 
 **Final Notes**
 
-Once the new account is live, you can start to re-configure or install new build agents. If you want to run more than one build at a time, you will need to purchase pipelines. Read this[ post](https://test.local/blog/2017/simple-explanation-private-pipeline-billing-vsts/) on how billing works. Once builds are setup, the final step is to review user accounts. Basic accounts will need to be purchased (5 are included) for any users that do not have Visual Studio/MSDN subscriptions that want to: use Code, Build &amp; Release, Test, or manage backlogs. Users that just need to view/edit work items can use the free unlimited Stakeholder license.
+Once the new account is live, you can start to re-configure or install new build agents. If you want to run more than one build at a time, you will need to purchase pipelines. Read this[ post](https://marcusfelling.com/blog/2017/simple-explanation-private-pipeline-billing-vsts/) on how billing works. Once builds are setup, the final step is to review user accounts. Basic accounts will need to be purchased (5 are included) for any users that do not have Visual Studio/MSDN subscriptions that want to: use Code, Build &amp; Release, Test, or manage backlogs. Users that just need to view/edit work items can use the free unlimited Stakeholder license.
 
-Hopefully this post is helpful to anybody attempting this endeavor! If you would like assistance, [contact me](https://test.local/contact/)
+Hopefully this post is helpful to anybody attempting this endeavor! If you would like assistance, [contact me](https://marcusfelling.com/contact/)

@@ -4,7 +4,7 @@ title: 'Publishing 🎭 Playwright test results to GitHub Pages'
 date: '2021-11-22T19:49:09+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=1044'
+guid: 'https://marcusfelling.com/?p=1044'
 permalink: /blog/2021/publishing-playwright-test-results-to-github-pages/
 wpmdr_menu:
     - '1'
@@ -27,7 +27,7 @@ GitHub has docs on this here: <https://docs.github.com/en/pages/getting-started-
 
 I chose to go with most of the defaults. The content lives in a separate branch `gh-pages` at the root. I chose to set up a custom domain at [testresults.marcusfelling.com](https://testresults.marcusfelling.com/). This is what my configuration looks like:
 
-<figure class="wp-block-image size-large">[![](https://test.local/wp-content/uploads/2021/11/github-pages-configuration-1024x646.png)](https://test.local/wp-content/uploads/2021/11/github-pages-configuration.png)</figure>## Configuring GitHub Actions
+<figure class="wp-block-image size-large">[![](https://marcusfelling.com/wp-content/uploads/2021/11/github-pages-configuration-1024x646.png)](https://marcusfelling.com/wp-content/uploads/2021/11/github-pages-configuration.png)</figure>## Configuring GitHub Actions
 
 1. Make sure you’re using Playwright [1.17.0-rc1 ](https://github.com/microsoft/playwright/releases/tag/v1.17.0-rc1)or later
 2. Use the [HTML reporter](https://playwright.dev/docs/test-reporters/#html-reporter) when running tests   

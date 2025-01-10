@@ -4,7 +4,7 @@ title: 'Removing Sensitive Data from Git History with BFG and VS Code'
 date: '2024-04-23T14:06:19+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=1264'
+guid: 'https://marcusfelling.com/?p=1264'
 permalink: /blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/
 ig_es_is_post_notified:
     - '1'

@@ -4,7 +4,7 @@ title: 'Handling Azure AD/Entra ID Authentication with Playwright'
 date: '2023-02-21T19:29:38+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=1178'
+guid: 'https://marcusfelling.com/?p=1178'
 permalink: /blog/2023/handling-azure-ad-authentication-with-playwright/
 wpmdr_menu:
     - '1'
@@ -25,20 +25,20 @@ One of the most frequently asked questions I get is how to test web apps that us
 
 Storing secrets in plain text in our code or configuration files can pose a significant security risk, especially if we share our code with others or publish it on public repositories like GitHub. Instead, we can store the credentials of our test accounts using environment variables. The environment variables are then referenced in our tests using the process core module of Node.js:
 
-<figure class="wp-block-image size-full">[![](https://test.local/wp-content/uploads/2023/02/process-node-core-module.png)](https://test.local/wp-content/uploads/2023/02/process-node-core-module.png)</figure>  
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/02/process-node-core-module.png)](https://marcusfelling.com/wp-content/uploads/2023/02/process-node-core-module.png)</figure>  
 To set the values of these variables we can use our CI system’s secret management. For GitHub Actions, setting the values in the pipeline would look something like this:
 
-<figure class="wp-block-image size-full is-resized">[![](https://test.local/wp-content/uploads/2023/02/gha-secrets-playwright.png)](https://test.local/wp-content/uploads/2023/02/gha-secrets-playwright.png)<figcaption class="wp-element-caption">*example GitHub Actions workflow setting env vars scoped to job*</figcaption></figure>  
+<figure class="wp-block-image size-full is-resized">[![](https://marcusfelling.com/wp-content/uploads/2023/02/gha-secrets-playwright.png)](https://marcusfelling.com/wp-content/uploads/2023/02/gha-secrets-playwright.png)<figcaption class="wp-element-caption">*example GitHub Actions workflow setting env vars scoped to job*</figcaption></figure>  
 To make local development easier, we can use [.env files](https://github.com/motdotla/dotenv) that are added to .gitignore to make sure they don’t get committed to source control.
 
-<figure class="wp-block-image size-full">[![](https://test.local/wp-content/uploads/2023/02/example-dotenv-file.png)](https://test.local/wp-content/uploads/2023/02/example-dotenv-file.png)<figcaption class="wp-element-caption">*example .env file with key-value pairs*</figcaption></figure>## Tips
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/02/example-dotenv-file.png)](https://marcusfelling.com/wp-content/uploads/2023/02/example-dotenv-file.png)<figcaption class="wp-element-caption">*example .env file with key-value pairs*</figcaption></figure>## Tips
 
 - As a starting point, use [codegen](https://playwright.dev/docs/codegen-intro) to walk through logging in, then refactor.
 - Create a new tenant for testing and turn off MFA and security defaults. MFA cannot be fully automated and requires manual intervention.
 - Optionally, set [conditional access policies](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/overview) on your test environment to bypass login, then have a separate environment and tests for the login scenario itself.
 - The test account will need to be granted permission to the app under test for the first time. You can either add conditionals to your test script (if X locator is present, then click Yes) to account for this or manually log in once to grant permissions.  
     *e.g. this is a one-time step*  
-    ![Azure AD App Permissions for login auth](https://test.local/wp-content/uploads/2023/02/aad-app-permissions.jpg)
+    ![Azure AD App Permissions for login auth](https://marcusfelling.com/wp-content/uploads/2023/02/aad-app-permissions.jpg)
 
 <script src="https://gist.github.com/MarcusFelling/b28e64cc083aac32311ba5721deee14f.js"></script>- Auth can be set up to run at various stages of test execution. <s>If all of your tests require auth, I’d recommend logging in once and re-using the signed-in state via [global setup](https://playwright.dev/docs/auth#reuse-signed-in-state). If only a subset of tests requires auth, you can use a [beforeAll hook](https://playwright.dev/docs/auth#reuse-the-signed-in-page-in-multiple-tests) or [fixture](https://playwright.dev/docs/test-fixtures).</s>  
     **\*\*EDIT\*\*:** As of 1.31, Playwright now has [test project dependencies](https://playwright.dev/docs/release-notes#new-apis), which allows you to perform setup in a more advantageous approach compared to a global setup script (e.g. produce traces and HTML report). Docs now have example scripts to walk through this: <https://playwright.dev/docs/auth#basic-shared-account-in-all-tests>

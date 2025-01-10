@@ -4,7 +4,7 @@ title: 'Porting an Azure Pipeline (YAML) to a GitHub Action'
 date: '2020-07-26T20:04:31+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=904'
+guid: 'https://marcusfelling.com/?p=904'
 permalink: /blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/
 wpmdr_menu:
     - '1'
@@ -19,7 +19,7 @@ I’ve been a long time user of Azure Pipelines. It’s a very mature and powerf
 
 My existing Azure Pipeline builds and deploys the open source [MSLearn Tailspin Space Game](https://github.com/MicrosoftDocs/mslearn-tailspin-spacegame-web). I have a fork of the repo hosted in my GitHub repo [here](https://github.com/MarcusFelling/Demo.SpaceGame/tree/port-pipeline), which includes **azure-pipelines.yml**. The `build` stage builds the dotnet web project, runs unit tests, then publishes a pipeline artifact named `drop`. The `Dev` stage takes the `drop` artifact and deploys it to an Azure Web App.
 
-<figure class="wp-block-image size-large">![](https://test.local/wp-content/uploads/2020/07/image-3.png)</figure>## Taking an inventory of dependencies
+<figure class="wp-block-image size-large">![](https://marcusfelling.com/wp-content/uploads/2020/07/image-3.png)</figure>## Taking an inventory of dependencies
 
 Before I get started porting this over to GitHub Actions, I need to take an inventory of the Azure DevOps dependencies I’m using in my pipeline.
 
@@ -154,4 +154,4 @@ Then I can use the `azure/webapps-deploy@v2` Action to deploy the .zip package, 
 
 Every push to my repository will now trigger the workflow to run:
 
-<figure class="wp-block-image size-large">![](https://test.local/wp-content/uploads/2020/07/image-4.png)</figure>GitHubs Actions has a lot in common with Azure Pipelines, so it’s less of a learning curve compared to starting out with a completely different platform, such as CircleCI, Jenkins, or GitLab. If you’re using other areas of the Azure DevOps suite, you’ll also get a bunch of integrations between the platforms such as [Azure Boards](https://docs.microsoft.com/en-us/azure/devops/boards/github/?view=azure-devops). For anybody currently using Azure Pipelines, I’d recommend identifying opportunities to automate workflows with GitHub Actions. Azure DevOps isn’t going away any time soon, but GitHub has some compelling capabilities, with the largest developer community and platform in the world.
+<figure class="wp-block-image size-large">![](https://marcusfelling.com/wp-content/uploads/2020/07/image-4.png)</figure>GitHubs Actions has a lot in common with Azure Pipelines, so it’s less of a learning curve compared to starting out with a completely different platform, such as CircleCI, Jenkins, or GitLab. If you’re using other areas of the Azure DevOps suite, you’ll also get a bunch of integrations between the platforms such as [Azure Boards](https://docs.microsoft.com/en-us/azure/devops/boards/github/?view=azure-devops). For anybody currently using Azure Pipelines, I’d recommend identifying opportunities to automate workflows with GitHub Actions. Azure DevOps isn’t going away any time soon, but GitHub has some compelling capabilities, with the largest developer community and platform in the world.

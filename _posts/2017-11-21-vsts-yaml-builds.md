@@ -4,7 +4,7 @@ title: 'Azure Pipelines YAML Builds (Pipeline as code)'
 date: '2017-11-21T22:33:18+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=517'
+guid: 'https://marcusfelling.com/?p=517'
 permalink: /blog/2017/vsts-yaml-builds/
 wpmdr_menu:
     - '1'

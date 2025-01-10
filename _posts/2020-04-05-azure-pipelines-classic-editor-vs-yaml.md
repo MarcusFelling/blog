@@ -4,7 +4,7 @@ title: 'Azure Pipelines: Classic Editor VS. YAML'
 date: '2020-04-05T18:11:09+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=858'
+guid: 'https://marcusfelling.com/?p=858'
 permalink: /blog/2020/azure-pipelines-classic-editor-vs-yaml/
 wpmdr_menu:
     - '1'
@@ -14,7 +14,7 @@ categories:
 
 In this post, the two configuration options in Azure Pipelines will go head to head in an epic battle…
 
-<figure class="wp-block-image size-large">![](https://test.local/wp-content/uploads/2020/04/classicYAMLBattle.png)</figure>Ok, maybe this won’t be an epic battle, just a friendly pro and con list between the two.
+<figure class="wp-block-image size-large">![](https://marcusfelling.com/wp-content/uploads/2020/04/classicYAMLBattle.png)</figure>Ok, maybe this won’t be an epic battle, just a friendly pro and con list between the two.
 
 ## Classic Editor
 
@@ -32,7 +32,7 @@ In this post, the two configuration options in Azure Pipelines will go head to h
 
 **No longer the default**: When creating new definitions, the classic editor is no longer the default option. It’s now hidden towards the bottom, making it harder to find. YAML is the future, hint, hint, nudge, nudge.
 
-<figure class="wp-block-image size-large">![](https://test.local/wp-content/uploads/2020/04/classicHidden.png)<figcaption>*Let’s make it really difficult for users to NOT use YAML. Muahhahaha!*</figcaption></figure>## YAML
+<figure class="wp-block-image size-large">![](https://marcusfelling.com/wp-content/uploads/2020/04/classicHidden.png)<figcaption>*Let’s make it really difficult for users to NOT use YAML. Muahhahaha!*</figcaption></figure>## YAML
 
 <div class="i2-pros-cons-icons i2-pros-cons-main-wrapper theme-i2pc-theme-00 no-title no-button no-space-between-column no-outer-border no-round-corner no-heading-icon"><div class="i2-pros-cons-wrapper"><div class="i2-pros">**Pros**<div class="section">- Easy to collaborate
 - Repository portability
@@ -49,7 +49,7 @@ In this post, the two configuration options in Azure Pipelines will go head to h
 
 **Steeper learning curve:** It may take users longer to get the hang of working with YAML files. However, the [Task Assistant](https://docs.microsoft.com/en-us/azure/devops/release-notes/2019/sprint-150-update#task-assistant-for-editing-yaml-files) can help. There is also a Visual Studio Code [Azure Pipelines extension](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines) to assist with syntax highlighting and IntelliSense. Still afraid of YAML? You could start with the classic editor, then make the switch to YAML using the “View YAML” button later down the road:
 
-<figure class="wp-block-image size-large">![](https://test.local/wp-content/uploads/2020/04/viewYAML.png)</figure><figure class="wp-block-image size-large">![](https://test.local/wp-content/uploads/2020/04/copyYAML.png)</figure>## Judge?
+<figure class="wp-block-image size-large">![](https://marcusfelling.com/wp-content/uploads/2020/04/viewYAML.png)</figure><figure class="wp-block-image size-large">![](https://marcusfelling.com/wp-content/uploads/2020/04/copyYAML.png)</figure>## Judge?
 
  There really isn’t a clear winner. As with most of these types of decisions, *it depends*.  
   

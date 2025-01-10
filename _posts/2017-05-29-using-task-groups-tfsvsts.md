@@ -4,7 +4,7 @@ title: 'Using Task Groups in TFS/VSTS'
 date: '2017-05-29T15:32:13+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=232'
+guid: 'https://marcusfelling.com/?p=232'
 permalink: /blog/2017/using-task-groups-tfsvsts/
 wpmdr_menu:
     - '1'
@@ -18,6 +18,6 @@ When my team started creating microservices the number of build definitions to m
 
 Here is what an example Task Group looks like:
 
-[![](https://test.local/wp-content/uploads/2017/05/TaskGroupDemo.png)](https://test.local/wp-content/uploads/2017/05/TaskGroupDemo.png)
+[![](https://marcusfelling.com/wp-content/uploads/2017/05/TaskGroupDemo.png)](https://marcusfelling.com/wp-content/uploads/2017/05/TaskGroupDemo.png)
 
 Use variables wherever the definitions will differ in each build step, then set their values in each build definition. For each Task Group parameter, enter the build variable $(VariableName). That way build definitions can easily be cloned and setup by entering the variable values in the variables tab.

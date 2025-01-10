@@ -4,7 +4,7 @@ title: 'Azure DevOps Pipelines: Variables, $Variables, __Variables__, $env:Varia
 date: '2019-08-24T16:35:47+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=693'
+guid: 'https://marcusfelling.com/?p=693'
 permalink: /blog/2019/azure-devops-pipeline-variables/
 wpmdr_menu:
     - '1'
@@ -26,9 +26,9 @@ User-defined variables that are specific to the pipeline can be set on the varia
 Example:  
 1\. Set variable
 
-<figure class="wp-block-image">![](https://test.local/wp-content/uploads/2019/04/VariablesTabAzureDevOpsPipelines-1.png)</figure>2\. Reference variable in task
+<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/04/VariablesTabAzureDevOpsPipelines-1.png)</figure>2\. Reference variable in task
 
-<figure class="wp-block-image">![](https://test.local/wp-content/uploads/2019/04/VariablesTabAzureDevOpsPipelines2.png)</figure>To reference the variables in scripts, you can refer to the Microsoft doc [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=designer%2Cbatch#set-variables-in-pipeline).
+<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/04/VariablesTabAzureDevOpsPipelines2.png)</figure>To reference the variables in scripts, you can refer to the Microsoft doc [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=designer%2Cbatch#set-variables-in-pipeline).
 
 > Notice that variables are also made available to scripts through environment variables. The syntax for using these environment variables depends on the scripting language. Name is upper-cased, `.` replaced with `_`, and automatically inserted into the process environment. Here are some examples:
 
@@ -52,8 +52,8 @@ Write-Host "##vso[task.setvariable variable=testvar;]testvalue"
 
 I like to version my builds using a counter expression. To do this I set the following variables:
 
-<figure class="wp-block-image is-resized">![](https://test.local/wp-content/uploads/2019/08/AzureDevOpsBuildCounter-1024x178.png)</figure>Then change the build number format to reference them:
+<figure class="wp-block-image is-resized">![](https://marcusfelling.com/wp-content/uploads/2019/08/AzureDevOpsBuildCounter-1024x178.png)</figure>Then change the build number format to reference them:
 
-<figure class="wp-block-image">![](https://test.local/wp-content/uploads/2019/08/AzureDevOpsBuildCounterOptions.png)</figure>You can find the list of functions available for expressions in the docs [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/expressions?view=azure-devops#functions).
+<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/08/AzureDevOpsBuildCounterOptions.png)</figure>You can find the list of functions available for expressions in the docs [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/expressions?view=azure-devops#functions).
 
 What creative ways have you used variables in an Azure DevOps pipeline? Feel free to share in the comments below.

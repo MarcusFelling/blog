@@ -4,7 +4,7 @@ title: 'Configuration Management for Serverless Microservice Projects'
 date: '2017-09-05T21:02:53+00:00'
 author: Marcus
 layout: post
-guid: 'https://test.local/?p=376'
+guid: 'https://marcusfelling.com/?p=376'
 permalink: /blog/2017/configuration-management-serverless-microservice-projects/
 wpmdr_menu:
     - '1'
@@ -14,7 +14,7 @@ categories:
 
 Weather you’re using AWS Lambda, Azure Functions, or Google Cloud’s Firebase, you’ll want to re-think how you approach configuration management for serverless projects. The number of projects tend to grow fast because a [microservice](https://martinfowler.com/articles/microservices.html) architecture is most commonly used. This introduces a new set of configuration management problems. Manual tasks to create and manage these projects grows exponentially. Without proper configuration management these projects can quickly spiral into the wild wild west. I’d like to review the principals of SCM and share some solutions for accomplishing these goals when working with serverless/microservice projects.
 
-![Serverless Microservices Configuration Management](https://test.local/wp-content/uploads/2017/09/ServerlessMicroserviceConfigurationManagement.jpg)
+![Serverless Microservices Configuration Management](https://marcusfelling.com/wp-content/uploads/2017/09/ServerlessMicroserviceConfigurationManagement.jpg)
 
 ## Configuration identification, control, status accounting, and auditing.
 
@@ -22,7 +22,7 @@ The first SCM goals to focus on are configuration identification, control, statu
 
 > Software configuration management is the task of tracking and controlling changes in the software. SCM practices include revision control and the establishment of baselines. If something goes wrong, SCM can determine what was changed and who changed it. If a configuration is working well, SCM can determine how to replicate it across many hosts.
 
-Source control paired with a well thought out branching and merging strategy should accomplish most of these goals. I currently use a customized version of [git-flow](http://nvie.com/posts/a-successful-git-branching-model/) in conjunction with [VSTS.](https://www.visualstudio.com/team-services/) Git-flow’s biggest benefit (In my opinion) is the use of Pull Requests which fulfills SCM goals for change control, status accounting, and auditing. I talked about the VSTS pull request experience in a [previous post](https://test.local/blog/2017/gitflow-visual-studio-team-services/). The [State of DevOps Report](https://puppet.com/resources/whitepaper/2014-state-devops-report) shows that source control and peer review is more effective than a change control board. A change control board can really slow things down when serverless projects have potential to release at a faster cadence.
+Source control paired with a well thought out branching and merging strategy should accomplish most of these goals. I currently use a customized version of [git-flow](http://nvie.com/posts/a-successful-git-branching-model/) in conjunction with [VSTS.](https://www.visualstudio.com/team-services/) Git-flow’s biggest benefit (In my opinion) is the use of Pull Requests which fulfills SCM goals for change control, status accounting, and auditing. I talked about the VSTS pull request experience in a [previous post](https://marcusfelling.com/blog/2017/gitflow-visual-studio-team-services/). The [State of DevOps Report](https://puppet.com/resources/whitepaper/2014-state-devops-report) shows that source control and peer review is more effective than a change control board. A change control board can really slow things down when serverless projects have potential to release at a faster cadence.
 
 #### Deployment automation
 
@@ -36,7 +36,7 @@ The build should provide an automated process that grabs a specific version of c
 
 Build management can get tricky with a quickly growing number of build definitions for each serverless/microservice project. Variables should be used wherever there are shared configurations between projects. This way build definitions can be cloned for new projects vs. creating a new one from scratch. Variables should also be used for shared fields such as environments, branches, etc. to cut down on the number of definitions. The build should be run before merging code into the mainline in order to ensure code quality levels are met.
 
-I use [VSTS builds](https://www.visualstudio.com/team-services/continuous-integration/) to accomplish the above. I use Task Groups to define a template of common steps in a build that can be shared across definitions through the use of variables, which I’ve mentioned in a [previous post](https://test.local/blog/2017/using-task-groups-tfsvsts/). Quality gates are setup on Pull Requests for change control by running an automated build and requiring that it completes successfully before the change can be merged into the main line. Build definitions are generic for each project with only the variable values being unique so that they can be cloned when creating a new serverless/microservice project. When queuing a build, the user chooses which branch they are using and which environment they want it deployed to.
+I use [VSTS builds](https://www.visualstudio.com/team-services/continuous-integration/) to accomplish the above. I use Task Groups to define a template of common steps in a build that can be shared across definitions through the use of variables, which I’ve mentioned in a [previous post](https://marcusfelling.com/blog/2017/using-task-groups-tfsvsts/). Quality gates are setup on Pull Requests for change control by running an automated build and requiring that it completes successfully before the change can be merged into the main line. Build definitions are generic for each project with only the variable values being unique so that they can be cloned when creating a new serverless/microservice project. When queuing a build, the user chooses which branch they are using and which environment they want it deployed to.
 
 ## Teamwork – Facilitate team interactions related to the process.
 
