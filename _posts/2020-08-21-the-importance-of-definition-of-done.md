@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=923'
 permalink: /blog/2020/the-importance-of-definition-of-done/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2020/08/definitionOfDoneAzureBoards.png
+image: /content/uploads/2020/08/definitionOfDoneAzureBoards.png
 categories:
     - Uncategorized
 ---
@@ -36,13 +36,13 @@ Having the team create this definition TOGETHER, is a small tweak that can be re
 
 Once defined, the team should post this definition somewhere to remind themselves what they agreed on. This could be a wiki, README in source control, or in whatever tooling is being used for work item management. For example, Azure Boards has a cool feature to specify the Definition of Done for each column on the Kanban board:
 
-<figure class="wp-block-image size-large">![](https://marcusfelling.com/wp-content/uploads/2020/08/definition-of-done-defined.png)</figure>Which provides a great way to remind your team to be sure all of these items are complete **before** moving something between columns.
+<figure class="wp-block-image size-large">![](https://marcusfelling.com/content/uploads/2020/08/definition-of-done-defined.png)</figure>Which provides a great way to remind your team to be sure all of these items are complete **before** moving something between columns.
 
-<figure class="wp-block-image size-large">![](https://marcusfelling.com/wp-content/uploads/2020/08/move-doing-done-dod-develop.png)</figure>In Jira, this could be done by creating a custom field with checkboxes:
+<figure class="wp-block-image size-large">![](https://marcusfelling.com/content/uploads/2020/08/move-doing-done-dod-develop.png)</figure>In Jira, this could be done by creating a custom field with checkboxes:
 
-<figure class="wp-block-image size-large">![](https://marcusfelling.com/wp-content/uploads/2020/08/jira-definition-of-done.png)</figure>In GitHub, this could be defined in a README markdown file or in a repo Wiki. dwyl has a great example of this in their repo here: <https://github.com/dwyl/definition-of-done>
+<figure class="wp-block-image size-large">![](https://marcusfelling.com/content/uploads/2020/08/jira-definition-of-done.png)</figure>In GitHub, this could be defined in a README markdown file or in a repo Wiki. dwyl has a great example of this in their repo here: <https://github.com/dwyl/definition-of-done>
 
-<figure class="wp-block-image size-large">![](https://marcusfelling.com/wp-content/uploads/2020/08/dwyl-definition-of-done-1024x840.png)</figure>## Summary
+<figure class="wp-block-image size-large">![](https://marcusfelling.com/content/uploads/2020/08/dwyl-definition-of-done-1024x840.png)</figure>## Summary
 
 The Definition of Done should be treated as a living document that is reviewed and updated regularly. Figure out what works best for your team and iterate on it to continuously improve. Be consistent. Be clear. Have a shared understanding.
 

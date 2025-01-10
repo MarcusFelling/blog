@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=592'
 permalink: /blog/2018/tfs-release-management-create-release-via-rest-api/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2018/09/CreateReleaseFunction-e1536520560720.png
+image: /content/uploads/2018/09/CreateReleaseFunction-e1536520560720.png
 categories:
     - Uncategorized
 ---

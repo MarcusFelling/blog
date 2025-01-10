@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=336'
 permalink: /blog/2017/update-octopus-variable-via-octopus-api/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2017/07/OctopusTFSVSTS.png
+image: /content/uploads/2017/07/OctopusTFSVSTS.png
 categories:
     - Uncategorized
 ---

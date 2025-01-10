@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=681'
 permalink: /blog/2019/bulk-update-azure-release-pipelines-tasks/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2019/03/AzurePipelinesTasksOpenSourceCrossPlatform.png
+image: /content/uploads/2019/03/AzurePipelinesTasksOpenSourceCrossPlatform.png
 categories:
     - Uncategorized
 ---

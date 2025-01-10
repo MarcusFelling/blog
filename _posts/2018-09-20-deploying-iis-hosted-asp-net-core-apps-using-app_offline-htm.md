@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=603'
 permalink: /blog/2018/deploying-iis-hosted-asp-net-core-apps-using-app_offline-htm/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2018/09/websitertemporarilyoffline.jpg
+image: /content/uploads/2018/09/websitertemporarilyoffline.jpg
 categories:
     - Uncategorized
 ---

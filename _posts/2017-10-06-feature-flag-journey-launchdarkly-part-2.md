@@ -12,7 +12,7 @@ categories:
     - Uncategorized
 ---
 
-![LaunchDarkly Logo](https://marcusfelling.com/wp-content/uploads/2017/10/LaunchDarklyLogo-1-300x89.png)
+![LaunchDarkly Logo](https://marcusfelling.com/content/uploads/2017/10/LaunchDarklyLogo-1-300x89.png)
 
 I previously posted about how I discovered LaunchDarkly and wanted to introduce it at my current employer. See Part 1 [here](https://marcusfelling.com/blog/2017/feature-flag-journey-launchdarkly/). Our pilot with LaunchDarkly went great. So great that we purchased a subscription.
 

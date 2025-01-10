@@ -14,7 +14,7 @@ categories:
 
 Weather you’re using AWS Lambda, Azure Functions, or Google Cloud’s Firebase, you’ll want to re-think how you approach configuration management for serverless projects. The number of projects tend to grow fast because a [microservice](https://martinfowler.com/articles/microservices.html) architecture is most commonly used. This introduces a new set of configuration management problems. Manual tasks to create and manage these projects grows exponentially. Without proper configuration management these projects can quickly spiral into the wild wild west. I’d like to review the principals of SCM and share some solutions for accomplishing these goals when working with serverless/microservice projects.
 
-![Serverless Microservices Configuration Management](https://marcusfelling.com/wp-content/uploads/2017/09/ServerlessMicroserviceConfigurationManagement.jpg)
+![Serverless Microservices Configuration Management](https://marcusfelling.com/content/uploads/2017/09/ServerlessMicroserviceConfigurationManagement.jpg)
 
 ## Configuration identification, control, status accounting, and auditing.
 

@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=949'
 permalink: /blog/2021/reasons-to-use-bicep-over-terraform/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2021/01/bicepLogo-1.png
+image: /content/uploads/2021/01/bicepLogo-1.png
 categories:
     - Uncategorized
 ---

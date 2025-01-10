@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=891'
 permalink: /blog/2020/how-to-reduce-the-size-of-your-tfs-azure-devops-server-collection-databases/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2020/06/Untitled.png
+image: /content/uploads/2020/06/Untitled.png
 categories:
     - Uncategorized
 ---

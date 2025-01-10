@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=937'
 permalink: /blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2020/11/extensionORTemplate.png
+image: /content/uploads/2020/11/extensionORTemplate.png
 categories:
     - Uncategorized
 ---

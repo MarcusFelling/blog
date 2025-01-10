@@ -10,7 +10,7 @@ wpmdr_menu:
     - '1'
 ig_es_is_post_notified:
     - '1'
-image: /wp-content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay.png
+image: /content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay.png
 categories:
     - Uncategorized
 tags:

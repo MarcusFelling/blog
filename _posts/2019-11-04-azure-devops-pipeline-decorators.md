@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=778'
 permalink: /blog/2019/azure-devops-pipeline-decorators/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2019/11/createextension.png
+image: /content/uploads/2019/11/createextension.png
 categories:
     - Uncategorized
 ---
@@ -22,9 +22,9 @@ Decorators will allow us to define required steps in one YAML file, that will be
 Currently Pipeline Decorators are in preview. To enable this preview feature, we’ll need to [enable it at the organization level](https://docs.microsoft.com/en-us/azure/devops/project/navigation/preview-features?view=azure-devops#enable-features-at-the-organization-level-for-all-users).
 
 1. Click on your profile in the upper right -&gt; Preview Features  
-    ![](https://marcusfelling.com/wp-content/uploads/2019/11/EnablePreviewFeatureDecorators.png)
+    ![](https://marcusfelling.com/content/uploads/2019/11/EnablePreviewFeatureDecorators.png)
 2. Toggle Pipeline decorators  
-    ![](https://marcusfelling.com/wp-content/uploads/2019/11/EnablePreviewFeatureDecorators2.png)
+    ![](https://marcusfelling.com/content/uploads/2019/11/EnablePreviewFeatureDecorators2.png)
 
 ## Create an Azure DevOps Extension
 
@@ -50,10 +50,10 @@ After uploading the extension to the marketplace, it’s time to queue a build t
 
 To log additional output produced during the build, set system.debugContext to True when queuing a build.
 
-![](https://marcusfelling.com/wp-content/uploads/2019/11/debugBuild.png)
+![](https://marcusfelling.com/content/uploads/2019/11/debugBuild.png)
 
 This will result in an additional section in the logs containing all of the information about the decorator.
 
-![](https://marcusfelling.com/wp-content/uploads/2019/11/AzureDevOpsPipelineDecoratorContextLog.png)
+![](https://marcusfelling.com/content/uploads/2019/11/AzureDevOpsPipelineDecoratorContextLog.png)
 
 The complete source for the examples above can be found in my GitHub repo here: <https://github.com/MarcusFelling/PipelineDecorator>

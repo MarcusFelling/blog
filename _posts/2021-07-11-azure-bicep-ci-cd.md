@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=1007'
 permalink: /blog/2021/azure-bicep-ci-cd/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2021/07/githubactionspipelinebicepazure.png
+image: /content/uploads/2021/07/githubactionspipelinebicepazure.png
 categories:
     - Uncategorized
 ---
@@ -42,7 +42,7 @@ To combine all of the above using a single command, validation commands can be u
 
 For an example of this using GitHub Actions, check out my SpaceGameVNext’s pipeline [here](https://github.com/MarcusFelling/demo-space-game-vnext/blob/12b081894b10b581bdfeaedfce69a0f5165891b3/.github/workflows/pipeline.yml#L83).
 
-<figure class="wp-block-image size-large">[![](https://marcusfelling.com/wp-content/uploads/2021/07/buildBicepValidatePipeline-1024x623.png)](https://marcusfelling.com/wp-content/uploads/2021/07/buildBicepValidatePipeline.png)</figure># Deploy
+<figure class="wp-block-image size-large">[![](https://marcusfelling.com/content/uploads/2021/07/buildBicepValidatePipeline-1024x623.png)](https://marcusfelling.com/content/uploads/2021/07/buildBicepValidatePipeline.png)</figure># Deploy
 
 ### Tooling
 
@@ -69,6 +69,6 @@ Additionally,
 
 For an example of this using GitHub Actions, check out my SpaceGameVNext’s pipeline [here](https://github.com/MarcusFelling/demo-space-game-vnext/blob/main/.github/workflows/pipeline.yml).
 
-<figure class="wp-block-image size-large">[![](https://marcusfelling.com/wp-content/uploads/2021/07/githubactionspipelinebicepazure-1024x123.png)](https://marcusfelling.com/wp-content/uploads/2021/07/githubactionspipelinebicepazure.png)</figure>## Summary
+<figure class="wp-block-image size-large">[![](https://marcusfelling.com/content/uploads/2021/07/githubactionspipelinebicepazure-1024x123.png)](https://marcusfelling.com/content/uploads/2021/07/githubactionspipelinebicepazure.png)</figure>## Summary
 
 None of this is hard and fast guidance to follow strictly. There are many different types of architectures, environments, repository structures, etc. These are things that I’ve found success with and YMMV. What have you found success in while integrating Bicep into your pipelines? I would love to hear your thoughts in the comments.

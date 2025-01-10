@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=528'
 permalink: /blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2017/12/AWSOctopusDeploy.png
+image: /content/uploads/2017/12/AWSOctopusDeploy.png
 categories:
     - Uncategorized
 ---
@@ -25,7 +25,7 @@ Octopus then moves on to next instance…
 The deploy steps that are run for a role are grouped. There is a parent step that has the rolling deployment setting, with child steps to perform the deploy activities.  
 Example parent step:
 
-![web app rolling deploy](https://marcusfelling.com/wp-content/uploads/2017/12/webapprollingdeploy.png)
+![web app rolling deploy](https://marcusfelling.com/content/uploads/2017/12/webapprollingdeploy.png)
 
 The first script (EnterStandby.ps1) gets the instance id, gets the ASG name using it’s instance ID, sets an Octopus output variable with the ASG name (that’s referenced in ExitStandby.ps1), then places the instance in standby mode (if it isn’t already).
 

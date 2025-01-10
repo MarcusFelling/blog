@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=1264'
 permalink: /blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/
 ig_es_is_post_notified:
     - '1'
-image: /wp-content/uploads/2024/04/icon.png
+image: /content/uploads/2024/04/icon.png
 categories:
     - Uncategorized
 ---

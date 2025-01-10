@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=639'
 permalink: /blog/2019/setting-up-sonarqube-on-windows-with-azure-pipelines/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2019/02/SonarQube-1.png
+image: /content/uploads/2019/02/SonarQube-1.png
 categories:
     - Uncategorized
 ---
@@ -84,7 +84,7 @@ To generate a token, login to SonarQube, go to your profile (upper right) -&gt; 
 
 Next, you will want to make sure proper permissions are setup. Users that will be configuring the build definitions will need permissions to use the new Service connection. By default, the group \[projectName\]\\Endpoint Administrators is added. Add new users to that group, add a new group, or add individual users to suit your needs.
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/02/SonarQubeServiceConnection.png)</figure>## Azure Pipelines Configuration
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/02/SonarQubeServiceConnection.png)</figure>## Azure Pipelines Configuration
 
 Now that we have a service connection, we can add the SonarQube build tasks to a build definition. For this post, I’m going to use the Visual Designer. Later on you can convert to YAML if you choose to do so.
 
@@ -92,21 +92,21 @@ Now that we have a service connection, we can add the SonarQube build tasks to a
 
 This step needs to be added as the first task in the definition. When SonarQube uploads the analysis it will automatically create the new project using the Project Name, Project Key, and Project Version. I chose to use Azure DevOps [Predefined Variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops) for these values.
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/02/PrepareAnalysisSonarQubeBuild-1024x577.png)</figure>2\. Add the task: **Run Code Analysis**
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/02/PrepareAnalysisSonarQubeBuild-1024x577.png)</figure>2\. Add the task: **Run Code Analysis**
 
 You will want to add this task towards the end of the build.
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/02/RunCodeAnalysisSonarQube.png)</figure>3\. Add the task: **Publish Quality Gate Result** (Optional)
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/02/RunCodeAnalysisSonarQube.png)</figure>3\. Add the task: **Publish Quality Gate Result** (Optional)
 
 This task will display the Quality Gate status in the build summary and give you a sense of whether the application is ready for production “quality-wise”.   
 Note: This task can significantly increase build time because it polls the SonarQube server until the analysis is complete.
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/02/PublishQualityGateResultSonarQubeBuild.png)</figure>Our build definition is now ready. You will notice that adding the new SonarQube tasks will add a new demand, requiring Java as as an agent capability. This means you will need to install Java on your build server if you’re using a Private agent/pool.
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/02/PublishQualityGateResultSonarQubeBuild.png)</figure>Our build definition is now ready. You will notice that adding the new SonarQube tasks will add a new demand, requiring Java as as an agent capability. This means you will need to install Java on your build server if you’re using a Private agent/pool.
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/02/JavaDemandSonarQube-1024x562.png)</figure>3\. Time to queue the build!
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/02/JavaDemandSonarQube-1024x562.png)</figure>3\. Time to queue the build!
 
 ## SonarQube
 
 After running the build with the SonarQube tasks, you should now see a new project in SonarQube.
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/02/BlogSonarQubeExample-1024x141.png)</figure>That’s all for now folks…
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/02/BlogSonarQubeExample-1024x141.png)</figure>That’s all for now folks…

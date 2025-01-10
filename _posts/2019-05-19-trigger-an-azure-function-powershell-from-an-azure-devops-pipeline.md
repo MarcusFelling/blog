@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=705'
 permalink: /blog/2019/trigger-an-azure-function-powershell-from-an-azure-devops-pipeline/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2019/05/AzureDevOpsPipelinesAzureFunctionsPowerShell.png
+image: /content/uploads/2019/05/AzureDevOpsPipelinesAzureFunctionsPowerShell.png
 categories:
     - Uncategorized
 ---
@@ -19,9 +19,9 @@ When I recently heard the [announcement ](https://devblogs.microsoft.com/powersh
 
 First up is creating the function app. There is plenty of [documentation ](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function)on this so I’ll skip the details. The main thing to select here is the Runtime Stack: PowerShell (Preview). Here is what mine looks like:
 
-<figure class="wp-block-image is-resized">![](https://marcusfelling.com/wp-content/uploads/2019/05/CreateFunction-488x1024.png)</figure>Next, create a function with an HTTP trigger. This will be a function that will be run whenever it receives an HTTP request, responding based on data in the body or query string. We’ll be sending the HTTP request from within an Azure DevOps Pipeline in later steps.
+<figure class="wp-block-image is-resized">![](https://marcusfelling.com/content/uploads/2019/05/CreateFunction-488x1024.png)</figure>Next, create a function with an HTTP trigger. This will be a function that will be run whenever it receives an HTTP request, responding based on data in the body or query string. We’ll be sending the HTTP request from within an Azure DevOps Pipeline in later steps.
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/05/TriggerFunction-1024x482.png)</figure>There are 2 files created by default: run.ps1 and function.json. Run.ps1 will contain our PowerShell logic that’s executed when there is an HTTP trigger. For this example, I’m getting a list of release definitions from an Azure DevOps project. My run.ps1 file looks like this:
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/05/TriggerFunction-1024x482.png)</figure>There are 2 files created by default: run.ps1 and function.json. Run.ps1 will contain our PowerShell logic that’s executed when there is an HTTP trigger. For this example, I’m getting a list of release definitions from an Azure DevOps project. My run.ps1 file looks like this:
 
 <script src="https://gist.github.com/MarcusFelling/968c78c366272b69e032225169e1edf4.js"></script>I’ll let you read through the comments to figure out what each step does. The main things to note:
 
@@ -41,9 +41,9 @@ Test the function by running it in the Portal and the console should display out
 
 Now that we have a function created, we can use Azure Pipelines to trigger it. First up we’ll create an Agentless Job in a new or existing release definition. This will give us a super fast execution of tasks, unlike waiting on hosted or private build agents that can take a while to pick up the tasks and execute them. Click the ellipsis in the environment block -&gt; Add an agentless job.
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/05/AgentlessJob-1024x350.png)</figure>Add the “Invoke Azure Function” task to the new agentless job:
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/05/AgentlessJob-1024x350.png)</figure>Add the “Invoke Azure Function” task to the new agentless job:
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/05/InvokeAzureFunctionTask-1024x432.png)</figure>Now we can configure the task.
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/05/InvokeAzureFunctionTask-1024x432.png)</figure>Now we can configure the task.
 
 1. Grab the Azure Function URL from the Azure Portal. It’s on the top level Azure Function Apps page under Overview. Add the name of your HTTP trigger function to the base url + /api/. In this example, I used https://marcusfellingblogfunctions.azurewebsites.net/api/HttpTrigger1
 2. Function Key can also be found in the portal under Functions – &gt; Trigger Name -&gt; Manage. I generated a new key and store it as a [secret variable](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=classic%2Cbatch#secret-variables) in my release definition.
@@ -52,9 +52,9 @@ Now that we have a function created, we can use Azure Pipelines to trigger it. F
        
     This resulted in my task looking like this:
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/05/InvokeAzureFunctionTaskConfigured-698x1024.png)</figure>Creating and running a new release results in a log that outputs the response and body.
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/05/InvokeAzureFunctionTaskConfigured-698x1024.png)</figure>Creating and running a new release results in a log that outputs the response and body.
 
-<figure class="wp-block-image">![](https://marcusfelling.com/wp-content/uploads/2019/05/ReleaseLog-1024x331.png)</figure>## Conclusion
+<figure class="wp-block-image">![](https://marcusfelling.com/content/uploads/2019/05/ReleaseLog-1024x331.png)</figure>## Conclusion
 
 This blog post outlines just one of many script scenarios that could be used. I wanted to outline how easy it is to get started. By using Azure Functions in conjunction with Azure Pipelines, we’re able to take advantage of the consumption pricing model (hopefully saving money), reduce the amount of servers we need to manage, and can scale infinitely as our solutions grow.
 

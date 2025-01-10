@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=627'
 permalink: /blog/2019/azure-release-pipelines-what-releases-havent-been-deployed-to-production-yet/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2019/01/Azure-Release-Pipelines-1.jpg
+image: /content/uploads/2019/01/Azure-Release-Pipelines-1.jpg
 categories:
     - Uncategorized
 ---

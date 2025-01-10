@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?page_id=492'
 wpmdr_menu:
     - '1'
 post_grid_post_settings:
-    - 'a:10:{s:9:"post_skin";s:4:"flat";s:19:"custom_thumb_source";s:90:"https://marcusfelling.com/wp-content/plugins/post-grid/assets/frontend/css/images/placeholder.png";s:17:"font_awesome_icon";s:0:"";s:23:"font_awesome_icon_color";s:7:"#737272";s:22:"font_awesome_icon_size";s:4:"50px";s:17:"custom_youtube_id";s:0:"";s:15:"custom_vimeo_id";s:0:"";s:21:"custom_dailymotion_id";s:0:"";s:14:"custom_mp3_url";s:0:"";s:20:"custom_soundcloud_id";s:0:"";}'
+    - 'a:10:{s:9:"post_skin";s:4:"flat";s:19:"custom_thumb_source";s:90:"https://marcusfelling.com/content/plugins/post-grid/assets/frontend/css/images/placeholder.png";s:17:"font_awesome_icon";s:0:"";s:23:"font_awesome_icon_color";s:7:"#737272";s:22:"font_awesome_icon_size";s:4:"50px";s:17:"custom_youtube_id";s:0:"";s:15:"custom_vimeo_id";s:0:"";s:21:"custom_dailymotion_id";s:0:"";s:14:"custom_mp3_url";s:0:"";s:20:"custom_soundcloud_id";s:0:"";}'
 ---
 
 - [Removing Sensitive Data from Git History with BFG and VS Code](https://marcusfelling.com/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/)

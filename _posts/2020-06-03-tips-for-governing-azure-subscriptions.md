@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=881'
 permalink: /blog/2020/tips-for-governing-azure-subscriptions/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2020/06/RentInTheCloudTooHigh.png
+image: /content/uploads/2020/06/RentInTheCloudTooHigh.png
 categories:
     - Uncategorized
 ---

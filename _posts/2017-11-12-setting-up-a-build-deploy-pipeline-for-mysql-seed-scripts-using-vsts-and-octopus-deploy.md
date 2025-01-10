@@ -20,7 +20,7 @@ The first step will be pretty simple. Copy the SQL scripts from the build source
 
 **Add a copy step for the SQL scripts**
 
-![copy SQL Scripts](https://marcusfelling.com/wp-content/uploads/2017/11/copySQLScripts.png)
+![copy SQL Scripts](https://marcusfelling.com/content/uploads/2017/11/copySQLScripts.png)
 
 Next we will add a shell script to source control that is used to execute the scripts.
 
@@ -30,23 +30,23 @@ This is a pretty straightforward script. It will be executed on the target serve
 
 **Add a copy step for the shell script**
 
-![copy Shell Script](https://marcusfelling.com/wp-content/uploads/2017/11/copyShellScript.png)
+![copy Shell Script](https://marcusfelling.com/content/uploads/2017/11/copyShellScript.png)
 
 You could also just copy everything in one step using contents wildcard \*\* vs. file extension filter…
 
 **Package everything in the build staging directory**
 
-![package NuGet](https://marcusfelling.com/wp-content/uploads/2017/11/packageNuGet.png)
+![package NuGet](https://marcusfelling.com/content/uploads/2017/11/packageNuGet.png)
 
 I have the version set to $(Version) which is passed in via a [VSTS variable group](https://docs.microsoft.com/en-us/vsts/build-release/concepts/library/variable-groups) so I can manage it across all builds. I use a network share on our build servers to store all packages.
 
 **Push NuGet Package to Octopus**
 
-![push NuGet Package To Octopus](https://marcusfelling.com/wp-content/uploads/2017/11/pushNuGetPackageToOctopus.png)
+![push NuGet Package To Octopus](https://marcusfelling.com/content/uploads/2017/11/pushNuGetPackageToOctopus.png)
 
 **Create an Octopus release**
 
-![Create Octopus Release](https://marcusfelling.com/wp-content/uploads/2017/11/createOctopusRelease.png)
+![Create Octopus Release](https://marcusfelling.com/content/uploads/2017/11/createOctopusRelease.png)
 
 I decided to include the version along with the Git branch name in the release number. I added a build definition variable $(environmentName) and set it to “Settable at queue time”. Setting the environment name will auto-deploy the newly created release to the environment chosen at queue time.
 
@@ -56,7 +56,7 @@ Create a new Octopus project or integrate the following steps into an existing p
 
 **Add step to push the NuGet package to the target server**
 
-![Push NuGet Package To Server](https://marcusfelling.com/wp-content/uploads/2017/11/pushNuGetPackageToServer.png)
+![Push NuGet Package To Server](https://marcusfelling.com/content/uploads/2017/11/pushNuGetPackageToServer.png)
 
 The step name is important here as it’s referenced in the Shell script to find the SQL scripts:
 
@@ -64,7 +64,7 @@ The step name is important here as it’s referenced in the Shell script to find
 
 **Add a step to execute the shell script**
 
-![Execute Shell Script](https://marcusfelling.com/wp-content/uploads/2017/11/ExecuteShellScript.png)
+![Execute Shell Script](https://marcusfelling.com/content/uploads/2017/11/ExecuteShellScript.png)
 
 I have the step setup to execute on the deploy target. When the instance is created it is setup with the SSH endpoint, tagged with the DataWarehouse role, and auto-deploys the last successful release to itself.
 

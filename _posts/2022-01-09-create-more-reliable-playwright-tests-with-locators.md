@@ -10,7 +10,7 @@ wpmdr_menu:
     - '1'
 ig_es_is_post_notified:
     - '1'
-image: /wp-content/uploads/2022/01/playwrighttestlocatorexample.png
+image: /content/uploads/2022/01/playwrighttestlocatorexample.png
 categories:
     - Uncategorized
 ---

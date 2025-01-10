@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=546'
 permalink: /blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2018/03/semVer.png
+image: /content/uploads/2018/03/semVer.png
 categories:
     - Uncategorized
 ---
@@ -25,7 +25,7 @@ When our build id reached 65535, Roslyn (.NET Compiler Platform) error-ed when b
 
 It turns out that the compiler uses the data type “unsigned \_\_int16” (i.e. unsigned 2-byte int) which has a range from [0 to 65,535](https://msdn.microsoft.com/en-us/library/s3f49ktz.aspx).
 
-![](https://marcusfelling.com/wp-content/uploads/2018/03/picard-facepalm.jpg)
+![](https://marcusfelling.com/content/uploads/2018/03/picard-facepalm.jpg)
 
 As a workaround, I modified the script above to remove the first digit from the build id `$env:Build_BuildID.Substring(1)`. VSTS support said it would not be possible to reset the build id’s…
 

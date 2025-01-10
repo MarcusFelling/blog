@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=534'
 permalink: /blog/2017/chef-recipe-install-vsts-agents-windows/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2017/12/chef-1.png
+image: /content/uploads/2017/12/chef-1.png
 categories:
     - Uncategorized
 ---

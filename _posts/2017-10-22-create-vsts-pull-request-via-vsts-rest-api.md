@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=454'
 permalink: /blog/2017/create-vsts-pull-request-via-vsts-rest-api/
 wpmdr_menu:
     - '1'
-image: /wp-content/uploads/2017/10/VisualStudioGit.png
+image: /content/uploads/2017/10/VisualStudioGit.png
 categories:
     - Uncategorized
 ---

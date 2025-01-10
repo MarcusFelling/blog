@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=1237'
 permalink: /blog/2023/using-azure-test-plans-with-playwright/
 ig_es_is_post_notified:
     - '1'
-image: /wp-content/uploads/2023/09/test-run-ado.png
+image: /content/uploads/2023/09/test-run-ado.png
 categories:
     - Uncategorized
 ---
@@ -44,11 +44,11 @@ Once that is in place:
 1. Manually create new test cases in Azure Test Plans taking note of the ID (planID in query string of URL)
 2. Add the ID in brackets to the test case title. 444, 445 in this example:
 
-<figure class="wp-block-image size-large">[![](https://marcusfelling.com/wp-content/uploads/2023/09/annotation-test-id-1024x329.png)](https://marcusfelling.com/wp-content/uploads/2023/09/annotation-test-id.png)</figure>When these tests get run, you will then be able to see the outcome for each test case:
+<figure class="wp-block-image size-large">[![](https://marcusfelling.com/content/uploads/2023/09/annotation-test-id-1024x329.png)](https://marcusfelling.com/content/uploads/2023/09/annotation-test-id.png)</figure>When these tests get run, you will then be able to see the outcome for each test case:
 
-<figure class="wp-block-image size-large">[![](https://marcusfelling.com/wp-content/uploads/2023/09/outcome-1024x388.png)](https://marcusfelling.com/wp-content/uploads/2023/09/outcome.png)</figure>My example pipeline runs these tests for every commit on main and also uses the JUnit reporter to publish results to the pipeline’s Test tab:
+<figure class="wp-block-image size-large">[![](https://marcusfelling.com/content/uploads/2023/09/outcome-1024x388.png)](https://marcusfelling.com/content/uploads/2023/09/outcome.png)</figure>My example pipeline runs these tests for every commit on main and also uses the JUnit reporter to publish results to the pipeline’s Test tab:
 
-<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/09/test-tab.png)](https://marcusfelling.com/wp-content/uploads/2023/09/test-tab.png)</figure>## Playwright .NET
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/content/uploads/2023/09/test-tab.png)](https://marcusfelling.com/content/uploads/2023/09/test-tab.png)</figure>## Playwright .NET
 
 This option works out of the box but has some caveats and complexity: A Windows runner and a release pipeline are required to use the Visual Studio test platform installer and Visual Studio Test tasks. Also, Visual Studio must be used to associate test cases.
 
@@ -57,21 +57,21 @@ Here is how I set this up in my example project:
 1. Manually create new Azure Test Plans test cases
 2. Use Visual Studio’s test explorer to associate the automated test cases:
 
-<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/09/associate-test-case.png)](https://marcusfelling.com/wp-content/uploads/2023/09/associate-test-case.png)</figure>This will change the Automation status field on the test case work item to automated:
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/content/uploads/2023/09/associate-test-case.png)](https://marcusfelling.com/content/uploads/2023/09/associate-test-case.png)</figure>This will change the Automation status field on the test case work item to automated:
 
-<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/09/automation-status.png)](https://marcusfelling.com/wp-content/uploads/2023/09/automation-status.png)</figure>  
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/content/uploads/2023/09/automation-status.png)](https://marcusfelling.com/content/uploads/2023/09/automation-status.png)</figure>  
 Once the test cases are configured, we can set up our pipelines to run the tests.
 
 1. Create a build pipeline that runs `dotnet publish` (using Windows agent) in order to create an artifact with the Playright binaries: [playwright-dotnet.yml](https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightDotnet?path=/playwright-dotnet.yml)
 2. Create a [release pipeline](https://dev.azure.com/marcusfelling/Playground/_releaseDefinition?definitionId=2&_a=definition-tasks&environmentId=4) referencing the artifact created in the previous step:
 
-<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/09/artifact.png)](https://marcusfelling.com/wp-content/uploads/2023/09/artifact.png)</figure>3\. Add install tasks (that run on Windows agent) for “Visual Studio Test Platform Installer” (prereq for VS Test task), .NET, and Playwright browsers:
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/content/uploads/2023/09/artifact.png)](https://marcusfelling.com/content/uploads/2023/09/artifact.png)</figure>3\. Add install tasks (that run on Windows agent) for “Visual Studio Test Platform Installer” (prereq for VS Test task), .NET, and Playwright browsers:
 
-<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/09/tasks.png)](https://marcusfelling.com/wp-content/uploads/2023/09/tasks.png)</figure>4\. Add the VS Test task and reference your test plan:
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/content/uploads/2023/09/tasks.png)](https://marcusfelling.com/content/uploads/2023/09/tasks.png)</figure>4\. Add the VS Test task and reference your test plan:
 
-<figure class="wp-block-image size-full is-resized">[![](https://marcusfelling.com/wp-content/uploads/2023/09/vstest-task.png)](https://marcusfelling.com/wp-content/uploads/2023/09/vstest-task.png)</figure>5\. Create a new release to run the tests. Example results: [Test tab](https://dev.azure.com/marcusfelling/Playground/_releaseProgress?_a=release-environment-extension&releaseId=12&environmentId=12&extensionId=ms.vss-test-web.test-result-in-release-environment-editor-tab), [test plan results](https://dev.azure.com/marcusfelling/Playground/_testPlans/_results?testCaseId=434&contextPointId=31).
+<figure class="wp-block-image size-full is-resized">[![](https://marcusfelling.com/content/uploads/2023/09/vstest-task.png)](https://marcusfelling.com/content/uploads/2023/09/vstest-task.png)</figure>5\. Create a new release to run the tests. Example results: [Test tab](https://dev.azure.com/marcusfelling/Playground/_releaseProgress?_a=release-environment-extension&releaseId=12&environmentId=12&extensionId=ms.vss-test-web.test-result-in-release-environment-editor-tab), [test plan results](https://dev.azure.com/marcusfelling/Playground/_testPlans/_results?testCaseId=434&contextPointId=31).
 
-<figure class="wp-block-image size-full">[![](https://marcusfelling.com/wp-content/uploads/2023/09/test-case-results.png)](https://marcusfelling.com/wp-content/uploads/2023/09/test-case-results.png)</figure>## Summary
+<figure class="wp-block-image size-full">[![](https://marcusfelling.com/content/uploads/2023/09/test-case-results.png)](https://marcusfelling.com/content/uploads/2023/09/test-case-results.png)</figure>## Summary
 
 Hopefully, you were able to follow my examples to get this set up in your own environment. I’d love to hear feedback on anything I may have missed, new features you’d like to see from the product team at Microsoft, or interesting use cases you have experience with.
 
