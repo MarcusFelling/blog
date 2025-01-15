@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: 25 reasons to choose Playwright as your next web testing framework	</title>
-	<atom:link href="https://marcusfelling.github.io/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/feed/" rel="self" type="application/rss+xml" />
-	<link>https://marcusfelling.github.io/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/</link>
+	<atom:link href="https://marcusfelling.com/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.com/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Thu, 30 Mar 2023 20:55:33 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,11 +20,11 @@
 	<item>
 		<title>
 		By: Greg Finzer		</title>
-		<link>https://marcusfelling.github.io/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/#comment-41743</link>
+		<link>https://marcusfelling.com/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/#comment-41743</link>
 
 		<dc:creator><![CDATA[Greg Finzer]]></dc:creator>
 		<pubDate>Wed, 14 Sep 2022 14:18:56 +0000</pubDate>
-		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=1117#comment-41743</guid>
+		<guid isPermaLink="false">https://marcusfelling.com/blog/?p=1117#comment-41743</guid>
 
 					<description><![CDATA[Other advantages that I have seen:
 * Playwright is about 30% faster running the same tests than Selenium due to its ability to create test contexts in 100ms.
@@ -40,11 +40,11 @@
 		<item>
 		<title>
 		By: Kelvin Omereshone		</title>
-		<link>https://marcusfelling.github.io/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/#comment-41148</link>
+		<link>https://marcusfelling.com/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/#comment-41148</link>
 
 		<dc:creator><![CDATA[Kelvin Omereshone]]></dc:creator>
 		<pubDate>Thu, 25 Aug 2022 00:10:02 +0000</pubDate>
-		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=1117#comment-41148</guid>
+		<guid isPermaLink="false">https://marcusfelling.com/blog/?p=1117#comment-41148</guid>
 
 					<description><![CDATA[Really helpful. Thanks for sharing. You have stoked my interest on Playwright :)]]></description>
 			<content:encoded><![CDATA[<p>Really helpful. Thanks for sharing. You have stoked my interest on Playwright 🙂</p>
@@ -54,11 +54,11 @@
 		<item>
 		<title>
 		By: Meysam		</title>
-		<link>https://marcusfelling.github.io/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/#comment-40676</link>
+		<link>https://marcusfelling.com/blog/blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/#comment-40676</link>
 
 		<dc:creator><![CDATA[Meysam]]></dc:creator>
 		<pubDate>Mon, 08 Aug 2022 16:00:23 +0000</pubDate>
-		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=1117#comment-40676</guid>
+		<guid isPermaLink="false">https://marcusfelling.com/blog/?p=1117#comment-40676</guid>
 
 					<description><![CDATA[this was very helpful. Thank you]]></description>
 			<content:encoded><![CDATA[<p>this was very helpful. Thank you</p>

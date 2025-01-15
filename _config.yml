@@ -1,6 +1,6 @@
 # Jekyll configuration settings
-title: Marcus Felling's Blog
-description: A blog about software development and testing
+title: MarcusFelling.com
+description: A blog about things I learn at the keyboard - DevOps, CI/CD, Cloud, Automation, to name a few...
 baseurl: "/"
 url: "https://marcusfelling.com"
 theme: minima

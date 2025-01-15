@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Configuration Management for Serverless Microservice Projects	</title>
-	<atom:link href="https://marcusfelling.github.io/blog/blog/2017/configuration-management-serverless-microservice-projects/feed/" rel="self" type="application/rss+xml" />
-	<link>https://marcusfelling.github.io/blog/blog/2017/configuration-management-serverless-microservice-projects/</link>
+	<atom:link href="https://marcusfelling.com/blog/blog/2017/configuration-management-serverless-microservice-projects/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.com/blog/blog/2017/configuration-management-serverless-microservice-projects/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Wed, 15 Nov 2017 14:59:37 +0000</lastBuildDate>
 	<sy:updatePeriod>

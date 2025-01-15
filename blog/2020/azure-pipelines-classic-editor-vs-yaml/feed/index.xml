@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Azure Pipelines: Classic Editor VS. YAML	</title>
-	<atom:link href="https://marcusfelling.github.io/blog/blog/2020/azure-pipelines-classic-editor-vs-yaml/feed/" rel="self" type="application/rss+xml" />
-	<link>https://marcusfelling.github.io/blog/blog/2020/azure-pipelines-classic-editor-vs-yaml/</link>
+	<atom:link href="https://marcusfelling.com/blog/blog/2020/azure-pipelines-classic-editor-vs-yaml/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.com/blog/blog/2020/azure-pipelines-classic-editor-vs-yaml/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Tue, 09 Feb 2021 06:42:06 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,11 +20,11 @@
 	<item>
 		<title>
 		By: Kshitij		</title>
-		<link>https://marcusfelling.github.io/blog/blog/2020/azure-pipelines-classic-editor-vs-yaml/#comment-21691</link>
+		<link>https://marcusfelling.com/blog/blog/2020/azure-pipelines-classic-editor-vs-yaml/#comment-21691</link>
 
 		<dc:creator><![CDATA[Kshitij]]></dc:creator>
 		<pubDate>Tue, 09 Feb 2021 06:42:06 +0000</pubDate>
-		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=858#comment-21691</guid>
+		<guid isPermaLink="false">https://marcusfelling.com/blog/?p=858#comment-21691</guid>
 
 					<description><![CDATA[Very well written. Short, crisp and clear. Thank you for posting.]]></description>
 			<content:encoded><![CDATA[<p>Very well written. Short, crisp and clear. Thank you for posting.</p>
@@ -34,11 +34,11 @@
 		<item>
 		<title>
 		By: Kjartan Þór Kjartansson		</title>
-		<link>https://marcusfelling.github.io/blog/blog/2020/azure-pipelines-classic-editor-vs-yaml/#comment-11148</link>
+		<link>https://marcusfelling.com/blog/blog/2020/azure-pipelines-classic-editor-vs-yaml/#comment-11148</link>
 
 		<dc:creator><![CDATA[Kjartan Þór Kjartansson]]></dc:creator>
 		<pubDate>Wed, 29 Apr 2020 09:14:22 +0000</pubDate>
-		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=858#comment-11148</guid>
+		<guid isPermaLink="false">https://marcusfelling.com/blog/?p=858#comment-11148</guid>
 
 					<description><![CDATA[I just ran into an issue with the YAML pipelines. We are following GitFlow with some rules that are strictly enforced, for example the release needs to have work items associated. In GitFlow you create a release branch to start a release, the new branch triggers a new build and the environments can do a diff to check what work items are associated with the new release. In YAML, not so much, since the commit has already been build by CI elsewhere (the develop branch) and the work item associated there or even further back (feature branch) the work item does not get associated with the new run and the QA people will not let the release be deployed since they don&#039;t have the work item traceability.]]></description>
 			<content:encoded><![CDATA[<p>I just ran into an issue with the YAML pipelines. We are following GitFlow with some rules that are strictly enforced, for example the release needs to have work items associated. In GitFlow you create a release branch to start a release, the new branch triggers a new build and the environments can do a diff to check what work items are associated with the new release. In YAML, not so much, since the commit has already been build by CI elsewhere (the develop branch) and the work item associated there or even further back (feature branch) the work item does not get associated with the new run and the QA people will not let the release be deployed since they don&#8217;t have the work item traceability.</p>
@@ -48,11 +48,11 @@
 		<item>
 		<title>
 		By: Sam Smith		</title>
-		<link>https://marcusfelling.github.io/blog/blog/2020/azure-pipelines-classic-editor-vs-yaml/#comment-11126</link>
+		<link>https://marcusfelling.com/blog/blog/2020/azure-pipelines-classic-editor-vs-yaml/#comment-11126</link>
 
 		<dc:creator><![CDATA[Sam Smith]]></dc:creator>
 		<pubDate>Sun, 26 Apr 2020 14:36:53 +0000</pubDate>
-		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=858#comment-11126</guid>
+		<guid isPermaLink="false">https://marcusfelling.com/blog/?p=858#comment-11126</guid>
 
 					<description><![CDATA[Amazing post. Thanks for summarizing this!]]></description>
 			<content:encoded><![CDATA[<p>Amazing post. Thanks for summarizing this!</p>

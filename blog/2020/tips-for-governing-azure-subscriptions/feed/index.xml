@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Tips for governing Azure subscriptions	</title>
-	<atom:link href="https://marcusfelling.github.io/blog/blog/2020/tips-for-governing-azure-subscriptions/feed/" rel="self" type="application/rss+xml" />
-	<link>https://marcusfelling.github.io/blog/blog/2020/tips-for-governing-azure-subscriptions/</link>
+	<atom:link href="https://marcusfelling.com/blog/blog/2020/tips-for-governing-azure-subscriptions/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.com/blog/blog/2020/tips-for-governing-azure-subscriptions/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Wed, 03 Jun 2020 15:54:49 +0000</lastBuildDate>
 	<sy:updatePeriod>

@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Setting up a CI pipeline to run functional tests in TFS 2018 and Azure Pipelines (Formerly VSTS)	</title>
-	<atom:link href="https://marcusfelling.github.io/blog/blog/2018/setting-up-a-ci-pipeline-to-run-functional-tests-in-tfs-2018-and-visual-studio-team-services-vsts/feed/" rel="self" type="application/rss+xml" />
-	<link>https://marcusfelling.github.io/blog/blog/2018/setting-up-a-ci-pipeline-to-run-functional-tests-in-tfs-2018-and-visual-studio-team-services-vsts/</link>
+	<atom:link href="https://marcusfelling.com/blog/blog/2018/setting-up-a-ci-pipeline-to-run-functional-tests-in-tfs-2018-and-visual-studio-team-services-vsts/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.com/blog/blog/2018/setting-up-a-ci-pipeline-to-run-functional-tests-in-tfs-2018-and-visual-studio-team-services-vsts/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Sun, 14 Oct 2018 14:27:18 +0000</lastBuildDate>
 	<sy:updatePeriod>

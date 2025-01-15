@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Feature Flag journey with LaunchDarkly &#8211; Part 2	</title>
-	<atom:link href="https://marcusfelling.github.io/blog/blog/2017/feature-flag-journey-launchdarkly-part-2/feed/" rel="self" type="application/rss+xml" />
-	<link>https://marcusfelling.github.io/blog/blog/2017/feature-flag-journey-launchdarkly-part-2/</link>
+	<atom:link href="https://marcusfelling.com/blog/blog/2017/feature-flag-journey-launchdarkly-part-2/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.com/blog/blog/2017/feature-flag-journey-launchdarkly-part-2/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Fri, 15 Jun 2018 10:23:17 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,11 +20,11 @@
 	<item>
 		<title>
 		By: Adela		</title>
-		<link>https://marcusfelling.github.io/blog/blog/2017/feature-flag-journey-launchdarkly-part-2/#comment-1119</link>
+		<link>https://marcusfelling.com/blog/blog/2017/feature-flag-journey-launchdarkly-part-2/#comment-1119</link>
 
 		<dc:creator><![CDATA[Adela]]></dc:creator>
 		<pubDate>Fri, 15 Jun 2018 10:23:17 +0000</pubDate>
-		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=432#comment-1119</guid>
+		<guid isPermaLink="false">https://marcusfelling.com/blog/?p=432#comment-1119</guid>
 
 					<description><![CDATA[This is really helpful, thanks.]]></description>
 			<content:encoded><![CDATA[<p>This is really helpful, thanks.</p>

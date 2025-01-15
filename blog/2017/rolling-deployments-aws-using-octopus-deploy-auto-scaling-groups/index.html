@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="https://marcusfelling.github.io/blog/xmlrpc.php">
+<link rel="pingback" href="https://marcusfelling.com/blog/xmlrpc.php">
 
 <title>Rolling deployments to AWS using Octopus Deploy and Auto Scaling Groups &#8211; Marcus Felling</title>
 <meta name="robots" content="max-image-preview:large">
@@ -14,13 +14,13 @@
         
             <script data-no-defer="1" data-ezscrex="false" data-cfasync="false" data-pagespeed-no-defer data-cookieconsent="ignore">var ctPublic = {"_ajax_nonce":"18f4c7f205","settings__forms__check_internal":"0","settings__forms__check_external":"0","settings__forms__search_test":"0","settings__data__bot_detector_enabled":0,"settings__comments__form_decoration":0,"blog_home":"https:\/\/marcusfelling.github.io\/blog\/","pixel__setting":"0","pixel__enabled":false,"pixel__url":null,"data__email_check_before_post":"1","data__email_check_exist_post":0,"data__cookies_type":"native","data__key_is_ok":true,"data__visible_fields_required":true,"wl_brandname":"Anti-Spam by CleanTalk","wl_brandname_short":"CleanTalk","ct_checkjs_key":686315157,"emailEncoderPassKey":"a04dceb15c5403fb927c58e94c1c3d31","bot_detector_forms_excluded":"W10=","advancedCacheExists":false,"varnishCacheExists":false,"wc_ajax_add_to_cart":false}</script>
         <link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Feed" href="https://marcusfelling.github.io/blog/feed/">
-<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Comments Feed" href="https://marcusfelling.github.io/blog/comments/feed/">
-<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Rolling deployments to AWS using Octopus Deploy and Auto Scaling Groups Comments Feed" href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/feed/">
+<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Feed" href="https://marcusfelling.com/blog/feed/">
+<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Comments Feed" href="https://marcusfelling.com/blog/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Marcus Felling &raquo; Rolling deployments to AWS using Octopus Deploy and Auto Scaling Groups Comments Feed" href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/feed/">
 <script type="text/javascript">
 /* <![CDATA[ */
-window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/marcusfelling.github.io\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.7.1"}};
-/*! This file is auto-generated */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/marcusfelling.github.io\/blog\/includes\/js\/wp-emoji-release.min.js?ver=6.7.1"}};
+
 !function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"🏳️‍⚧️","🏳️​⚧️")?!1:!n(e,"🇺🇳","🇺​🇳")&&!n(e,"🏴󠁧󠁢󠁥󠁮󠁧󠁿","🏴​󠁧​󠁢​󠁥​󠁮​󠁧​󠁿");case"emoji":return!n(e,"🐦‍⬛","🐦​⬛")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
 /* ]]> */
 </script>
@@ -35,46 +35,46 @@ window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/15
 		background: none !important;
 		padding: 0 !important;
 	}</style>
-<link rel="stylesheet" id="wp-block-library-css" href="https://marcusfelling.github.io/blog/wp-includes/css/dist/block-library/style.min.css?ver=6.7.1" type="text/css" media="all">
-<link rel="stylesheet" id="wp-components-css" href="https://marcusfelling.github.io/blog/wp-includes/css/dist/components/style.min.css?ver=6.7.1" type="text/css" media="all">
-<link rel="stylesheet" id="wp-preferences-css" href="https://marcusfelling.github.io/blog/wp-includes/css/dist/preferences/style.min.css?ver=6.7.1" type="text/css" media="all">
-<link rel="stylesheet" id="wp-block-editor-css" href="https://marcusfelling.github.io/blog/wp-includes/css/dist/block-editor/style.min.css?ver=6.7.1" type="text/css" media="all">
-<link rel="stylesheet" id="wp-reusable-blocks-css" href="https://marcusfelling.github.io/blog/wp-includes/css/dist/reusable-blocks/style.min.css?ver=6.7.1" type="text/css" media="all">
-<link rel="stylesheet" id="wp-patterns-css" href="https://marcusfelling.github.io/blog/wp-includes/css/dist/patterns/style.min.css?ver=6.7.1" type="text/css" media="all">
-<link rel="stylesheet" id="wp-editor-css" href="https://marcusfelling.github.io/blog/wp-includes/css/dist/editor/style.min.css?ver=6.7.1" type="text/css" media="all">
-<link rel="stylesheet" id="i2-pros-cons-block-style-css-css" href="https://marcusfelling.github.io/blog/wp-content/plugins/i2-pro-cons/dist/blocks.editor.build.css?ver=1.3.1" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="https://marcusfelling.com/blog/content/css/dist/block-library/style.min.css?ver=6.7.1" type="text/css" media="all">
+<link rel="stylesheet" id="wp-components-css" href="https://marcusfelling.com/blog/content/css/dist/components/style.min.css?ver=6.7.1" type="text/css" media="all">
+<link rel="stylesheet" id="wp-preferences-css" href="https://marcusfelling.com/blog/content/css/dist/preferences/style.min.css?ver=6.7.1" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-editor-css" href="https://marcusfelling.com/blog/content/css/dist/block-editor/style.min.css?ver=6.7.1" type="text/css" media="all">
+<link rel="stylesheet" id="wp-reusable-blocks-css" href="https://marcusfelling.com/blog/content/css/dist/reusable-blocks/style.min.css?ver=6.7.1" type="text/css" media="all">
+<link rel="stylesheet" id="wp-patterns-css" href="https://marcusfelling.com/blog/content/css/dist/patterns/style.min.css?ver=6.7.1" type="text/css" media="all">
+<link rel="stylesheet" id="wp-editor-css" href="https://marcusfelling.com/blog/content/css/dist/editor/style.min.css?ver=6.7.1" type="text/css" media="all">
+<link rel="stylesheet" id="i2-pros-cons-block-style-css-css" href="https://marcusfelling.com/blog/content/plugins/i2-pro-cons/dist/blocks.editor.build.css?ver=1.3.1" type="text/css" media="all">
 <style id="i2-pros-cons-block-style-css-inline-css" type="text/css">.i2-pros-cons-main-wrapper .i2pctitle{text-align: center!important;} .i2-pros-cons-main-wrapper .i2pctitle{color: #ffffff!important;} .i2-pros-cons-main-wrapper .i2pctitle{background-color: #00bf08!important;} .i2-pros-cons-wrapper .i2-cons-title,.i2-pros-cons-wrapper .i2-pros-title{color: #ffffff!important;}.i2-pros-cons-wrapper .i2-pros-title {background-color: #00bf08 !important;} .i2-pros-cons-wrapper .i2-cons-title{background-color: #bf000a!important;} .i2-pros-cons-wrapper .section ul li i{top: 8px!important;} .i2-pros-cons-wrapper .i2-pros  ul li i{color: #00bf08!important;} .i2-pros-cons-wrapper .i2-cons ul li i{color: #bf000a!important;} .i2-pros-cons-main-wrapper .i2-button-wrapper a{color: #ffffff!important;} .i2-pros-cons-main-wrapper .i2-button-wrapper a{background-color: #00bf08; border-color:#00bf08;} .i2-pros-cons-main-wrapper .i2-button-wrapper a:hover{background-color: #bf000a; border-color:#bf000a;}</style>
-<link rel="stylesheet" id="i2-pros-and-cons-custom-fonts-icons-style-css" href="https://marcusfelling.github.io/blog/wp-content/plugins/i2-pro-cons/dist/fonts/styles.css?ver=1.3.1" type="text/css" media="all">
-<style id="classic-theme-styles-inline-css" type="text/css">/*! This file is auto-generated */
+<link rel="stylesheet" id="i2-pros-and-cons-custom-fonts-icons-style-css" href="https://marcusfelling.com/blog/content/plugins/i2-pro-cons/dist/fonts/styles.css?ver=1.3.1" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
 .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}</style>
 <style id="global-styles-inline-css" type="text/css">:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
 :where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
 :where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
 :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}</style>
-<link rel="stylesheet" id="ct_public_css-css" href="https://marcusfelling.github.io/blog/wp-content/plugins/cleantalk-spam-protect/css/cleantalk-public.min.css?ver=6.47" type="text/css" media="all">
-<link rel="stylesheet" id="ct_email_decoder_css-css" href="https://marcusfelling.github.io/blog/wp-content/plugins/cleantalk-spam-protect/css/cleantalk-email-decoder.min.css?ver=6.47" type="text/css" media="all">
-<link rel="stylesheet" id="contact-form-7-css" href="https://marcusfelling.github.io/blog/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.0.2" type="text/css" media="all">
-<link rel="stylesheet" id="email-subscribers-css" href="https://marcusfelling.github.io/blog/wp-content/plugins/email-subscribers/lite/public/css/email-subscribers-public.css?ver=5.7.47" type="text/css" media="all">
-<link rel="stylesheet" id="ssp-search-css" href="https://marcusfelling.github.io/blog/wp-content/plugins/simply-static-pro/assets/ssp-search.css?ver=1.6.4.2" type="text/css" media="all">
+
+
+<link rel="stylesheet" id="contact-form-7-css" href="https://marcusfelling.com/blog/content/plugins/contact-form-7/includes/css/styles.css?ver=6.0.2" type="text/css" media="all">
+<link rel="stylesheet" id="email-subscribers-css" href="https://marcusfelling.com/blog/content/plugins/email-subscribers/lite/public/css/email-subscribers-public.css?ver=5.7.47" type="text/css" media="all">
+
 <link rel="stylesheet" id="edin-pt-sans-css" href="https://fonts.googleapis.com/css?family=PT+Sans%3A400%2C700%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext" type="text/css" media="all">
 <link rel="stylesheet" id="edin-pt-serif-css" href="https://fonts.googleapis.com/css?family=PT+Serif%3A400%2C700%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext" type="text/css" media="all">
 <link rel="stylesheet" id="edin-pt-mono-css" href="https://fonts.googleapis.com/css?family=PT+Mono&#038;subset=latin%2Clatin-ext" type="text/css" media="all">
-<link rel="stylesheet" id="edin-edincon-css" href="https://marcusfelling.github.io/blog/wp-content/themes/edin/font/edincon.css?ver=20140606" type="text/css" media="all">
-<link rel="stylesheet" id="genericons-css" href="https://marcusfelling.github.io/blog/wp-content/themes/edin/font/genericons.css?ver=3.4.1" type="text/css" media="all">
-<link rel="stylesheet" id="edin-style-css" href="https://marcusfelling.github.io/blog/wp-content/themes/edin/style.css?ver=6.7.1" type="text/css" media="all">
-<style id="edin-style-inline-css" type="text/css">.hero.with-featured-image { background-image: url(https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/AWSOctopusDeploy.png); }</style>
-<link rel="stylesheet" id="btnsx-css" href="https://marcusfelling.github.io/blog/wp-content/plugins/buttons-x/assets/css/common/button.min.css?ver=0.8.6" type="text/css" media="all">
-<script type="text/javascript" data-pagespeed-no-defer src="https://marcusfelling.github.io/blog/wp-content/plugins/cleantalk-spam-protect/js/apbct-public-bundle.min.js?ver=6.47" id="ct_public_functions-js"></script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
-<link rel="https://api.w.org/" href="https://marcusfelling.github.io/blog/wp-json/">
-<link rel="alternate" title="JSON" type="application/json" href="https://marcusfelling.github.io/blog/wp-json/wp/v2/posts/528">
-<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://marcusfelling.github.io/blog/xmlrpc.php?rsd">
-<meta name="generator" content="WordPress 6.7.1">
-<link rel="canonical" href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/">
-<link rel="shortlink" href="https://marcusfelling.github.io/blog/?p=528">
-<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://marcusfelling.github.io/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhttps%3A%2F%2Fmarcusfelling.github.io%2Fblog%2Fblog%2F2017%2Frolling-deployments-aws-using-octopus-deploy-auto-scaling-groups%2F">
-<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://marcusfelling.github.io/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhttps%3A%2F%2Fmarcusfelling.github.io%2Fblog%2Fblog%2F2017%2Frolling-deployments-aws-using-octopus-deploy-auto-scaling-groups%2F#038;format=xml">
+<link rel="stylesheet" id="edin-edincon-css" href="https://marcusfelling.com/blog/content/themes/edin/font/edincon.css?ver=20140606" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="https://marcusfelling.com/blog/content/themes/edin/font/genericons.css?ver=3.4.1" type="text/css" media="all">
+<link rel="stylesheet" id="edin-style-css" href="https://marcusfelling.com/blog/content/themes/edin/style.css?ver=6.7.1" type="text/css" media="all">
+<style id="edin-style-inline-css" type="text/css">.hero.with-featured-image { background-image: url(https://marcusfelling.com/blog/content/uploads/2017/12/AWSOctopusDeploy.png); }</style>
+<link rel="stylesheet" id="btnsx-css" href="https://marcusfelling.com/blog/content/plugins/buttons-x/assets/css/common/button.min.css?ver=0.8.6" type="text/css" media="all">
+
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://marcusfelling.com/blog/wp-json/">
+<link rel="alternate" title="JSON" type="application/json" href="https://marcusfelling.com/blog/wp-json/wp/v2/posts/528">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://marcusfelling.com/blog/xmlrpc.php?rsd">
+
+<link rel="canonical" href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/">
+<link rel="shortlink" href="https://marcusfelling.com/blog/?p=528">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://marcusfelling.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhttps%3A%2F%2Fmarcusfelling.github.io%2Fblog%2Fblog%2F2017%2Frolling-deployments-aws-using-octopus-deploy-auto-scaling-groups%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://marcusfelling.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fhttps%3A%2F%2Fmarcusfelling.github.io%2Fblog%2Fblog%2F2017%2Frolling-deployments-aws-using-octopus-deploy-auto-scaling-groups%2F#038;format=xml">
 
 <style>body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -92,24 +92,24 @@ a:hover {
   text-decoration: underline;
 }</style>
 <style>/* CSS added by WP Meta and Date Remover*/.entry-meta {display:none !important;}.home .entry-meta { display: none; }.entry-footer {display:none !important;}.home .entry-footer { display: none; }</style>
-<link rel="apple-touch-icon" sizes="57x57" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/apple-touch-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/apple-touch-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/apple-touch-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/apple-touch-icon-144x144.png">
-<link rel="icon" type="image/png" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/favicon-96x96.png" sizes="96x96">
-<link rel="icon" type="image/png" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/manifest.json">
-<link rel="shortcut icon" href="https://marcusfelling.github.io/blog/wp-content/uploads/fbrfg/favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="https://marcusfelling.com/blog/content/uploads/fbrfg/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="https://marcusfelling.com/blog/content/uploads/fbrfg/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="https://marcusfelling.com/blog/content/uploads/fbrfg/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://marcusfelling.com/blog/content/uploads/fbrfg/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="https://marcusfelling.com/blog/content/uploads/fbrfg/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://marcusfelling.com/blog/content/uploads/fbrfg/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="https://marcusfelling.com/blog/content/uploads/fbrfg/apple-touch-icon-144x144.png">
+<link rel="icon" type="image/png" href="https://marcusfelling.com/blog/content/uploads/fbrfg/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://marcusfelling.com/blog/content/uploads/fbrfg/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://marcusfelling.com/blog/content/uploads/fbrfg/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="https://marcusfelling.com/blog/content/uploads/fbrfg/manifest.json">
+<link rel="shortcut icon" href="https://marcusfelling.com/blog/content/uploads/fbrfg/favicon.ico">
 <meta name="msapplication-TileColor" content="#da532c">
-<meta name="msapplication-TileImage" content="/wp-content/uploads/fbrfg/mstile-144x144.png">
-<meta name="msapplication-config" content="/wp-content/uploads/fbrfg/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">			                <meta name="ssp-config-path" content="/wp-content/uploads/simply-static/configs/">
+<meta name="msapplication-TileImage" content="/content/uploads/fbrfg/mstile-144x144.png">
+<meta name="msapplication-config" content="/content/uploads/fbrfg/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">			                <meta name="ssp-config-path" content="/content/uploads/simply-static/configs/">
 			
-			                <meta name="ssp-comment-redirect-url" content="https://marcusfelling.github.io/blog/archives/">
+			                <meta name="ssp-comment-redirect-url" content="https://marcusfelling.com/blog/archives/">
                 <meta name="ssp-comment-endpoint" content="aHR0cHM6Ly9tYXJjdXNmZWxsaW5nLmNvbS93cC1jb21tZW50cy1wb3N0LnBocA==">
 						<meta name="generator" content="Powered by Buttons X - Powerful Button Builder for WordPress.">
 </head>
@@ -133,7 +133,7 @@ a:hover {
 		
 		<div class="header-wrapper clear">
 			<div class="site-branding">
-										<p class="site-title"><a href="https://marcusfelling.github.io/blog/" rel="home">Marcus Felling</a></p>
+										<p class="site-title"><a href="https://marcusfelling.com/blog/" rel="home">Marcus Felling</a></p>
 											<p class="site-description">A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few&#8230;.</p>
 								</div>
 <!-- .site-branding -->
@@ -148,7 +148,7 @@ a:hover {
 </ul></div>							</nav><!-- .secondary-navigation -->
 																			<nav class="primary-navigation" role="navigation">
 								<div class="menu-primary"><ul id="menu-main" class="clear">
-<li id="menu-item-496" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-496"><a href="https://marcusfelling.github.io/blog/archives/">Archives</a></li>
+<li id="menu-item-496" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-496"><a href="https://marcusfelling.com/blog/archives/">Archives</a></li>
 </ul></div>							</nav><!-- .primary-navigation -->
 											</div>
 <!-- .navigation-wrapper -->
@@ -185,13 +185,13 @@ a:hover {
 	<header class="entry-header">
 		<h1 class="entry-title">Rolling deployments to AWS using Octopus Deploy and Auto Scaling Groups</h1>
 		<div class="entry-meta">
-			<span class="posted-on">Posted on <a href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/" rel="bookmark"><time class="entry-date published" datetime="2017-12-07T20:10:19+00:00">December 7, 2017</time><time class="updated" datetime="2021-09-09T22:00:10+00:00">September 9, 2021</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://marcusfelling.github.io/blog/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
+			<span class="posted-on">Posted on <a href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/" rel="bookmark"><time class="entry-date published" datetime="2017-12-07T20:10:19+00:00">December 7, 2017</time><time class="updated" datetime="2021-09-09T22:00:10+00:00">September 9, 2021</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://marcusfelling.com/blog/blog/author/marcus-fellinggmail-com/">Marcus</a></span></span>		</div>
 <!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
 	
-	<a class="post-thumbnail" href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/">
-		<img width="392" height="230" src="https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/AWSOctopusDeploy.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/AWSOctopusDeploy.png 392w, https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/AWSOctopusDeploy-300x176.png 300w, https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/AWSOctopusDeploy-327x192.png 327w" sizes="(max-width: 392px) 100vw, 392px">	</a>
+	<a class="post-thumbnail" href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/">
+		<img width="392" height="230" src="https://marcusfelling.com/blog/content/uploads/2017/12/AWSOctopusDeploy.png" class="attachment-edin-featured-image size-edin-featured-image wp-post-image" alt="" decoding="async" fetchpriority="high" srcset="https://marcusfelling.com/blog/content/uploads/2017/12/AWSOctopusDeploy.png 392w, https://marcusfelling.com/blog/content/uploads/2017/12/AWSOctopusDeploy-300x176.png 300w, https://marcusfelling.com/blog/content/uploads/2017/12/AWSOctopusDeploy-327x192.png 327w" sizes="(max-width: 392px) 100vw, 392px">	</a>
 
 
 	<div class="entry-content">
@@ -199,7 +199,7 @@ a:hover {
 <p><span id="more-528"></span></p>
 <p>The deploy process is setup in the following order for each role that use ASG&#8217;s (Web servers, enterprise service bus, CMS, etc.):<br>1. Octopus picks first instance to run on<br>2. Instance is placed in standby mode, removing it from the load balancer (EnterStandby.ps1)<br>3. Normal deploy activities run<br>4. Instance exits standby mode, placing it back in service (ExitStandby.ps1)<br>Octopus then moves on to next instance&#8230;</p>
 <p>The deploy steps that are run for a role are grouped. There is a parent step that has the rolling deployment setting, with child steps to perform the deploy activities.<br>Example parent step:</p>
-<p><img decoding="async" class="alignnone size-full wp-image-529" src="https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/webapprollingdeploy.png" alt="web app rolling deploy" width="1424" height="1042" srcset="https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/webapprollingdeploy.png 1424w, https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/webapprollingdeploy-300x220.png 300w, https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/webapprollingdeploy-768x562.png 768w, https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/webapprollingdeploy-1024x749.png 1024w, https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/webapprollingdeploy-330x240.png 330w, https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/webapprollingdeploy-648x474.png 648w, https://marcusfelling.github.io/blog/wp-content/uploads/2017/12/webapprollingdeploy-262x192.png 262w" sizes="(max-width: 1424px) 100vw, 1424px"></p>
+<p><img decoding="async" class="alignnone size-full wp-image-529" src="https://marcusfelling.com/blog/content/uploads/2017/12/webapprollingdeploy.png" alt="web app rolling deploy" width="1424" height="1042" srcset="https://marcusfelling.com/blog/content/uploads/2017/12/webapprollingdeploy.png 1424w, https://marcusfelling.com/blog/content/uploads/2017/12/webapprollingdeploy-300x220.png 300w, https://marcusfelling.com/blog/content/uploads/2017/12/webapprollingdeploy-768x562.png 768w, https://marcusfelling.com/blog/content/uploads/2017/12/webapprollingdeploy-1024x749.png 1024w, https://marcusfelling.com/blog/content/uploads/2017/12/webapprollingdeploy-330x240.png 330w, https://marcusfelling.com/blog/content/uploads/2017/12/webapprollingdeploy-648x474.png 648w, https://marcusfelling.com/blog/content/uploads/2017/12/webapprollingdeploy-262x192.png 262w" sizes="(max-width: 1424px) 100vw, 1424px"></p>
 <p>The first script (EnterStandby.ps1) gets the instance id, gets the ASG name using it&#8217;s instance ID,  sets an Octopus output variable with the ASG name (that&#8217;s referenced in ExitStandby.ps1), then places the instance in standby mode (if it isn&#8217;t already).</p>
 <p>The second script (ExitStandby.ps1) gets the instance id,  gets the ASG name using the Octopus output variable above, exits standby mode using instance ID and ASG Name,  then waits until the instance&#8217;s state is InService.</p>
 <h2>EnterStandby.ps1</h2>
@@ -218,14 +218,14 @@ a:hover {
 <!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<span class="comments-link"><a href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comments">3 Comments</a></span>	</footer><!-- .entry-footer -->
+		<span class="comments-link"><a href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comments">3 Comments</a></span>	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 
 						<nav class="navigation post-navigation" role="navigation">
 		<h2 class="screen-reader-text">Post navigation</h2>
 		<div class="nav-links">
-			<div class="nav-previous"><a href="https://marcusfelling.github.io/blog/blog/2017/vsts-yaml-builds/" rel="prev"><span class="meta-nav">&larr;</span> Azure Pipelines YAML Builds (Pipeline as code)</a></div>
-<div class="nav-next"><a href="https://marcusfelling.github.io/blog/blog/2017/chef-recipe-install-vsts-agents-windows/" rel="next">Chef recipe to install VSTS agents (Windows) <span class="meta-nav">&rarr;</span></a></div>		</div>
+			<div class="nav-previous"><a href="https://marcusfelling.com/blog/blog/2017/vsts-yaml-builds/" rel="prev"><span class="meta-nav">&larr;</span> Azure Pipelines YAML Builds (Pipeline as code)</a></div>
+<div class="nav-next"><a href="https://marcusfelling.com/blog/blog/2017/chef-recipe-install-vsts-agents-windows/" rel="next">Chef recipe to install VSTS agents (Windows) <span class="meta-nav">&rarr;</span></a></div>		</div>
 <!-- .nav-links -->
 	</nav><!-- .navigation -->
 	
@@ -245,7 +245,7 @@ a:hover {
 <!-- .comment-author -->
 
 					<div class="comment-metadata">
-						<a href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-192"><time datetime="2018-03-21T17:11:32+00:00">March 21, 2018 at 5:11 pm</time></a>					</div>
+						<a href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-192"><time datetime="2018-03-21T17:11:32+00:00">March 21, 2018 at 5:11 pm</time></a>					</div>
 <!-- .comment-metadata -->
 
 									</footer><!-- .comment-meta -->
@@ -255,7 +255,7 @@ a:hover {
 				</div>
 <!-- .comment-content -->
 
-				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/?replytocom=192#respond" data-commentid="192" data-postid="528" data-belowelement="div-comment-192" data-respondelement="respond" data-replyto="Reply to Julio Wilcoxon" aria-label="Reply to Julio Wilcoxon">Reply</a></div>			</article><!-- .comment-body -->
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/?replytocom=192#respond" data-commentid="192" data-postid="528" data-belowelement="div-comment-192" data-respondelement="respond" data-replyto="Reply to Julio Wilcoxon" aria-label="Reply to Julio Wilcoxon">Reply</a></div>			</article><!-- .comment-body -->
 		</li>
 <!-- #comment-## -->
 		<li id="comment-3138" class="comment odd alt thread-odd thread-alt depth-1 parent">
@@ -266,7 +266,7 @@ a:hover {
 <!-- .comment-author -->
 
 					<div class="comment-metadata">
-						<a href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3138"><time datetime="2019-01-30T04:21:09+00:00">January 30, 2019 at 4:21 am</time></a>					</div>
+						<a href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3138"><time datetime="2019-01-30T04:21:09+00:00">January 30, 2019 at 4:21 am</time></a>					</div>
 <!-- .comment-metadata -->
 
 									</footer><!-- .comment-meta -->
@@ -276,7 +276,7 @@ a:hover {
 				</div>
 <!-- .comment-content -->
 
-				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/?replytocom=3138#respond" data-commentid="3138" data-postid="528" data-belowelement="div-comment-3138" data-respondelement="respond" data-replyto="Reply to Kelly" aria-label="Reply to Kelly">Reply</a></div>			</article><!-- .comment-body -->
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/?replytocom=3138#respond" data-commentid="3138" data-postid="528" data-belowelement="div-comment-3138" data-respondelement="respond" data-replyto="Reply to Kelly" aria-label="Reply to Kelly">Reply</a></div>			</article><!-- .comment-body -->
 		<ol class="children">
 		<li id="comment-3144" class="comment byuser comment-author-marcus-fellinggmail-com bypostauthor even depth-2">
 			<article id="div-comment-3144" class="comment-body">
@@ -286,7 +286,7 @@ a:hover {
 <!-- .comment-author -->
 
 					<div class="comment-metadata">
-						<a href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3144"><time datetime="2019-01-30T15:50:20+00:00">January 30, 2019 at 3:50 pm</time></a>					</div>
+						<a href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#comment-3144"><time datetime="2019-01-30T15:50:20+00:00">January 30, 2019 at 3:50 pm</time></a>					</div>
 <!-- .comment-metadata -->
 
 									</footer><!-- .comment-meta -->
@@ -296,7 +296,7 @@ a:hover {
 				</div>
 <!-- .comment-content -->
 
-				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/?replytocom=3144#respond" data-commentid="3144" data-postid="528" data-belowelement="div-comment-3144" data-respondelement="respond" data-replyto="Reply to Marcus" aria-label="Reply to Marcus">Reply</a></div>			</article><!-- .comment-body -->
+				<div class="reply"><a rel="nofollow" class="comment-reply-link" href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/?replytocom=3144#respond" data-commentid="3144" data-postid="528" data-belowelement="div-comment-3144" data-respondelement="respond" data-replyto="Reply to Marcus" aria-label="Reply to Marcus">Reply</a></div>			</article><!-- .comment-body -->
 		</li>
 <!-- #comment-## -->
 </ol>
@@ -310,7 +310,7 @@ a:hover {
 	
 	
 		<div id="respond" class="comment-respond">
-		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://marcusfelling.github.io/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#respond" style="display:none;">Cancel reply</a></small>
+		<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://marcusfelling.com/blog/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/#respond" style="display:none;">Cancel reply</a></small>
 </h3>
 <form action="https://marcusfelling.com/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate>
 <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p>
@@ -353,23 +353,23 @@ a:hover {
 					<aside id="rpwe_widget-2" class="widget rpwe_widget recent-posts-extended"><h2 class="widget-title">Recent Blog Posts</h2>
 <div class="rpwe-block"><ul class="rpwe-ul">
 <li class="rpwe-li rpwe-clearfix">
-<a class="rpwe-img" href="https://marcusfelling.github.io/blog/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/" target="_self"><img class="rpwe-alignleft rpwe-thumb" src="https://marcusfelling.github.io/blog/wp-content/uploads/2024/04/icon-45x45.png" alt="Removing Sensitive Data from Git History with BFG and VS Code" height="45" width="45" loading="lazy" decoding="async"></a><h3 class="rpwe-title"><a href="https://marcusfelling.github.io/blog/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/" target="_self">Removing Sensitive Data from Git History with BFG and VS Code</a></h3>
-<div class="rpwe-summary">I was recently notified that an old API key was &hellip;<a href="https://marcusfelling.github.io/blog/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/" class="more-link">Read More »</a>
+<a class="rpwe-img" href="https://marcusfelling.com/blog/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/" target="_self"><img class="rpwe-alignleft rpwe-thumb" src="https://marcusfelling.com/blog/content/uploads/2024/04/icon-45x45.png" alt="Removing Sensitive Data from Git History with BFG and VS Code" height="45" width="45" loading="lazy" decoding="async"></a><h3 class="rpwe-title"><a href="https://marcusfelling.com/blog/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/" target="_self">Removing Sensitive Data from Git History with BFG and VS Code</a></h3>
+<div class="rpwe-summary">I was recently notified that an old API key was &hellip;<a href="https://marcusfelling.com/blog/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/" class="more-link">Read More »</a>
 </div>
 </li>
 <li class="rpwe-li rpwe-clearfix">
-<a class="rpwe-img" href="https://marcusfelling.github.io/blog/blog/2023/using-azure-test-plans-with-playwright/" target="_self"><img class="rpwe-alignleft rpwe-thumb" src="https://marcusfelling.github.io/blog/wp-content/uploads/2023/09/test-run-ado-45x45.png" alt="Using Azure Test Plans with Playwright" height="45" width="45" loading="lazy" decoding="async"></a><h3 class="rpwe-title"><a href="https://marcusfelling.github.io/blog/blog/2023/using-azure-test-plans-with-playwright/" target="_self">Using Azure Test Plans with Playwright</a></h3>
-<div class="rpwe-summary">In 2020, I blogged about associating automated tests with Azure &hellip;<a href="https://marcusfelling.github.io/blog/blog/2023/using-azure-test-plans-with-playwright/" class="more-link">Read More »</a>
+<a class="rpwe-img" href="https://marcusfelling.com/blog/blog/2023/using-azure-test-plans-with-playwright/" target="_self"><img class="rpwe-alignleft rpwe-thumb" src="https://marcusfelling.com/blog/content/uploads/2023/09/test-run-ado-45x45.png" alt="Using Azure Test Plans with Playwright" height="45" width="45" loading="lazy" decoding="async"></a><h3 class="rpwe-title"><a href="https://marcusfelling.com/blog/blog/2023/using-azure-test-plans-with-playwright/" target="_self">Using Azure Test Plans with Playwright</a></h3>
+<div class="rpwe-summary">In 2020, I blogged about associating automated tests with Azure &hellip;<a href="https://marcusfelling.com/blog/blog/2023/using-azure-test-plans-with-playwright/" class="more-link">Read More »</a>
 </div>
 </li>
 <li class="rpwe-li rpwe-clearfix">
-<a class="rpwe-img" href="https://marcusfelling.github.io/blog/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/" target="_self"><img class="rpwe-alignleft rpwe-thumb" src="https://marcusfelling.github.io/blog/wp-content/uploads/2023/04/playwright-performance-testing-45x45.jpg" alt="Measuring Website Performance with Playwright Test and Navigation Timing API" height="45" width="45" loading="lazy" decoding="async"></a><h3 class="rpwe-title"><a href="https://marcusfelling.github.io/blog/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/" target="_self">Measuring Website Performance with Playwright Test and Navigation Timing API</a></h3>
-<div class="rpwe-summary">I was recently tasked with measuring the impact of a &hellip;<a href="https://marcusfelling.github.io/blog/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/" class="more-link">Read More »</a>
+<a class="rpwe-img" href="https://marcusfelling.com/blog/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/" target="_self"><img class="rpwe-alignleft rpwe-thumb" src="https://marcusfelling.com/blog/content/uploads/2023/04/playwright-performance-testing-45x45.jpg" alt="Measuring Website Performance with Playwright Test and Navigation Timing API" height="45" width="45" loading="lazy" decoding="async"></a><h3 class="rpwe-title"><a href="https://marcusfelling.com/blog/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/" target="_self">Measuring Website Performance with Playwright Test and Navigation Timing API</a></h3>
+<div class="rpwe-summary">I was recently tasked with measuring the impact of a &hellip;<a href="https://marcusfelling.com/blog/blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/" class="more-link">Read More »</a>
 </div>
 </li>
 <li class="rpwe-li rpwe-clearfix">
-<a class="rpwe-img" href="https://marcusfelling.github.io/blog/blog/2023/6-nifty-github-actions-features/" target="_self"><img class="rpwe-alignleft rpwe-thumb" src="https://marcusfelling.github.io/blog/wp-content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket-45x45.png" alt="6 Nifty GitHub Actions Features 🚀" height="45" width="45" loading="lazy" decoding="async"></a><h3 class="rpwe-title"><a href="https://marcusfelling.github.io/blog/blog/2023/6-nifty-github-actions-features/" target="_self">6 Nifty GitHub Actions Features 🚀</a></h3>
-<div class="rpwe-summary">I&#8217;ve been having a lot of fun with GitHub Actions &hellip;<a href="https://marcusfelling.github.io/blog/blog/2023/6-nifty-github-actions-features/" class="more-link">Read More »</a>
+<a class="rpwe-img" href="https://marcusfelling.com/blog/blog/2023/6-nifty-github-actions-features/" target="_self"><img class="rpwe-alignleft rpwe-thumb" src="https://marcusfelling.com/blog/content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket-45x45.png" alt="6 Nifty GitHub Actions Features 🚀" height="45" width="45" loading="lazy" decoding="async"></a><h3 class="rpwe-title"><a href="https://marcusfelling.com/blog/blog/2023/6-nifty-github-actions-features/" target="_self">6 Nifty GitHub Actions Features 🚀</a></h3>
+<div class="rpwe-summary">I&#8217;ve been having a lot of fun with GitHub Actions &hellip;<a href="https://marcusfelling.com/blog/blog/2023/6-nifty-github-actions-features/" class="more-link">Read More »</a>
 </div>
 </li>
 </ul></div>
@@ -417,16 +417,16 @@ a:hover {
                 </form>
                 <div class="result"></div>
             </div>
-			</span><link rel="stylesheet" id="rpwe-style-css" href="https://marcusfelling.github.io/blog/wp-content/plugins/recent-posts-widget-extended/assets/css/rpwe-frontend.css?ver=2.0.2" type="text/css" media="all">
+			</span><link rel="stylesheet" id="rpwe-style-css" href="https://marcusfelling.com/blog/content/plugins/recent-posts-widget-extended/assets/css/rpwe-frontend.css?ver=2.0.2" type="text/css" media="all">
 <style id="core-block-supports-inline-css" type="text/css">.wp-container-core-group-is-layout-1{flex-wrap:nowrap;}</style>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
 <script type="text/javascript" id="wp-i18n-js-after">
 /* <![CDATA[ */
 wp.i18n.setLocaleData( { 'text directionltr': [ 'ltr' ] } );
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.0.2" id="swv-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.0.2" id="swv-js"></script>
 <script type="text/javascript" id="contact-form-7-js-before">
 /* <![CDATA[ */
 var wpcf7 = {
@@ -437,44 +437,44 @@ var wpcf7 = {
 };
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.0.2" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/plugins/contact-form-7/includes/js/index.js?ver=6.0.2" id="contact-form-7-js"></script>
 <script type="text/javascript" id="email-subscribers-js-extra">
 /* <![CDATA[ */
 var es_data = {"messages":{"es_empty_email_notice":"Please enter email address","es_rate_limit_notice":"You need to wait for some time before subscribing again","es_single_optin_success_message":"Successfully Subscribed.","es_email_exists_notice":"Email Address already exists!","es_unexpected_error_notice":"Oops.. Unexpected error occurred.","es_invalid_email_notice":"Invalid email address","es_try_later_notice":"Please try after some time"},"es_ajax_url":"https:\/\/marcusfelling.github.io\/blog\/wp-admin\/admin-ajax.php"};
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/plugins/email-subscribers/lite/public/js/email-subscribers-public.js?ver=5.7.47" id="email-subscribers-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/plugins/email-subscribers/lite/public/js/email-subscribers-public.js?ver=5.7.47" id="email-subscribers-js"></script>
 <script type="text/javascript" id="custom-script-js-extra">
 /* <![CDATA[ */
 var wpdata = {"object_id":"528","site_url":"https:\/\/marcusfelling.github.io\/blog"};
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/plugins/wp-meta-and-date-remover/assets/js/inspector.js?ver=1.1" id="custom-script-js"></script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/plugins/simply-static-pro/assets/ssp-comment-webhook.js?ver=1.6.4.2" id="ssp-comment-webhook-js"></script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/plugins/simply-static-pro/assets/fuse.js?ver=1.6.4.2" id="ssp-fuse-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/plugins/wp-meta-and-date-remover/assets/js/inspector.js?ver=1.1" id="custom-script-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/plugins/simply-static-pro/assets/ssp-comment-webhook.js?ver=1.6.4.2" id="ssp-comment-webhook-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/plugins/simply-static-pro/assets/fuse.js?ver=1.6.4.2" id="ssp-fuse-js"></script>
 <script type="text/javascript" id="ssp-search-js-extra">
 /* <![CDATA[ */
 var ssp_search = {"html":"            <div class=\"ssp-search\">\n                <form class=\"search-form\">\n                    <div class=\"form-row\">\n                        <div class=\"search-input-container\">\n                            <input class=\"search-input fuse-search\" name=\"search-input\"\n                                   placeholder=\"Search\"\n                                   autocomplete=\"off\"\n                                   data-noresult=\"No results found.\">\n                            <div class=\"search-auto-complete\"><\/div>\n                            <button type='submit' class='search-submit'>\n                                <svg viewBox='0 0 24 24'>\n                                    <path d='M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z'\/>\n                                <\/svg>\n                            <\/button>\n                        <\/div>\n                    <\/div>\n                <\/form>\n                <div class=\"result\"><\/div>\n            <\/div>\n\t\t\t","use_selector":"1"};
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/plugins/simply-static-pro/assets/ssp-search.js?ver=1.6.4.2" id="ssp-search-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/plugins/simply-static-pro/assets/ssp-search.js?ver=1.6.4.2" id="ssp-search-js"></script>
 <script type="text/javascript" id="edin-navigation-js-extra">
 /* <![CDATA[ */
 var screen_reader_text = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/themes/edin/js/navigation.js?ver=20140718" id="edin-navigation-js"></script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/themes/edin/js/search.js?ver=20140707" id="edin-search-js"></script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/themes/edin/js/skip-link-focus-fix.js?ver=20130115" id="edin-skip-link-focus-fix-js"></script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-includes/js/comment-reply.min.js?ver=6.7.1" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/themes/edin/js/navigation.js?ver=20140718" id="edin-navigation-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/themes/edin/js/search.js?ver=20140707" id="edin-search-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/themes/edin/js/skip-link-focus-fix.js?ver=20130115" id="edin-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/js/comment-reply.min.js?ver=6.7.1" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
 <script type="text/javascript" id="edin-script-js-extra">
 /* <![CDATA[ */
 var screen_reader_text = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/themes/edin/js/edin.js?ver=20140606" id="edin-script-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/themes/edin/js/edin.js?ver=20140606" id="edin-script-js"></script>
 <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6LfgJoIUAAAAAHRAk05X0hYtxW83RvzwodBgBLBe&amp;ver=3.0" id="google-recaptcha-js"></script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
 <script type="text/javascript" id="wpcf7-recaptcha-js-before">
 /* <![CDATA[ */
 var wpcf7_recaptcha = {
@@ -486,8 +486,8 @@ var wpcf7_recaptcha = {
 };
 /* ]]> */
 </script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.0.2" id="wpcf7-recaptcha-js"></script>
-<script type="text/javascript" src="https://marcusfelling.github.io/blog/wp-content/plugins/buttons-x/assets/js/public/btnsx.min.js?ver=0.8.6" id="btnsx-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.0.2" id="wpcf7-recaptcha-js"></script>
+<script type="text/javascript" src="https://marcusfelling.com/blog/content/plugins/buttons-x/assets/js/public/btnsx.min.js?ver=0.8.6" id="btnsx-js"></script>
 
 </body>
 </html>

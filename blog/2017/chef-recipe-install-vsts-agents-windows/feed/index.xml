@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Chef recipe to install VSTS agents (Windows)	</title>
-	<atom:link href="https://marcusfelling.github.io/blog/blog/2017/chef-recipe-install-vsts-agents-windows/feed/" rel="self" type="application/rss+xml" />
-	<link>https://marcusfelling.github.io/blog/blog/2017/chef-recipe-install-vsts-agents-windows/</link>
+	<atom:link href="https://marcusfelling.com/blog/blog/2017/chef-recipe-install-vsts-agents-windows/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.com/blog/blog/2017/chef-recipe-install-vsts-agents-windows/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Sun, 29 Jul 2018 20:21:14 +0000</lastBuildDate>
 	<sy:updatePeriod>
@@ -20,11 +20,11 @@
 	<item>
 		<title>
 		By: sivakumarvaddi		</title>
-		<link>https://marcusfelling.github.io/blog/blog/2017/chef-recipe-install-vsts-agents-windows/#comment-1346</link>
+		<link>https://marcusfelling.com/blog/blog/2017/chef-recipe-install-vsts-agents-windows/#comment-1346</link>
 
 		<dc:creator><![CDATA[sivakumarvaddi]]></dc:creator>
 		<pubDate>Sun, 29 Jul 2018 20:21:14 +0000</pubDate>
-		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=534#comment-1346</guid>
+		<guid isPermaLink="false">https://marcusfelling.com/blog/?p=534#comment-1346</guid>
 
 					<description><![CDATA[Hi Marcus,
 
@@ -50,11 +50,11 @@ Sivas</p>
 		<item>
 		<title>
 		By: Dillon Thompson		</title>
-		<link>https://marcusfelling.github.io/blog/blog/2017/chef-recipe-install-vsts-agents-windows/#comment-105</link>
+		<link>https://marcusfelling.com/blog/blog/2017/chef-recipe-install-vsts-agents-windows/#comment-105</link>
 
 		<dc:creator><![CDATA[Dillon Thompson]]></dc:creator>
 		<pubDate>Fri, 23 Feb 2018 02:48:49 +0000</pubDate>
-		<guid isPermaLink="false">https://marcusfelling.github.io/blog/?p=534#comment-105</guid>
+		<guid isPermaLink="false">https://marcusfelling.com/blog/?p=534#comment-105</guid>
 
 					<description><![CDATA[Man, I never even thought of being able to automate this. Life saver!]]></description>
 			<content:encoded><![CDATA[<p>Man, I never even thought of being able to automate this. Life saver!</p>

@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Azure Release Pipelines: What releases haven&#8217;t been deployed to Production yet?	</title>
-	<atom:link href="https://marcusfelling.github.io/blog/blog/2019/azure-release-pipelines-what-releases-havent-been-deployed-to-production-yet/feed/" rel="self" type="application/rss+xml" />
-	<link>https://marcusfelling.github.io/blog/blog/2019/azure-release-pipelines-what-releases-havent-been-deployed-to-production-yet/</link>
+	<atom:link href="https://marcusfelling.com/blog/blog/2019/azure-release-pipelines-what-releases-havent-been-deployed-to-production-yet/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.com/blog/blog/2019/azure-release-pipelines-what-releases-havent-been-deployed-to-production-yet/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Tue, 15 Jan 2019 00:53:49 +0000</lastBuildDate>
 	<sy:updatePeriod>

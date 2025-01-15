@@ -8,8 +8,8 @@
 <channel>
 	<title>
 	Comments on: Handling Azure AD/Entra ID Authentication with Playwright	</title>
-	<atom:link href="https://marcusfelling.github.io/blog/blog/2023/handling-azure-ad-authentication-with-playwright/feed/" rel="self" type="application/rss+xml" />
-	<link>https://marcusfelling.github.io/blog/blog/2023/handling-azure-ad-authentication-with-playwright/</link>
+	<atom:link href="https://marcusfelling.com/blog/blog/2023/handling-azure-ad-authentication-with-playwright/feed/" rel="self" type="application/rss+xml" />
+	<link>https://marcusfelling.com/blog/blog/2023/handling-azure-ad-authentication-with-playwright/</link>
 	<description>A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few....</description>
 	<lastBuildDate>Tue, 19 Sep 2023 14:52:03 +0000</lastBuildDate>
 	<sy:updatePeriod>
