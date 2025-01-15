@@ -1,0 +1,30 @@
+# Jekyll configuration settings
+title: Marcus Felling's Blog
+description: A blog about software development and testing
+baseurl: "/"
+url: "https://marcusfelling.com"
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+  - jekyll-sitemap
+  - jekyll-paginate
+paginate: 5
+paginate_path: "/page:num/"
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+    span:
+      line_numbers: true
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
