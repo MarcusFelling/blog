@@ -1,83 +1,97 @@
 ---
+id: 1237
+title: 'Using Azure Test Plans with Playwright'
+date: '2023-09-17T21:01:58+00:00'
+author: Marcus
 layout: post
-title: "Using Azure Test Plans with Playwright"
-date: 2023-09-17 12:00:00 -0500
-categories: [Azure, Test Plans, Playwright]
+guid: 'https://marcusfelling.com/?p=1237'
+permalink: /blog/2023/using-azure-test-plans-with-playwright/
+ig_es_is_post_notified:
+    - '1'
+thumbnail-img: /content/uploads/2023/09/test-run-ado.png
+categories:
+    - Uncategorized
 ---
 
-In this post, we will explore how to use Azure Test Plans with Playwright to create and manage automated tests for your web applications. Azure Test Plans is a powerful tool that allows you to plan, track, and manage your testing efforts, while Playwright is a popular end-to-end testing framework for web applications.
+In 2020, I blogged about associating [automated tests with Azure Test Cases](https://marcusfelling.com/blog/2020/associating-automated-tests-with-azure-test-cases/). The post had 18 questions, which indicates there is still confusion on how this works, especially how to set it up with Playwright (which was pre-stable release at the time).
 
-## Setting Up Azure Test Plans
+In this post, I’ll walk through how to configure both Playwright Test (JavaScript/TypeScript) and Playwright .NET to get test results in Azure Test Plans. Each option uses abstractions built on the Azure DevOps [REST API](https://learn.microsoft.com/en-us/rest/api/azure/devops/test/?view=azure-devops-rest-5.0) so you don’t have to write additional code to accomplish this.
 
-To get started with Azure Test Plans, you need to have an Azure DevOps account. If you don't have one, you can sign up for free at [Azure DevOps](https://dev.azure.com/).
+## Why?
 
-### Step 1: Create a New Project
+Azure Test Plans is a popular service that many teams are using for manual testing. By publishing your automated Playwright tests to the service, you get a couple of benefits:
 
-Once you have an Azure DevOps account, create a new project by clicking on the "New Project" button. Give your project a name and select the visibility (public or private) and version control (Git or Team Foundation Version Control).
+1. **Traceability**. This gives you the option to link your requirements (Azure Boards) to automated tests and the pipeline that ran them. By mapping the two, you can establish the quality of the requirements based on test results. Ideally, a test case is created for each of the acceptance criteria listed for the requirement.
+2. **History**. Drilling into every pipeline run to see test results over time is a pain. Azure Test Plans allows you to see results through features like the [progress report](https://learn.microsoft.com/en-us/azure/devops/test/progress-report?view=azure-devops) and [charts](https://learn.microsoft.com/en-us/azure/devops/test/track-test-status?view=azure-devops#track-testing-progress).
+3. **Test inventory.** By tracking automated AND manual test cases, you can do things like [track the status of a test case](https://learn.microsoft.com/en-us/azure/devops/test/track-test-status?view=azure-devops#track-test-case-status) (not automated, planned to be automated, or automated). This makes it easy to track the progress of automated testing efforts, e.g. how many manual tests have been converted to automated, how many remain, etc.
 
-### Step 2: Create a Test Plan
+## What are the options?
 
-After creating your project, navigate to the "Test Plans" section and click on the "New Test Plan" button. Give your test plan a name and select the area path and iteration path for your tests.
+I’ll show working code examples for both Playwright Test (TypeScript) and Playwright .NET using NUnit. If you’re already sick of reading and want to see them in action, here are some links.
 
-### Step 3: Create Test Suites and Test Cases
+**TypeScript:** [tests](https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightTest?path=/tests), [pipeline to run tests](https://dev.azure.com/marcusfelling/Playground/_build?definitionId=24), [test plan](https://dev.azure.com/marcusfelling/Playground/_testPlans/execute?planId=442&suiteId=443)
 
-Within your test plan, you can create test suites and test cases. Test suites are used to group related test cases, while test cases define the individual tests that you want to run. To create a test suite, click on the "New Test Suite" button and give it a name. To create a test case, click on the "New Test Case" button and fill in the details, such as the title, steps, and expected results.
+**.NET**: [tests](https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightDotnet?path=/PlaywrightTests/Header.cs), [build to publish binaries](https://dev.azure.com/marcusfelling/Playground/_build?definitionId=24), [release to run tests](https://dev.azure.com/marcusfelling/Playground/_release?_a=releases&view=mine&definitionId=2), [test plan](https://dev.azure.com/marcusfelling/Playground/_testPlans/execute?planId=432&suiteId=433)
 
-## Integrating Playwright with Azure Test Plans
+## Playwright Test (TypeScript)
 
-Now that you have set up your test plan, you can integrate Playwright with Azure Test Plans to automate your tests.
+[playwright-azure-reporter](https://www.npmjs.com/package/@alex_neo/playwright-azure-reporter) is a custom reporter (npm package) that allows you to post test results by annotating your test case name with the Azure test plan ID. The README has instructions for installing the package and adding the reporter to `playwright.config.ts`
 
-### Step 1: Install Playwright
+My example project’s config looks like this: [playwright](https://gist.github.com/MarcusFelling/66356db19ecb20ff798150ddd91900da)[.config.ts](https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightTest?path=/playwright.config.ts&version=GBmain&line=31&lineEnd=32&lineStartColumn=1&lineEndColumn=1&lineStyle=plain&_a=contents).
 
-To install Playwright, run the following command in your project directory:
+Once that is in place:
 
-```sh
-npm install playwright
-```
+1. Manually create new test cases in Azure Test Plans taking note of the ID (planID in query string of URL)
+2. Add the ID in brackets to the test case title. 444, 445 in this example:
 
-### Step 2: Create a Playwright Test Script
+![](/content/uploads/2023/09/annotation-test-id-1024x329.png)
 
-Create a new file in your project directory and add the following code to create a simple Playwright test script:
+When these tests get run, you will then be able to see the outcome for each test case:
 
-```js
-const { chromium } = require('playwright');
+![](/content/uploads/2023/09/outcome-1024x388.png)
 
-(async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://example.com');
-  await page.screenshot({ path: 'example.png' });
-  await browser.close();
-})();
-```
+My example pipeline runs these tests for every commit on main and also uses the JUnit reporter to publish results to the pipeline’s Test tab:
 
-This script launches a Chromium browser, navigates to a website, takes a screenshot, and then closes the browser.
+![](/content/uploads/2023/09/test-tab.png)
 
-### Step 3: Run Playwright Tests from Azure Pipelines
+## Playwright .NET
 
-To run your Playwright tests from Azure Pipelines, you need to create a pipeline configuration file. Create a new file named `azure-pipelines.yml` in your project directory and add the following configuration:
+This option works out of the box but has some caveats and complexity: A Windows runner and a release pipeline are required to use the Visual Studio test platform installer and Visual Studio Test tasks. Also, Visual Studio must be used to associate test cases.
 
-```yaml
-trigger:
-- main
+Here is how I set this up in my example project:
 
-pool:
-  vmImage: 'ubuntu-latest'
+1. Manually create new Azure Test Plans test cases
+2. Use Visual Studio’s test explorer to associate the automated test cases:
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '14.x'
-  displayName: 'Install Node.js'
+    ![](/content/uploads/2023/09/associate-test-case.png)
+    
+    This will change the Automation status field on the test case work item to automated:
+    
+    ![](/content/uploads/2023/09/automation-status.png)
 
-- script: |
-    npm install
-    npm test
-  displayName: 'Run Playwright Tests'
-```
+Once the test cases are configured, we can set up our pipelines to run the tests.
 
-This configuration triggers the pipeline on changes to the `main` branch, installs Node.js, and runs your Playwright tests.
+3. Create a build pipeline that runs `dotnet publish` (using Windows agent) in order to create an artifact with the Playright binaries: [playwright-dotnet.yml](https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightDotnet?path=/playwright-dotnet.yml)
 
-## Conclusion
+4. Create a [release pipeline](https://dev.azure.com/marcusfelling/Playground/_releaseDefinition?definitionId=2&_a=definition-tasks&environmentId=4) referencing the artifact created in the previous step:
 
-By integrating Azure Test Plans with Playwright, you can create and manage automated tests for your web applications. This allows you to ensure the quality of your applications and streamline your testing efforts. With Azure Test Plans, you can plan, track, and manage your testing efforts, while Playwright provides a powerful framework for end-to-end testing.
+![](/content/uploads/2023/09/artifact.png)
+
+5. Add install tasks (that run on Windows agent) for “Visual Studio Test Platform Installer” (prereq for VS Test task), .NET, and Playwright browsers:
+
+![](/content/uploads/2023/09/tasks.png)
+
+6. Add the VS Test task and reference your test plan:
+
+![](/content/uploads/2023/09/vstest-task.png)
+
+7. Create a new release to run the tests. Example results: [Test tab](https://dev.azure.com/marcusfelling/Playground/_releaseProgress?_a=release-environment-extension&releaseId=12&environmentId=12&extensionId=ms.vss-test-web.test-result-in-release-environment-editor-tab), [test plan results](https://dev.azure.com/marcusfelling/Playground/_testPlans/_results?testCaseId=434&contextPointId=31).
+
+![](/content/uploads/2023/09/test-case-results.png)
+
+## Summary
+
+Hopefully, you were able to follow my examples to get this set up in your own environment. I’d love to hear feedback on anything I may have missed, new features you’d like to see from the product team at Microsoft, or interesting use cases you have experience with.
+
+Happy testing,
+Marcus

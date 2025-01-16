@@ -1,125 +1,35 @@
 ---
+id: 969
+title: 'Using Terraforms Azure provider (azurerm) with GitHub Actions and Terraform Cloud'
+date: '2021-02-06T18:38:44+00:00'
+author: Marcus
 layout: post
-title: "Using Terraform's Azure provider (azurerm) with GitHub Actions and Terraform Cloud"
-date: 2021-02-06 12:00:00 -0500
-categories: [Terraform, Azure, GitHub Actions, CI/CD]
+guid: 'https://marcusfelling.com/?p=969'
+permalink: /blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/
+wpmdr_menu:
+    - '1'
+thumbnail-img: /content/uploads/2021/02/error.png
+categories:
+    - Uncategorized
 ---
 
-In this post, we will explore how to use Terraform's Azure provider (azurerm) with GitHub Actions and Terraform Cloud to automate the deployment of infrastructure to Azure. Terraform is an open-source infrastructure as code (IaC) tool that allows you to define and provision infrastructure using a declarative configuration language.
 
-## Prerequisites
+I wanted to document this after spending a frustrating amount of time troubleshooting getting this setup. I was getting this error when running Terraform Plan:
 
-Before we get started, make sure you have the following prerequisites:
+> `Error building AzureRM Client: obtain subscription() from Azure CLI: Error parsing json result from the Azure CLI: Error waiting for the Azure CLI: exit status 1: ERROR: Please run 'az login' to setup account.`
 
-- An Azure account. If you don't have one, you can create a free account at [Azure](https://azure.microsoft.com/).
-- A GitHub account. If you don't have one, you can create a free account at [GitHub](https://github.com/).
-- A Terraform Cloud account. If you don't have one, you can create a free account at [Terraform Cloud](https://app.terraform.io/signup).
+I followed the well-documented instructions for [Authenticating to Azure using a Service Principal and a Client Secret](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret). I stored the 4 values for ARM\_CLIENT\_ID, ARM\_CLIENT\_SECRET, ARM\_SUBSCRIPTION\_ID, and ARM\_TENANT\_ID as [GitHub encrypted secrets](https://docs.github.com/en/actions/reference/encrypted-secrets), then set them as environment variables in my GitHub Actions workflow:
 
-## Step 1: Create a Terraform Configuration
+<script src="https://gist.github.com/MarcusFelling/55950d58da2b4a83f061cdaa52f37061.js"></script>The Azure provider has these [documented ](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs#argument-reference)and states the arguments for client\_id, client\_secret, subcription\_id, and tenant\_id can be sourced from these environment variables.
 
-First, create a new directory for your Terraform configuration files. In this directory, create a file named `main.tf` and add the following code:
+For some reason, the Terraform Plan command was not picking them up and kept throwing the error mentioned above `"Error building AzureRM Client: obtain subscription() from Azure CLI: Error parsing json result from the Azure CLI: Error waiting for the Azure CLI: exit status 1: ERROR: Please run 'az login' to setup account.`“
 
-```hcl
-provider "azurerm" {
-  features {}
-}
+I re-generated the service principal, re-added the values to the GitHub Secrets, tried setting the values for the service principal in the provider block, all to no avail. I finally discovered that Terraform Cloud workspaces have a default execution mode of “Remote”, meaning plans and applies occur on Terraform Cloud’s infrastructure. Because of this, the Plan command could not pick up the environment variables from the GitHub Action. Switching the workspace to local resolved my issue (workspace -> settings -> General):
 
-resource "azurerm_resource_group" "example" {
-  name     = "example-resources"
-  location = "East US"
-}
+![](/content/uploads/2021/02/image-1024x252.png)](/content/uploads/2021/02/image.png)
 
-resource "azurerm_storage_account" "example" {
-  name                     = "examplestorageacct"
-  resource_group_name      = azurerm_resource_group.example.name
-  location                 = azurerm_resource_group.example.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-```
+This is what the complete GitHub Action looks like:
 
-This configuration defines an Azure resource group and a storage account.
+<script src="https://gist.github.com/MarcusFelling/de04b04ab801b3fb22f0992a3ab79533.js"></script>
 
-## Step 2: Initialize the Terraform Configuration
-
-Next, initialize the Terraform configuration by running the following command in your project directory:
-
-```sh
-terraform init
-```
-
-This command downloads the necessary provider plugins and prepares your working directory for other Terraform commands.
-
-## Step 3: Create a GitHub Repository
-
-Create a new GitHub repository for your Terraform configuration. You can do this by navigating to [GitHub](https://github.com/) and clicking on the "New" button. Give your repository a name and select the visibility (public or private).
-
-## Step 4: Add Your Terraform Configuration to the Repository
-
-Add your Terraform configuration files to the GitHub repository. You can do this by running the following commands in your project directory:
-
-```sh
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/your-username/your-repo.git
-git push -u origin main
-```
-
-## Step 5: Create a GitHub Actions Workflow
-
-Create a new directory named `.github/workflows` in your project directory. In this directory, create a file named `main.yml` and add the following code:
-
-```yaml
-name: Terraform
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  terraform:
-    name: 'Terraform'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: 0.14.7
-
-      - name: Terraform Init
-        run: terraform init
-
-      - name: Terraform Plan
-        run: terraform plan
-
-      - name: Terraform Apply
-        run: terraform apply -auto-approve
-```
-
-This workflow runs the `terraform init`, `terraform plan`, and `terraform apply` commands whenever there is a push to the `main` branch.
-
-## Step 6: Configure Terraform Cloud
-
-In your Terraform Cloud account, create a new workspace for your project. Connect the workspace to your GitHub repository by following the instructions in the Terraform Cloud UI.
-
-## Step 7: Add Environment Variables
-
-In your GitHub repository, add the following environment variables to the repository settings:
-
-- `ARM_CLIENT_ID`: The Azure client ID.
-- `ARM_CLIENT_SECRET`: The Azure client secret.
-- `ARM_SUBSCRIPTION_ID`: The Azure subscription ID.
-- `ARM_TENANT_ID`: The Azure tenant ID.
-- `TF_API_TOKEN`: The Terraform Cloud API token.
-
-These environment variables are used by the GitHub Actions workflow to authenticate with Azure and Terraform Cloud.
-
-## Conclusion
-
-By using Terraform's Azure provider (azurerm) with GitHub Actions and Terraform Cloud, you can automate the deployment of infrastructure to Azure. This allows you to define your infrastructure as code and manage it using version control. With GitHub Actions, you can create CI/CD pipelines that automatically deploy your infrastructure changes, and with Terraform Cloud, you can manage your Terraform state and collaborate with your team.
+I hope this post will help others who were desperately weeding through search results like I was.

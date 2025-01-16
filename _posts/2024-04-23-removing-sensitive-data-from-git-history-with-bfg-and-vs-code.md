@@ -1,66 +1,37 @@
 ---
+id: 1264
+title: 'Removing Sensitive Data from Git History with BFG and VS Code'
+date: '2024-04-23T14:06:19+00:00'
+author: Marcus
 layout: post
-title: "Removing Sensitive Data from Git History with BFG and VS Code"
-date: 2024-04-23 12:00:00 -0500
-categories: [Git, BFG, VS Code]
+guid: 'https://marcusfelling.com/?p=1264'
+permalink: /blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/
+thumbnail-img: /content/uploads/2024/04/icon.png
+categories:
+    - Uncategorized
 ---
 
-In this post, we will discuss how to remove sensitive data from your Git history using BFG Repo-Cleaner and Visual Studio Code. This is a crucial step to ensure that sensitive information such as passwords, API keys, and other confidential data are not exposed in your repository's history.
+I was recently notified that an old API key was discovered in one of the repos I own. Even if you remove the sensitive data in a new commit, it can still be found in the Git history.
 
-## Why Remove Sensitive Data from Git History?
+To remove the API key, I decided to use the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) for cleansing bad data out of your Git repository history. However, I found myself fumbling around with the BFG CLI and spending way too much time trying to remove the key from the Git history.
 
-When you commit changes to a Git repository, the entire history of those changes is stored. This means that even if you remove sensitive data from your files and commit the changes, the sensitive data still exists in the previous commits. This can pose a security risk if someone gains access to your repository's history.
+That’s when I realized there had to be a better way. As a frequent user of Visual Studio Code, I thought, “Why not create a VS Code extension that simplifies this process?” And that’s exactly what I did.
 
-## Using BFG Repo-Cleaner
+## Introducing the BFG VS Code Extension
 
-BFG Repo-Cleaner is a tool designed to remove large files or sensitive data from your Git repository's history. It is faster and simpler than using Git's built-in filter-branch command.
+The [BFG VS Code Extension](https://marketplace.visualstudio.com/items?itemName=MFelling.bfg-vscode) is a wrapper for the BFG Repo-Cleaner that makes it easy to remove credentials from your Git history. It guides you through the process step by step using the Command Palette, so you don’t have to remember complex CLI commands.
 
-### Step 1: Install BFG Repo-Cleaner
+Here is how it works:
 
-To install BFG Repo-Cleaner, you need to have Java installed on your machine. You can download BFG Repo-Cleaner from its [official website](https://rtyley.github.io/bfg-repo-cleaner/).
+1. Clones a fresh copy of your repo using the –mirror flag.
+2. Installs BFG: This step downloads the BFG jar file from the official repository and saves it in the workspace folder.
+3. Enter credential to remove: This step prompts the user to enter the credential to remove, writes this credential to a file in the workspace folder, and uses the ```--replace-text``` option of BFG Repo-Cleaner to replace this credential with ```***REMOVED***``` in the repository’s history.
+4. Remove credentials: This step runs the BFG Repo-Cleaner with the ```--replace-text``` option to replace the specified credential with ```***REMOVED***``` in the repository’s history.
+5. Clean your repository: This step runs the ```git reflog expire --expire=now --all && git gc --prune=now --aggressive``` command to clean the repository.
+6. Push the changes: This step runs the ```git push --force``` command to push the changes to the remote repository
 
-### Step 2: Clone Your Repository
+The BFG VS Code Extension is a tool I wish I had when I first discovered the old API key in my repo. It would have saved me a lot of time and frustration. I hope it can do the same for you.
 
-Clone your repository to your local machine using the `--mirror` option. This creates a bare repository that includes all branches and tags.
+You can find the BFG VS Code Extension on the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=MFelling.bfg-vscode) and the source code on [GitHub](https://github.com/MarcusFelling/bfg-vscode). If you have any questions or feedback, feel free to open an issue on GitHub.
 
-```sh
-git clone --mirror https://github.com/your-username/your-repo.git
-```
-
-### Step 3: Run BFG Repo-Cleaner
-
-Run BFG Repo-Cleaner to remove the sensitive data. For example, to remove all files named `passwords.txt`, use the following command:
-
-```sh
-bfg --delete-files passwords.txt your-repo.git
-```
-
-### Step 4: Clean Up and Push Changes
-
-After running BFG Repo-Cleaner, you need to clean up your repository and push the changes to the remote repository.
-
-```sh
-cd your-repo.git
-git reflog expire --expire=now --all && git gc --prune=now --aggressive
-git push --force
-```
-
-## Using Visual Studio Code
-
-Visual Studio Code (VS Code) is a powerful code editor that can help you identify and remove sensitive data from your files before committing changes.
-
-### Step 1: Install the GitLens Extension
-
-Install the GitLens extension for VS Code. This extension provides advanced Git capabilities, including the ability to view the history of a file and identify changes.
-
-### Step 2: Search for Sensitive Data
-
-Use the search functionality in VS Code to search for sensitive data in your files. For example, you can search for keywords such as "password", "API key", or "secret".
-
-### Step 3: Remove Sensitive Data
-
-Remove the sensitive data from your files and commit the changes. Make sure to follow the steps outlined in the "Using BFG Repo-Cleaner" section to remove the sensitive data from your repository's history.
-
-## Conclusion
-
-Removing sensitive data from your Git history is an important step to ensure the security of your repository. By using tools like BFG Repo-Cleaner and Visual Studio Code, you can effectively remove sensitive data and prevent it from being exposed in your repository's history.
+The best way to prevent sensitive data from being exposed in your Git history is to never commit it in the first place. Always use environment variables or configuration files that are ignored by Git to store sensitive data. But if you do accidentally commit sensitive data, the BFG VS Code Extension is here to help you clean it up!

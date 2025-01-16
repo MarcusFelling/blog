@@ -1,112 +1,59 @@
 ---
+id: 1117
+title: '25 reasons to choose Playwright as your next web testing framework'
+date: '2022-04-13T16:44:00+00:00'
+author: Marcus
 layout: post
-title: "25 reasons to choose Playwright as your next web testing framework"
-date: 2022-04-13 12:00:00 -0500
-categories: [Playwright, Web Testing, Framework]
+guid: 'https://marcusfelling.com/?p=1117'
+permalink: /blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/
+wpmdr_menu:
+    - '1'
+ig_es_is_post_notified:
+    - '1'
+thumbnail-img: /content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay.png
+categories:
+    - Uncategorized
 ---
 
-In this post, we will explore 25 reasons why you should choose Playwright as your next web testing framework. Playwright is a powerful end-to-end testing framework for web applications, developed by Microsoft. It provides a wide range of features and capabilities that make it an excellent choice for testing modern web applications.
 
-## 1. Cross-Browser Testing
+I wanted a place to capture a list of highlights that make Playwright awesome. Here it is, in no particular order:
 
-Playwright supports testing across multiple browsers, including Chromium, Firefox, and WebKit. This allows you to ensure that your web application works consistently across different browsers.
+1. Supports testing scenarios for [multi-tab](https://playwright.dev/docs/pages#multiple-pages), [multi-user](https://playwright.dev/docs/test-auth#multiple-signed-in-roles), multi-origin/domain, and [iframes](https://playwright.dev/docs/frames). *“Playwright is an out-of-process automation driver that is not limited by the scope of in-page JavaScript execution”*
+2. Uses the concept of [browser contexts ](https://playwright.dev/docs/browser-contexts)(equivalent to a brand new browser profile) to run tests in isolation with zero overhead (super fast!).
+3. [VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright) has features to run tests with a single click, debug step by step, explore selectors, and record new tests (codegen).
+4. [HTML report](https://playwright.dev/docs/release-notes#html-report-update) to view execution results in your browser. Includes visual diffs, and artifacts like traces, error logs, video recordings, and screenshots. The entire report is a self-contained page that can be [easily hosted anywhere](https://marcusfelling.com/blog/2021/publishing-playwright-test-results-to-github-pages/).
+5. Fastest test execution time in [Checkly’s benchmarks](https://rag0g.medium.com/cypress-vs-selenium-vs-playwright-vs-puppeteer-speed-comparison-73fd057c2ae9) versus Cypress, Selenium, and Puppeteer.
+6. Built-in [toMatchScreenshot()](https://playwright.dev/docs/test-snapshots) to support visual regression testing, with [recent improvements such as disabling animations and masking elements](https://github.com/microsoft/playwright/issues?q=+label%3Afeature-visual-regression-testing+).
+7. [Parallel test execution](https://playwright.dev/docs/test-parallel) is supported locally, or remotely for grids such as Selenium Grid. In addition, you can [shard tests between machines](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) to run different tests in parallel e.g. using a [GitHub Action CI job matrix.](https://docs.github.com/en/github-ae@latest/actions/using-jobs/using-a-build-matrix-for-your-jobs)
+8. Async test code uses standard JavaScript async/await syntax.
+9. [Cross-browser compatibility](https://playwright.dev/docs/browsers) for Chromium, Chrome, Microsoft Edge, Firefox, WebKit.
+10. Built and maintained by Microsoft ♥️ Ok, I’m probably being biased here ?
+11. Multi-language support: [JavaScript, TypeScript](https://playwright.dev/docs/intro) ([no transpilation required](https://playwright.dev/docs/test-typescript)), [.NET](https://playwright.dev/dotnet/docs/intro), [Python](https://playwright.dev/python/docs/intro), [Java](https://playwright.dev/java/docs/intro), and [Go](https://github.com/playwright-community/playwright-go) (supported by the community).
+12. [Tracing](https://playwright.dev/docs/trace-viewer) that helps with troubleshooting test runs in a post-mortem manner. This works great to repro failed CI tests.
+13. [Re-use signed-in state](https://playwright.dev/docs/auth) so tests can start as a logged-in user, saving time.
+14. [Emulation](https://playwright.dev/docs/emulation) for mobile devices, user agents, locales &amp; timezones, permissions, geolocation, and dark/light mode.
+15. Works well with the [white-box testing](https://en.wikipedia.org/wiki/White-box_testing) approach to [prioritize user-facing attributes](https://playwright.dev/docs/selectors#best-practices) like text, instead of CSS selectors that can change frequently.
+16. Support for [API Testing](https://playwright.dev/docs/test-api-testing), to do things in your e2e test like set up data or assert things like response code = 200.
+17. Stub and mock network requests with [network interception](https://playwright.dev/docs/network).
+18. Actions have [auto-waiting built-in](https://playwright.dev/docs/actionability), so you don’t need to rely on hard-coded sleep commands that can cause flakiness and slow down tests. Also has [custom waits](https://playwright.dev/docs/navigations#custom-wait) such as until an element is visible, or until a pop-up is loaded.
+19. Support for recording user actions as Playwright test code aka [Test Generator](https://playwright.dev/docs/codegen), that can be run via CLI or the [record button in VS Code](https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright#record-new-tests).
+20. Supports device-specific events like [hovering with mouse](https://playwright.dev/docs/api/class-locator#locator-hover), [tapping on mobile](https://playwright.dev/docs/api/class-locator#locator-tap), and [keyboard shortcuts](https://playwright.dev/docs/api/class-locator#locator-press).
+21. [Upload](https://playwright.dev/docs/input#upload-files) and [download](https://playwright.dev/docs/downloads) files supported out of the box.
+22. The [magic of Locators](https://marcusfelling.com/blog/2022/create-more-reliable-playwright-tests-with-locators/) eliminates flakiness caused by dynamic controls.
+23. Playwright Test uses the same Expect assertion library as Jest which will be familiar to many JS devs.
+24. Supports [tagging of tests](https://playwright.dev/docs/test-annotations#tag-tests) so you can run groups of related tests e.g. `@priority=high`, `@duration=short`.
+25. Provides [docker images](https://playwright.dev/docs/docker) that have dependencies and browsers baked in. This makes [CI configuration](https://playwright.dev/docs/ci) simple and fast.
 
-## 2. Headless and Headful Modes
+Did I miss anything? Post your thoughts in the comments…
 
-Playwright can run tests in both headless and headful modes. Headless mode allows for faster test execution, while headful mode provides a visual representation of the test execution.
+Happy testing!
 
-## 3. Auto-Waiting
+**EDIT**: I wanted to add a comment from a former colleague ([Adam Bjerstedt](https://www.linkedin.com/in/adam-bjerstedt-45536835/)), with his list of Playwright favorites, in comparison to Selenium:
 
-Playwright automatically waits for elements to be ready before performing actions on them. This reduces the need for manual wait statements and makes tests more reliable.
-
-## 4. Network Interception
-
-Playwright allows you to intercept and modify network requests and responses. This is useful for testing scenarios such as mocking API responses or simulating network conditions.
-
-## 5. Multi-Page and Multi-Tab Testing
-
-Playwright supports testing multiple pages and tabs within a single browser instance. This is useful for testing scenarios such as pop-ups, new tabs, and multi-page workflows.
-
-## 6. Emulation
-
-Playwright provides built-in support for emulating different devices, screen sizes, and network conditions. This allows you to test your web application on various devices and network conditions.
-
-## 7. Browser Contexts
-
-Playwright allows you to create isolated browser contexts within a single browser instance. This is useful for testing scenarios such as multi-user workflows and parallel test execution.
-
-## 8. Powerful Selectors
-
-Playwright provides a wide range of powerful selectors, including CSS selectors, XPath selectors, and text selectors. This makes it easy to locate and interact with elements on the page.
-
-## 9. Robust Assertions
-
-Playwright provides a rich set of assertions for verifying the state of elements and the page. This makes it easy to write tests that validate the expected behavior of your web application.
-
-## 10. Screenshot and Video Recording
-
-Playwright allows you to capture screenshots and record videos of your test execution. This is useful for debugging and documenting test results.
-
-## 11. Trace Viewer
-
-Playwright provides a trace viewer that allows you to visualize the execution of your tests. This is useful for debugging and understanding the flow of your tests.
-
-## 12. Test Runner Integration
-
-Playwright can be integrated with popular test runners such as Jest, Mocha, and Jasmine. This allows you to leverage the features and capabilities of your preferred test runner.
-
-## 13. TypeScript Support
-
-Playwright provides built-in support for TypeScript, allowing you to write type-safe tests. This improves the maintainability and readability of your test code.
-
-## 14. API Testing
-
-Playwright allows you to perform API testing alongside your end-to-end tests. This is useful for testing scenarios that involve both frontend and backend interactions.
-
-## 15. Accessibility Testing
-
-Playwright provides built-in support for accessibility testing, allowing you to ensure that your web application is accessible to all users.
-
-## 16. Localization Testing
-
-Playwright allows you to test your web application in different languages and locales. This is useful for ensuring that your application works correctly in different regions.
-
-## 17. Visual Testing
-
-Playwright provides built-in support for visual testing, allowing you to compare screenshots and detect visual regressions.
-
-## 18. CI/CD Integration
-
-Playwright can be easily integrated into your CI/CD pipeline, allowing you to run tests automatically as part of your build and deployment process.
-
-## 19. Parallel Test Execution
-
-Playwright supports parallel test execution, allowing you to run multiple tests simultaneously. This reduces the overall test execution time.
-
-## 20. Test Isolation
-
-Playwright provides test isolation, ensuring that each test runs in a clean environment. This reduces the risk of test flakiness and improves test reliability.
-
-## 21. Custom Test Fixtures
-
-Playwright allows you to create custom test fixtures, providing a flexible way to set up and tear down test environments.
-
-## 22. Rich Documentation
-
-Playwright provides comprehensive documentation, including guides, tutorials, and API references. This makes it easy to get started and find the information you need.
-
-## 23. Active Community
-
-Playwright has an active and growing community of users and contributors. This provides a wealth of resources, including forums, blogs, and open-source projects.
-
-## 24. Regular Updates
-
-Playwright is actively maintained and regularly updated with new features and improvements. This ensures that you have access to the latest capabilities and bug fixes.
-
-## 25. Developed by Microsoft
-
-Playwright is developed and maintained by Microsoft, a trusted and reputable company. This provides confidence in the quality and reliability of the framework.
-
-## Conclusion
-
-Playwright is a powerful and versatile web testing framework that provides a wide range of features and capabilities. Whether you are testing a simple web application or a complex multi-page workflow, Playwright has the tools and features you need to ensure the quality and reliability of your application. With its cross-browser support, auto-waiting, network interception, and many other features, Playwright is an excellent choice for your next web testing framework.
+> 1.) Playwright treats locators as a first-class citizen and eliminates stale elements. Selenium finds the pointer to the DOM element and then passes that around; whereas Playwright passes the locator to the action/assertion.  
+> 2.) Playwright has baked in implicit waits without the problems that Selenium has for negative tests.  
+> 3.) Playwright allows super powerful frame handling.  
+> 4.) Playwright has built-in mocking which allows you to write minified e2e tests at the component level (you don’t even need to use the component testing aspect).  
+> 5.) Playwright is so fast that we have to manually handle race conditions at times.  
+> 6.) Playwright supports powerful pseudo-CSS selectors that replace the only use cases for xpath (searching by text and traversing up the DOM). Xpath leads to many terrible habits and should be avoided.  
+> 7.) Playwright supports automation IDs as a first-class citizen. (Granted I still use them as data attributes so that I can write compound selectors).

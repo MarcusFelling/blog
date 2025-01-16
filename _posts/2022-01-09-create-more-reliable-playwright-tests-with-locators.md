@@ -1,99 +1,108 @@
 ---
+id: 1065
+title: 'Create resilient 🎭 Playwright e2e tests with locators'
+date: '2022-01-09T19:36:48+00:00'
+author: Marcus
 layout: post
-title: "Create resilient Playwright e2e tests with locators"
-date: 2022-01-09 12:00:00 -0500
-categories: [Playwright, Testing, Automation]
+guid: 'https://marcusfelling.com/?p=1065'
+permalink: /blog/2022/create-more-reliable-playwright-tests-with-locators/
+wpmdr_menu:
+    - '1'
+ig_es_is_post_notified:
+    - '1'
+thumbnail-img: /content/uploads/2022/01/playwrighttestlocatorexample.png
+categories:
+    - Uncategorized
 ---
 
-In this post, we will explore how to create more reliable Playwright end-to-end (e2e) tests using locators. Playwright is a powerful testing framework that allows you to automate web applications. By using locators effectively, you can make your tests more resilient and less prone to flakiness.
 
-## What are Locators?
+Modern web apps introduce some testing challenges — dynamic controls can cause flakiness and unexpected behaviors. This is where the magic of the Playwright [locator API](https://playwright.dev/docs/api/class-locator) can help us build more resilient tests.
 
-Locators in Playwright are used to find elements on a web page. They are a key part of writing reliable tests because they allow you to interact with elements in a way that mimics how a user would. Playwright provides several types of locators, including CSS selectors, XPath selectors, and text selectors.
+## Why use locators?
 
-## Why Use Locators?
+The locator API was introduced in the [1.14 release](https://playwright.dev/docs/release-notes#-new-locators-api) and the docs describe it as:
 
-Using locators in your Playwright tests can help you:
+> Locator represents a view to the element(s) on the page. It captures the logic sufficient to retrieve the element at any given moment.
+> 
+> <cite>https://playwright.dev/docs/api/class-locator</cite>
 
-1. **Reduce Flakiness**: By using robust locators, you can reduce the chances of your tests failing due to changes in the DOM structure or timing issues.
-2. **Improve Readability**: Locators make your tests more readable and easier to understand, as they clearly indicate which elements you are interacting with.
-3. **Enhance Maintainability**: When the structure of your web application changes, you can update the locators in one place, making your tests easier to maintain.
+This means we can create smarter selectors to mitigate flaky tests. Part of the smarter logic is strictness. Operations on the target DOM element will throw if more than one element matches the given selector.   
+e.g.
 
-## Types of Locators
-
-Playwright provides several types of locators that you can use in your tests:
-
-1. **CSS Selectors**: These are the most common type of locators and are based on the CSS syntax. They allow you to select elements based on their class, ID, attributes, and more.
-2. **XPath Selectors**: These locators use the XPath syntax to select elements based on their hierarchical structure in the DOM.
-3. **Text Selectors**: These locators allow you to select elements based on their visible text content.
-
-## Using Locators in Playwright
-
-Let's look at some examples of how to use locators in Playwright tests.
-
-### Example 1: Using CSS Selectors
-
-```js
-const { chromium } = require('playwright');
-
-(async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://example.com');
-
-  // Using CSS selector to find an element by class
-  const element = await page.$('.example-class');
-  await element.click();
-
-  await browser.close();
-})();
+```typescript
+// Throws if there are several buttons in DOM
+await page.locator('button').click();
 ```
 
-### Example 2: Using XPath Selectors
+This results in 3 outcomes when using locators:
 
-```js
-const { chromium } = require('playwright');
+- Test works as expected
+- Selector does not match anything and test fails
+- Multiple elements match the selector (e.g. there is a second “button” added to the page somewhere), and test fails with helpful error message
 
-(async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://example.com');
+This allows us to be less thoughtful about our selectors because we can rely on the Playwright locator magic to ensure the test is resilient.
 
-  // Using XPath selector to find an element by its position in the DOM
-  const element = await page.$('//div[@class="example-class"]');
-  await element.click();
+It also enables “black box” testing. The tests could be authored by looking at a web page, without inspecting the source code, by a user who may not have insight or understanding of the technical details of the DOM, CSS, etc. The [text selector engine](https://playwright.dev/docs/selectors#text-selector) in combination with locators makes this possible.
 
-  await browser.close();
-})();
+## How can I use locators?
+
+One of the most common cases where I’ve implemented locators is on [page.click()](https://playwright.dev/docs/api/class-page#page-click).   
+Instead of this:
+
+```typescript
+await page.click('text="Login"');
 ```
 
-### Example 3: Using Text Selectors
+We can use this:
 
-```js
-const { chromium } = require('playwright');
-
-(async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://example.com');
-
-  // Using text selector to find an element by its visible text
-  const element = await page.$('text="Example Text"');
-  await element.click();
-
-  await browser.close();
-})();
+```typescript
+await page.locator('text="Login"').click();
 ```
 
-## Best Practices for Using Locators
+We can also use it with Playwright Test’s many [web-first assertions](https://playwright.dev/docs/test-assertion), that offer async matchers that wait until the expected condition is met. Again, to help us battle testing the dynamic web. We can also store a locator in a variable and re-use it in combination with other locators, across multiple assertions:
 
-Here are some best practices to keep in mind when using locators in your Playwright tests:
+```typescript
+const toggle = page.locator('.setting-item-toggle');
+await expect(toggle.locator('text=Show original')).not.toBeChecked();
+await expect(toggle.locator('text=Compare gzipped')).toBeChecked();
+await expect(toggle.locator('text=Prettify markup')).not.toBeChecked();
+await expect(toggle.locator('text=Multipass')).not.toBeChecked();
+```
 
-1. **Use Stable Selectors**: Choose locators that are less likely to change, such as data attributes or unique IDs.
-2. **Avoid Overly Complex Selectors**: Keep your locators simple and avoid using overly complex CSS or XPath selectors.
-3. **Use Text Selectors Sparingly**: While text selectors can be useful, they can also be brittle if the text content changes frequently.
-4. **Combine Locators**: In some cases, combining multiple locators can help you find elements more reliably.
+Working with a list? This is where using an assert of [toHaveCount()](https://playwright.dev/docs/test-assertions#expectlocatortohavecountcount-options) can be useful.   
+e.g.
 
-## Conclusion
+```typescript
+// Wait until there are 3 "Buy" nodes in DOM
+await expect(page.locator('text=Buy')).toHaveCount(3)
+```
 
-By using locators effectively in your Playwright tests, you can create more reliable and maintainable end-to-end tests. Locators allow you to interact with elements in a way that mimics user behavior, reducing flakiness and improving the overall quality of your tests. Remember to follow best practices when choosing and using locators to ensure your tests remain robust and easy to maintain.
+Better yet, we can look for text using [toHaveText()](https://playwright.dev/docs/test-assertions#expectlocatortohavetextexpected-options)!  
+e.g.
+
+```typescript
+// Taken from https://github.com/MarcusFelling/Demo.Playwright/blob/main/svgomg/tests/example.spec.ts
+test('verify menu items', async ({ page }) => {
+  await expect(page.locator('.menu li')).toHaveText([
+    'Open SVG',
+    'Paste markup',
+    'Demo',
+    'Contribute'
+  ]);
+});
+```
+
+Working with iFrames? The [1.17 release](https://playwright.dev/docs/release-notes#frame-locators) introduced FrameLocator, that of course makes sense to use with locator.  
+e.g.
+
+```typescript
+// Click submit button inside #my-frame
+const locator = page.frameLocator('#my-frame').locator('text=Submit');
+await locator.click();
+```
+
+## I want to see working code!
+
+Check out this repo that’s used to demo various testing scenarios with Playwright, using the official test-runner and scripts authored in TypeScript: <https://github.com/MarcusFelling/demo.playwright>. The majority of example scripts are leveraging locators.
+
+Happy testing!

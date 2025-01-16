@@ -1,124 +1,50 @@
 ---
+id: 1044
+title: 'Publishing 🎭 Playwright test results to GitHub Pages'
+date: '2021-11-22T19:49:09+00:00'
+author: Marcus
 layout: post
-title: "Publishing Playwright test results to GitHub Pages"
-date: 2021-11-22 12:00:00 -0500
-categories: [Playwright, GitHub Pages, CI/CD]
+guid: 'https://marcusfelling.com/?p=1044'
+permalink: /blog/2021/publishing-playwright-test-results-to-github-pages/
+wpmdr_menu:
+    - '1'
+thumbnail-img: /content/uploads/2021/11/playwright-test-results.png
+categories:
+    - Uncategorized
 ---
 
-In this post, we will explore how to publish Playwright test results to GitHub Pages. Playwright is a powerful end-to-end testing framework, and GitHub Pages is a static site hosting service that allows you to publish web content directly from a GitHub repository.
 
-## Setting Up Playwright
+Now that [Playwright ](https://playwright.dev/)has a fancy new [HTML reporter](https://playwright.dev/docs/test-reporters/#html-reporter), I wanted to host test results to show the latest state of my GitHub Action test runs. Adding a step to my pipeline that publishes the results to GitHub Pages made this pretty simple.
 
-To get started with Playwright, you need to have Node.js installed on your machine. You can download Node.js from [nodejs.org](https://nodejs.org/).
+The Playwright [1.17.0-rc1 release](https://github.com/microsoft/playwright/releases/tag/v1.17.0-rc1) included an update to the HTML reporter to produce a single static HTML file. This makes it easy to share test results with others, via email, chat, or host it somewhere. A natural fit for me, was to host it on GitHub Pages, in the same repo as my tests.
 
-### Step 1: Install Playwright
+> GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website.
+> 
+> <cite>[About GitHub Pages – GitHub Docs](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)</cite>
 
-To install Playwright, run the following command in your project directory:
+## Enable GitHub Pages in your GitHub repository
 
-```sh
-npm install playwright
-```
+GitHub has docs on this here: <https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site#creating-your-site>
 
-### Step 2: Create a Playwright Test Script
+I chose to go with most of the defaults. The content lives in a separate branch `gh-pages` at the root. I chose to set up a custom domain at [testresults.marcusfelling.com](https://testresults.marcusfelling.com/). This is what my configuration looks like:
 
-Create a new file in your project directory and add the following code to create a simple Playwright test script:
+![](/content/uploads/2021/11/github-pages-configuration-1024x646.png)](/content/uploads/2021/11/github-pages-configuration.png)
 
-```js
-const { chromium } = require('playwright');
+## Configuring GitHub Actions
 
-(async () => {
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-  await page.goto('https://example.com');
-  await page.screenshot({ path: 'example.png' });
-  await browser.close();
-})();
-```
+1. Make sure you’re using Playwright [1.17.0-rc1 ](https://github.com/microsoft/playwright/releases/tag/v1.17.0-rc1)or later
+2. Use the [HTML reporter](https://playwright.dev/docs/test-reporters/#html-reporter) when running tests   
+    e.g.  
+    `npx playwright test --reporter=html`  
+    Note: the index.html file will be output to a folder called `playwright-report`
+3. Use the [peaceiris/actions-gh-pages](https://github.com/marketplace/actions/github-pages-action) GitHub Action to publish index.html to GitHub Pages
 
-This script launches a Chromium browser, navigates to a website, takes a screenshot, and then closes the browser.
+<script src="https://gist.github.com/MarcusFelling/3219b99dc64937bedc4eda30e291a900.js"></script>
 
-## Running Playwright Tests in CI/CD
+I left comments in the above snippet to explain what each property does.
 
-To run your Playwright tests in a CI/CD pipeline, you can use GitHub Actions. GitHub Actions is a powerful automation tool that allows you to define workflows for your GitHub repository.
+## Working example
 
-### Step 1: Create a GitHub Actions Workflow
+You can find a working example of this in my demo.playwright repo: <https://github.com/MarcusFelling/demo.playwright>
 
-Create a new file named `ci.yml` in the `.github/workflows` directory of your repository and add the following configuration:
-
-```yaml
-name: Playwright Tests
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Playwright tests
-        run: npm test
-```
-
-This workflow triggers on pushes to the `main` branch, sets up Node.js, installs dependencies, and runs Playwright tests.
-
-## Publishing Test Results to GitHub Pages
-
-To publish your Playwright test results to GitHub Pages, you can use the `actions-gh-pages` action.
-
-### Step 1: Add a GitHub Actions Step to Publish Test Results
-
-Update your `ci.yml` file to include a step for publishing test results to GitHub Pages:
-
-```yaml
-name: Playwright Tests
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run Playwright tests
-        run: npm test
-
-      - name: Publish test results to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./test-results
-```
-
-This step uses the `actions-gh-pages` action to publish the contents of the `./test-results` directory to GitHub Pages.
-
-## Conclusion
-
-By using Playwright and GitHub Actions, you can automate the process of running tests and publishing test results to GitHub Pages. This allows you to ensure the quality of your web applications and share test results with your team or stakeholders.
+Happy testing!

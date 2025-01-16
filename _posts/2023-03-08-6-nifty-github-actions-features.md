@@ -1,158 +1,63 @@
 ---
+id: 1197
+title: '6 Nifty GitHub Actions Features 🚀'
+date: '2023-03-08T19:23:17+00:00'
+author: Marcus
 layout: post
-title: "6 Nifty GitHub Actions Features"
-date: 2023-03-08 12:00:00 -0500
-categories: [GitHub, Actions, CI/CD]
+guid: 'https://marcusfelling.com/?p=1197'
+permalink: /blog/2023/6-nifty-github-actions-features/
+wpmdr_menu:
+    - '1'
+ig_es_is_post_notified:
+    - '1'
+thumbnail-img: /content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket.png
+categories:
+    - Uncategorized
 ---
 
-In this post, we will explore six nifty features of GitHub Actions that can help you automate your workflows and improve your CI/CD processes. GitHub Actions is a powerful tool that allows you to automate, customize, and execute your software development workflows right in your repository.
 
-## 1. Matrix Builds
+I’ve been having a lot of fun with GitHub Actions lately and wanted to document some of the features I regularly use, including some tips and tricks.
 
-Matrix builds allow you to run your workflows across multiple configurations, such as different operating systems, programming languages, or versions. This feature is particularly useful for testing your code in various environments.
+## 1. Create separate environments for development, staging, and production
 
-### Example
+GitHub Actions has an [environments feature](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment) to describe a deployment target such as dev, staging, or production. By referencing the environment in a job, you can take advantage of [protection rules](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules) and/or [secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) that get scoped to the environment. Some potential use cases include requiring a particular person or team to approve workflow jobs that reference an environment (e.g. manual approval before production deploy), or limiting which branches can deploy to a particular environment. I also like to set the environment URL so it’s easily accessible from the summary page:
 
-```yaml
-name: Matrix Build
+![](/content/uploads/2023/03/image.png)
 
-on: [push, pull_request]
+## 2. Establish workflow breakpoints with dependencies
 
-jobs:
-  build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
-        node: [12, 14, 16]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node }}
-    - run: npm install
-    - run: npm test
-```
+By default, GitHub Actions runs multiple commands simultaneously. However, you can utilize the `needs` keyword to [create dependencies between jobs](https://docs.github.com/en/actions/learn-github-actions/managing-complex-workflows#creating-dependent-jobs), meaning that if a job fails (e.g. tests), dependent jobs won’t run. This also helps you control jobs which jobs run in parallel; if there aren’t dependencies between steps, break them out into separate jobs, then set their `needs` to the next step in the process.
 
-## 2. Caching Dependencies
+e.g. my app, database, and infra as code projects can be built at the same time before deploying to dev:
 
-Caching dependencies can significantly speed up your workflows by reusing the dependencies from previous runs. GitHub Actions provides a built-in action for caching dependencies.
+![](/content/uploads/2023/03/image-1.png)
 
-### Example
+## 3. Use secrets to store sensitive workflow data
 
-```yaml
-name: Cache Dependencies
+GitHub’s secrets allow you to securely store sensitive data, including passwords, tokens, certificates, etc. You can directly reference secrets in workflows, meaning that you can create and share workflows with colleagues that employ secrets for secure values without hardcoding them directly into YAML workflow files. I like to scope the secrets close to the steps that require them. For example, rather than setting a secret for the entire workflow to access, it can be set for the job that contains steps that reference the secret.
 
-on: [push, pull_request]
+e.g. Only the Playwright test job needs to reference AzureAD creds:
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Cache Node.js modules
-      uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-    - name: Install Dependencies
-      run: npm install
-    - run: npm test
-```
+![](/content/uploads/2023/03/image-2.png)
 
-## 3. Reusable Workflows
+## 4. Conditionals can aid in differences between environments
 
-Reusable workflows allow you to define common workflows that can be reused across multiple repositories. This feature helps you maintain consistency and reduce duplication in your workflows.
+GitHub Actions allows you to use conditionals that employ the “if” keyword to decide whether a step should run. You can use this feature to develop dependencies so that if a dependent job fails, the workflow can continue running. You can also use specific built-in functions for data operations, as well as leverage status check functions to determine whether preceding steps have succeeded, failed, canceled, or disrupted. Moreover, you can use conditionals to share workflow data among different branches and forks, with steps tailored to different triggers or environments. The conditions can also be set in reusable workflows to toggle different steps between environments:
 
-### Example
+e.g. I want reusable workflows to be uniform across environments, with the exception of steps that are only based on environmentName conditionals:
 
-```yaml
-name: Reusable Workflow
+<script src="https://gist.github.com/MarcusFelling/a24904731e73dd9b2bddeade2c459948.js"></script>
 
-on: [workflow_call]
+## 5. Share data between jobs to aid in “build once, deploy many”
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - run: npm install
-    - run: npm test
-```
+GitHub Actions enables you to share data between jobs in any workflow as [artifacts](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts), which are linked to the workflow run where they are produced. This can help simplify the creation of workflows and facilitate the development of more complex automation where one workflow informs another via dependencies or conditionals. This also helps enable the mantra “build once, deploy many”. In other words, build projects in an environment-agnostic fashion, upload them as artifacts, then all deployment jobs use the same set of artifacts across environments.
 
-## 4. Secrets Management
+## 6. Use contexts to access workflow information
 
-GitHub Actions provides a secure way to manage secrets, such as API keys, tokens, and passwords. You can store secrets in your repository settings and access them in your workflows.
+[Contexts ](https://docs.github.com/en/actions/learn-github-actions/contexts)represent a group of variables that can access details about workflow runs, runner environments, jobs, and steps to help derive key information about workflow operations. Contexts use expression syntax such as ${{ }}, and you can use most of them at any point in the workflow. I like to dump the entire context at the beginning of jobs to aid in troubleshooting:
 
-### Example
+<script src="https://gist.github.com/MarcusFelling/01d9e6ed08b3677b9aad5adb3a624aca.js"></script>
 
-```yaml
-name: Secrets Management
+## Wrapping up
 
-on: [push, pull_request]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
-    - run: npm install
-    - run: npm test
-    - name: Deploy
-      env:
-        API_KEY: ${{ secrets.API_KEY }}
-      run: npm run deploy
-```
-
-## 5. Scheduled Workflows
-
-Scheduled workflows allow you to run your workflows at specific times or intervals. This feature is useful for tasks such as nightly builds, backups, or regular maintenance.
-
-### Example
-
-```yaml
-name: Scheduled Workflow
-
-on:
-  schedule:
-    - cron: '0 0 * * *'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - run: npm install
-    - run: npm test
-```
-
-## 6. Self-Hosted Runners
-
-Self-hosted runners allow you to run your workflows on your own infrastructure. This feature provides more control over the environment and can be useful for running workflows that require specific hardware or software.
-
-### Example
-
-```yaml
-name: Self-Hosted Runner
-
-on: [push, pull_request]
-
-jobs:
-  build:
-    runs-on: self-hosted
-    steps:
-    - uses: actions/checkout@v2
-    - run: npm install
-    - run: npm test
-```
-
-## Conclusion
-
-GitHub Actions offers a wide range of features that can help you automate your workflows and improve your CI/CD processes. By leveraging these features, you can streamline your development process, reduce manual effort, and ensure the quality of your code. Whether you are running matrix builds, caching dependencies, using reusable workflows, managing secrets, scheduling workflows, or using self-hosted runners, GitHub Actions provides the flexibility and power you need to optimize your workflows.
+I’m curious to learn about other ways folks are leveraging GitHub Actions features. Add a comment to this post with any tips or tricks you’ve used with GitHub Actions!
