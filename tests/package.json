@@ -1,0 +1,23 @@
+{
+  "name": "blog-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcusFelling/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcusFelling/blog/issues"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.1"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
