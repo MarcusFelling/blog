@@ -12,7 +12,7 @@ categories:
     - Uncategorized
 ---
 
-At [DevOpsDays Minneapolis](https://www.devopsdays.org/events/2017-minneapolis/welcome/) I was the facilitator for an Open Space discussion <span style="font-family: 'PT Sans', sans-serif; font-size: 16px; font-style: normal; font-weight: normal;">(largest group of the </span><span style="font-family: 'PT Sans', sans-serif; font-size: 16px; font-style: normal; font-weight: normal;">day!!) on my proposed topic of “Release Management and Deploying to Prod Multiple Times a Day”. More on what an Open Space discussion is [here](http://www.openspaceworld.org/files/tmnfiles/2pageos.htm). I received a ton of </span><span style="font-family: 'PT Sans', sans-serif; font-size: 16px; font-style: normal; font-weight: normal;">really great feedback on my employer’s current processes and what we can do to move to a faster </span><span style="font-family: 'PT Sans', sans-serif; font-size: 16px; font-style: normal; font-weight: normal;">release cadence in the future. The TL;DR of the discussion was, use feature flags!</span>
+At [DevOpsDays Minneapolis](https://www.devopsdays.org/events/2017-minneapolis/welcome/) I was the facilitator for an Open Space discussion (largest group of the day!!) on my proposed topic of “Release Management and Deploying to Prod Multiple Times a Day”. More on what an Open Space discussion is [here](http://www.openspaceworld.org/files/tmnfiles/2pageos.htm). I received a ton of really great feedback on my employer’s current processes and what we can do to move to a faster release cadence in the future. The TL;DR of the discussion was, use feature flags!
 
 ## What is a feature flag?
 

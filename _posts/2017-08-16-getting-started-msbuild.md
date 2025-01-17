@@ -21,26 +21,26 @@ The majority of developers spend most of their time in Visual Studio and don’t
 **Properties** – Similar to variables with a single value.
 
 ```
-<span style="color: #a65700;"><</span><span style="color: #5f5035;">PropertyGroup</span><span style="color: #a65700;">></span>
-<span style="color: #a65700;">   <</span><span style="color: #5f5035;">BuildDir</span><span style="color: #a65700;">></span>Build<span style="color: #a65700;"></</span><span style="color: #5f5035;">BuildDir</span><span style="color: #a65700;">></span>
-<span style="color: #a65700;"></</span><span style="color: #5f5035;">PropertyGroup</span><span style="color: #a65700;">></span>
+<PropertyGroup>
+   <BuildDir>Build</BuildDir>
+</PropertyGroup>
 ```
 
 **Items** – List of things (typically filenames). Input for the build.
 
 ```
-<span style="color: #a65700;"><</span><span style="color: #5f5035;">ItemGroup</span><span style="color: #a65700;">></span>
-   <span style="color: #a65700;"><</span><span style="color: #5f5035;">Compile</span> <span style="color: #274796;">Include</span> <span style="color: #808030;">=</span> <span style="color: #800000;">"</span><span style="color: #0000e6;">file1.cs</span><span style="color: #800000;">"</span><span style="color: #a65700;">/></span>
-   <span style="color: #a65700;"><</span><span style="color: #5f5035;">Compile</span> <span style="color: #274796;">Include</span> <span style="color: #808030;">=</span> <span style="color: #800000;">"</span><span style="color: #0000e6;">file2.cs</span><span style="color: #800000;">"</span><span style="color: #a65700;">/></span>
-<span style="color: #a65700;"></</span><span style="color: #5f5035;">ItemGroup</span><span style="color: #a65700;">></span>
+<ItemGroup>
+   <Compile Include = "file1.cs"/>
+   <Compile Include = "file2.cs"/>
+</ItemGroup>
 ```
 
 **Tasks** – Things that do something. Invokes an action such as copying a file or calling compiler.
 
 ```
-<span style="color: #a65700;"><</span><span style="color: #5f5035;">Target</span> <span style="color: #274796;">Name</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">MakeBuildDirectory</span><span style="color: #800000;">"</span><span style="color: #a65700;">></span>
-   <span style="color: #a65700;"><</span><span style="color: #5f5035;">MakeDir</span> <span style="color: #274796;">Directories</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">$(BuildDir)</span><span style="color: #800000;">"</span> <span style="color: #a65700;">/></span>
-<span style="color: #a65700;"></</span><span style="color: #5f5035;">Target</span><span style="color: #a65700;">></span>
+<Target Name="MakeBuildDirectory">
+   <MakeDir Directories="$(BuildDir)" />
+</Target>
 ```
 
 Don’t recreate the wheel if you don’t have to. MSBuild comes with a bunch of [build in tasks](https://msdn.microsoft.com/en-us/library/7z253716.aspx) that can be used inside your targets. There are also tasks created by the MSBuild community: <https://github.com/loresoft/msbuildtasks>
@@ -48,12 +48,12 @@ Don’t recreate the wheel if you don’t have to. MSBuild comes with a bunch of
 **Targets** – Tasks go in Targets. Targets order the tasks and have dependancies between them.
 
 ```
-<span style="color: #a65700;"><</span><span style="color: #5f5035;">Target</span> <span style="color: #274796;">Name</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">AfterBuild</span><span style="color: #800000;">"</span> <span style="color: #a65700;">></span>
-   <span style="color: #a65700;"><</span><span style="color: #5f5035;">Message</span> <span style="color: #274796;">Text</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">First occurrence</span><span style="color: #800000;">"</span> <span style="color: #a65700;">/></span>
-<span style="color: #a65700;"></</span><span style="color: #5f5035;">Target</span><span style="color: #a65700;">></span>
-<span style="color: #a65700;"><</span><span style="color: #5f5035;">Target</span> <span style="color: #274796;">Name</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">AfterBuild</span><span style="color: #800000;">"</span> <span style="color: #a65700;">></span>
-   <span style="color: #a65700;"><</span><span style="color: #5f5035;">Message</span> <span style="color: #274796;">Text</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">Second occurrence</span><span style="color: #800000;">"</span> <span style="color: #a65700;">/></span>
-<span style="color: #a65700;"></</span><span style="color: #5f5035;">Target</span><span style="color: #a65700;">></span>
+<Target Name="AfterBuild" >
+   <Message Text="First occurrence" />
+</Target>
+<Target Name="AfterBuild" >
+   <Message Text="Second occurrence" />
+</Target>
 ```
 
 When you build in Visual Studio, it goes through the list of values in the DefaultTargets attribute. If you add a custom target and want it to always execute when Visual Studio build, then you should consider puting it in the DefaultTargets attribute.
@@ -62,8 +62,8 @@ When you build in Visual Studio, it goes through the list of values in the Defau
 Properties and Targets can be imported
 
 ```
-<span style="color: #a65700;"><</span><span style="color: #5f5035;">Import</span> <span style="color: #274796;">Project</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">Properties.props</span><span style="color: #800000;">"</span> <span style="color: #a65700;">/></span>
-<span style="color: #a65700;"><</span><span style="color: #5f5035;">Import</span> <span style="color: #274796;">Project</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">Targets.targets</span><span style="color: #800000;">"</span> <span style="color: #a65700;">/></span>
+<Import Project="Properties.props" />
+<Import Project="Targets.targets" />
 ```
 
 The syntax of these files is exactly the same as the project.
@@ -71,12 +71,12 @@ The syntax of these files is exactly the same as the project.
 Example content of .props file:
 
 ```
-<span style="color: #004a43;"><?</span><span style="color: #800000; font-weight: bold;">xml</span> <span style="color: #074726;">version</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #7d0045;">1.0</span><span style="color: #800000;">"</span> <span style="color: #074726;">encoding</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">utf-8</span><span style="color: #800000;">"</span><span style="color: #004a43;">?></span>
-<span style="color: #a65700;"><</span><span style="color: #5f5035;">Project</span> <span style="color: #666616;">xmlns</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #666616;">http</span><span style="color: #800080;">:</span><span style="color: #800000; font-weight: bold;">//</span><span style="color: #5555dd;">schemas.microsoft.com</span><span style="color: #40015a;">/developer/msbuild/2003</span><span style="color: #800000;">"</span><span style="color: #a65700;">></span>
-   <span style="color: #a65700;"><</span><span style="color: #5f5035;">PropertyGroup</span><span style="color: #a65700;">></span>
-      <span style="color: #a65700;"><</span><span style="color: #5f5035;">MyProperty</span><span style="color: #a65700;">></span>My Value<span style="color: #a65700;"></</span><span style="color: #5f5035;">MyProperty</span><span style="color: #a65700;">></span>
-   <span style="color: #a65700;"></</span><span style="color: #5f5035;">PropertyGroup</span><span style="color: #a65700;">></span>
-<span style="color: #a65700;"></</span><span style="color: #5f5035;">Project</span><span style="color: #a65700;">></span>
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+   <PropertyGroup>
+      <MyProperty>My Value</MyProperty>
+   </PropertyGroup>
+</Project>
 ```
 
 # Troubleshooting
@@ -90,7 +90,7 @@ MSBuild project.csproj /pp:FileName.xml
 **TreatAsLocalProperty** – By default, properties that are passed at the command line override properties inside property groups. To make sure local properties override properties that are passed at the command line you can add the following at the top of your project file:
 
 ```
-<span style="color: #a65700;"><</span><span style="color: #5f5035;">Project</span> <span style="color: #274796;">TreatAsLocalProperty</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">PropertyName</span><span style="color: #800000;">"</span> <span style="color: #274796;">DefaultTargets</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #0000e6;">Build</span><span style="color: #800000;">"</span> <span style="color: #666616;">xmlns</span><span style="color: #808030;">=</span><span style="color: #800000;">"</span><span style="color: #666616;">http</span><span style="color: #800080;">:</span><span style="color: #800000; font-weight: bold;">//</span><span style="color: #5555dd;">schemas.microsoft.com</span><span style="color: #40015a;">/developer/msbuild/2003</span><span style="color: #800000;">"</span><span style="color: #a65700;">></span>
+<Project TreatAsLocalProperty="PropertyName" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 ```
 
 Hopefully this post helped get you up to speed on MSBuild and was a little more enjoyable than reading the Microsoft docs 🙂
