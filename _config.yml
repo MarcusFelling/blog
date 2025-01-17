@@ -9,8 +9,8 @@
 # --- Required options --- #
 ############################
 
-title: MarcusFelling.com — A blog about things I learn at the keyboard - DevOps, CI/CD, Cloud, Automation, to name a few...
-description: A blog about things I learn at the keyboard - DevOps, CI/CD, Cloud, Automation, to name a few...
+title: "MarcusFelling.com — A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few..."
+description: "A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few..."
 baseurl: "/"
 url: "https://marcusfelling.com"
 remote_theme: daattali/beautiful-jekyll@6.0.1
