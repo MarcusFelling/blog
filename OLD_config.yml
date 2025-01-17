@@ -1,0 +1,23 @@
+# Jekyll configuration settings
+title: MarcusFelling.com
+description: A blog about things I learn at the keyboard - DevOps, CI/CD, Cloud, Automation, to name a few...
+baseurl: "/"
+url: "https://marcusfelling.com"
+remote_theme: daattali/beautiful-jekyll@6.0.1
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-include-cache  
+paginate: 5
+paginate_path: "/page:num/"
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
