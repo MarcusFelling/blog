@@ -2,7 +2,7 @@
 id: 274
 title: 'Octopus Deploy: Running deployment steps in parallel'
 date: '2017-06-02T21:22:33+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=274'
 permalink: /blog/2017/octopus-deploy-running-deployment-steps-parallel/

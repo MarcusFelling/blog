@@ -2,7 +2,7 @@
 id: 467
 title: 'Setting up a build/deploy pipeline for MySQL seed scripts using VSTS and Octopus Deploy'
 date: '2017-11-12T16:12:41+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=467'
 permalink: /blog/2017/setting-up-a-build-deploy-pipeline-for-mysql-seed-scripts-using-vsts-and-octopus-deploy/

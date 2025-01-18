@@ -2,7 +2,7 @@
 id: 627
 title: 'Azure Release Pipelines: What releases havent been deployed to Production yet?'
 date: '2019-01-15T00:46:28+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=627'
 permalink: /blog/2019/azure-release-pipelines-what-releases-havent-been-deployed-to-production-yet/

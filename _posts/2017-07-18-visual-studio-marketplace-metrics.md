@@ -2,7 +2,7 @@
 id: 319
 title: 'Visual Studio Marketplace Metrics'
 date: '2017-07-18T18:58:07+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=319'
 permalink: /blog/2017/visual-studio-marketplace-metrics/

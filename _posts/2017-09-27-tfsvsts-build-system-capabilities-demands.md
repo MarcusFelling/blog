@@ -2,7 +2,7 @@
 id: 426
 title: 'TFS/VSTS Build  System Capabilities and Demands'
 date: '2017-09-27T21:05:18+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=426'
 permalink: /blog/2017/tfsvsts-build-system-capabilities-demands/

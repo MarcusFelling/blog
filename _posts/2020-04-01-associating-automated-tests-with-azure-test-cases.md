@@ -2,7 +2,7 @@
 id: 821
 title: 'Associating automated tests with Azure Test Cases'
 date: '2020-04-01T18:15:39+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=821'
 permalink: /blog/2020/associating-automated-tests-with-azure-test-cases/

@@ -2,7 +2,7 @@
 id: 969
 title: 'Using Terraforms Azure provider (azurerm) with GitHub Actions and Terraform Cloud'
 date: '2021-02-06T18:38:44+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=969'
 permalink: /blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/

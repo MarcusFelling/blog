@@ -2,7 +2,7 @@
 id: 1197
 title: '6 Nifty GitHub Actions Features 🚀'
 date: '2023-03-08T19:23:17+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=1197'
 permalink: /blog/2023/6-nifty-github-actions-features/

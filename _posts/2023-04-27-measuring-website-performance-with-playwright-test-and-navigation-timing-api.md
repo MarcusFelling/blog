@@ -2,7 +2,7 @@
 id: 1216
 title: 'Measuring Website Performance with Playwright Test and Navigation Timing API'
 date: '2023-04-27T14:40:19+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=1216'
 permalink: /blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/

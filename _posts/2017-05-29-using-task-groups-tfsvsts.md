@@ -2,7 +2,7 @@
 id: 232
 title: 'Using Task Groups in TFS/VSTS'
 date: '2017-05-29T15:32:13+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=232'
 permalink: /blog/2017/using-task-groups-tfsvsts/

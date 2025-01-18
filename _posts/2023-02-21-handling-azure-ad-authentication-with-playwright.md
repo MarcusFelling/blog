@@ -2,7 +2,7 @@
 id: 1178
 title: 'Handling Azure AD/Entra ID Authentication with Playwright'
 date: '2023-02-21T19:29:38+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=1178'
 permalink: /blog/2023/handling-azure-ad-authentication-with-playwright/

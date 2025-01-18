@@ -2,7 +2,7 @@
 id: 639
 title: 'Setting up SonarQube (on Windows) with Azure Pipelines'
 date: '2019-02-02T16:32:43+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=639'
 permalink: /blog/2019/setting-up-sonarqube-on-windows-with-azure-pipelines/

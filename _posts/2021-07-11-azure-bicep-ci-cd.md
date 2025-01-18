@@ -2,7 +2,7 @@
 id: 1007
 title: '💪 Azure Bicep CI/CD 🚀'
 date: '2021-07-11T22:32:36+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=1007'
 permalink: /blog/2021/azure-bicep-ci-cd/

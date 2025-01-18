@@ -2,7 +2,7 @@
 id: 348
 title: 'Getting started with MSBuild'
 date: '2017-08-16T01:09:08+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=348'
 permalink: /blog/2017/getting-started-msbuild/

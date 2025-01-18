@@ -2,7 +2,7 @@
 id: 1237
 title: 'Using Azure Test Plans with Playwright'
 date: '2023-09-17T21:01:58+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=1237'
 permalink: /blog/2023/using-azure-test-plans-with-playwright/

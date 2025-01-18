@@ -2,7 +2,7 @@
 id: 528
 title: 'Rolling deployments to AWS using Octopus Deploy and Auto Scaling Groups'
 date: '2017-12-07T20:10:19+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=528'
 permalink: /blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/

@@ -2,7 +2,7 @@
 id: 249
 title: 'VSTS Marketplace Extension: Queue Build(s) Task'
 date: '2017-05-30T23:31:56+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=249'
 permalink: /blog/2017/vsts-marketplace-extension-queue-builds-task/

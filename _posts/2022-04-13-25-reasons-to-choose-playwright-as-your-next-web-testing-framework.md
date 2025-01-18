@@ -2,7 +2,7 @@
 id: 1117
 title: '25 reasons to choose Playwright as your next web testing framework'
 date: '2022-04-13T16:44:00+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=1117'
 permalink: /blog/2022/25-reasons-to-choose-playwright-as-your-next-web-testing-framework/

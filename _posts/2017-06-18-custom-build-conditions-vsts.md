@@ -2,7 +2,7 @@
 id: 305
 title: 'Custom Build Conditions in VSTS'
 date: '2017-06-18T17:27:50+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=305'
 permalink: /blog/2017/custom-build-conditions-vsts/

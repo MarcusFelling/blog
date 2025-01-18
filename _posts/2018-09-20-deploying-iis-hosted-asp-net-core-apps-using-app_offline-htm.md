@@ -2,7 +2,7 @@
 id: 603
 title: 'Deploying IIS hosted ASP.NET Core apps using app_offline.htm'
 date: '2018-09-20T20:12:14+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=603'
 permalink: /blog/2018/deploying-iis-hosted-asp-net-core-apps-using-app_offline-htm/

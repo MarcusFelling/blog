@@ -2,7 +2,7 @@
 id: 376
 title: 'Configuration Management for Serverless Microservice Projects'
 date: '2017-09-05T21:02:53+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=376'
 permalink: /blog/2017/configuration-management-serverless-microservice-projects/

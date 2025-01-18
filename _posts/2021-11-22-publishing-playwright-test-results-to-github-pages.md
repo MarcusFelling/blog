@@ -2,7 +2,7 @@
 id: 1044
 title: 'Publishing 🎭 Playwright test results to GitHub Pages'
 date: '2021-11-22T19:49:09+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=1044'
 permalink: /blog/2021/publishing-playwright-test-results-to-github-pages/

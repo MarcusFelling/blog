@@ -2,7 +2,7 @@
 id: 937
 title: 'Azure Pipelines: YAML Templates VS. Custom Tasks'
 date: '2020-11-05T19:07:10+00:00'
-author: Marcus
+
 layout: default
 guid: 'https://marcusfelling.com/?p=937'
 permalink: /blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/

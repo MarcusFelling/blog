@@ -2,7 +2,7 @@
 id: 261
 title: 'Gitflow and Visual Studio Team Services'
 date: '2017-06-01T23:35:59+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=261'
 permalink: /blog/2017/gitflow-visual-studio-team-services/

@@ -2,7 +2,7 @@
 id: 399
 title: 'Feature Flag journey with LaunchDarkly  Part 1'
 date: '2017-09-06T21:09:43+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=399'
 permalink: /blog/2017/feature-flag-journey-launchdarkly/

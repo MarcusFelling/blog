@@ -2,7 +2,7 @@
 id: 923
 title: 'The importance of the Definition of Done'
 date: '2020-08-21T17:02:01+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=923'
 permalink: /blog/2020/the-importance-of-definition-of-done/

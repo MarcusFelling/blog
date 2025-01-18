@@ -2,7 +2,7 @@
 id: 574
 title: 'Setting up a CI pipeline to run functional tests in TFS 2018 and Azure Pipelines (Formerly VSTS)'
 date: '2018-07-09T15:58:30+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=574'
 permalink: /blog/2018/setting-up-a-ci-pipeline-to-run-functional-tests-in-tfs-2018-and-visual-studio-team-services-vsts/

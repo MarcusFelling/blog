@@ -2,7 +2,7 @@
 id: 904
 title: 'Porting an Azure Pipeline (YAML) to a GitHub Action'
 date: '2020-07-26T20:04:31+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=904'
 permalink: /blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/

@@ -2,7 +2,7 @@
 id: 287
 title: 'Migrating Team Foundation Server to Visual Studio Team Services'
 date: '2017-06-03T17:21:53+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=287'
 permalink: /blog/2017/migrating-team-foundation-server-visual-studio-team-services/

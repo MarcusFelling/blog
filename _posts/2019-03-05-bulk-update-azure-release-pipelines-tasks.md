@@ -2,7 +2,7 @@
 id: 681
 title: 'Bulk update Azure Release Pipelines tasks'
 date: '2019-03-05T21:16:52+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=681'
 permalink: /blog/2019/bulk-update-azure-release-pipelines-tasks/

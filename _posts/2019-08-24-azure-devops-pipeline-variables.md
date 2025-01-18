@@ -2,7 +2,7 @@
 id: 693
 title: 'Azure DevOps Pipelines: Variables, $Variables, __Variables__, $env:Variables, $(Variables), %VARIABLES%'
 date: '2019-08-24T16:35:47+00:00'
-author: Marcus
+
 layout: post
 guid: 'https://marcusfelling.com/?p=693'
 permalink: /blog/2019/azure-devops-pipeline-variables/
