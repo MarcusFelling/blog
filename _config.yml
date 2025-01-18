@@ -84,9 +84,9 @@ rss-description: A blog about things I learn at the keyboard - DevOps, CI/CD, Cl
 
 # Select which social network share links to show in posts
 share-links-active:
-  twitter: false
+  twitter: true
   facebook: false
-  linkedin: false
+  linkedin: true
   vk: false
 
 # How to display the link to your website in the footer
