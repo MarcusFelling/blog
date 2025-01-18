@@ -15,7 +15,6 @@ categories:
     - Uncategorized
 ---
 
-
 I’ve been having a lot of fun with GitHub Actions lately and wanted to document some of the features I regularly use, including some tips and tricks.
 
 ## 1. Create separate environments for development, staging, and production
