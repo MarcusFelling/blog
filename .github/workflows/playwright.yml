@@ -16,8 +16,6 @@ jobs:
       BASEURL: https://marcusfelling.com
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: tests
       - uses: actions/setup-node@v4
         with:
           node-version: "18"
