@@ -9,11 +9,11 @@
 # --- Required options --- #
 ############################
 
-title: "Marcus' Blog"
+title: "Home"
 description: "A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few..."
 baseurl: "/"
 url: "https://marcusfelling.com"
-remote_theme: daattali/beautiful-jekyll@6.0.1
+remote_theme: marcusfelling/jekyll-theme@0.0.5
 author: Marcus Felling
 before-content: 
 ###############################################
