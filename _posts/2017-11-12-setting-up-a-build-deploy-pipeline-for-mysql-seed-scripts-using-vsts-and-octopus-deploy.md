@@ -10,6 +10,7 @@ wpmdr_menu:
     - '1'
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 My team wanted the ability to populate test data into new data warehouse instances (MySQL on Linux) that are created via [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_Code) (CloudFormation and Chef). They already had the SQL scripts they used for local development, so I would just need to setup a process to package and deploy them. This process would then be automatically triggered when a new instance is created.

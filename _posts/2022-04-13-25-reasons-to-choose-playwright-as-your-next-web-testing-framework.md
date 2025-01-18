@@ -13,8 +13,8 @@ ig_es_is_post_notified:
 thumbnail-img: /content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay.png
 categories:
     - Uncategorized
+nav-short: true
 ---
-
 
 I wanted a place to capture a list of highlights that make Playwright awesome. Here it is, in no particular order:
 
@@ -27,11 +27,11 @@ I wanted a place to capture a list of highlights that make Playwright awesome. H
 7. [Parallel test execution](https://playwright.dev/docs/test-parallel) is supported locally, or remotely for grids such as Selenium Grid. In addition, you can [shard tests between machines](https://playwright.dev/docs/test-parallel#shard-tests-between-multiple-machines) to run different tests in parallel e.g. using a [GitHub Action CI job matrix.](https://docs.github.com/en/github-ae@latest/actions/using-jobs/using-a-build-matrix-for-your-jobs)
 8. Async test code uses standard JavaScript async/await syntax.
 9. [Cross-browser compatibility](https://playwright.dev/docs/browsers) for Chromium, Chrome, Microsoft Edge, Firefox, WebKit.
-10. Built and maintained by Microsoft ♥️ Ok, I’m probably being biased here ?
+10. Built and maintained by Microsoft ♥️ Ok, I’m probably being biased here...
 11. Multi-language support: [JavaScript, TypeScript](https://playwright.dev/docs/intro) ([no transpilation required](https://playwright.dev/docs/test-typescript)), [.NET](https://playwright.dev/dotnet/docs/intro), [Python](https://playwright.dev/python/docs/intro), [Java](https://playwright.dev/java/docs/intro), and [Go](https://github.com/playwright-community/playwright-go) (supported by the community).
 12. [Tracing](https://playwright.dev/docs/trace-viewer) that helps with troubleshooting test runs in a post-mortem manner. This works great to repro failed CI tests.
 13. [Re-use signed-in state](https://playwright.dev/docs/auth) so tests can start as a logged-in user, saving time.
-14. [Emulation](https://playwright.dev/docs/emulation) for mobile devices, user agents, locales &amp; timezones, permissions, geolocation, and dark/light mode.
+14. [Emulation](https://playwright.dev/docs/emulation) for mobile devices, user agents, locales & timezones, permissions, geolocation, and dark/light mode.
 15. Works well with the [white-box testing](https://en.wikipedia.org/wiki/White-box_testing) approach to [prioritize user-facing attributes](https://playwright.dev/docs/selectors#best-practices) like text, instead of CSS selectors that can change frequently.
 16. Support for [API Testing](https://playwright.dev/docs/test-api-testing), to do things in your e2e test like set up data or assert things like response code = 200.
 17. Stub and mock network requests with [network interception](https://playwright.dev/docs/network).

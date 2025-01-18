@@ -11,8 +11,8 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2021/11/playwright-test-results.png
 categories:
     - Uncategorized
+nav-short: true
 ---
-
 
 Now that [Playwright ](https://playwright.dev/)has a fancy new [HTML reporter](https://playwright.dev/docs/test-reporters/#html-reporter), I wanted to host test results to show the latest state of my GitHub Action test runs. Adding a step to my pipeline that publishes the results to GitHub Pages made this pretty simple.
 
@@ -20,7 +20,7 @@ The Playwright [1.17.0-rc1 release](https://github.com/microsoft/playwright/rele
 
 > GitHub Pages is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on GitHub, optionally runs the files through a build process, and publishes a website.
 > 
-> <cite>[About GitHub Pages – GitHub Docs](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)</cite>
+> [About GitHub Pages – GitHub Docs](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)
 
 ## Enable GitHub Pages in your GitHub repository
 
@@ -28,7 +28,7 @@ GitHub has docs on this here: <https://docs.github.com/en/pages/getting-started-
 
 I chose to go with most of the defaults. The content lives in a separate branch `gh-pages` at the root. I chose to set up a custom domain at [testresults.marcusfelling.com](https://testresults.marcusfelling.com/). This is what my configuration looks like:
 
-![](/content/uploads/2021/11/github-pages-configuration-1024x646.png)](/content/uploads/2021/11/github-pages-configuration.png)
+![](/content/uploads/2021/11/github-pages-configuration-1024x646.png)
 
 ## Configuring GitHub Actions
 

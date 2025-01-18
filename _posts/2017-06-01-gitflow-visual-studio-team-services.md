@@ -8,6 +8,7 @@ guid: 'https://marcusfelling.com/?p=261'
 permalink: /blog/2017/gitflow-visual-studio-team-services/
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 This last year our team made the decision to move from Team Foundation Version Control (TFVC) to Git.

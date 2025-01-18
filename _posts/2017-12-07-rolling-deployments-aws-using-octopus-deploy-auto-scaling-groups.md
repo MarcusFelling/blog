@@ -11,6 +11,7 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2017/12/AWSOctopusDeploy.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

@@ -8,6 +8,7 @@ guid: 'https://marcusfelling.com/?p=274'
 permalink: /blog/2017/octopus-deploy-running-deployment-steps-parallel/
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 When I first got started with [Octopus Deploy](https://octopus.com/) I would setup projects to have one long deploy process that ran steps in serial. Each step would wait until finished before another one would start. Deploy times got longer and longer, so I set out to find a way to cut down deploy times.

@@ -10,6 +10,7 @@ wpmdr_menu:
     - '1'
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 Earlier this year I decided to create some Visual Studio Marketplace build extensions. I was re-using the same tasks in multiple build definitions and there wasn’t anything published to the marketplace that accomplished what I needed. The first extension I created is used to [upload files to AWS S3](https://marketplace.visualstudio.com/items?itemName=MFelling.AWSS3Upload); this was the very first AWS related extension in the marketplace which was kind of cool. It took me longer than I expected because of all the ceremony in setting up the metadata and manifest json files, and packaging with [tfx-cli](https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task#cli). More details on creating a build task here: <https://www.visualstudio.com/en-us/docs/integrate/extensions/develop/add-build-task> Creating my [second extension](https://marketplace.visualstudio.com/items?itemName=MFelling.AzureStorageUpload) went a lot faster since I could re-use and modify most of the files. Now that these extensions were published, I was interested to see metrics on them.

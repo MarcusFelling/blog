@@ -11,6 +11,7 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2019/01/Azure-Release-Pipelines-1.jpg
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

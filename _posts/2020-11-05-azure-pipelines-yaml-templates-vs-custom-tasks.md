@@ -11,6 +11,7 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2020/11/extensionORTemplate.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

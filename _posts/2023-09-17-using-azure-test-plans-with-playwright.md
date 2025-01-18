@@ -11,6 +11,7 @@ ig_es_is_post_notified:
 thumbnail-img: /content/uploads/2023/09/test-run-ado.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 In 2020, I blogged about associating [automated tests with Azure Test Cases](https://marcusfelling.com/blog/2020/associating-automated-tests-with-azure-test-cases/). The post had 18 questions, which indicates there is still confusion on how this works, especially how to set it up with Playwright (which was pre-stable release at the time).

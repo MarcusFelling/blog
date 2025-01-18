@@ -13,6 +13,7 @@ ig_es_is_post_notified:
 thumbnail-img: /content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 I’ve been having a lot of fun with GitHub Actions lately and wanted to document some of the features I regularly use, including some tips and tricks.

@@ -9,7 +9,7 @@
 # --- Required options --- #
 ############################
 
-title: "Marcus' Blog | A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few..."
+title: "Marcus' Blog"
 description: "A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few..."
 baseurl: "/"
 url: "https://marcusfelling.com"

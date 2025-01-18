@@ -11,6 +11,7 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2019/06/ImportModuleIISAdministration.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

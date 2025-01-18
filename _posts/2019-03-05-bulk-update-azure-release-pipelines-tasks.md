@@ -11,6 +11,7 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2019/03/AzurePipelinesTasksOpenSourceCrossPlatform.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

@@ -11,6 +11,7 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2017/12/chef-1.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

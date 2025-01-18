@@ -11,6 +11,7 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2018/03/semVer.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

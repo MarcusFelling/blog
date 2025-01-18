@@ -11,6 +11,7 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2018/09/CreateReleaseFunction-e1536520560720.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

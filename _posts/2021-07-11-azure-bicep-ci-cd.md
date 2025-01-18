@@ -11,6 +11,7 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2021/07/githubactionspipelinebicepazure.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

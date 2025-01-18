@@ -11,6 +11,7 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2019/05/AzureDevOpsPipelinesAzureFunctionsPowerShell.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

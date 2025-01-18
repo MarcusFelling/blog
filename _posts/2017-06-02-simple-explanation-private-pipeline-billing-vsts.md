@@ -10,6 +10,7 @@ wpmdr_menu:
     - '1'
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 **Update: Unlimited private pipelines are now free for Build!!**

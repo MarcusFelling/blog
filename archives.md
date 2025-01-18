@@ -1,9 +1,9 @@
 ---
 id: 492
 title: Archives
-date: '2017-11-13T14:18:35+00:00'
+subtitle: "A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few..."
 author: Marcus
-layout: post
+layout: page
 guid: 'https://marcusfelling.com/?page_id=492'
 wpmdr_menu:
     - '1'

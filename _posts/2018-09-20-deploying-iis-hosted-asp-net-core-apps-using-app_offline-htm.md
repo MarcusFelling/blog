@@ -11,8 +11,8 @@ wpmdr_menu:
 thumbnail-img: /content/uploads/2018/09/websitertemporarilyoffline.jpg
 categories:
     - Uncategorized
+nav-short: true
 ---
-
 
 In the past, I’ve used the method of placing a app\_offline.htm file at the root of an IIS website to throw up a maintenance page. This has been available since ASP.NET 2.0 / 3.5. Lately I’ve got used to deploying sites with no downtime approaches, such as [rolling](https://marcusfelling.com/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/) and blue/green. I had forgot about app\_offline.htm when I recently set up deployment pipelines for some ASP.NET Core sites.
 

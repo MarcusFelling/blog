@@ -13,6 +13,7 @@ ig_es_is_post_notified:
 thumbnail-img: /content/uploads/2023/04/playwright-performance-testing.jpg
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 

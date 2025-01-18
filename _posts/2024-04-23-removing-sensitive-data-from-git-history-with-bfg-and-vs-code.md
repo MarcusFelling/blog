@@ -9,6 +9,7 @@ permalink: /blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-c
 thumbnail-img: /content/uploads/2024/04/icon.png
 categories:
     - Uncategorized
+nav-short: true
 ---
 
 I was recently notified that an old API key was discovered in one of the repos I own. Even if you remove the sensitive data in a new commit, it can still be found in the Git history.
