@@ -3,3 +3,9 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
+node_modules/
+/test-results/
+/playwright-report/
+/playwright/.cache/
+.env 
+

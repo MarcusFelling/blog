@@ -25,12 +25,10 @@ jobs:
           cache-dependency-path: tests/package-lock.json
 
       - name: Install dependencies
-        working-directory: tests
         run: |
           npm ci
 
       - name: Run Playwright tests
-        working-directory: tests
         run: |
           HOME=/root npx playwright test
 
