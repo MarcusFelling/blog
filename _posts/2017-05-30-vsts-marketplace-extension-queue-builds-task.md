@@ -16,7 +16,7 @@ Currently the TFS/VSTS build system has a pretty big bottleneck: tasks run in se
 
 Enter [Queue Build(s) Task](https://marketplace.visualstudio.com/items?itemName=jb.queue-build). This extension sounds pretty simple, right? Queue a build as part of a build…. But it has potential to do much more. It has the ability to use configurations (JSON) to pass variables from the build that’s queuing other builds, including [system variables](https://www.visualstudio.com/en-us/docs/build/define/variables) (source branch name, build id, build name, etc.).
 
-[![vsts marketplace extension](/content/uploads/2017/05/queueabuildconfiguration.png)](/content/uploads/2017/05/queueabuildconfiguration.png)
+[![vsts marketplace extension](/content/uploads/2017/05/queueabuildconfiguration.png)
 
 In theory, this means you could break down any build into multiple builds to run each in parallel with multiple build agents. This also means you can create a wrapper build that queues a bunch of builds so you don’t have to manually queue them.
 

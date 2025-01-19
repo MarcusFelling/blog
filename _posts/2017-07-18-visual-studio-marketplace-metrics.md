@@ -25,7 +25,7 @@ Thankfully Microsoft introduced the extension reporting hub for Marketplace publ
 
 The first and most valuable metrics are on the Acquisition tab. This tab gives the aggregated view of the acquisition, daily trend and conversion funnel.
 
-[![acquisitionTab](/content/uploads/2017/07/acquisitionTab.png)](/content/uploads/2017/07/acquisitionTab.png)  
+[![acquisitionTab](/content/uploads/2017/07/acquisitionTab.png)  
 Some of the useful insights on this tab:  
 -Number of users visiting the extension page and how many are acquiring the extension  
 -Extension uptake on VSTS &amp; TFS  

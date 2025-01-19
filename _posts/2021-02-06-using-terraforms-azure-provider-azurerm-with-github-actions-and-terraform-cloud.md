@@ -27,7 +27,7 @@ For some reason, the Terraform Plan command was not picking them up and kept thr
 
 I re-generated the service principal, re-added the values to the GitHub Secrets, tried setting the values for the service principal in the provider block, all to no avail. I finally discovered that Terraform Cloud workspaces have a default execution mode of “Remote”, meaning plans and applies occur on Terraform Cloud’s infrastructure. Because of this, the Plan command could not pick up the environment variables from the GitHub Action. Switching the workspace to local resolved my issue (workspace -> settings -> General):
 
-![](/content/uploads/2021/02/image-1024x252.png)](/content/uploads/2021/02/image.png)
+![](/content/uploads/2021/02/image-1024x252.png)
 
 This is what the complete GitHub Action looks like:
 
