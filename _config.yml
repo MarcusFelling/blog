@@ -6,7 +6,7 @@ title: "Home"
 description: "A blog about things I learn at the keyboard: DevOps, CI/CD, Cloud, Automation, to name a few..."
 baseurl: "/"
 url: "https://marcusfelling.com"
-remote_theme: marcusfelling/blog-theme@0.0.1
+remote_theme: marcusfelling/blog-theme
 author: Marcus Felling
 
 navbar-links:
@@ -126,6 +126,8 @@ exclude:
   - Gemfile.lock
   - README.md
   - docs/
+  - node_modules
+  - playwright-report
 
 plugins:
   - jekyll-paginate
