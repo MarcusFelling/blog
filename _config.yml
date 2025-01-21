@@ -126,6 +126,8 @@ exclude:
   - Gemfile.lock
   - README.md
   - docs/
+  - node_modules
+  - playwright-report
 
 plugins:
   - jekyll-paginate
