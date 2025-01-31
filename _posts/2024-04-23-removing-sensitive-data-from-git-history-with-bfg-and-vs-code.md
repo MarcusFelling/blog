@@ -9,7 +9,7 @@ thumbnail-img: /content/uploads/2024/04/icon.png
 nav-short: true
 ---
 
-**TL; DR:** I created a VS Code extension that makes it easier to remove credentials from Git History
+**TL; DR:** I created a VS Code extension that makes it easier to remove credentials from Git History.
 
 I was recently notified that an old API key was discovered in one of the repos I own. Even if you remove the sensitive data in a new commit, it can still be found in the Git history.
 
