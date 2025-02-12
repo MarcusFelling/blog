@@ -3,7 +3,6 @@ id: 1271
 title: 'Control Your Windows VPN Connections from VS Code'
 date: '2025-02-12'
 description: 'I built a VS Code extension to toggle VPN connections because clicking is too much work'
-title: 'Removing Sensitive Data from Git History with BFG and VS Code'
 layout: post
 guid: 'https://marcusfelling.com/?p=1271'
 permalink: /blog/2025/vpn-toggle-vscode-extension
