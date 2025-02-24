@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2019/05/AzureDevOpsPipelinesAzureFunctionsPowerS
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Functions, PowerShell, Azure Pipelines, CI/CD]
 ---
 
 

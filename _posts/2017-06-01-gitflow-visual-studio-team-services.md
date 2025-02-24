@@ -9,6 +9,7 @@ permalink: /blog/2017/gitflow-visual-studio-team-services/
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, CI/CD, Git]
 ---
 
 This last year our team made the decision to move from Team Foundation Version Control (TFVC) to Git.

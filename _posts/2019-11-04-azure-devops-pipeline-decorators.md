@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2019/11/createextension.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure DevOps, Azure Pipelines]
 ---
 
 

@@ -12,6 +12,8 @@ thumbnail-img: /content/uploads/2020/08/definitionOfDoneAzureBoards.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Boards, Agile]
+
 ---
 
 

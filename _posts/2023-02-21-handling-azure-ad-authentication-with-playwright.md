@@ -10,6 +10,7 @@ thumbnail-img: /content/uploads/2023/02/DALL·E-3d-render-of-a-theatre-mask-with
 categories:
     - Uncategorized
 nav-short: true
+tags: [Playwright, AAD, Entra ID]
 ---
 
 One of the most frequently asked questions I get is how to test web apps that use Azure AD/Entra ID. Rather than repeating myself, I figured I’d write a blog post to expand on the [official docs](https://playwright.dev/docs/auth).

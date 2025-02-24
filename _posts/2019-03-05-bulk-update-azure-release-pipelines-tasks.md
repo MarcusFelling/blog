@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2019/03/AzurePipelinesTasksOpenSourceCrossPlatfo
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, PowerShell, CI/CD]
 ---
 
 

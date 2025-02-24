@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2021/11/playwright-test-results.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Playwright, GitHub Pages]
 ---
 
 Now that [Playwright ](https://playwright.dev/)has a fancy new [HTML reporter](https://playwright.dev/docs/test-reporters/#html-reporter), I wanted to host test results to show the latest state of my GitHub Action test runs. Adding a step to my pipeline that publishes the results to GitHub Pages made this pretty simple.

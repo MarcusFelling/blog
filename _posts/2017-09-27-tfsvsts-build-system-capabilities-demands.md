@@ -11,6 +11,7 @@ wpmdr_menu:
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, CI/CD]
 ---
 
 ## System Capabilities

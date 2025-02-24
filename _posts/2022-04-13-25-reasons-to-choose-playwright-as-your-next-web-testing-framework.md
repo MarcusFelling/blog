@@ -14,6 +14,7 @@ thumbnail-img: /content/uploads/2022/04/8e60bbf1-one-does-not-y49d8t-overlay.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Playwright]
 ---
 
 I wanted a place to capture a list of highlights that make Playwright awesome. Here it is, in no particular order:

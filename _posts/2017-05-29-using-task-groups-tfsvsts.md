@@ -11,6 +11,7 @@ wpmdr_menu:
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, CI/CD]
 ---
 
 When Microsoft announced [Task Groups](https://www.visualstudio.com/en-us/docs/build/concepts/library/task-groups) in TFS and VSTS, I couldn’t think of a practical use for them. When creating build definitions I always try to reduce the number of overall definitions by using prompted variables when possible, this way the user can modify the variable when queuing a build rather than duplicating a definition that has the same steps. Of course this doesn’t work well for things like working directory which warrant a separate build definition. This is where I found Task Groups shine.

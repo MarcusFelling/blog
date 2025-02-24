@@ -11,6 +11,7 @@ wpmdr_menu:
 categories:
     - Uncategorized
 nav-short: true
+tags: [MSBuild]
 ---
 
 ![MSBuild ](/content/uploads/2017/08/MSBuild.png)

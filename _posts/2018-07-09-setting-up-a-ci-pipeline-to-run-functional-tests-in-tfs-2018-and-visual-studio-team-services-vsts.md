@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2018/07/VSTest.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, PowerShell, CI/CD]
 ---
 
 

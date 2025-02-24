@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2017/10/VisualStudioGit.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, PowerShell, CI/CD]
 ---
 
 

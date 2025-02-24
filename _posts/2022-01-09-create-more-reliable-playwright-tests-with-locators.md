@@ -14,6 +14,7 @@ thumbnail-img: /content/uploads/2022/01/playwrighttestlocatorexample.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Playwright, TypScript]
 ---
 
 Modern web apps introduce some testing challenges — dynamic controls can cause flakiness and unexpected behaviors. This is where the magic of the Playwright [locator API](https://playwright.dev/docs/api/class-locator) can help us build more resilient tests.

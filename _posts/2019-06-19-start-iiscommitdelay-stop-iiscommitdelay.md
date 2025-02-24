@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2019/06/ImportModuleIISAdministration.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [PowerShell, IIS, CI/CD]
 ---
 
 

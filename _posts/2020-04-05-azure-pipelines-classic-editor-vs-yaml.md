@@ -12,6 +12,7 @@ wpmdr_menu:
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure DevOps, Azure Pipelines]
 ---
 
 

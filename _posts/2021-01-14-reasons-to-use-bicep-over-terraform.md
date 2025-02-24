@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2021/01/bicepLogo-1.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [IaC, Azure Bicep, Terraform]
 ---
 
 

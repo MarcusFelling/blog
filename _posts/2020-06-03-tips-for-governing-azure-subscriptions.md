@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2020/06/RentInTheCloudTooHigh.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure]
 ---
 
 

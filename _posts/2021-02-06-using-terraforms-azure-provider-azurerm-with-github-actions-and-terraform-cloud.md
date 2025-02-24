@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2021/02/error.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [IaC, Terraform, GitHub Actions, CI/CD]
 ---
 
 
