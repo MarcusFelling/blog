@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2019/02/SonarQube-1.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, SonarQube, Windows, CI/CD]
 ---
 
 I recently setup a new SonarQube instance to perform static code analysis as part of CI builds. In this post I’d like to document what I learned to hopefully make it easier for you (I assume that’s why you’re reading this).

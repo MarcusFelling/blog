@@ -11,6 +11,7 @@ wpmdr_menu:
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, CI/CD]
 ---
 
 On March 29th, 2017 the VSTS team released a new feature that added the ability to specify conditions for running a build task. This provides more control over your build tasks, for things such as a task to clean things up (even if a build fails), or send a message when something goes wrong, under conditions such as certain branches or with certain triggers. Custom Conditions appear in the new build definition editor under Control Options. Custom conditions are not currently available for Task Groups because they still use the old build definition editor (this is on the backlog).

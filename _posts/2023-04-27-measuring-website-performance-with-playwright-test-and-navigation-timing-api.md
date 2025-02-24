@@ -14,6 +14,7 @@ thumbnail-img: /content/uploads/2023/04/playwright-performance-testing.jpg
 categories:
     - Uncategorized
 nav-short: true
+tags: [Playwright, Performance Testing]
 ---
 
 

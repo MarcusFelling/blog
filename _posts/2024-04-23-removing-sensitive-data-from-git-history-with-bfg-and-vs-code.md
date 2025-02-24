@@ -7,6 +7,7 @@ guid: 'https://marcusfelling.com/?p=1264'
 permalink: /blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/
 thumbnail-img: /content/uploads/2024/04/icon.png
 nav-short: true
+tags: [VS Code Extensions, BFG, Git]
 ---
 
 **TL; DR:** I created a VS Code extension that makes it easier to remove credentials from Git History.

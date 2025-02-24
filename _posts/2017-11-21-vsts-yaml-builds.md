@@ -12,6 +12,7 @@ wpmdr_menu:
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, CI/CD]
 ---
 
 Last week Microsoft [announced](https://blogs.msdn.microsoft.com/devops/2017/11/15/pipeline-as-code-yaml-preview/) “Pipeline as code (YAML)” giving us the ability to store our builds in source control. This allows us to take advantage of Configuration as Code as well as other benefits not available through the Visual Designer builds:

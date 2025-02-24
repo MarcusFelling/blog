@@ -8,6 +8,7 @@ guid: 'https://marcusfelling.com/?p=1271'
 permalink: /blog/2025/vpn-toggle-vscode-extension
 thumbnail-img: /content/uploads/2025/02/icon.png
 nav-short: true
+tags: [VS Code Extensions, Windows]
 ---
 
 Ever get annoyed having to click through Windows settings just to toggle your VPN connection? Yeah, me too. That's why I built a VS Code extension to handle it.

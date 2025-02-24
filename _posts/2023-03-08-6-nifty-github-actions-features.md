@@ -14,6 +14,7 @@ thumbnail-img: /content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket
 categories:
     - Uncategorized
 nav-short: true
+tags: [GitHub Actions, CI/CD]
 ---
 
 I’ve been having a lot of fun with GitHub Actions lately and wanted to document some of the features I regularly use, including some tips and tricks.

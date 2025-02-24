@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2021/07/githubactionspipelinebicepazure.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [IaC, Azure Bicep, CI/CD]
 ---
 
 

@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2020/11/extensionORTemplate.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, CI/CD]
 ---
 
 

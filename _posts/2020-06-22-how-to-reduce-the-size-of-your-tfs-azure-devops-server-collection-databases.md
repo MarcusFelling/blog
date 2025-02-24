@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2020/06/Untitled.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure DevOps, TFS]
 ---
 
 The size of your TFS/Azure DevOps Server collection databases will grow over time, and it’s not a trivial task figuring out how to cleanup. This conversation usually begins in preparation for an upgrade or migration to Azure DevOps Services. I have some general steps you can take to begin these efforts.

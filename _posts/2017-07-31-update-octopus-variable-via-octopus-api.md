@@ -12,6 +12,7 @@ thumbnail-img: /content/uploads/2017/07/OctopusTFSVSTS.png
 categories:
     - Uncategorized
 nav-short: true
+tags: [Azure Pipelines, CI/CD, Octopus Deploy]
 ---
 
 
