@@ -19,9 +19,18 @@ jobs:
           node-version: "18"
           cache: 'npm'
           cache-dependency-path: package-lock.json
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
 
+      - name: Install Jekyll
+        run: gem install jekyll bundler
+        
       - name: Install dependencies
         run: |
+          bundle install
           npm ci
 
       - name: Run Playwright tests
