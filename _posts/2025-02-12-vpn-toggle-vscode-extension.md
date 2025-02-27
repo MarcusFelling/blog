@@ -23,6 +23,8 @@ The [VPN Toggle extension](https://marketplace.visualstudio.com/items?itemName=M
 - Toggle any Windows VPN connection on/off with commands
 - Works with any VPN connection set up in Windows
 
+![demo](https://github.com/user-attachments/assets/e699a3af-c323-4fec-9ac8-1b67fcf4dae1)
+
 ## How to Use It
 
 1. Install the extension from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=MFelling.vpn-toggle)
