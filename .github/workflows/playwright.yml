@@ -31,10 +31,11 @@ jobs:
           bundle install
           npm ci
           npx playwright install --with-deps
+          npx playwright install
 
       - name: Run Playwright tests
         run: |
-          HOME=/root npx playwright test
+          npx playwright test
 
       - name: Create test summary
         uses: test-summary/action@dist
