@@ -11,9 +11,7 @@ jobs:
     name: Run Playwright E2E tests
     timeout-minutes: 7
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:v1.49.1-jammy
-    env:
-      BASEURL: https://marcusfelling.com
+    container: mcr.microsoft.com/playwright:v1.50.1-jammy
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
