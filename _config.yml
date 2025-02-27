@@ -52,7 +52,7 @@ feed_show_excerpt: true
 readtime: true
 
 # Whether or not to show a list of tags below each post preview in the feed page
-feed_show_tags: true
+feed_show_tags: false
 
 # Add a button in the footer to edit the current page. Only works if your website is hosted on GitHub
 view_page_button: true
