@@ -11,9 +11,6 @@ jobs:
     name: Run Playwright E2E tests
     timeout-minutes: 7
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:v1.49.1-jammy
-    env:
-      BASEURL: https://marcusfelling.com
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,14 +18,24 @@ jobs:
           node-version: "18"
           cache: 'npm'
           cache-dependency-path: package-lock.json
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.4.2'
+
+      - name: Install Jekyll
+        run: gem install jekyll bundler
 
       - name: Install dependencies
         run: |
+          bundle install
           npm ci
+          npx playwright install --with-deps
+          npx playwright install
 
       - name: Run Playwright tests
         run: |
-          HOME=/root npx playwright test
+          npx playwright test
 
       - name: Create test summary
         uses: test-summary/action@dist
