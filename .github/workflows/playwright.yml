@@ -11,7 +11,6 @@ jobs:
     name: Run Playwright E2E tests
     timeout-minutes: 7
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/playwright:v1.50.1-jammy
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -31,6 +30,7 @@ jobs:
         run: |
           bundle install
           npm ci
+          npx playwright install --with-deps
 
       - name: Run Playwright tests
         run: |
