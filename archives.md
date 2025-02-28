@@ -58,6 +58,7 @@ guid: 'https://marcusfelling.com/?page_id=492'
 - [Gitflow and Visual Studio Team Services](https://marcusfelling.com/blog/2017/gitflow-visual-studio-team-services/)
 
 ## GitHub Actions
+- [⏩ Optimizing GitHub Actions Workflows for Speed and Efficiency](https://marcusfelling.com/blog/2025/optimizing-github-actions-workflows-for-speed)
 - [6 Nifty GitHub Actions Features 🚀](https://marcusfelling.com/blog/2023/6-nifty-github-actions-features/)
 - [Using Terraform's Azure provider (azurerm) with GitHub Actions and Terraform Cloud](https://marcusfelling.com/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/)
 - [Porting an Azure Pipeline (YAML) to a GitHub Action](https://marcusfelling.com/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/)
