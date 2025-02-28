@@ -191,7 +191,7 @@ jobs:
 
 GitHub provides insights into workflow run times. Use the GitHub API to track this data over time:
 
-```javascript
+```typescript
 async function getWorkflowRunTimes(owner, repo, workflow_id) {
   const { Octokit } = require("@octokit/rest");
   const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });

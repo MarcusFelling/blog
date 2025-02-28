@@ -1,0 +1,593 @@
+:root.dark-theme {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --link-color: #008aff;
+  --heading-color: #fdfdfd;
+  --border-color: #333333;
+  --code-background: #1e1e1e;
+  --blockquote-color: #bbbbbb;
+}
+
+body.dark-theme {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.dark-theme a {
+  color: var(--link-color);
+}
+
+.dark-theme h1, .dark-theme h2, .dark-theme h3, 
+.dark-theme h4, .dark-theme h5, .dark-theme h6 {
+  color: var(--heading-color);
+}
+
+.dark-theme code, .dark-theme pre {
+  background-color: var(--code-background);
+}
+
+/* Improved code block readability for dark theme */
+.dark-theme pre, .dark-theme code {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-radius: 4px;
+}
+
+.dark-theme pre {
+  padding: 12px 15px;
+  border: 1px solid #333;
+  overflow: auto;
+  margin: 1em 0;
+  border-left: 3px solid #444;
+}
+
+.dark-theme code {
+  padding: 2px 4px;
+}
+
+/* Syntax highlighting for dark mode */
+.dark-theme .highlight {
+  background-color: #1e1e1e;
+}
+
+/* Comments */
+.dark-theme .highlight .c, 
+.dark-theme .highlight .c1, 
+.dark-theme .highlight .cm {
+  color: #608b4e;
+}
+
+/* Strings */
+.dark-theme .highlight .s,
+.dark-theme .highlight .s1,
+.dark-theme .highlight .s2,
+.dark-theme .highlight .sb {
+  color: #ce9178;
+}
+
+/* Keywords */
+.dark-theme .highlight .k,
+.dark-theme .highlight .kd,
+.dark-theme .highlight .kn {
+  color: #569cd6;
+}
+
+/* Variables and function names */
+.dark-theme .highlight .nf,
+.dark-theme .highlight .nx {
+  color: #dcdcaa;
+}
+
+/* Numbers */
+.dark-theme .highlight .mi,
+.dark-theme .highlight .mf {
+  color: #b5cea8;
+}
+
+/* Types */
+.dark-theme .highlight .nc,
+.dark-theme .highlight .kt {
+  color: #4ec9b0;
+}
+
+/* Operators and punctuation */
+.dark-theme .highlight .o,
+.dark-theme .highlight .p {
+  color: #d4d4d4;
+}
+
+/* Properties */
+.dark-theme .highlight .na {
+  color: #9cdcfe;
+}
+
+/* Brackets and tags */
+.dark-theme .highlight .nt {
+  color: #569cd6;
+}
+
+/* Adding a subtle vertical bar to make nested code blocks more clear */
+.dark-theme pre {
+  border-left: 3px solid #444;
+}
+
+/* Inline code */
+.dark-theme :not(pre) > code {
+  color: #e0e0e0;
+  background-color: #2d2d2d;
+}
+
+.dark-theme blockquote {
+  color: var(--blockquote-color);
+  border-left-color: var(--border-color);
+}
+
+.dark-theme hr {
+  background-color: var(--border-color);
+}
+
+.dark-theme table {
+  border-color: var(--border-color);
+}
+
+.dark-theme table th, .dark-theme table td {
+  border-color: var(--border-color);
+}
+
+/* Theme toggle button styles */
+.theme-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle-btn:hover {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+.dark-theme .theme-toggle-btn {
+  color: var(--text-color);
+}
+
+/* Text-based theme toggle styles */
+.theme-toggle-container {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  user-select: none;
+}
+
+.theme-option {
+  padding: 3px 6px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: #404040; /* Default color for light mode */
+}
+
+.theme-option:hover {
+  opacity: 0.8;
+}
+
+.theme-option.active {
+  font-weight: bold;
+}
+
+.light-option.active {
+  background-color: rgba(0, 138, 255, 0.15);
+  color: #0085A1;
+}
+
+.dark-option.active {
+  background-color: rgba(60, 60, 60, 0.2);
+  color: #404040;
+}
+
+/* Even in dark mode, keep the toggle visible in the light navbar */
+.dark-theme .theme-option {
+  color: #404040; /* Keep dark text for visibility in light navbar */
+}
+
+.dark-theme .light-option.active {
+  background-color: rgba(0, 138, 255, 0.15);
+  color: #0085A1;
+}
+
+.dark-theme .dark-option.active {
+  background-color: rgba(60, 60, 60, 0.2);
+  color: #000;
+  font-weight: bold;
+}
+
+.theme-separator {
+  margin: 0 4px;
+  opacity: 0.7;
+  color: #404040; /* Ensure separator is visible on light background */
+}
+
+/* Accommodate the toggle in navigation */
+.theme-toggle-item {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Modern Navbar for Dark Theme */
+.dark-theme .navbar,
+.dark-theme nav,
+.dark-theme .nav,
+.dark-theme .site-nav,
+.dark-theme header {
+  background: linear-gradient(to bottom, #1a1a1a, #121212);
+  border-bottom: 1px solid #333 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Navbar links in dark mode */
+.dark-theme .navbar a,
+.dark-theme nav a,
+.dark-theme .nav a,
+.dark-theme .site-nav a,
+.dark-theme header a {
+  color: #e0e0e0 !important;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.dark-theme .navbar a:hover,
+.dark-theme nav a:hover,
+.dark-theme .nav a:hover,
+.dark-theme .site-nav a:hover,
+.dark-theme header a:hover {
+  color: #008aff !important;
+  text-shadow: 0 0 8px rgba(0, 138, 255, 0.3);
+}
+
+/* Navbar brand/logo in dark mode */
+.dark-theme .navbar-brand,
+.dark-theme .site-title {
+  color: white !important;
+  font-weight: 600;
+}
+
+/* Dropdown menus in dark mode */
+.dark-theme .dropdown-menu {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .dropdown-item {
+  color: #e0e0e0;
+}
+
+.dark-theme .dropdown-item:hover,
+.dark-theme .dropdown-item:focus {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+/* Navbar toggler (hamburger menu) */
+.dark-theme .navbar-toggler {
+  border-color: #444;
+}
+
+.dark-theme .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(224, 224, 224, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Active link indicator */
+.dark-theme .navbar .active,
+.dark-theme .nav .active,
+.dark-theme .site-nav .active {
+  position: relative;
+  font-weight: 600;
+}
+
+.dark-theme .navbar .active::after,
+.dark-theme .nav .active::after,
+.dark-theme .site-nav .active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 2px;
+  background-color: #008aff;
+}
+
+/* Theme toggle specific adjustments for dark navbar */
+.dark-theme .theme-option {
+  color: #e0e0e0; /* Light text on dark navbar */
+}
+
+.dark-theme .theme-separator {
+  color: #888;
+}
+
+.dark-theme .light-option.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.dark-theme .dark-option.active {
+  background-color: rgba(0, 138, 255, 0.2);
+  color: #008aff;
+}
+
+/* Modern Footer for Dark Theme */
+.dark-theme footer,
+.dark-theme .footer,
+.dark-theme .site-footer {
+  background: linear-gradient(to top, #1a1a1a, #141414);
+  border-top: 1px solid #333 !important;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.25);
+  color: #aaaaaa !important;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Footer text in dark mode */
+.dark-theme footer p,
+.dark-theme .footer p,
+.dark-theme .site-footer p,
+.dark-theme footer .text-muted {
+  color: #aaaaaa !important;
+}
+
+/* Footer links in dark mode */
+.dark-theme footer a,
+.dark-theme .footer a,
+.dark-theme .site-footer a {
+  color: #b8b8b8 !important;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+  position: relative;
+  z-index: 10;
+}
+
+.dark-theme footer a:hover,
+.dark-theme .footer a:hover,
+.dark-theme .site-footer a:hover {
+  color: #008aff !important;
+  text-shadow: 0 0 8px rgba(0, 138, 255, 0.3);
+  text-decoration: none;
+}
+
+.dark-theme footer a:focus,
+.dark-theme .footer a:focus,
+.dark-theme .site-footer a:focus {
+  color: #008aff !important;
+  text-decoration: underline !important;
+}
+
+/* Ensure footer content is visible */
+.dark-theme footer .container,
+.dark-theme .footer .container,
+.dark-theme .site-footer .container,
+.dark-theme footer .row,
+.dark-theme .footer .row,
+.dark-theme .site-footer .row,
+.dark-theme footer .col,
+.dark-theme .footer .col,
+.dark-theme .site-footer .col {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Social media icons in footer */
+.dark-theme .social-icons a,
+.dark-theme footer .fa,
+.dark-theme footer .fab,
+.dark-theme footer .fas,
+.dark-theme .footer .fa,
+.dark-theme .footer .fab,
+.dark-theme .footer .fas,
+.dark-theme .site-footer .fa,
+.dark-theme .site-footer .fab,
+.dark-theme .site-footer .fas {
+  color: #aaaaaa !important;
+  transition: all 0.3s ease;
+}
+
+.dark-theme .social-icons a:hover,
+.dark-theme footer .fa:hover,
+.dark-theme footer .fab:hover,
+.dark-theme footer .fas:hover,
+.dark-theme .footer .fa:hover,
+.dark-theme .footer .fab:hover,
+.dark-theme .footer .fas:hover,
+.dark-theme .site-footer .fa:hover,
+.dark-theme .site-footer .fab:hover,
+.dark-theme .site-footer .fas:hover {
+  color: #008aff !important;
+  transform: translateY(-2px);
+}
+
+/* Footer dividers/separators */
+.dark-theme footer hr,
+.dark-theme .footer hr,
+.dark-theme .site-footer hr {
+  border-color: #333;
+}
+
+/* Copyright text */
+.dark-theme .copyright,
+.dark-theme footer .copyright {
+  color: #888 !important;
+  font-size: 0.85rem;
+  margin-top: 15px;
+}
+
+/* Edit page button in footer */
+.dark-theme .edit-page-button,
+.dark-theme footer .btn,
+.dark-theme .footer .btn,
+.dark-theme .site-footer .btn {
+  background-color: #2d2d2d !important;
+  border-color: #444 !important;
+  color: #e0e0e0 !important;
+  transition: all 0.3s ease;
+}
+
+.dark-theme .edit-page-button:hover,
+.dark-theme footer .btn:hover,
+.dark-theme .footer .btn:hover,
+.dark-theme .site-footer .btn:hover {
+  background-color: #3a3a3a !important;
+  border-color: #008aff !important;
+  box-shadow: 0 0 8px rgba(0, 138, 255, 0.3);
+}
+
+/* RSS and other subscription links */
+.dark-theme .rss-subscribe,
+.dark-theme footer .rss-subscribe {
+  color: #888 !important;
+}
+
+.dark-theme .rss-subscribe:hover,
+.dark-theme footer .rss-subscribe:hover {
+  color: #008aff !important;
+}
+
+/* Ensure social media icons are visible */
+.dark-theme .social-list,
+.dark-theme .footer-links,
+.dark-theme .social-icons,
+.dark-theme footer ul,
+.dark-theme .footer ul,
+.dark-theme .site-footer ul {
+  display: block !important;
+  visibility: visible !important;
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-bottom: 1rem !important;
+  list-style-type: none !important;
+}
+
+.dark-theme .social-list li,
+.dark-theme .footer-links li,
+.dark-theme .social-icons li,
+.dark-theme footer ul li,
+.dark-theme .footer ul li,
+.dark-theme .site-footer ul li {
+  display: inline-block !important;
+  margin-right: 10px !important;
+  visibility: visible !important;
+  position: relative;
+}
+
+/* Make sure icons are visible */
+.dark-theme .social-icons i,
+.dark-theme footer .fa,
+.dark-theme footer .fab,
+.dark-theme footer .fas {
+  font-size: 1.25rem !important;
+  visibility: visible !important;
+  display: inline-block !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: visible;
+}
+
+/* Fix for unwanted circles above icons */
+.dark-theme .social-list li:before,
+.dark-theme .footer-links li:before,
+.dark-theme .social-icons li:before,
+.dark-theme footer ul li:before,
+.dark-theme .footer ul li:before,
+.dark-theme .site-footer ul li:before,
+.dark-theme .social-list a:before,
+.dark-theme .footer-links a:before,
+.dark-theme .social-icons a:before,
+.dark-theme footer ul a:before,
+.dark-theme .footer ul a:before,
+.dark-theme .site-footer ul a:before {
+  display: none !important;
+  content: none !important;
+}
+
+/* Fix for FontAwesome icons specifically */
+.dark-theme .fa::before,
+.dark-theme .fab::before,
+.dark-theme .fas::before {
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Target social links more specifically */
+.dark-theme footer .social-network-links a,
+.dark-theme .footer .social-network-links a,
+.dark-theme .site-footer .social-network-links a {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Reset social icons to match light mode appearance */
+.dark-theme .social-network-links a,
+.dark-theme footer .social-network-links a,
+.dark-theme .social-network-links i,
+.dark-theme footer .social-network-links i {
+  /* Inherit light mode styling to avoid issues */
+  color: inherit !important;
+  background: inherit !important;
+  border: inherit !important;
+  border-radius: inherit !important;
+  box-shadow: inherit !important;
+}
+
+/* Ensure icons get proper hover color */
+.dark-theme .social-network-links a:hover,
+.dark-theme footer .social-network-links a:hover {
+  color: #008aff !important;
+}
+
+/* Remove any styling that might be causing circles */
+.dark-theme .social-list li::before,
+.dark-theme .footer-links li::before,
+.dark-theme .social-icons li::before,
+.dark-theme footer ul li::before,
+.dark-theme .social-network-links li::before,
+.dark-theme .social-network-links a::before,
+.dark-theme .social-network-links i::before {
+  content: none !important;
+  display: none !important;
+}
+
+/* Remove previous problematic social media styling */
+.dark-theme .social-list,
+.dark-theme .footer-links,
+.dark-theme .social-icons,
+.dark-theme footer ul,
+.dark-theme .footer ul,
+.dark-theme .site-footer ul,
+.dark-theme .social-list li,
+.dark-theme .footer-links li,
+.dark-theme .social-icons li,
+.dark-theme footer ul li,
+.dark-theme .footer ul li,
+.dark-theme .site-footer ul li,
+.dark-theme .social-icons i,
+.dark-theme footer .fa,
+.dark-theme footer .fab,
+.dark-theme footer .fas,
+.dark-theme .fa::before,
+.dark-theme .fab::before,
+.dark-theme .fas::before {
+  /* Reset to inherit light mode styling */
+  background: inherit !important;
+  box-shadow: inherit !important;
+  border-radius: inherit !important;
+  list-style: inherit !important;
+}
