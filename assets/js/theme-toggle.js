@@ -14,31 +14,39 @@ document.addEventListener('DOMContentLoaded', function() {
     toggleContainer.id = 'theme-toggle-container';
     toggleContainer.className = 'theme-toggle-container';
     
-    // Create the toggle with both options
-    const lightOption = document.createElement('span');
-    lightOption.textContent = 'Light Mode';
-    lightOption.className = 'theme-option light-option';
-    if (!isDarkTheme()) lightOption.classList.add('active');
+    // Create a single button containing both options
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'theme-toggle-btn';
+    toggleBtn.className = 'theme-toggle-btn ' + (isDarkTheme() ? 'dark-active' : 'light-active');
+    
+    // Create spans for each option inside the button
+    const lightLabel = document.createElement('span');
+    lightLabel.textContent = 'Light Mode';
+    lightLabel.className = 'mode-option light-label';
     
     const separator = document.createElement('span');
     separator.textContent = ' / ';
-    separator.className = 'theme-separator';
+    separator.className = 'mode-separator';
     
-    const darkOption = document.createElement('span');
-    darkOption.textContent = 'Dark Mode';
-    darkOption.className = 'theme-option dark-option';
-    if (isDarkTheme()) darkOption.classList.add('active');
+    const darkLabel = document.createElement('span');
+    darkLabel.textContent = 'Dark Mode';
+    darkLabel.className = 'mode-option dark-label';
     
-    // Build the toggle container
-    toggleContainer.appendChild(lightOption);
-    toggleContainer.appendChild(separator);
-    toggleContainer.appendChild(darkOption);
+    // Add all elements to the button
+    toggleBtn.appendChild(lightLabel);
+    toggleBtn.appendChild(separator);
+    toggleBtn.appendChild(darkLabel);
     
-    // Add click handlers
-    lightOption.addEventListener('click', () => setTheme('light'));
-    darkOption.addEventListener('click', () => setTheme('dark'));
+    // Add click handler for the button
+    toggleBtn.addEventListener('click', function() {
+      const newTheme = isDarkTheme() ? 'light' : 'dark';
+      setTheme(newTheme);
+    });
     
-    // Find navigation element and append the button
+    // Add the button to the container
+    toggleContainer.appendChild(toggleBtn);
+    
+    // Find navigation element and append the toggle
     const navElement = document.querySelector('nav, .navbar, .nav, .site-nav, header ul');
     if (navElement) {
       // Create a list item if the navigation has a list structure
@@ -61,31 +69,28 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   function setTheme(theme) {
-    const lightOption = document.querySelector('.light-option');
-    const darkOption = document.querySelector('.dark-option');
+    const toggleBtn = document.getElementById('theme-toggle-btn');
     
     if (theme === 'dark') {
       document.documentElement.classList.add('dark-theme');
       document.body.classList.add('dark-theme');
       localStorage.setItem('theme', 'dark');
       
-      // Update active state
-      darkOption.classList.add('active');
-      lightOption.classList.remove('active');
-      
-      // Ensure high contrast
-      darkOption.style.fontWeight = 'bold';
+      // Update button state
+      if (toggleBtn) {
+        toggleBtn.classList.remove('light-active');
+        toggleBtn.classList.add('dark-active');
+      }
     } else {
       document.documentElement.classList.remove('dark-theme');
       document.body.classList.remove('dark-theme');
       localStorage.setItem('theme', 'light');
       
-      // Update active state
-      lightOption.classList.add('active');
-      darkOption.classList.remove('active');
-      
-      // Reset font weight
-      darkOption.style.fontWeight = 'normal';
+      // Update button state
+      if (toggleBtn) {
+        toggleBtn.classList.remove('dark-active');
+        toggleBtn.classList.add('light-active');
+      }
     }
   }
   
