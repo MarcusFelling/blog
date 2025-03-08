@@ -213,5 +213,3 @@ async function getWorkflowRunTimes(owner, repo, workflow_id) {
 ## Conclusion
 
 Optimizing GitHub Actions workflows is an ongoing process. Start with the high-impact items like caching and job parallelization, then iteratively improve based on metrics. The reward is not just faster builds but happier developers and lower costs.
-
-What optimization techniques have you found most effective for your GitHub Actions workflows? Share your experiences in the comments!
