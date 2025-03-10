@@ -22,8 +22,20 @@ common-js:
 
 <!DOCTYPE html>
 <html lang="{{ page.language | default: site.language | default: 'en' }}">
-{% include dark-theme.html %}
-{% include head.html %}
+<head>
+  <script>
+    (function() {
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  {% include dark-theme.html %}
+  {% include head.html %}
+</head>
 
 <body>
 
