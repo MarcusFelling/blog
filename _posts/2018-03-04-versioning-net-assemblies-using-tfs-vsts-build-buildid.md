@@ -2,17 +2,12 @@
 id: 546
 title: 'Versioning .Net assemblies using TFS/VSTS Build.BuildID'
 date: '2018-03-04T16:32:03+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=546'
 permalink: /blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2018/03/semVer.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, .NET]
+tags: [Azure Pipelines]
 ---
 
 

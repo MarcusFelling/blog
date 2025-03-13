@@ -2,19 +2,12 @@
 id: 1197
 title: '6 Nifty GitHub Actions Features 🚀'
 date: '2023-03-08T19:23:17+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=1197'
 permalink: /blog/2023/6-nifty-github-actions-features/
-wpmdr_menu:
-    - '1'
-ig_es_is_post_notified:
-    - '1'
 thumbnail-img: /content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [GitHub Actions, CI/CD]
+tags: [GitHub Actions, CICD]
 ---
 
 I’ve been having a lot of fun with GitHub Actions lately and wanted to document some of the features I regularly use, including some tips and tricks.

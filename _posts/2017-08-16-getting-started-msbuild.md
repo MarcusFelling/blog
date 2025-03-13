@@ -2,16 +2,11 @@
 id: 348
 title: 'Getting started with MSBuild'
 date: '2017-08-16T01:09:08+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=348'
 permalink: /blog/2017/getting-started-msbuild/
-wpmdr_menu:
-    - '1'
-categories:
-    - Uncategorized
 nav-short: true
-tags: [MSBuild]
+tags: [Other]
 ---
 
 ![MSBuild ](/content/uploads/2017/08/MSBuild.png)

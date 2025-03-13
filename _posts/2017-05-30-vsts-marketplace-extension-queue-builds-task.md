@@ -6,10 +6,7 @@ date: '2017-05-30T23:31:56+00:00'
 layout: post
 guid: 'https://marcusfelling.com/?p=249'
 permalink: /blog/2017/vsts-marketplace-extension-queue-builds-task/
-wpmdr_menu:
-    - '1'
-categories:
-    - Uncategorized
+tags: [Azure DevOps, CICD]
 ---
 
 Currently the TFS/VSTS build system has a pretty big bottleneck: tasks run in serial. For build steps that run PowerShell, I’ve implemented runspaces to run processes in parallel ([Invoke-Parallel](https://gallery.technet.microsoft.com/scriptcenter/Run-Parallel-Parallel-377fd430) is amazing). However, that only works for one build step. The rest have to wait until it’s finished.

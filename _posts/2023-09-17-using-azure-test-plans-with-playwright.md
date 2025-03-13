@@ -2,17 +2,12 @@
 id: 1237
 title: 'Using Azure Test Plans with Playwright'
 date: '2023-09-17T21:01:58+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=1237'
 permalink: /blog/2023/using-azure-test-plans-with-playwright/
-ig_es_is_post_notified:
-    - '1'
 thumbnail-img: /content/uploads/2023/09/test-run-ado.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Test Plans, Playwright, TypeScript, .NET]
+tags: [Azure DevOps, Playwright]
 ---
 
 In 2020, I blogged about associating [automated tests with Azure Test Cases](https://marcusfelling.com/blog/2020/associating-automated-tests-with-azure-test-cases/). The post had 18 questions, which indicates there is still confusion on how this works, especially how to set it up with Playwright (which was pre-stable release at the time).

@@ -2,19 +2,12 @@
 id: 1216
 title: 'Measuring Website Performance with Playwright Test and Navigation Timing API'
 date: '2023-04-27T14:40:19+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=1216'
 permalink: /blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/
-wpmdr_menu:
-    - '1'
-ig_es_is_post_notified:
-    - '1'
 thumbnail-img: /content/uploads/2023/04/playwright-performance-testing.jpg
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Playwright, Performance Testing]
+tags: [Playwright]
 ---
 
 

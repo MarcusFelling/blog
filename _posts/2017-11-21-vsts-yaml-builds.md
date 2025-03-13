@@ -2,17 +2,11 @@
 id: 517
 title: 'Azure Pipelines YAML Builds (Pipeline as code)'
 date: '2017-11-21T22:33:18+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=517'
 permalink: /blog/2017/vsts-yaml-builds/
-wpmdr_menu:
-    - '1'
-    - '1'
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, CI/CD]
+tags: [Azure DevOps, CICD]
 ---
 
 Last week Microsoft [announced](https://blogs.msdn.microsoft.com/devops/2017/11/15/pipeline-as-code-yaml-preview/) “Pipeline as code (YAML)” giving us the ability to store our builds in source control. This allows us to take advantage of Configuration as Code as well as other benefits not available through the Visual Designer builds:

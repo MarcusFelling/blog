@@ -2,14 +2,11 @@
 id: 261
 title: 'Gitflow and Visual Studio Team Services'
 date: '2017-06-01T23:35:59+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=261'
 permalink: /blog/2017/gitflow-visual-studio-team-services/
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, CI/CD, Git]
+tags: [Azure DevOps, CICD, Git]
 ---
 
 This last year our team made the decision to move from Team Foundation Version Control (TFVC) to Git.

@@ -2,17 +2,12 @@
 id: 534
 title: 'Chef recipe to install VSTS agents (Windows)'
 date: '2017-12-26T16:47:20+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=534'
 permalink: /blog/2017/chef-recipe-install-vsts-agents-windows/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2017/12/chef-1.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, PowerShell, Chef, Windows]
+tags: [Azure DevOps, Windows]
 ---
 
 

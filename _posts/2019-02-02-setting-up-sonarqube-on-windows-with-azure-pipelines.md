@@ -2,17 +2,12 @@
 id: 639
 title: 'Setting up SonarQube (on Windows) with Azure Pipelines'
 date: '2019-02-02T16:32:43+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=639'
 permalink: /blog/2019/setting-up-sonarqube-on-windows-with-azure-pipelines/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2019/02/SonarQube-1.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, SonarQube, Windows, CI/CD]
+tags: [Azure DevOps, Windows, CICD]
 ---
 
 I recently setup a new SonarQube instance to perform static code analysis as part of CI builds. In this post I’d like to document what I learned to hopefully make it easier for you (I assume that’s why you’re reading this).

@@ -2,16 +2,11 @@
 id: 426
 title: 'TFS/VSTS Build  System Capabilities and Demands'
 date: '2017-09-27T21:05:18+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=426'
 permalink: /blog/2017/tfsvsts-build-system-capabilities-demands/
-wpmdr_menu:
-    - '1'
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, CI/CD]
+tags: [Azure DevOps, CICD]
 ---
 
 ## System Capabilities

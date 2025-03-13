@@ -2,19 +2,13 @@
 id: 592
 title: 'TFS Release Management: Create Release via REST API'
 date: '2018-09-09T20:21:08+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=592'
 permalink: /blog/2018/tfs-release-management-create-release-via-rest-api/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2018/09/CreateReleaseFunction-e1536520560720.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, PowerShell, CI/CD]
+tags: [Azure DevOps, CICD]
 ---
-
 
 I recently had to come up with a solution to perform a bulk deploy of all apps to an environment using the latest build artifacts. I wanted to use a “wrapper” release definition to orchestrate all of the deployments; similar to how Octopus Deploy’s [“Deploy Release Step”](https://octopus.com/docs/deployment-process/projects/coordinating-multiple-projects/deploy-release-step) works.
 

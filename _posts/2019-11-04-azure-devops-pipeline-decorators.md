@@ -2,17 +2,12 @@
 id: 778
 title: 'Azure DevOps Pipeline Decorators'
 date: '2019-11-04T20:02:12+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=778'
 permalink: /blog/2019/azure-devops-pipeline-decorators/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2019/11/createextension.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure DevOps, Azure Pipelines]
+tags: [Azure DevOps, CICD]
 ---
 
 

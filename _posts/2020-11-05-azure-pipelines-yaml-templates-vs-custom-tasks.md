@@ -2,19 +2,13 @@
 id: 937
 title: 'Azure Pipelines: YAML Templates VS. Custom Tasks'
 date: '2020-11-05T19:07:10+00:00'
-
 layout: default
 guid: 'https://marcusfelling.com/?p=937'
 permalink: /blog/2020/azure-pipelines-yaml-templates-vs-custom-tasks/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2020/11/extensionORTemplate.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, CI/CD]
+tags: [Azure DevOps, CICD]
 ---
-
 
 There are two main ways to create re-usable components for Azure Pipelines. I’ll review the pros and cons of each and talk about when it makes sense to use one over the other. Keep in mind that the two are not mutually exclusive, so it may make sense to use a combination of both.
 

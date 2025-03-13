@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=1275'
 permalink: /blog/2025/optimizing-github-actions-workflows-for-speed
 thumbnail-img: /content/uploads/2025/02/optimize-gha.png
 nav-short: true
-tags: [GitHub Actions, CI/CD]
+tags: [GitHub Actions, CICD]
 ---
 
 Slow CI/CD pipelines directly impact developer productivity and deployment frequency. When pull request checks take 15+ minutes to complete, developers context-switch to other tasks, breaking their flow and reducing productivity. Additionally, GitHub Actions charges by the minute, so inefficient workflows literally cost you money.

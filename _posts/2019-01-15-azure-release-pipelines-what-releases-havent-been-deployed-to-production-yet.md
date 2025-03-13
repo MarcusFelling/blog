@@ -2,17 +2,12 @@
 id: 627
 title: 'Azure Release Pipelines: What releases havent been deployed to Production yet?'
 date: '2019-01-15T00:46:28+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=627'
 permalink: /blog/2019/azure-release-pipelines-what-releases-havent-been-deployed-to-production-yet/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2019/01/Azure-Release-Pipelines-1.jpg
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, CI/CD]
+tags: [Azure Pipelines, CICD]
 ---
 
 

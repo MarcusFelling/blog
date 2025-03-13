@@ -2,20 +2,14 @@
 id: 821
 title: 'Associating automated tests with Azure Test Cases'
 date: '2020-04-01T18:15:39+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=821'
 permalink: /blog/2020/associating-automated-tests-with-azure-test-cases/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2020/04/TestPlans-1.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Test Plans]
+tags: [Azure DevOps]
 ---
 
-  
 I often get asked, “why can’t I update any of the fields on the Associated Automation tab of a [Test Case](https://docs.microsoft.com/en-us/azure/devops/test/create-test-cases?view=azure-devops)?”
 
 ![](/content/uploads/2020/04/AssociatedAutomation.png)
