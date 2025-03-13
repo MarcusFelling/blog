@@ -6,13 +6,9 @@ date: '2018-07-09T15:58:30+00:00'
 layout: post
 guid: 'https://marcusfelling.com/?p=574'
 permalink: /blog/2018/setting-up-a-ci-pipeline-to-run-functional-tests-in-tfs-2018-and-visual-studio-team-services-vsts/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2018/07/VSTest.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, PowerShell, CI/CD]
+tags: [Azure Pipelines, CICD]
 ---
 
 

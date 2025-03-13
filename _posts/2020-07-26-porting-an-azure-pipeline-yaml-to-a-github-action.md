@@ -2,20 +2,14 @@
 id: 904
 title: 'Porting an Azure Pipeline (YAML) to a GitHub Action'
 date: '2020-07-26T20:04:31+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=904'
 permalink: /blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2020/07/GitHubActionsAzurePipelines.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, GitHub Actions, CI/CD]
+tags: [Azure DevOps, GitHub Actions, CICD]
 
 ---
-
 
 I’ve been a long time user of Azure Pipelines. It’s a very mature and powerful platform, that integrates really well with other parts of the Azure DevOps suite, to provide end-to-end traceability of the software development lifecycle. However, Microsoft is investing heavily in GitHub which now has some very appealing capabilities: source code security, development insights and analytics, open source and innersource management, etc. As these new capabilities get built out in GitHub, I’d like to explore what is takes to move things over. In this post I’ll be documenting what it takes to port one of my existing Azure Pipelines (YAML) to GitHub Actions.
 

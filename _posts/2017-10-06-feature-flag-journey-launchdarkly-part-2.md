@@ -2,17 +2,12 @@
 id: 432
 title: 'Feature Flag journey with LaunchDarkly  Part 2'
 date: '2017-10-06T20:28:39+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=432'
 permalink: /blog/2017/feature-flag-journey-launchdarkly-part-2/
 thumbnail-img: /content/uploads/2017/10/LaunchDarklyLogo-1-300x89.png
-wpmdr_menu:
-    - '1'
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Feature Flags]
+tags: [Other]
 ---
 
 

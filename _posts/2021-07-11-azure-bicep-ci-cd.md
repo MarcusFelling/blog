@@ -2,19 +2,13 @@
 id: 1007
 title: '💪 Azure Bicep CI/CD 🚀'
 date: '2021-07-11T22:32:36+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=1007'
 permalink: /blog/2021/azure-bicep-ci-cd/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2021/07/githubactionspipelinebicepazure.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [IaC, Azure Bicep, CI/CD]
+tags: [Infra as Code, CICD]
 ---
-
 
 Hey, you. You’re not manually deploying your [Azure Bicep](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview) Infrastructure as Code, are you?!? Let’s prevent that next production outage, help your team collaborate on changes, and enable more frequent deployments. In this post, I’ll outline what tooling is available to integrate Bicep in your pipelines, and some good practices for building and deploying.
 

@@ -2,17 +2,12 @@
 id: 454
 title: 'Code Sharing (PowerShell): Create Pull Request via VSTS REST API'
 date: '2017-10-22T20:29:36+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=454'
 permalink: /blog/2017/create-vsts-pull-request-via-vsts-rest-api/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2017/10/VisualStudioGit.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, PowerShell, CI/CD]
+tags: [Azure DevOps, CICD]
 ---
 
 

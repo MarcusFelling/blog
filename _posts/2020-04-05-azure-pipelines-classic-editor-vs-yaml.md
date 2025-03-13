@@ -2,17 +2,12 @@
 id: 858
 title: 'Azure Pipelines: Classic Editor VS. YAML'
 date: '2020-04-05T18:11:09+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=858'
 permalink: /blog/2020/azure-pipelines-classic-editor-vs-yaml/
 thumbnail-img: /content/uploads/2020/04/classicYAMLBattle.png
-wpmdr_menu:
-    - '1'
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure DevOps, Azure Pipelines]
+tags: [Azure DevOps]
 ---
 
 

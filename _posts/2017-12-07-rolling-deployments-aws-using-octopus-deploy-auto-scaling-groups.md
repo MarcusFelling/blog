@@ -2,17 +2,12 @@
 id: 528
 title: 'Rolling deployments to AWS using Octopus Deploy and Auto Scaling Groups'
 date: '2017-12-07T20:10:19+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=528'
 permalink: /blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2017/12/AWSOctopusDeploy.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Octopus Deploy, PowerShell, CI/CD]
+tags: [Octopus Deploy, CICD]
 ---
 
 In order to gracefully deploy releases to our application servers, I wanted to utilize rolling deployments in Octopus Deploy. If you aren’t familiar, rolling deployments slowly roll out a release one instance at a time (vs. all instances at once). The goal of this being reduced overall downtime. To accomplish this, I wrote PowerShell scripts to leverage AWS Auto Scaling Groups (ASG) that are run as part of Octopus deployments.

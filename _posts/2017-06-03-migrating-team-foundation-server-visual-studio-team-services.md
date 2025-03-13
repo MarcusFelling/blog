@@ -2,16 +2,11 @@
 id: 287
 title: 'Migrating Team Foundation Server to Visual Studio Team Services'
 date: '2017-06-03T17:21:53+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=287'
 permalink: /blog/2017/migrating-team-foundation-server-visual-studio-team-services/
-wpmdr_menu:
-    - '1'
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure DevOps, TFS]
+tags: [Azure DevOps]
 ---
 
 Last month I migrated our TFS collection to VSTS using Microsoft’s Database Import Service and [migration guide](https://www.visualstudio.com/team-services/migrate-tfs-vsts). To be frank, it was a long process and it took a lot of going back and forth to make sure I fully understood the guide which is a PDF that is 58 pages long. The guide comes with several checklists and things you need to check and prep before your migration.

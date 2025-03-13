@@ -2,19 +2,13 @@
 id: 949
 title: 'Reasons to use Bicep over Terraform'
 date: '2021-01-14T21:30:09+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=949'
 permalink: /blog/2021/reasons-to-use-bicep-over-terraform/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2021/01/bicepLogo-1.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [IaC, Azure Bicep, Terraform]
+tags: [Infra as Code]
 ---
-
 
 Why would you choose Microsoft’s new Bicep DSL over HashiCorp’s Terraform? I would like to give you my perspective, as someone who ditched ARM templates for Terraform in most of my Infrastructure as Code projects. To set the context of this blog post, I’ll be talking about Azure focused customers. Also, I won’t be going over the basics of what Bicep is (that can be found in README [here](https://github.com/Azure/bicep)) or comparing it to other IaC solutions like [Pulumi](https://www.pulumi.com/) or [Farmer](https://compositionalit.github.io/farmer/). If there is interest, I can cover those in another blog post. This will be a direct comparison to Terraform.  
 

@@ -2,19 +2,13 @@
 id: 693
 title: 'Azure DevOps Pipelines: Variables, $Variables, __Variables__, $env:Variables, $(Variables), %VARIABLES%'
 date: '2019-08-24T16:35:47+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=693'
 permalink: /blog/2019/azure-devops-pipeline-variables/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2019/08/AzureDevOpsPipelineVariables.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure DevOps, Azure Pipelines, CI/CD]
+tags: [Azure DevOps, CICD]
 ---
-
 
 If you’re working with Azure DevOps Pipelines, you should be aware of all your options when it comes to using variables. They make it possible to “***Build Once, Deploy Anywhere”***, prevent code-reuse, and build scale-able CI/CD pipelines.
 

@@ -2,19 +2,13 @@
 id: 881
 title: 'Tips for governing Azure subscriptions'
 date: '2020-06-03T15:54:49+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=881'
 permalink: /blog/2020/tips-for-governing-azure-subscriptions/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2020/06/RentInTheCloudTooHigh.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure]
+tags: [Other]
 ---
-
 
 I’ve seen it too many times. It all starts when somebody is given access to a new “production” Azure subscription that’s pay-as-you-go. A new resource is created for the first time on a Friday, running up costs over the weekend, resulting in a surprisingly large bill. The cloud is too expensive!
 

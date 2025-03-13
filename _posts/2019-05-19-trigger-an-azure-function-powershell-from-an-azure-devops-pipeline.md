@@ -2,17 +2,12 @@
 id: 705
 title: 'Trigger an Azure Function (PowerShell) from an Azure DevOps Pipeline'
 date: '2019-05-19T20:26:35+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=705'
 permalink: /blog/2019/trigger-an-azure-function-powershell-from-an-azure-devops-pipeline/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2019/05/AzureDevOpsPipelinesAzureFunctionsPowerShell.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Functions, PowerShell, Azure Pipelines, CI/CD]
+tags: [Azure Pipelines, CICD]
 ---
 
 

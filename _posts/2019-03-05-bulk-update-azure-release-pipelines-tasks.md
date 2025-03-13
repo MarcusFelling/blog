@@ -2,17 +2,12 @@
 id: 681
 title: 'Bulk update Azure Release Pipelines tasks'
 date: '2019-03-05T21:16:52+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=681'
 permalink: /blog/2019/bulk-update-azure-release-pipelines-tasks/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2019/03/AzurePipelinesTasksOpenSourceCrossPlatform.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, PowerShell, CI/CD]
+tags: [Azure Pipelines, CICD]
 ---
 
 

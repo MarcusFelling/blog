@@ -2,19 +2,12 @@
 id: 1065
 title: 'Create resilient 🎭 Playwright e2e tests with locators'
 date: '2022-01-09T19:36:48+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=1065'
 permalink: /blog/2022/create-more-reliable-playwright-tests-with-locators/
-wpmdr_menu:
-    - '1'
-ig_es_is_post_notified:
-    - '1'
 thumbnail-img: /content/uploads/2022/01/playwrighttestlocatorexample.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Playwright, TypScript]
+tags: [Playwright]
 ---
 
 Modern web apps introduce some testing challenges — dynamic controls can cause flakiness and unexpected behaviors. This is where the magic of the Playwright [locator API](https://playwright.dev/docs/api/class-locator) can help us build more resilient tests.

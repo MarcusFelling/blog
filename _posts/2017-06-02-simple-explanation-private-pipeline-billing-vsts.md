@@ -2,14 +2,9 @@
 id: 230
 title: 'A simple explanation of private pipeline billing in VSTS'
 date: '2017-06-02T21:23:26+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=230'
 permalink: /blog/2017/simple-explanation-private-pipeline-billing-vsts/
-wpmdr_menu:
-    - '1'
-categories:
-    - Uncategorized
 nav-short: true
 ---
 

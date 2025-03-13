@@ -2,17 +2,12 @@
 id: 891
 title: 'How to reduce the size of your TFS/Azure DevOps Server collection databases'
 date: '2020-06-22T14:58:08+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=891'
 permalink: /blog/2020/how-to-reduce-the-size-of-your-tfs-azure-devops-server-collection-databases/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2020/06/Untitled.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure DevOps, TFS]
+tags: [Azure DevOps]
 ---
 
 The size of your TFS/Azure DevOps Server collection databases will grow over time, and it’s not a trivial task figuring out how to cleanup. This conversation usually begins in preparation for an upgrade or migration to Azure DevOps Services. I have some general steps you can take to begin these efforts.

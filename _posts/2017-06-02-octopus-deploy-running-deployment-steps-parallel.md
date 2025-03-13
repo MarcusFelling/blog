@@ -2,14 +2,11 @@
 id: 274
 title: 'Octopus Deploy: Running deployment steps in parallel'
 date: '2017-06-02T21:22:33+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=274'
 permalink: /blog/2017/octopus-deploy-running-deployment-steps-parallel/
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Octopus Deploy, CI/CD]
+tags: [Octopus Deploy, CICD]
 ---
 
 When I first got started with [Octopus Deploy](https://octopus.com/) I would setup projects to have one long deploy process that ran steps in serial. Each step would wait until finished before another one would start. Deploy times got longer and longer, so I set out to find a way to cut down deploy times.

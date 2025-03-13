@@ -2,20 +2,13 @@
 id: 923
 title: 'The importance of the Definition of Done'
 date: '2020-08-21T17:02:01+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=923'
 permalink: /blog/2020/the-importance-of-definition-of-done/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2020/08/definitionOfDoneAzureBoards.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Boards, Agile]
-
+tags: [Azure DevOps]
 ---
-
 
 I’ve worked with quite a few teams who aren’t aware of, or forget about, the Definition of “Done”. In my opinion, this is one of the easiest, low effort, high impact elements of Agile that a team can adopt.
 

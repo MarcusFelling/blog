@@ -2,17 +2,12 @@
 id: 723
 title: 'Start-IISCommitDelay / Stop-IISCommitDelay'
 date: '2019-06-19T17:46:53+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=723'
 permalink: /blog/2019/start-iiscommitdelay-stop-iiscommitdelay/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2019/06/ImportModuleIISAdministration.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [PowerShell, IIS, CI/CD]
+tags: [CICD]
 ---
 
 

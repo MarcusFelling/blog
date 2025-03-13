@@ -2,17 +2,12 @@
 id: 336
 title: 'Code Sharing (PowerShell): Update Octopus variable via Octopus API'
 date: '2017-07-31T19:44:17+00:00'
-
 layout: post
 guid: 'https://marcusfelling.com/?p=336'
 permalink: /blog/2017/update-octopus-variable-via-octopus-api/
-wpmdr_menu:
-    - '1'
 thumbnail-img: /content/uploads/2017/07/OctopusTFSVSTS.png
-categories:
-    - Uncategorized
 nav-short: true
-tags: [Azure Pipelines, CI/CD, Octopus Deploy]
+tags: [Azure DevOps, CICD, Octopus Deploy]
 ---
 
 
