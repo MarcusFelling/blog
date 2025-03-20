@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Check for saved theme preference only
+  // Check for saved theme preference or system preference
   const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   
-  // Apply dark theme only if explicitly saved as dark
-  if (savedTheme === 'dark') {
+  // Apply dark theme if saved as dark or if system prefers dark and no saved preference
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
     document.documentElement.classList.add('dark-theme');
     document.body.classList.add('dark-theme');
   }
