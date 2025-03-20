@@ -195,3 +195,35 @@
 .dark-theme .read-more {
   color: #80cbc4;
 }
+
+/* Add extra padding to all heading elements */
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: 70px; /* Modern browsers - ensures anchors don't get hidden under navbar */
+}
+
+/* Enhance the existing target fix */
+:target {
+  scroll-margin-top: 70px;
+}
+
+/* Adjust intro headers to have more space from navbar */
+.intro-header {
+  padding-top: 50px;
+  margin-top: 0;
+}
+
+/* Special handling for blog posts */
+.blog-post h1, 
+.blog-post h2, 
+.blog-post h3, 
+.blog-post h4 {
+  padding-top: 20px;
+}
+
+/* Adjust anchor link behavior for support across browsers */
+.anchor-link {
+  display: block;
+  position: relative;
+  top: -70px;
+  visibility: hidden;
+}
