@@ -1,0 +1,225 @@
+/* Modern Card Grid - Fixed for 8 posts */
+:root {
+  --card-bg: #ffffff;
+  --card-border: #dbdada;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --card-image-placeholder: #fcfbfb;
+}
+
+.post-cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+  gap: 20px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 15px;
+}
+
+.post-card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  border: 2px solid var(--card-border); /* Added subtle border */
+  box-shadow: 0 4px 6px var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.post-card-image-container {
+  height: 180px;
+  overflow: hidden;
+  background-color: var(--card-image-placeholder);
+}
+
+.post-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+}
+
+.post-card-content {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+.post-card-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.post-card-excerpt {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  color: #333;
+}
+
+.post-card-meta {
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: auto;
+}
+
+.post-card-date {
+  display: flex;
+  align-items: center;
+}
+
+.post-card-date i {
+  margin-right: 5px;
+}
+
+.post-card-footer {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--card-border);
+  margin-top: 0.75rem;
+}
+
+.read-more {
+  font-weight: 600;
+  color: var(--link-col);
+  display: flex;
+  align-items: center;
+}
+
+.read-more i {
+  margin-left: 5px;
+}
+
+/* View All Posts button styling */
+.view-all-posts {
+  display: inline-block;
+  background-color: var(--link-col);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.view-all-posts:hover {
+  background-color: var(--hover-col);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  color: white;
+  text-decoration: none;
+}
+
+/* Left-justify navigation items */
+.navbar-collapse .navbar-nav {
+  margin-left: 0;
+  justify-content: flex-start;
+}
+
+.navbar-nav {
+  margin-right: auto;
+}
+
+.navbar-expand-xl .navbar-nav {
+  justify-content: flex-start;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+  .post-cards-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .post-cards-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for small tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .post-cards-container {
+    grid-template-columns: 1fr; /* 1 column for phones */
+  }
+}
+
+/* Fix title positioning below navbar */
+.page-heading {
+  padding-top: 2rem;
+  margin-top: 5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.page-heading h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-subheading {
+  font-size: 1.2rem;
+  color: #777;
+  display: block;
+}
+
+/* Dark mode support */
+.dark-theme {
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --card-image-placeholder: #2d2d2d;
+}
+
+.dark-theme .post-card {
+  background-color: var(--card-bg);
+}
+
+.dark-theme .post-card-title {
+  color: #fff;
+}
+
+.dark-theme .post-card-subtitle {
+  color: #aaa;
+}
+
+.dark-theme .post-card-excerpt {
+  color: #ddd;
+}
+
+.dark-theme .post-card-meta {
+  color: #aaa;
+}
+
+.dark-theme .post-card-footer {
+  border-top-color: var(--card-border);
+}
+
+.dark-theme .read-more {
+  color: #80cbc4;
+}
+
+/* Dark mode specific button styling */
+.dark-theme .view-all-posts {
+  background-color: var(--link-color);
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .view-all-posts:hover {
+  background-color: #0099ff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}

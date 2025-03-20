@@ -1,0 +1,63 @@
+---
+layout: base
+---
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      {% if page.title %}
+      <div class="page-heading">
+        <h1>{{ page.title }}</h1>
+        {% if page.subtitle %}
+          <span class="page-subheading">{{ page.subtitle }}</span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="post-cards-container">
+  {% for post in site.posts limit: 8 %}
+  <article class="post-card">
+    <a href="{{ post.url | relative_url }}" class="post-card-link">
+      <div class="post-card-image-container">
+        {% if post.cover-img or post.thumbnail-img %}
+          {% if post.thumbnail-img %}
+            <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" class="post-card-image">
+          {% elsif post.cover-img %}
+            <img src="{{ post.cover-img | relative_url }}" alt="{{ post.title }}" class="post-card-image">
+          {% endif %}
+        {% else %}
+          <div style="background-color: var(--card-image-placeholder); height: 100%;"></div>
+        {% endif %}
+      </div>
+      <div class="post-card-content">
+        <h2 class="post-card-title">{{ post.title }}</h2>
+        {% if post.subtitle %}
+          <p class="post-card-subtitle">{{ post.subtitle }}</p>
+        {% endif %}
+        <div class="post-card-excerpt">
+          {% if post.excerpt %}
+            {{ post.excerpt | strip_html | truncatewords: 25 }}
+          {% endif %}
+        </div>
+        <div class="post-card-meta">
+          <span class="post-card-date"><i class="far fa-calendar-alt"></i> {{ post.date | date: site.date_format }}</span>
+        </div>
+        <div class="post-card-footer">
+          <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+    </a>
+  </article>
+  {% endfor %}
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center my-4">
+      <a href="/archives" class="view-all-posts">View All Posts</a>
+    </div>
+  </div>
+</div>
