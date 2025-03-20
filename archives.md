@@ -8,16 +8,16 @@ guid: 'https://marcusfelling.com/?page_id=492'
 
 ## Tags
 <div class="tag-cloud" style="text-align: center; margin-bottom: 2em;">
-    <a href="#azure-devops--tfs" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Azure DevOps</a>
-    <a href="#cicd" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">CI/CD</a>
-    <a href="#playwright" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Playwright</a>
-    <a href="#git" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Git</a>
-    <a href="#github-actions" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">GitHub Actions</a>
-    <a href="#octopus-deploy" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Octopus Deploy</a>
-    <a href="#infra-as-code" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Infra as Code</a>
-    <a href="#windows" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Windows</a>
-    <a href="#vs-code-extensions" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">VS Code Extensions</a>
-    <a href="#other" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Other</a>
+    <a href="#azure-devops--tfs" class="view-all-posts" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Azure DevOps</a>
+    <a href="#cicd" class="view-all-posts" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">CI/CD</a>
+    <a href="#playwright" class="view-all-posts" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Playwright</a>
+    <a href="#git" class="view-all-posts" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Git</a>
+    <a href="#github-actions" class="view-all-posts" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">GitHub Actions</a>
+    <a href="#octopus-deploy" class="view-all-posts" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Octopus Deploy</a>
+    <a href="#infra-as-code" class="view-all-posts" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Infra as Code</a>
+    <a href="#windows" class="view-all-posts" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Windows</a>
+    <a href="#vs-code-extensions" class="view-all-posts" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">VS Code Extensions</a>
+    <a href="#other" class="view-all-posts" style="font-size: 1.5em; margin: 0.5em; display: inline-block;">Other</a>
 </div>
 
 ## Azure DevOps / TFS

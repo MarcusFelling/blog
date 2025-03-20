@@ -7,6 +7,27 @@
   --border-color: #333333;
   --code-background: #1e1e1e;
   --blockquote-color: #bbbbbb;
+  --mid-col: #aaaaaa;
+  
+  /* Card specific variables */
+  --card-bg: #1e1e1e;
+  --card-border: #333333;
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: rgba(0, 0, 0, 0.5);
+  --card-image-placeholder: #2d2d2d;
+  --tag-bg: #2a2a2a;
+  --tag-color: #d0d0d0;
+}
+
+/* This helps prevent FOUC (Flash of Unstyled Content) */
+html.dark-theme, body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html, body {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Basic Elements */
@@ -368,4 +389,53 @@ body.dark-theme {
     padding: 0 !important;
     overflow: hidden !important;
   }
+}
+
+/* Card support for dark mode */
+.dark-theme .post-card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+  box-shadow: 0 4px 10px var(--card-shadow);
+}
+
+.dark-theme .post-card:hover {
+  box-shadow: 0 10px 20px var(--card-shadow-hover);
+}
+
+.dark-theme .post-card-title {
+  color: var(--heading-color);
+}
+
+.dark-theme .post-card-subtitle {
+  color: var(--mid-col);
+}
+
+.dark-theme .post-card-excerpt {
+  color: var(--text-color);
+}
+
+.dark-theme .post-card-meta,
+.dark-theme .post-card-date {
+  color: var(--mid-col);
+}
+
+.dark-theme .post-card-tag {
+  background-color: var(--tag-bg);
+  color: var(--tag-color);
+}
+
+.dark-theme .post-card-footer {
+  border-top-color: var(--card-border);
+}
+
+.dark-theme .read-more {
+  color: var(--link-color);
+}
+
+.dark-theme .page-heading h1 {
+  color: var(--heading-color);
+}
+
+.dark-theme .page-subheading {
+  color: var(--mid-col);
 }
