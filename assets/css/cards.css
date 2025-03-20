@@ -124,20 +124,6 @@
   text-decoration: none;
 }
 
-/* Left-justify navigation items */
-.navbar-collapse .navbar-nav {
-  margin-left: 0;
-  justify-content: flex-start;
-}
-
-.navbar-nav {
-  margin-right: auto;
-}
-
-.navbar-expand-xl .navbar-nav {
-  justify-content: flex-start;
-}
-
 /* Responsive breakpoints */
 @media (max-width: 1200px) {
   .post-cards-container {
