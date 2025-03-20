@@ -34,6 +34,7 @@ layout: base
       </div>
       <div class="post-card-content">
         <h2 class="post-card-title">{{ post.title }}</h2>
+        </a>
         {% if post.subtitle %}
           <p class="post-card-subtitle">{{ post.subtitle }}</p>
         {% endif %}
@@ -46,10 +47,11 @@ layout: base
           <span class="post-card-date"><i class="far fa-calendar-alt"></i> {{ post.date | date: site.date_format }}</span>
         </div>
         <div class="post-card-footer">
+        <a href="{{ post.url | relative_url }}" class="post-card-link">
           <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
+        </a>
         </div>
       </div>
-    </a>
   </article>
   {% endfor %}
 </div>
