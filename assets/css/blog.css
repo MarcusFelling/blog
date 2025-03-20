@@ -1,0 +1,197 @@
+/* Add at the top of your blog.css file */
+:root {
+  /* config file CSS variables */
+  --page-col: #FFFFFF;
+  --text-col: #404040;
+  --link-col: #008AFF;
+  --hover-col: #0085A1;
+  --navbar-col: #EAEAEA;
+  --navbar-text-col: #404040;
+  --navbar-border-col: #DDDDDD;
+  --footer-col: #EAEAEA;
+  --footer-text-col: #777777;
+  --footer-link-col: #404040;
+  --footer-hover-col: #0085A1;
+  --mid-col: #808080;
+  
+  /* Card specific variables */
+  --card-bg: #ffffff;
+  --card-border: #eaeaea;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: rgba(0, 0, 0, 0.15);
+  --card-image-placeholder: #f5f5f5;
+  --tag-bg: #f0f0f0;
+  --tag-color: #606060;
+}
+
+/* Modern Card Styles */
+.post-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.post-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: var(--card-bg, #fff);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.post-card-image {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--card-image-placeholder, #f0f0f0);
+}
+
+.post-card-content {
+  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--text-col);
+}
+
+.post-card-subtitle {
+  font-size: 0.9rem;
+  color: var(--mid-col);
+  margin-bottom: 1rem;
+}
+
+.post-card-excerpt {
+  font-size: 0.9rem;
+  flex-grow: 1;
+  color: var(--text-col);
+  opacity: 0.8;
+}
+
+.post-card-meta {
+  font-size: 0.8rem;
+  color: var(--mid-col);
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.post-card-date {
+  margin-right: 0.5rem;
+}
+
+.post-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.post-card-tag {
+  font-size: 0.7rem;
+  background-color: var(--tag-bg, #f0f0f0);
+  color: var(--tag-color, #606060);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.post-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.post-card-link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--card-border, #eee);
+  margin-top: 0.75rem;
+}
+
+.read-more {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--link-col);
+}
+
+/* Ensure enough cards are shown to fill screen */
+@media (max-width: 1200px) {
+  .post-cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .post-cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .post-cards-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Fix title positioning below navbar */
+.page-heading {
+  padding-top: 2rem;
+  margin-top: 3.5rem;
+}
+
+/* Make sure we have enough cards to fill screen */
+.post-cards-container::after {
+  content: "";
+  grid-column: span 4;
+  min-height: 300px;
+}
+
+/* Dark Mode Support */
+.dark-theme .post-card {
+  background-color: #232323;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .post-card-image {
+  background-color: #2d2d2d;
+}
+
+.dark-theme .post-card-tag {
+  background-color: #3a3a3a;
+  color: #d0d0d0;
+}
+
+.dark-theme .post-card-footer {
+  border-top-color: #3a3a3a;
+}
+
+.dark-theme .read-more {
+  color: #80cbc4;
+}
