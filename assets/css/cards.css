@@ -134,12 +134,46 @@
 @media (max-width: 768px) {
   .post-cards-container {
     grid-template-columns: repeat(2, 1fr); /* 2 columns for small tablets */
+    gap: 15px;
+  }
+  
+  .post-card-title {
+    font-size: 1.1rem;
+  }
+  
+  .post-card-excerpt {
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 576px) {
   .post-cards-container {
     grid-template-columns: 1fr; /* 1 column for phones */
+    padding: 0 10px;
+    gap: 20px;
+    margin: 1rem auto;
+  }
+  
+  .post-card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .post-card-image-container {
+    height: 160px;
+  }
+  
+  .post-card-content {
+    padding: 1rem;
+  }
+  
+  .page-heading {
+    padding-top: 1.5rem;
+    margin-top: 4rem;
+  }
+  
+  .page-heading h1 {
+    font-size: 2rem;
   }
 }
 
