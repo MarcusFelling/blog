@@ -39,7 +39,7 @@ The YAML builds provide the ability to separate steps by phases. The phases can 
 
 Fan out example:
 
-```
+```yaml
 phases:
 - phase: InitialPhase
   steps:

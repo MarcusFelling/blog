@@ -10,10 +10,9 @@ nav-short: true
 tags: [CICD]
 ---
 
-
 Today I discovered the Start-IISCommitDelay and Stop-IISCommitDelay cmdlets available in the IISAdministration module. In the past I’ve randomly encountered errors when issuing back to back commands that modify the applicationHost.config file:
 
-```
+```powershell
 Filename: \\?\C:\Windows\system32\inetsrv\config\applicationHost.config
 Error: Cannot write configuration file
 ```
@@ -22,7 +21,7 @@ A workaround that works *most* of the time, is adding start-sleeps to ensure the
 
 Example:
 
-```
+```powershell
 "Setting app pool start mode to Always Running"
 Set-ItemProperty $appPoolPath -Name startMode -Value 1 #1 = AlwaysRunning, 0 = OnDemand  
 
@@ -43,7 +42,7 @@ From the docs:
 
 If I convert my previous example, it would look like this:
 
-```
+```powershell
 "Delay the commitment of changes to IIS until Stop-IISCommitDelay cmdlet is executed below"
 Start-IISCommitDelay
 

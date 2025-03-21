@@ -16,7 +16,7 @@ I’m not going to go into details on [requirements ](https://docs.sonarqube.org
 
 The install itself is pretty straight forward. I used SonarQube CE 7.6 on a Windows Server 2016 VM with a SonarQube DB on SQL Server 2016. However, I did run into DB connection issues using Integrated Security, as indicated in logs\\sonar.log. After downloading the [Microsoft SQL JDBC driver package](http://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=11774) and copying sqljdbc\_auth.dll to my path (C:\\Windows\\System32), I was able to get it started up. my connection string in sonar-project.properties looks like this:
 
-```
+```csharp
 # Microsoft SQL Server 2014/2016 and SQL Azure
 sonar.jdbc.url=jdbc:sqlserver://$DBINSTANCENAME;databaseName=SonarQube;integratedSecurity=true
 ```
@@ -25,7 +25,7 @@ sonar.jdbc.url=jdbc:sqlserver://$DBINSTANCENAME;databaseName=SonarQube;integrate
 
 Once my instance was up and running on http://localhost:9000, I wanted to configure LDAP so users could log in using their Active Directory credentials. My properties file ended up looking like this ($ denotes a variable):
 
-```
+```csharp
 # LDAP CONFIGURATION
 
 # Enable the LDAP feature
@@ -62,7 +62,7 @@ ldap.group.request=(&(objectClass=group)(member={dn}))
 
 Save the properties file with the new values above, then restart the service. Check the logs (\\logs\\web.log) and you should see a line indicating the LDAP connection was successful:
 
-```
+```csharp
 INFO  web[][o.s.p.l.LdapContextFactory] Test LDAP connection on LDAP://$DBINSTANCENAME:PORT: OK
 ```
 

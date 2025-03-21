@@ -15,37 +15,37 @@ If you’re attempting to update a sprawling amount of release definitions, clic
 
 Start by getting a list of all release definitions:
 
-```
+```powershell
 GET https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/definitions?api-version=5.0
 ```
 
 Loop through each definition using the ID from the response above:
 
-```
+```powershell
 GET https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/definitions/{definitionId}?api-version=5.0
 ```
 
 Using the response above, navigate to the task field of the object:
 
-```
+```powershell
 $GetDefinitionResponse.environments.deployPhases.workflowTasks
 ```
 
 Loop through each task and set desired properties on the object. [Use the catalog of tasks](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/?view=azure-devops) to figure out required arguments for each task.
 
-```
+```powershell
 $Task.version = '2.*'
 ```
 
 Convert the definition object to JSON to be used in PUT below:
 
-```
+```powershell
 $GetDefinitionResponse | ConvertTo-Json -Depth 100
 ```
 
 Use updated definition object to update the definition via PUT:
 
-```
+```powershell
 PUT https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/definitions?api-version=5.0
 ```
 

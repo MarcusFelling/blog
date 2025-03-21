@@ -32,7 +32,7 @@ The XAML build system was [deprecated ](https://devblogs.microsoft.com/bharry/ev
 
 It’s pretty common to see large binaries stored in centralized version control systems (as apposed to Distributed/Git). To identify big binary files in a TFVC repository, we can use the following SQL query:
 
-```
+```sql
 -- Query for Big Binary TFVC Files, including the last update of project
 DECLARE @partitionId INT = 1 
 SELECT p.project_name, 
@@ -65,7 +65,7 @@ Consider reducing the size of your Git repos using tools like [BFG Repo Cleaner]
 
 After the steps above are complete, you can trigger cleanup by executing a couple of stored procedures on the collection DB:
 
-```
+```sql
 EXEC prc_CleanupDeletedFileContent 1
 EXEC prc_DeleteUnusedFiles 1, 0, 100000
 ```

@@ -40,14 +40,14 @@ In my Azure Pipeline I generate the build number by using semantic major.minor.p
 
 To mirror what I have in the Azure Pipeline, I’ll set up the Action to trigger on all pushes to my repo. In Azure Pipelines, this is the default when no trigger is defined.
 
-```
+```yaml
 # Trigger on push
 on: push
 ```
 
 Next, I’ll define my static variables. I can copy the variables section and rename if to env. I can then add the non-secret variables from my variable group and copy the secret variables to my repositories’ secret configuration. Later on, I’ll swap out predefined variables that are referenced in tasks with fitting environment variables, using the syntax ${{ env.VARIABLENAME }}.
 
-```
+```yaml
 env:
   buildConfiguration: 'Release'
   serviceConnection: 'tailspin-space-game-rg'
@@ -63,7 +63,7 @@ A workflow is made up of one or more jobs. I can map my stages and jobs from Azu
 
 In my Build and Deploy jobs, I’ll change `vmImage` to `runs-on`, and `dependsOn` to `needs`, to make sure the build job always runs before the deploy:
 
-```
+```yaml
 jobs:
   build:
     runs-on: windows-2016
@@ -75,7 +75,7 @@ jobs:
 
 Next, I can download my source code to the agent using: `actions/checkout@v2`, as apposed to the Azure Pipelines sources tab. I’ll only need this for my build job.
 
-```
+```yaml
 jobs:
   build:
     runs-on: windows-2016
@@ -85,7 +85,7 @@ jobs:
 
 Now that I have my scaffolding, I can convert my tasks to steps. I’ll be able to use the `run` Action to run inline scripts for most things.
 
-```
+```yaml
       - name: Run npm install
         run: npm install
 
@@ -113,7 +113,7 @@ Now that I have my scaffolding, I can convert my tasks to steps. I’ll be able 
 
 Lastly, I’ll upload my published .zip as an artifact using the `actions/upload-artifact@v2` Action.
 
-```
+```yaml
         # Publish zip as build artifact
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2
@@ -126,7 +126,7 @@ Lastly, I’ll upload my published .zip as an artifact using the `actions/upload
 
 I’ll start the deploy job by downloading my build artifact to the agent’s workspace by using the `actions/download-artifact@v2` Action.
 
-```
+```yaml
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -142,7 +142,7 @@ I’ll start the deploy job by downloading my build artifact to the agent’s wo
 
 Then I can use the `azure/webapps-deploy@v2` Action to deploy the .zip package, using my publish profile that saved as an [encrypted secret](https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets).
 
-```
+```yaml
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
       with:

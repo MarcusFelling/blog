@@ -10,7 +10,6 @@ nav-short: true
 tags: [Azure Pipelines, CICD]
 ---
 
-
 When I recently heard the [announcement ](https://devblogs.microsoft.com/powershell/public-preview-of-powershell-in-azure-functions-2-x/) for Public Preview of PowerShell in Azure Functions 2.x, I was excited to give it a test drive. One of the first use cases I thought of was using this for custom scripts that run on a build server. For example, a PowerShell script that generates some sort of report and emails users with the results. Rather than running this on a build server, we can use Azure Functions to reap some of the benefits of serverless. In this post I’ll walk through setting up an Azure Function that’s triggered by an Azure Pipelines release definition via HTTP.
 
 ## Creating the PowerShell Azure Function
@@ -35,7 +34,7 @@ I’ll let you read through the comments to figure out what each step does. The 
 
 Test the function by running it in the Portal and the console should display output indicating success
 
-```
+```csharp
 2019-05-19T19[Information] Executing 'Functions.HttpTrigger1' (Reason='This function was programmatically called via the host APIs.', Id=d5eb9d77)
 2019-05-19T19 [Information] OUTPUT: PowerShell HTTP trigger function processed a request.
 2019-05-19T19 [Information] Executed 'Functions.HttpTrigger1' (<strong>Succeeded</strong>, Id=d5eb9d77)

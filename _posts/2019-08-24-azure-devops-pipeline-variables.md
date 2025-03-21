@@ -45,7 +45,7 @@ Example:
 
 Expressions can be used to access and define variables. The following [logging command](https://github.com/microsoft/azure-pipelines-tasks/blob/master/docs/authoring/commands.md) can be run in a PowerShell task to set a variable:
 
-```
+```yaml
 Write-Host "##vso[task.setvariable variable=testvar;]testvalue"
 ```
 
