@@ -27,7 +27,7 @@
   --footer-link-col: #b8b8b8;
   --footer-hover-col: #008aff;
   --mid-col: #aaaaaa;
-  
+
   /* Card specific variables */
   --card-bg: #1e1e1e;
   --card-border: #333333;
@@ -39,7 +39,8 @@
 }
 
 /* ===== 2. BASIC ELEMENTS ===== */
-html, body {
+html,
+body {
   background-color: var(--page-col);
   color: var(--text-col);
 }
@@ -48,7 +49,12 @@ a {
   color: var(--link-col);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--text-col);
   scroll-margin-top: 70px; /* Modern browsers - ensures anchors don't get hidden under navbar */
 }
@@ -82,9 +88,9 @@ hr {
 }
 
 /* ===== BLOG POST HEADINGS ===== */
-.blog-post h1, 
-.blog-post h2, 
-.blog-post h3, 
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
 .blog-post h4 {
   position: relative;
   padding-top: 20px;
@@ -109,7 +115,7 @@ hr {
 }
 
 .blog-post h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -150,7 +156,7 @@ hr {
 
 /* Add a subtle accent line at the top */
 .container-md::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -173,12 +179,14 @@ table {
   border-color: var(--navbar-border-col);
 }
 
-table th, table td {
+table th,
+table td {
   border-color: var(--navbar-border-col);
 }
 
 /* ===== 4. CODE BLOCKS & SYNTAX HIGHLIGHTING ===== */
-pre, code {
+pre,
+code {
   background-color: var(--card-image-placeholder);
   color: var(--text-col);
   border-radius: 4px;
@@ -212,49 +220,121 @@ code {
 
 /* Syntax highlighting color scheme */
 /* Comments */
-.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: #7cad6a; }
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cs {
+  color: #7cad6a;
+}
 
 /* Strings */
-.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .sh, .highlight .si, .highlight .sx { color: #e69d85; }
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .sh,
+.highlight .si,
+.highlight .sx {
+  color: #e69d85;
+}
 
 /* Keywords */
-.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt { color: #78b3ff; }
+.highlight .k,
+.highlight .kd,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kt {
+  color: #78b3ff;
+}
 
 /* Function names */
-.highlight .nf, .highlight .nx, .highlight .fm { color: #f8d57e; }
+.highlight .nf,
+.highlight .nx,
+.highlight .fm {
+  color: #f8d57e;
+}
 
 /* Numbers */
-.highlight .mi, .highlight .mf, .highlight .m, .highlight .mb, .highlight .mh, .highlight .mo { color: #c5e39b; }
+.highlight .mi,
+.highlight .mf,
+.highlight .m,
+.highlight .mb,
+.highlight .mh,
+.highlight .mo {
+  color: #c5e39b;
+}
 
 /* Class names/types */
-.highlight .nc, .highlight .nn, .highlight .nl { color: #70e8cb; }
+.highlight .nc,
+.highlight .nn,
+.highlight .nl {
+  color: #70e8cb;
+}
 
 /* Operators/punctuation */
-.highlight .o, .highlight .p { color: #f0f0f0; }
+.highlight .o,
+.highlight .p {
+  color: #f0f0f0;
+}
 
 /* Names/attributes */
-.highlight .na, .highlight .nb, .highlight .bp { color: #9cdcfe; }
+.highlight .na,
+.highlight .nb,
+.highlight .bp {
+  color: #9cdcfe;
+}
 
 /* HTML/XML tags */
-.highlight .nt { color: #78aeff; }
+.highlight .nt {
+  color: #78aeff;
+}
 
 /* Variables */
-.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi { color: #bcbcff; }
+.highlight .nv,
+.highlight .vc,
+.highlight .vg,
+.highlight .vi {
+  color: #bcbcff;
+}
 
 /* Regex */
-.highlight .sr { color: #ff8ca3; }
+.highlight .sr {
+  color: #ff8ca3;
+}
 
 /* Important elements */
-.highlight .gi { color: #98c379; background-color: rgba(152, 195, 121, 0.1); } /* Git insertion */
-.highlight .gd { color: #ff6e6e; background-color: rgba(255, 110, 110, 0.1); } /* Git deletion */
-.highlight .gh { color: #ffffff; font-weight: bold; } /* GitHub headers */
-.highlight .gu { color: #bcbcbc; } /* GitHub subheaders */
+.highlight .gi {
+  color: #98c379;
+  background-color: rgba(152, 195, 121, 0.1);
+} /* Git insertion */
+.highlight .gd {
+  color: #ff6e6e;
+  background-color: rgba(255, 110, 110, 0.1);
+} /* Git deletion */
+.highlight .gh {
+  color: #ffffff;
+  font-weight: bold;
+} /* GitHub headers */
+.highlight .gu {
+  color: #bcbcbc;
+} /* GitHub subheaders */
 
 /* Language specific styling */
-.language-diff .highlight .gd { color: #ff6e6e; }
-.language-diff .highlight .gi { color: #98c379; }
-.language-bash .highlight .nb { color: #98c379; }
-.language-json .highlight .attr { color: #9cdcfe; }
+.language-diff .highlight .gd {
+  color: #ff6e6e;
+}
+.language-diff .highlight .gi {
+  color: #98c379;
+}
+.language-bash .highlight .nb {
+  color: #98c379;
+}
+.language-json .highlight .attr {
+  color: #9cdcfe;
+}
 
 /* ===== 5. CARD STYLES ===== */
 /* Card container layout */
@@ -271,7 +351,7 @@ code {
 .post-card {
   background-color: var(--card-bg);
   border-radius: 8px;
-  border: 2px solid var(--card-border); 
+  border: 2px solid var(--card-border);
   box-shadow: 0 4px 6px var(--card-shadow);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -399,13 +479,18 @@ code {
 }
 
 .page-heading::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(to right, transparent, var(--link-col), transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--link-col),
+    transparent
+  );
 }
 
 .page-heading h1 {
@@ -430,22 +515,35 @@ code {
 }
 
 /* Navbar components */
-.navbar, nav, .nav, .site-nav, header {
+.navbar,
+nav,
+.nav,
+.site-nav,
+header {
   background: var(--navbar-col);
   border-bottom: 1px solid var(--navbar-border-col) !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.navbar a, nav a, .nav a, .site-nav a, header a {
+.navbar a,
+nav a,
+.nav a,
+.site-nav a,
+header a {
   color: var(--navbar-text-col) !important;
   transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.navbar a:hover, nav a:hover, .nav a:hover, .site-nav a:hover, header a:hover {
+.navbar a:hover,
+nav a:hover,
+.nav a:hover,
+.site-nav a:hover,
+header a:hover {
   color: var(--link-col) !important;
 }
 
-.navbar-brand, .site-title {
+.navbar-brand,
+.site-title {
   font-weight: 600;
 }
 
@@ -460,7 +558,8 @@ code {
   color: var(--text-col);
 }
 
-.dropdown-item:hover, .dropdown-item:focus {
+.dropdown-item:hover,
+.dropdown-item:focus {
   background-color: var(--card-image-placeholder);
   color: var(--text-col);
 }
@@ -472,7 +571,8 @@ code {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.navbar-toggler:hover, .navbar-toggler:focus {
+.navbar-toggler:hover,
+.navbar-toggler:focus {
   border-color: var(--hover-col);
   outline: none;
   box-shadow: 0 0 0 2px rgba(0, 138, 255, 0.3);
@@ -484,13 +584,17 @@ code {
 }
 
 /* Active navigation items */
-.navbar .active, .nav .active, .site-nav .active {
+.navbar .active,
+.nav .active,
+.site-nav .active {
   position: relative;
   font-weight: 600;
 }
 
-.navbar .active::after, .nav .active::after, .site-nav .active::after {
-  content: '';
+.navbar .active::after,
+.nav .active::after,
+.site-nav .active::after {
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 50%;
@@ -598,7 +702,9 @@ footer .fas:hover,
 }
 
 /* ===== 9. FOOTER ===== */
-footer, .footer, .site-footer {
+footer,
+.footer,
+.site-footer {
   background: var(--footer-col);
   border-top: 1px solid var(--navbar-border-col) !important;
   box-shadow: 0 -2px 10px var(--card-shadow);
@@ -607,66 +713,101 @@ footer, .footer, .site-footer {
   padding-bottom: 20px;
 }
 
-footer p, .footer p, .site-footer p, footer .text-muted {
+footer p,
+.footer p,
+.site-footer p,
+footer .text-muted {
   color: var(--footer-text-col) !important;
 }
 
-footer a, .footer a, .site-footer a {
+footer a,
+.footer a,
+.site-footer a {
   color: var(--footer-link-col) !important;
   transition: color 0.2s ease;
 }
 
-footer a:hover, .footer a:hover, .site-footer a:hover {
+footer a:hover,
+.footer a:hover,
+.site-footer a:hover {
   color: var(--footer-hover-col) !important;
   text-decoration: none;
 }
 
-footer a:focus, .footer a:focus, .site-footer a:focus {
+footer a:focus,
+.footer a:focus,
+.site-footer a:focus {
   color: var(--footer-hover-col) !important;
   text-decoration: underline !important;
 }
 
-footer hr, .footer hr, .site-footer hr {
+footer hr,
+.footer hr,
+.site-footer hr {
   border-color: var(--navbar-border-col);
 }
 
-.copyright, footer .copyright {
+.copyright,
+footer .copyright {
   color: var(--footer-text-col) !important;
   font-size: 0.85rem;
   margin-top: 15px;
 }
 
-.rss-subscribe, footer .rss-subscribe {
+.rss-subscribe,
+footer .rss-subscribe {
   color: var(--footer-text-col) !important;
 }
 
-.rss-subscribe:hover, footer .rss-subscribe:hover {
+.rss-subscribe:hover,
+footer .rss-subscribe:hover {
   color: var(--footer-hover-col) !important;
 }
 
 /* Social Media Icons in footer */
-.social-list, .footer-links, .social-icons, footer ul, .footer ul, .site-footer ul {
+.social-list,
+.footer-links,
+.social-icons,
+footer ul,
+.footer ul,
+.site-footer ul {
   display: block !important;
   list-style: none !important;
   padding-left: 0 !important;
   margin-bottom: 1rem !important;
 }
 
-.social-list li, .footer-links li, .social-icons li, footer ul li, .footer ul li, .site-footer ul li {
+.social-list li,
+.footer-links li,
+.social-icons li,
+footer ul li,
+.footer ul li,
+.site-footer ul li {
   display: inline-block !important;
   margin-right: 10px !important;
 }
 
 /* Fix Font Awesome icon display */
-.social-icons i, footer .fa, footer .fab, footer .fas, .footer .fa, .footer .fab, .footer .fas {
+.social-icons i,
+footer .fa,
+footer .fab,
+footer .fas,
+.footer .fa,
+.footer .fab,
+.footer .fas {
   font-size: 1.25rem !important;
   color: var(--footer-text-col) !important;
   transition: all 0.3s ease;
   background: transparent !important;
 }
 
-.social-icons a:hover, footer .fa:hover, footer .fab:hover, footer .fas:hover, 
-.footer .fa:hover, .footer .fab:hover, .footer .fas:hover {
+.social-icons a:hover,
+footer .fa:hover,
+footer .fab:hover,
+footer .fas:hover,
+.footer .fa:hover,
+.footer .fab:hover,
+.footer .fas:hover {
   color: var(--footer-hover-col) !important;
   transform: translateY(-2px);
 }
@@ -716,7 +857,7 @@ footer hr, .footer hr, .site-footer hr {
   .pagination.blog-pager {
     margin-top: 0.625rem;
   }
-  
+
   .pagination .page-item .page-link {
     padding: 0.9375rem 1.5625rem;
   }
@@ -745,30 +886,30 @@ footer hr, .footer hr, .site-footer hr {
     gap: 15px;
     padding: 0 10px;
   }
-  
+
   .post-card-title {
     font-size: 1.1rem;
   }
-  
+
   .post-card-excerpt {
     font-size: 0.85rem;
   }
-  
+
   .post-card-image-container {
     height: 160px;
   }
-  
+
   .social-links {
     margin: 1.5rem 0;
   }
-  
+
   .social-links a {
     width: 36px;
     height: 36px;
     line-height: 36px;
     font-size: 18px;
   }
-  
+
   .scroll-to-top {
     width: 36px;
     height: 36px;
@@ -786,7 +927,7 @@ footer hr, .footer hr, .site-footer hr {
     gap: 20px !important;
     padding: 0 15px !important;
   }
-  
+
   .post-card {
     width: 100% !important;
     margin-left: 0 !important;
@@ -794,20 +935,20 @@ footer hr, .footer hr, .site-footer hr {
     margin: 0 auto;
     padding: 1rem;
   }
-  
+
   .post-cards-container::after {
     display: none !important;
   }
-  
+
   .page-heading {
     padding-top: 1.5rem;
     margin-top: 3.5rem;
   }
-  
+
   .page-heading h1 {
     font-size: 1.8rem;
   }
-  
+
   .view-all-posts {
     padding: 8px 16px;
     font-size: 0.9rem;
@@ -819,15 +960,15 @@ footer hr, .footer hr, .site-footer hr {
   .post-card-image-container {
     height: 160px;
   }
-  
+
   .post-card-content {
     padding: 0.8rem;
   }
-  
+
   .post-card-title {
     font-size: 1rem;
   }
-  
+
   .post-card-excerpt {
     font-size: 0.8rem;
   }
