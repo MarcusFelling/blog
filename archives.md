@@ -1,7 +1,6 @@
 ---
 id: 492
 title: Archives
-date: '2025-04-01'
 layout: post
 nav-short: true
 guid: 'https://marcusfelling.com/?page_id=492'
