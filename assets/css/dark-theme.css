@@ -439,3 +439,19 @@ body.dark-theme {
 .dark-theme .page-subheading {
   color: var(--mid-col);
 }
+
+.dark-theme .post-card-image {
+  background-color: var(--card-image-placeholder);
+}
+
+/* Dark mode specific button styling */
+.dark-theme .view-all-posts {
+  background-color: var(--link-color);
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .view-all-posts:hover {
+  background-color: #0099ff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}

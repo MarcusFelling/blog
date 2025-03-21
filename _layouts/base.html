@@ -20,25 +20,21 @@ common-ext-js:
 ---
 
 <!DOCTYPE html>
-<html lang="{{ page.language | default: site.language | default: 'en' }}">
+<html lang="en" class="dark-theme">
 <head>
   <script>
-    (function() {
-      try {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark-theme');
-          document.body && document.body.classList.add('dark-theme');
-        }
-      } catch (e) {}
-    })();
+    // Always apply dark theme
+    document.documentElement.classList.add('dark-theme');
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('dark-theme');
+    });
   </script>
   {% include dark-theme.html %}
   {% include head.html %}
   <link rel="stylesheet" href="{{ '/assets/css/scroll-to-top.css' | relative_url }}">
 </head>
 
-<body>
+<body class="dark-theme">
 
   {% include nav.html %}
 

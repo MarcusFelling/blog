@@ -26,35 +26,12 @@
 
 /* Keep only essential image styles that don't conflict */
 .post-card-image {
-  object-fit: cover; /* This is important for mobile appearance */
+  object-fit: scale-down;
 }
 
 .post-card-image-placeholder {
   height: 100%;
   background-color: var(--card-image-placeholder, #f0f0f0);
-}
-
-/* Dark Mode Support */
-.dark-theme .post-card {
-  background-color: #232323;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.dark-theme .post-card-image {
-  background-color: #2d2d2d;
-}
-
-.dark-theme .post-card-tag {
-  background-color: #3a3a3a;
-  color: #d0d0d0;
-}
-
-.dark-theme .post-card-footer {
-  border-top-color: #3a3a3a;
-}
-
-.dark-theme .read-more {
-  color: #80cbc4;
 }
 
 /* Add extra padding to all heading elements */
@@ -69,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Adjust intro headers to have more space from navbar */
 .intro-header {
-  padding-top: 60px;
+  padding-top: 50px;
   margin-top: 0;
 }
 
@@ -101,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 .post-card-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Changed from scale-down for better mobile appearance */
+  object-fit: scale-down; 
 }
 
 .post-card-image-placeholder {
