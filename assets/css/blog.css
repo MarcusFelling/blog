@@ -1,6 +1,18 @@
-/* Combined CSS file for blog styling */
+/* ===== TABLE OF CONTENTS =====
+ * 1. VARIABLES
+ * 2. BASIC ELEMENTS
+ * 3. CONTAINER STYLING
+ * 4. CODE BLOCKS & SYNTAX HIGHLIGHTING
+ * 5. CARD STYLES
+ * 6. NAVIGATION
+ * 7. PAGINATION
+ * 8. SOCIAL LINKS
+ * 9. FOOTER
+ * 10. UTILITY COMPONENTS
+ * 11. RESPONSIVE STYLES
+ */
 
-/* ===== VARIABLES ===== */
+/* ===== 1. VARIABLES ===== */
 :root {
   /* Core theme variables - dark theme only */
   --page-col: #121212;
@@ -26,13 +38,8 @@
   --tag-color: #d0d0d0;
 }
 
+/* ===== 2. BASIC ELEMENTS ===== */
 html, body {
-  background-color: var(--page-col);
-  color: var(--text-col);
-}
-
-/* ===== BASIC ELEMENTS ===== */
-body {
   background-color: var(--page-col);
   color: var(--text-col);
 }
@@ -60,7 +67,21 @@ hr {
   scroll-margin-top: 70px;
 }
 
-/* Special handling for blog posts */
+/* Image styling */
+.img-fluid {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin: 1rem 0;
+  border: 1px solid var(--card-border);
+}
+
+.img-fluid:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== BLOG POST HEADINGS ===== */
 .blog-post h1, 
 .blog-post h2, 
 .blog-post h3, 
@@ -115,7 +136,7 @@ hr {
   visibility: hidden;
 }
 
-/* ===== CONTAINER STYLING ===== */
+/* ===== 3. CONTAINER STYLING ===== */
 .container-md {
   background-color: #161616; /* Slightly lighter than page but darker than navbar */
   border-radius: 8px;
@@ -156,10 +177,10 @@ table th, table td {
   border-color: var(--navbar-border-col);
 }
 
-/* ===== CODE BLOCKS ===== */
+/* ===== 4. CODE BLOCKS & SYNTAX HIGHLIGHTING ===== */
 pre, code {
   background-color: var(--card-image-placeholder);
-  color: var(--text-col); /* Fixed syntax error: removed space between var and parenthesis */
+  color: var(--text-col);
   border-radius: 4px;
 }
 
@@ -189,7 +210,7 @@ code {
   border-radius: 3px; /* Consistent with code styling */
 }
 
-/* Apply syntax highlighting colors with improved contrast */
+/* Syntax highlighting color scheme */
 /* Comments */
 .highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: #7cad6a; }
 
@@ -229,13 +250,14 @@ code {
 .highlight .gh { color: #ffffff; font-weight: bold; } /* GitHub headers */
 .highlight .gu { color: #bcbcbc; } /* GitHub subheaders */
 
-/* Special syntax for specific languages */
+/* Language specific styling */
 .language-diff .highlight .gd { color: #ff6e6e; }
 .language-diff .highlight .gi { color: #98c379; }
 .language-bash .highlight .nb { color: #98c379; }
 .language-json .highlight .attr { color: #9cdcfe; }
 
-/* ===== CARD STYLES ===== */
+/* ===== 5. CARD STYLES ===== */
+/* Card container layout */
 .post-cards-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
@@ -245,6 +267,7 @@ code {
   padding: 0 15px;
 }
 
+/* Individual card styling */
 .post-card {
   background-color: var(--card-bg);
   border-radius: 8px;
@@ -262,6 +285,7 @@ code {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
 }
 
+/* Card image container */
 .post-card-image-container {
   height: 180px;
   overflow: hidden;
@@ -279,6 +303,7 @@ code {
   background-color: var(--card-image-placeholder);
 }
 
+/* Card content sections */
 .post-card-content {
   padding: 1.25rem;
   flex-grow: 1;
@@ -360,7 +385,7 @@ code {
   text-decoration: none;
 }
 
-/* Fix title positioning below navbar */
+/* Page heading styles */
 .page-heading {
   padding-top: 2.5rem;
   padding-bottom: 2rem;
@@ -398,13 +423,13 @@ code {
   margin: 0 auto;
 }
 
-/* ===== NAVIGATION ===== */
+/* ===== 6. NAVIGATION ===== */
 .intro-header {
   padding-top: 50px;
   margin-top: 0;
 }
 
-/* Navbar styling using variables */
+/* Navbar components */
 .navbar, nav, .nav, .site-nav, header {
   background: var(--navbar-col);
   border-bottom: 1px solid var(--navbar-border-col) !important;
@@ -440,7 +465,7 @@ code {
   color: var(--text-col);
 }
 
-/* Navbar toggler */
+/* Navbar toggler for mobile */
 .navbar-toggler {
   border-color: var(--link-col);
   padding: 0.5rem;
@@ -475,7 +500,7 @@ code {
   background-color: var(--link-col);
 }
 
-/* ===== PAGINATION ===== */
+/* ===== 7. PAGINATION ===== */
 .pagination {
   margin: 0.625rem 0 0;
   justify-content: space-between;
@@ -494,21 +519,20 @@ code {
   text-transform: uppercase;
   font-size: 0.875rem;
   font-weight: 800;
+.pagination .page-item .page-link {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 800;
   letter-spacing: 1px;
   background-color: var(--page-col);
   border-radius: 0;
   color: var(--text-col);
   padding: 0.75rem 1rem;
 }
-
-.pagination .page-item .page-link:hover,
-.pagination .page-item .page-link:focus {
-  color: var(--page-col);
-  border: 1px solid var(--hover-col);
   background-color: var(--hover-col);
 }
 
-/* ===== SOCIAL LINKS ===== */
+/* ===== 8. SOCIAL LINKS ===== */
 .social-links {
   display: flex;
   flex-wrap: wrap;
@@ -541,6 +565,7 @@ code {
   text-decoration: none;
 }
 
+/* Footer-specific social links */
 footer .social-links a {
   color: var(--footer-text-col);
   border-color: var(--footer-text-col);
@@ -568,7 +593,7 @@ footer .fas:hover,
   transform: translateY(-2px);
 }
 
-/* ===== FOOTER ===== */
+/* ===== 9. FOOTER ===== */
 footer, .footer, .site-footer {
   background: var(--footer-col);
   border-top: 1px solid var(--navbar-border-col) !important;
@@ -615,7 +640,7 @@ footer hr, .footer hr, .site-footer hr {
   color: var(--footer-hover-col) !important;
 }
 
-/* Social Media Icons */
+/* Social Media Icons in footer */
 .social-list, .footer-links, .social-icons, footer ul, .footer ul, .site-footer ul {
   display: block !important;
   list-style: none !important;
@@ -642,7 +667,8 @@ footer hr, .footer hr, .site-footer hr {
   transform: translateY(-2px);
 }
 
-/* ===== SCROLL TO TOP ===== */
+/* ===== 10. UTILITY COMPONENTS ===== */
+/* Scroll to top button */
 .scroll-to-top {
   position: fixed;
   bottom: 20px;
@@ -680,7 +706,8 @@ footer hr, .footer hr, .site-footer hr {
   box-shadow: 0 0 0 3px rgba(0, 133, 161, 0.5);
 }
 
-/* ===== RESPONSIVE STYLES ===== */
+/* ===== 11. RESPONSIVE STYLES ===== */
+/* Medium devices (tablets) */
 @media (min-width: 768px) {
   .pagination.blog-pager {
     margin-top: 0.625rem;
@@ -691,6 +718,7 @@ footer hr, .footer hr, .site-footer hr {
   }
 }
 
+/* Large devices (desktops) */
 @media (max-width: 1200px) {
   .post-cards-container {
     grid-template-columns: repeat(3, 1fr) !important;
@@ -698,6 +726,7 @@ footer hr, .footer hr, .site-footer hr {
   }
 }
 
+/* Medium devices (tablets) */
 @media (max-width: 992px) {
   .post-cards-container {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -705,6 +734,7 @@ footer hr, .footer hr, .site-footer hr {
   }
 }
 
+/* Small devices */
 @media (max-width: 768px) {
   .post-cards-container {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -757,23 +787,12 @@ footer hr, .footer hr, .site-footer hr {
     width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    margin: 0 auto;
+    padding: 1rem;
   }
   
   .post-cards-container::after {
     display: none !important;
-  }
-  
-  .post-card {
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-  .post-card-image-container {
-    height: 180px;
-  }
-  
-  .post-card-content {
-    padding: 1rem;
   }
   
   .page-heading {
