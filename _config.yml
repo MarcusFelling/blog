@@ -98,11 +98,6 @@ timezone: "America/Toronto"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
-paginate: 5
-
-# Pagination settings
-paginate: 8  # Number of posts per page (exactly 8 posts)
-paginate_path: "/page:num/"
 
 kramdown:
   input: GFM
