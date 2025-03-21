@@ -19,8 +19,8 @@ In this post, I’ll walk through how to configure both Playwright Test (JavaScr
 Azure Test Plans is a popular service that many teams are using for manual testing. By publishing your automated Playwright tests to the service, you get a couple of benefits:
 
 1. **Traceability**. This gives you the option to link your requirements (Azure Boards) to automated tests and the pipeline that ran them. By mapping the two, you can establish the quality of the requirements based on test results. Ideally, a test case is created for each of the acceptance criteria listed for the requirement.
-2. **History**. Drilling into every pipeline run to see test results over time is a pain. Azure Test Plans allows you to see results through features like the [progress report](https://learn.microsoft.com/en-us/azure/devops/test/progress-report?view=azure-devops) and [charts](https://learn.microsoft.com/en-us/azure/devops/test/track-test-status?view=azure-devops#track-testing-progress).
-3. **Test inventory.** By tracking automated AND manual test cases, you can do things like [track the status of a test case](https://learn.microsoft.com/en-us/azure/devops/test/track-test-status?view=azure-devops#track-test-case-status) (not automated, planned to be automated, or automated). This makes it easy to track the progress of automated testing efforts, e.g. how many manual tests have been converted to automated, how many remain, etc.
+1. **History**. Drilling into every pipeline run to see test results over time is a pain. Azure Test Plans allows you to see results through features like the [progress report](https://learn.microsoft.com/en-us/azure/devops/test/progress-report?view=azure-devops) and [charts](https://learn.microsoft.com/en-us/azure/devops/test/track-test-status?view=azure-devops#track-testing-progress).
+1. **Test inventory.** By tracking automated AND manual test cases, you can do things like [track the status of a test case](https://learn.microsoft.com/en-us/azure/devops/test/track-test-status?view=azure-devops#track-test-case-status) (not automated, planned to be automated, or automated). This makes it easy to track the progress of automated testing efforts, e.g. how many manual tests have been converted to automated, how many remain, etc.
 
 ## What are the options?
 
@@ -39,17 +39,17 @@ My example project’s config looks like this: [playwright](https://gist.github.
 Once that is in place:
 
 1. Manually create new test cases in Azure Test Plans taking note of the ID (planID in query string of URL)
-2. Add the ID in brackets to the test case title. 444, 445 in this example:
+1. Add the ID in brackets to the test case title. 444, 445 in this example:
 
-![](/content/uploads/2023/09/annotation-test-id-1024x329.png)
+![Annotation test ID showing Playwright tests with Azure Test Plan IDs in brackets](/content/uploads/2023/09/annotation-test-id-1024x329.png){: .img-fluid }
 
 When these tests get run, you will then be able to see the outcome for each test case:
 
-![](/content/uploads/2023/09/outcome-1024x388.png)
+![](/content/uploads/2023/09/outcome-1024x388.png){: .img-fluid }
 
 My example pipeline runs these tests for every commit on main and also uses the JUnit reporter to publish results to the pipeline’s Test tab:
 
-![](/content/uploads/2023/09/test-tab.png)
+![](/content/uploads/2023/09/test-tab.png){: .img-fluid }
 
 ## Playwright .NET
 
@@ -58,33 +58,33 @@ This option works out of the box but has some caveats and complexity: A Windows 
 Here is how I set this up in my example project:
 
 1. Manually create new Azure Test Plans test cases
-2. Use Visual Studio’s test explorer to associate the automated test cases:
+1. Use Visual Studio’s test explorer to associate the automated test cases:
 
-    ![](/content/uploads/2023/09/associate-test-case.png)
+    ![](/content/uploads/2023/09/associate-test-case.png){: .img-fluid }
     
     This will change the Automation status field on the test case work item to automated:
     
-    ![](/content/uploads/2023/09/automation-status.png)
+    ![](/content/uploads/2023/09/automation-status.png){: .img-fluid }
 
-Once the test cases are configured, we can set up our pipelines to run the tests.
+    Once the test cases are configured, we can set up our pipelines to run the tests.
 
-3. Create a build pipeline that runs `dotnet publish` (using Windows agent) in order to create an artifact with the Playright binaries: [playwright-dotnet.yml](https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightDotnet?path=/playwright-dotnet.yml)
+1. Create a build pipeline that runs `dotnet publish` (using Windows agent) in order to create an artifact with the Playright binaries: [playwright-dotnet.yml](https://dev.azure.com/marcusfelling/Playground/_git/PlaywrightDotnet?path=/playwright-dotnet.yml)
 
-4. Create a [release pipeline](https://dev.azure.com/marcusfelling/Playground/_releaseDefinition?definitionId=2&_a=definition-tasks&environmentId=4) referencing the artifact created in the previous step:
+1. Create a [release pipeline](https://dev.azure.com/marcusfelling/Playground/_releaseDefinition?definitionId=2&_a=definition-tasks&environmentId=4) referencing the artifact created in the previous step:
 
-![](/content/uploads/2023/09/artifact.png)
+    ![](/content/uploads/2023/09/artifact.png){: .img-fluid }
 
-5. Add install tasks (that run on Windows agent) for “Visual Studio Test Platform Installer” (prereq for VS Test task), .NET, and Playwright browsers:
+1. Add install tasks (that run on Windows agent) for “Visual Studio Test Platform Installer” (prereq for VS Test task), .NET, and Playwright browsers:
 
-![](/content/uploads/2023/09/tasks.png)
+    ![](/content/uploads/2023/09/tasks.png){: .img-fluid }
 
-6. Add the VS Test task and reference your test plan:
+1. Add the VS Test task and reference your test plan:
 
-![](/content/uploads/2023/09/vstest-task.png)
+    ![](/content/uploads/2023/09/vstest-task.png){: .img-fluid }
 
-7. Create a new release to run the tests. Example results: [Test tab](https://dev.azure.com/marcusfelling/Playground/_releaseProgress?_a=release-environment-extension&releaseId=12&environmentId=12&extensionId=ms.vss-test-web.test-result-in-release-environment-editor-tab), [test plan results](https://dev.azure.com/marcusfelling/Playground/_testPlans/_results?testCaseId=434&contextPointId=31).
+1. Create a new release to run the tests. Example results: [Test tab](https://dev.azure.com/marcusfelling/Playground/_releaseProgress?_a=release-environment-extension&releaseId=12&environmentId=12&extensionId=ms.vss-test-web.test-result-in-release-environment-editor-tab), [test plan results](https://dev.azure.com/marcusfelling/Playground/_testPlans/_results?testCaseId=434&contextPointId=31).
 
-![](/content/uploads/2023/09/test-case-results.png)
+    ![](/content/uploads/2023/09/test-case-results.png){: .img-fluid }
 
 ## Summary
 

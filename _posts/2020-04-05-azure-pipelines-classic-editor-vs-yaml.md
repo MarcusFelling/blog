@@ -35,7 +35,7 @@ Ok, maybe this won’t be an epic battle, just a friendly pro and con list betwe
 
 **No longer the default**: When creating new definitions, the classic editor is no longer the default option. It’s now hidden towards the bottom, making it harder to find. YAML is the future, hint, hint, nudge, nudge.
 
-![](/content/uploads/2020/04/classicHidden.png)
+![](/content/uploads/2020/04/classicHidden.png){: .img-fluid }
 
 *Let’s make it really difficult for users to NOT use YAML. Muahhahaha!*
 
@@ -60,9 +60,9 @@ Ok, maybe this won’t be an epic battle, just a friendly pro and con list betwe
 
 **Steeper learning curve:** It may take users longer to get the hang of working with YAML files. However, the [Task Assistant](https://docs.microsoft.com/en-us/azure/devops/release-notes/2019/sprint-150-update#task-assistant-for-editing-yaml-files) can help. There is also a Visual Studio Code [Azure Pipelines extension](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines) to assist with syntax highlighting and IntelliSense. Still afraid of YAML? You could start with the classic editor, then make the switch to YAML using the “View YAML” button later down the road:
 
-![](/content/uploads/2020/04/viewYAML.png)
+![](/content/uploads/2020/04/viewYAML.png){: .img-fluid }
 
-![](/content/uploads/2020/04/copyYAML.png)
+![](/content/uploads/2020/04/copyYAML.png){: .img-fluid }
 
 ## Judge?
 

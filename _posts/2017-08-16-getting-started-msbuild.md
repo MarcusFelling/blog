@@ -9,7 +9,7 @@ nav-short: true
 tags: [Other]
 ---
 
-![MSBuild ](/content/uploads/2017/08/MSBuild.png)
+![MSBuild ](/content/uploads/2017/08/MSBuild.png){: .img-fluid }
 
 The majority of developers spend most of their time in Visual Studio and don’t have to understand what happens under the hood with MSBuild. Click the play button and magic happens! However, you may need to troubleshoot a failing build or extend the build to automate things. For those scenarios I’d like to provide a quick intro to what MSBuild is made up of and some tips on troubleshooting. Note: I’ll be using some of the code snippets from the Microsoft docs.
 

@@ -17,11 +17,11 @@ When I recently heard the [announcement ](https://devblogs.microsoft.com/powersh
 
 First up is creating the function app. There is plenty of [documentation ](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function)on this so I’ll skip the details. The main thing to select here is the Runtime Stack: PowerShell (Preview). Here is what mine looks like:
 
-![](/content/uploads/2019/05/CreateFunction-488x1024.png)
+![](/content/uploads/2019/05/CreateFunction-488x1024.png){: .img-fluid }
 
 Next, create a function with an HTTP trigger. This will be a function that will be run whenever it receives an HTTP request, responding based on data in the body or query string. We’ll be sending the HTTP request from within an Azure DevOps Pipeline in later steps.
 
-![](/content/uploads/2019/05/TriggerFunction-1024x482.png)
+![](/content/uploads/2019/05/TriggerFunction-1024x482.png){: .img-fluid }
 
 There are 2 files created by default: run.ps1 and function.json. Run.ps1 will contain our PowerShell logic that’s executed when there is an HTTP trigger. For this example, I’m getting a list of release definitions from an Azure DevOps project. My run.ps1 file looks like this:
 
@@ -45,11 +45,11 @@ Test the function by running it in the Portal and the console should display out
 
 Now that we have a function created, we can use Azure Pipelines to trigger it. First up we’ll create an Agentless Job in a new or existing release definition. This will give us a super fast execution of tasks, unlike waiting on hosted or private build agents that can take a while to pick up the tasks and execute them. Click the ellipsis in the environment block -> Add an agentless job.
 
-![](/content/uploads/2019/05/AgentlessJob-1024x350.png)
+![](/content/uploads/2019/05/AgentlessJob-1024x350.png){: .img-fluid }
 
 Add the “Invoke Azure Function” task to the new agentless job:
 
-![](/content/uploads/2019/05/InvokeAzureFunctionTask-1024x432.png)
+![](/content/uploads/2019/05/InvokeAzureFunctionTask-1024x432.png){: .img-fluid }
 
 Now we can configure the task.
 
@@ -60,11 +60,11 @@ Now we can configure the task.
        
     This resulted in my task looking like this:
 
-![](/content/uploads/2019/05/InvokeAzureFunctionTaskConfigured-698x1024.png)
+![](/content/uploads/2019/05/InvokeAzureFunctionTaskConfigured-698x1024.png){: .img-fluid }
 
 Creating and running a new release results in a log that outputs the response and body.
 
-![](/content/uploads/2019/05/ReleaseLog-1024x331.png)
+![](/content/uploads/2019/05/ReleaseLog-1024x331.png){: .img-fluid }
 
 ## Conclusion
 

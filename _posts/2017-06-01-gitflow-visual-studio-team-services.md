@@ -30,19 +30,19 @@ Some examples of policies to enforce:
 
 Minimum # of reviewers. This comes down to preference.
 
-![](/content/uploads/2017/06/minNumberofApprovers.png)
+![](/content/uploads/2017/06/minNumberofApprovers.png){: .img-fluid }
 
 Enforce a work item to be linked to the pull request. This really helps tractability when digging through history.
 
-![](/content/uploads/2017/06/checkForLinkedWorkItems.png)
+![](/content/uploads/2017/06/checkForLinkedWorkItems.png){: .img-fluid }
 
 Set up a build to be triggered when a pull request is submitted. I recommend setting up CI builds that run unit tests to ensure the code compiles and passes tests before it is merged. If the build fails, the pull request cannot be completed (yes you can override policies).
 
-![](/content/uploads/2017/06/buildpolicy.png)
+![](/content/uploads/2017/06/buildpolicy.png){: .img-fluid }
 
 Have subject matter experts in different parts of the code base? This is where you’d setup the policy to require certain reviewers based on the code that has changed.
 
-![](/content/uploads/2017/06/codereviewers.png)
+![](/content/uploads/2017/06/codereviewers.png){: .img-fluid }
 
 Once the policies are setup, developers can start working on topic branches, deploying, and testing their changes. Once they’re ready to merge their changes into the main line, they create a pull request. The team collaborates on the changes, ensure they all agree, then complete the pull request when they’re ready.
 

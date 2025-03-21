@@ -18,17 +18,17 @@ One of the most frequently asked questions I get is how to test web apps that us
 
 Storing secrets in plain text in our code or configuration files can pose a significant security risk, especially if we share our code with others or publish it on public repositories like GitHub. Instead, we can store the credentials of our test accounts using environment variables. The environment variables are then referenced in our tests using the process core module of Node.js:
 
-![](/content/uploads/2023/02/process-node-core-module.png)
+![](/content/uploads/2023/02/process-node-core-module.png){: .img-fluid }
 
 To set the values of these variables we can use our CI system’s secret management. For GitHub Actions, setting the values in the pipeline would look something like this:
 
-![](/content/uploads/2023/02/gha-secrets-playwright.png)
+![](/content/uploads/2023/02/gha-secrets-playwright.png){: .img-fluid }
 
 *example GitHub Actions workflow setting env vars scoped to job*
 
 To make local development easier, we can use [.env files](https://github.com/motdotla/dotenv) that are added to .gitignore to make sure they don’t get committed to source control.
 
-![](/content/uploads/2023/02/example-dotenv-file.png)
+![](/content/uploads/2023/02/example-dotenv-file.png){: .img-fluid }
 
 *example .env file with key-value pairs*
 

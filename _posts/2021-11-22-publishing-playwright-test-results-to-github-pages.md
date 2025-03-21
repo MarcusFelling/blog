@@ -24,7 +24,7 @@ GitHub has docs on this here: <https://docs.github.com/en/pages/getting-started-
 
 I chose to go with most of the defaults. The content lives in a separate branch `gh-pages` at the root. I chose to set up a custom domain at [testresults.marcusfelling.com](https://testresults.marcusfelling.com/). This is what my configuration looks like:
 
-![](/content/uploads/2021/11/github-pages-configuration-1024x646.png)
+![](/content/uploads/2021/11/github-pages-configuration-1024x646.png){: .img-fluid }
 
 ## Configuring GitHub Actions
 

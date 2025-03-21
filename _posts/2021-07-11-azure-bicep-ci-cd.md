@@ -39,7 +39,7 @@ To combine all of the above using a single command, validation commands can be u
 
 For an example of this using GitHub Actions, check out my SpaceGameVNext’s pipeline [here](https://github.com/MarcusFelling/demo-space-game-vnext/blob/12b081894b10b581bdfeaedfce69a0f5165891b3/.github/workflows/pipeline.yml#L83).
 
-![](/content/uploads/2021/07/buildBicepValidatePipeline-1024x623.png)
+![](/content/uploads/2021/07/buildBicepValidatePipeline-1024x623.png){: .img-fluid }
 
 ## Deploy
 
@@ -69,7 +69,7 @@ Additionally,
 
 For an example of this using GitHub Actions, check out my SpaceGameVNext’s pipeline [here](https://github.com/MarcusFelling/demo-space-game-vnext/blob/main/.github/workflows/pipeline.yml).
 
-![](/content/uploads/2021/07/githubactionspipelinebicepazure-1024x123.png)
+![](/content/uploads/2021/07/githubactionspipelinebicepazure-1024x123.png){: .img-fluid }
 
 ## Summary
 

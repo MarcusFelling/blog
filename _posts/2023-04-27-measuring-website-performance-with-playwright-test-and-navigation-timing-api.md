@@ -15,7 +15,7 @@ I was recently tasked with measuring the impact of a Redis cache on an e-commerc
 
 Playwright already has useful features built in to report on things like the HTML report test step timing and the trace viewer that includes the call duration of each action.
 
-![](/content/uploads/2023/04/test-step-example.png)
+![](/content/uploads/2023/04/test-step-example.png){: .img-fluid }
 
 HTML report test step duration
 
@@ -27,6 +27,6 @@ Here we have a function **measurePerformance** that can be called inside any tes
 
 As a result, this is what the HTML report looks like:
 
-![](/content/uploads/2023/04/performance-playwright-html-report.png)
+![](/content/uploads/2023/04/performance-playwright-html-report.png){: .img-fluid }
 
 Happy testing!

@@ -23,7 +23,7 @@ Octopus then moves on to next instance…
 The deploy steps that are run for a role are grouped. There is a parent step that has the rolling deployment setting, with child steps to perform the deploy activities.  
 Example parent step:
 
-![web app rolling deploy](/content/uploads/2017/12/webapprollingdeploy.png)
+![web app rolling deploy](/content/uploads/2017/12/webapprollingdeploy.png){: .img-fluid }
 
 The first script [EnterStandby.ps1](#enterstandbyps1) gets the instance id, gets the ASG name using it’s instance ID, sets an Octopus output variable with the ASG name (that’s referenced in ExitStandby.ps1), then places the instance in standby mode (if it isn’t already).
 

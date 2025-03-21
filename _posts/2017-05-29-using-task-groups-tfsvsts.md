@@ -15,6 +15,6 @@ When my team started creating microservices the number of build definitions to m
 
 Here is what an example Task Group looks like:
 
-![](/content/uploads/2017/05/TaskGroupDemo.png)
+![](/content/uploads/2017/05/TaskGroupDemo.png){: .img-fluid }
 
 Use variables wherever the definitions will differ in each build step, then set their values in each build definition. For each Task Group parameter, enter the build variable $(VariableName). That way build definitions can easily be cloned and setup by entering the variable values in the variables tab.

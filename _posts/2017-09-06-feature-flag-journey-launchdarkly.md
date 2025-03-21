@@ -15,7 +15,7 @@ At [DevOpsDays Minneapolis](https://www.devopsdays.org/events/2017-minneapolis/w
 
 If you aren’t familiar, feature flagging is a way to control the visibility and on/off state of a particular feature by wrapping the code in a conditional. This can be done as a front-end flag, back-end flag, or both (front-end flags to control UI visibility, back-end flags can control APIs, configurations, etc.). When the new feature is deployed to lower environments it should be tested in both on and off states. When the feature is ready for production, it is dark launched (in the off state). It can then be rolled out to a percentage or group of users (tools like [LaunchDarkly](https://launchdarkly.com/) make this easy).
 
-![kill switch for the internet](/content/uploads/2017/09/killSwitch-300x279.png)
+![kill switch for the internet](/content/uploads/2017/09/killSwitch-300x279.png){: .img-fluid }
 
 ## Speed up the feedback loop!
 

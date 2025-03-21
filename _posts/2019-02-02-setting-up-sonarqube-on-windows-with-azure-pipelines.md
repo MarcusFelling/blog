@@ -81,7 +81,7 @@ To generate a token, login to SonarQube, go to your profile (upper right) -> My 
 
 Next, you will want to make sure proper permissions are setup. Users that will be configuring the build definitions will need permissions to use the new Service connection. By default, the group \[projectName\]\\Endpoint Administrators is added. Add new users to that group, add a new group, or add individual users to suit your needs.
 
-![](/content/uploads/2019/02/SonarQubeServiceConnection.png)
+![](/content/uploads/2019/02/SonarQubeServiceConnection.png){: .img-fluid }
 
 ## Azure Pipelines Configuration
 
@@ -91,24 +91,24 @@ Now that we have a service connection, we can add the SonarQube build tasks to a
 
     This step needs to be added as the first task in the definition. When SonarQube uploads the analysis it will automatically create the new project using the Project Name, Project Key, and Project Version. I chose to use Azure DevOps [Predefined Variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops) for these values.
     
-    ![](/content/uploads/2019/02/PrepareAnalysisSonarQubeBuild-1024x577.png)
+    ![](/content/uploads/2019/02/PrepareAnalysisSonarQubeBuild-1024x577.png){: .img-fluid }
 
 2. Add the task: **Run Code Analysis**
 
     You will want to add this task towards the end of the build.
     
-    ![](/content/uploads/2019/02/RunCodeAnalysisSonarQube.png)
+    ![](/content/uploads/2019/02/RunCodeAnalysisSonarQube.png){: .img-fluid }
 
 3. Add the task: **Publish Quality Gate Result** (Optional)
 
     This task will display the Quality Gate status in the build summary and give you a sense of whether the application is ready for production “quality-wise”.   
     Note: This task can significantly increase build time because it polls the SonarQube server until the analysis is complete.
     
-    ![](/content/uploads/2019/02/PublishQualityGateResultSonarQubeBuild.png)
+    ![](/content/uploads/2019/02/PublishQualityGateResultSonarQubeBuild.png){: .img-fluid }
     
     Our build definition is now ready. You will notice that adding the new SonarQube tasks will add a new demand, requiring Java as as an agent capability. This means you will need to install Java on your build server if you’re using a Private agent/pool.
     
-    ![](/content/uploads/2019/02/JavaDemandSonarQube-1024x562.png)
+    ![](/content/uploads/2019/02/JavaDemandSonarQube-1024x562.png){: .img-fluid }
 
 4. Time to queue the build!
 
@@ -116,6 +116,6 @@ Now that we have a service connection, we can add the SonarQube build tasks to a
 
 After running the build with the SonarQube tasks, you should now see a new project in SonarQube.
 
-![](/content/uploads/2019/02/BlogSonarQubeExample-1024x141.png)
+![](/content/uploads/2019/02/BlogSonarQubeExample-1024x141.png){: .img-fluid }
 
 That’s all for now folks…

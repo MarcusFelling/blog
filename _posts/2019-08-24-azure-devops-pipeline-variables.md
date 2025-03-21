@@ -23,11 +23,11 @@ User-defined variables that are specific to the pipeline can be set on the varia
 Example:  
 1. Set variable
 
-![](/content/uploads/2019/04/VariablesTabAzureDevOpsPipelines-1.png)
+![](/content/uploads/2019/04/VariablesTabAzureDevOpsPipelines-1.png){: .img-fluid }
 
 2. Reference variable in task
 
-![](/content/uploads/2019/04/VariablesTabAzureDevOpsPipelines2.png)To reference the variables in scripts, you can refer to the Microsoft doc [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=designer%2Cbatch#set-variables-in-pipeline).
+![](/content/uploads/2019/04/VariablesTabAzureDevOpsPipelines2.png){: .img-fluid }To reference the variables in scripts, you can refer to the Microsoft doc [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=designer%2Cbatch#set-variables-in-pipeline).
 
 > Notice that variables are also made available to scripts through environment variables. The syntax for using these environment variables depends on the scripting language. Name is upper-cased, `.` replaced with `_`, and automatically inserted into the process environment. Here are some examples:
 
@@ -51,11 +51,11 @@ Write-Host "##vso[task.setvariable variable=testvar;]testvalue"
 
 I like to version my builds using a counter expression. To do this I set the following variables:
 
-![](/content/uploads/2019/08/AzureDevOpsBuildCounter-1024x178.png)
+![](/content/uploads/2019/08/AzureDevOpsBuildCounter-1024x178.png){: .img-fluid }
 
 Then change the build number format to reference them:
 
-![](/content/uploads/2019/08/AzureDevOpsBuildCounterOptions.png)
+![](/content/uploads/2019/08/AzureDevOpsBuildCounterOptions.png){: .img-fluid }
 
 You can find the list of functions available for expressions in the docs [here](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/expressions?view=azure-devops#functions).
 
