@@ -22,19 +22,17 @@ layout: base
   <article class="post-card">
     <a href="{{ post.url | relative_url }}" class="post-card-link">
       <div class="post-card-image-container">
-        {% if post.cover-img or post.thumbnail-img %}
-          {% if post.thumbnail-img %}
-            <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" class="post-card-image">
-          {% elsif post.cover-img %}
-            <img src="{{ post.cover-img | relative_url }}" alt="{{ post.title }}" class="post-card-image">
-          {% endif %}
+        {% if post.thumbnail-img %}
+          <img src="{{ post.thumbnail-img | relative_url }}" alt="{{ post.title }}" class="post-card-image">
+        {% elsif post.cover-img %}
+          <img src="{{ post.cover-img | relative_url }}" alt="{{ post.title }}" class="post-card-image">
         {% else %}
-          <div style="background-color: var(--card-image-placeholder); height: 100%;"></div>
+          <div class="post-card-image-placeholder"></div>
         {% endif %}
       </div>
       <div class="post-card-content">
         <h2 class="post-card-title">{{ post.title }}</h2>
-        </a>
+    </a><!-- Fixed: Moved closing link tag here to prevent nested links -->
         {% if post.subtitle %}
           <p class="post-card-subtitle">{{ post.subtitle }}</p>
         {% endif %}
@@ -47,7 +45,7 @@ layout: base
           <span class="post-card-date"><i class="far fa-calendar-alt"></i> {{ post.date | date: site.date_format }}</span>
         </div>
         <div class="post-card-footer">
-        <a href="{{ post.url | relative_url }}" class="post-card-link">
+        <a href="{{ post.url | relative_url }}" class="read-more-link">
           <span class="read-more">Read More <i class="fas fa-arrow-right"></i></span>
         </a>
         </div>

@@ -124,17 +124,26 @@
   text-decoration: none;
 }
 
-/* Responsive breakpoints */
+/* Responsive breakpoints - consolidated and improved */
 @media (max-width: 1200px) {
   .post-cards-container {
-    grid-template-columns: repeat(3, 1fr); /* 3 columns for tablets */
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .post-cards-container {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px;
   }
 }
 
 @media (max-width: 768px) {
   .post-cards-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for small tablets */
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 15px;
+    padding: 0 10px;
   }
   
   .post-card-title {
@@ -144,35 +153,40 @@
   .post-card-excerpt {
     font-size: 0.85rem;
   }
-}
-
-/* Mobile devices - maximum specificity approach */
-@media only screen and (max-width: 576px) {
-  .post-cards-container,
-  html body .post-cards-container,
-  body .post-cards-container,
-  .post-cards-container[class],
-  body[class] .post-cards-container {
-    display: grid !important;
-    grid-template-columns: 1fr !important; /* Force 1 column for phones */
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 0 15px !important; 
-    gap: 20px !important;
-    margin: 1rem auto !important;
-  }
-  
-  /* Ensure cards take full width */
-  .post-card,
-  body .post-card,
-  html body .post-card {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-  }
   
   .post-card-image-container {
     height: 160px;
+  }
+}
+
+/* Mobile devices - Force single column with !important */
+@media (max-width: 576px) {
+  .post-cards-container,
+  .post-cards-container[class] {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+    gap: 20px !important;
+    padding: 0 15px !important;
+  }
+  
+  .post-card {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Override the ::after content that might be causing layout issues */
+  .post-cards-container::after {
+    display: none !important;
+  }
+  
+  .post-card {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .post-card-image-container {
+    height: 180px;
   }
   
   .post-card-content {
@@ -181,31 +195,35 @@
   
   .page-heading {
     padding-top: 1.5rem;
-    margin-top: 4rem;
+    margin-top: 3.5rem;
   }
   
   .page-heading h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+  
+  .view-all-posts {
+    padding: 8px 16px;
+    font-size: 0.9rem;
   }
 }
 
-/* Extra small devices */
+/* Extra small devices - better handling */
 @media (max-width: 400px) {
-  .post-cards-container {
-    padding: 0 10px;
-    gap: 15px;
+  .post-card-image-container {
+    height: 160px;
   }
   
-  .post-card-image-container {
-    height: 140px;
+  .post-card-content {
+    padding: 0.8rem;
   }
   
   .post-card-title {
     font-size: 1rem;
   }
   
-  .post-card-content {
-    padding: 0.8rem;
+  .post-card-excerpt {
+    font-size: 0.8rem;
   }
 }
 
