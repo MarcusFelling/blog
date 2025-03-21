@@ -519,17 +519,21 @@ code {
   text-transform: uppercase;
   font-size: 0.875rem;
   font-weight: 800;
-.pagination .page-item .page-link {
-  text-transform: uppercase;
-  font-size: 0.875rem;
-  font-weight: 800;
   letter-spacing: 1px;
-  background-color: var(--page-col);
-  border-radius: 0;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
   color: var(--text-col);
   padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
-  background-color: var(--hover-col);
+
+.pagination .page-item .page-link:hover {
+  background-color: var(--link-col);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== 8. SOCIAL LINKS ===== */
