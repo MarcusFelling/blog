@@ -80,7 +80,7 @@ Example content of .props file:
 
 Generally I start at the bottom of the log and work my way up. The MSBuild errors aren’t always super helpful. If I’m having a hard time figuring our where an error is coming from, I’ll use preprocessing. Preprocessing takes the project file and walks through all of the imports and produces a flat file so that all of the targets will be in one file. This way you can see everything that is affecting your build. This makes things a lot easier to follow compared to juggling between a bunch of files trying to follow imports. This file can get big, Ctrl + F is your friend.
 
-```xml
+```powershell
 MSBuild project.csproj /pp:FileName.xml
 ```
 

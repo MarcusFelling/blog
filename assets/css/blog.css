@@ -159,7 +159,7 @@ table th, table td {
 /* ===== CODE BLOCKS ===== */
 pre, code {
   background-color: var(--card-image-placeholder);
-  color: var (--text-col);
+  color: var(--text-col); /* Fixed syntax error: removed space between var and parenthesis */
   border-radius: 4px;
 }
 
@@ -168,33 +168,72 @@ pre {
   border: 1px solid var(--card-border);
   overflow: auto;
   margin: 1em 0;
-  border-left: 3px solid var(--navbar-border-col);
+  border-left: 3px solid var(--link-col); /* Changed from navbar-border-col to link-col for better visibility */
 }
 
 code {
   padding: 2px 4px;
+  font-weight: 500; /* Added for better readability */
 }
 
 :not(pre) > code {
   color: var(--text-col);
   background-color: var(--card-image-placeholder);
+  border: 1px solid var(--card-border); /* Added border for better definition */
 }
 
 /* Syntax Highlighting - use CSS variables */
 .highlight {
   background-color: var(--card-image-placeholder);
+  padding: 1px; /* Added minimal padding */
+  border-radius: 3px; /* Consistent with code styling */
 }
 
-/* Apply syntax highlighting colors */
-.highlight .c, .highlight .c1, .highlight .cm { color: #608b4e; }
-.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb { color: #ce9178; }
-.highlight .k, .highlight .kd, .highlight .kn { color: #569cd6; }
-.highlight .nf, .highlight .nx { color: #dcdcaa; }
-.highlight .mi, .highlight .mf { color: #b5cea8; }
-.highlight .nc, .highlight .kt { color: #4ec9b0; }
-.highlight .o, .highlight .p { color: #d4d4d4; }
-.highlight .na { color: #9cdcfe; }
-.highlight .nt { color: #569cd6; }
+/* Apply syntax highlighting colors with improved contrast */
+/* Comments */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: #7cad6a; }
+
+/* Strings */
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .sh, .highlight .si, .highlight .sx { color: #e69d85; }
+
+/* Keywords */
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt { color: #78b3ff; }
+
+/* Function names */
+.highlight .nf, .highlight .nx, .highlight .fm { color: #f8d57e; }
+
+/* Numbers */
+.highlight .mi, .highlight .mf, .highlight .m, .highlight .mb, .highlight .mh, .highlight .mo { color: #c5e39b; }
+
+/* Class names/types */
+.highlight .nc, .highlight .nn, .highlight .nl { color: #70e8cb; }
+
+/* Operators/punctuation */
+.highlight .o, .highlight .p { color: #f0f0f0; }
+
+/* Names/attributes */
+.highlight .na, .highlight .nb, .highlight .bp { color: #9cdcfe; }
+
+/* HTML/XML tags */
+.highlight .nt { color: #78aeff; }
+
+/* Variables */
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi { color: #bcbcff; }
+
+/* Regex */
+.highlight .sr { color: #ff8ca3; }
+
+/* Important elements */
+.highlight .gi { color: #98c379; background-color: rgba(152, 195, 121, 0.1); } /* Git insertion */
+.highlight .gd { color: #ff6e6e; background-color: rgba(255, 110, 110, 0.1); } /* Git deletion */
+.highlight .gh { color: #ffffff; font-weight: bold; } /* GitHub headers */
+.highlight .gu { color: #bcbcbc; } /* GitHub subheaders */
+
+/* Special syntax for specific languages */
+.language-diff .highlight .gd { color: #ff6e6e; }
+.language-diff .highlight .gi { color: #98c379; }
+.language-bash .highlight .nb { color: #98c379; }
+.language-json .highlight .attr { color: #9cdcfe; }
 
 /* ===== CARD STYLES ===== */
 .post-cards-container {
