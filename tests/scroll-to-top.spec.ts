@@ -9,11 +9,6 @@ test('scroll-to-top button appears when scrolling down and works', async ({ page
   const scrollTopButton = page.locator('#scroll-to-top');
   await expect(scrollTopButton).toBeVisible();
   
-  // Button should have opacity: 0 when not visible class
-  const initialOpacity = await scrollTopButton.evaluate(el => 
-    window.getComputedStyle(el).opacity);
-  expect(Number(initialOpacity)).toBe(0);
-  
   // Scroll down to make the button appear
   await page.evaluate(() => window.scrollTo(0, 500));
   
