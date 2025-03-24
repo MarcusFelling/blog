@@ -1069,3 +1069,44 @@ footer .fas:hover,
   text-align: center;
   color: #888;
 }
+
+/* ===== 13. ACCESSIBILITY ENHANCEMENTS ===== */
+/* Replace deprecated -ms-high-contrast with standard media queries */
+@media (prefers-contrast: more) {
+  /* High contrast mode styles */
+  .search-input,
+  .post-card,
+  .container-md,
+  .social-links a,
+  button,
+  .dropdown-menu,
+  .pagination .page-item .page-link,
+  .search-results {
+    border-width: 2px !important;
+  }
+
+  .post-card-title, 
+  h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+  }
+
+  a {
+    text-decoration: underline !important;
+  }
+
+  .search-icon {
+    color: #fff !important;
+  }
+
+  /* Improve contrast on focus for accessibility */
+  *:focus {
+    outline: 3px solid var(--link-col) !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* Additional contrast mode for Windows High Contrast Mode */
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: black-on-white) {
+  /* This will be gradually phased out, but keeps compatibility with older browsers */
+  /* Inherit styles from the standard media query above */
+}
