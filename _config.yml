@@ -10,7 +10,7 @@ remote_theme: marcusfelling/blog-theme
 author: Marcus Felling
 
 navbar-links:
-  Blog Archives: "archives"
+  Archives: "archives"
 
 
 #####################################
