@@ -127,6 +127,12 @@ exclude:
   - docs/
   - node_modules
   - playwright-report
+  - tests/
+  - package.json
+  - package-lock.json
+  - .github/
+  - .gitignore
+  - LICENSE
 
 plugins:
   - jekyll-paginate

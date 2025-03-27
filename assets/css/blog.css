@@ -10,6 +10,8 @@
  * 9. FOOTER
  * 10. UTILITY COMPONENTS
  * 11. RESPONSIVE STYLES
+ * 12. SEARCH COMPONENTS
+ * 13. ACCESSIBILITY ENHANCEMENTS
  */
 
 /* ===== 1. VARIABLES ===== */
@@ -561,7 +563,7 @@ header a:hover {
 .dropdown-item:hover,
 .dropdown-item:focus {
   background-color: var(--card-image-placeholder);
-  color: var(--text-col);
+  color: var (--text-col);
 }
 
 /* Navbar toggler for mobile */
