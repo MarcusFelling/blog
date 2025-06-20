@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["@anthropic-ai/mcp-server-filesystem", "--root", "."],
+      "env": {}
+    }
+  },
+  "testGeneration": {
+    "enabled": true,
+    "maxPostsToAnalyze": 10,
+    "includeAccessibilityTests": true,
+    "includePerformanceTests": true,
+    "includeSEOTests": true
+  },
+  "reporting": {
+    "enhancedAnalysis": true,
+    "failureInsights": true,
+    "performanceMetrics": true,
+    "testSuggestions": true
+  }
+}

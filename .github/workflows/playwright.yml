@@ -35,7 +35,7 @@ jobs:
 
       - name: Run Playwright tests
         run: |
-          npx playwright test
+          npm run test:mcp
 
       - name: Create test summary
         uses: test-summary/action@dist

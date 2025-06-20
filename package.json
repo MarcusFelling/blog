@@ -2,8 +2,15 @@
   "name": "blog-tests",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "main": "index.js",  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "test:mcp": "playwright test --reporter=./tests/reporters/mcp-reporter.ts",
+    "generate:tests": "node tests/scripts/generate-tests.js",
+    "analyze:accessibility": "playwright test tests/accessibility.spec.ts --reporter=list"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MarcusFelling/blog.git"
@@ -15,7 +22,9 @@
     "url": "https://github.com/MarcusFelling/blog/issues"
   },
   "devDependencies": {
-    "@playwright/test": "^1.52.0"
+    "@playwright/test": "^1.53.1",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@types/node": "^20.0.0"
   },
   "dependencies": {
     "dotenv": "^16.0.3"
