@@ -52,13 +52,15 @@ const config: PlaywrightTestConfig = {
     }
   ],
 
-  /* Run your local dev server before starting the tests */
-  webServer: {
-    command: 'bundle exec jekyll serve',
-    port: 4000,
-    reuseExistingServer: !process.env.CI,
-    timeout: 300 * 1000,
-  },
+  /* Run local dev server before starting the tests for CI */
+  ...(process.env.CI ? {
+    webServer: {
+      command: 'bundle exec jekyll serve',
+      port: 4000,
+      reuseExistingServer: false,
+      timeout: 300 * 1000,
+    }
+  } : {})
 };
 
 export default config;
