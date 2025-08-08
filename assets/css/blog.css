@@ -908,6 +908,11 @@ footer .fas:hover,
     padding: 0 10px;
   }
 
+  /* Hide hero panel on mobile */
+  .hero-panel {
+    display: none !important;
+  }
+
   .post-card-title {
     font-size: 1.1rem;
   }
