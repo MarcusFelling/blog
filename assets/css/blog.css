@@ -1131,3 +1131,124 @@ footer .fas:hover,
   /* This will be gradually phased out, but keeps compatibility with older browsers */
   /* Inherit styles from the standard media query above */
 }
+
+/* ===== Modern Redesign Overrides ===== */
+.intro-header {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  padding-top: 2rem;
+}
+
+body.modern .intro-header { background: transparent; }
+/* Blend legacy page-heading with modern background */
+.page-heading { background:transparent !important; box-shadow:none !important; border:0 !important; }
+
+/* ===== Unified Syntax Highlight Theme (Matches 'Optimizing GitHub Actions' post) ===== */
+/* Applied last to ensure consistency across pages */
+.highlight, pre.highlight, pre code { background:#2d2d2d !important; color:#f0f4f7 !important; }
+pre { background:#2d2d2d !important; border:1px solid #333 !important; border-left:3px solid var(--link-col) !important; box-shadow:0 0 0 1px rgba(0,0,0,.4) inset; }
+pre code { background:transparent !important; }
+:not(pre) > code { background:#2d2d2d !important; border:1px solid #333 !important; color:#f0f4f7 !important; padding:2px 5px; border-radius:4px; }
+/* Token colors (kept identical to original palette used in reference post) */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color:#7cad6a !important; font-style:italic; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .sh, .highlight .si, .highlight .sx { color:#e69d85 !important; }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt { color:#78b3ff !important; font-weight:600; }
+.highlight .nf, .highlight .fm, .highlight .nx { color:#f8d57e !important; }
+.highlight .m, .highlight .mi, .highlight .mf, .highlight .mb, .highlight .mh, .highlight .mo { color:#c5e39b !important; }
+.highlight .nc, .highlight .nn, .highlight .nl { color:#70e8cb !important; }
+.highlight .o, .highlight .p { color:#f0f0f0 !important; }
+.highlight .na, .highlight .nb, .highlight .bp { color:#9cdcfe !important; }
+.highlight .nt { color:#78aeff !important; }
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi { color:#bcbcff !important; }
+.highlight .sr { color:#ff8ca3 !important; }
+.highlight .gi { color:#98c379 !important; background:rgba(152,195,121,.12) !important; }
+.highlight .gd { color:#ff6e6e !important; background:rgba(255,110,110,.12) !important; }
+.highlight .err { color:#ff8080 !important; background:rgba(255,128,128,.15) !important; border-bottom:1px dotted #ff8080; }
+/* Scrollbar refinement */
+pre::-webkit-scrollbar { height:10px; }
+pre::-webkit-scrollbar-track { background:#2d2d2d; }
+pre::-webkit-scrollbar-thumb { background:#3a4349; border:2px solid #2d2d2d; border-radius:6px; }
+pre::-webkit-scrollbar-thumb:hover { background:#465158; }
+pre:focus-within { outline:2px solid #78b3ff; outline-offset:2px; }
+
+
+/* ===== Code Block Enhancements (Toolbar / Copy / Line Numbers / Wrap) ===== */
+.highlight.with-toolbar { position:relative; }
+.highlighter-rouge.with-toolbar, figure.highlight.with-toolbar { position:relative; }
+.code-toolbar { display:flex; gap:6px; justify-content:flex-end; align-items:center; font-size:12px; font-weight:500; padding:4px 8px; background:linear-gradient(90deg, rgba(45,45,45,.85), rgba(45,45,45,.55)); border-bottom:1px solid #333; border-top-left-radius:4px; border-top-right-radius:4px; backdrop-filter:blur(6px); position:sticky; top:0; z-index:3; }
+.code-toolbar button { appearance:none; border:1px solid #444; background:#3a4349; color:#f0f4f7; padding:2px 8px 3px; border-radius:4px; cursor:pointer; line-height:1.2; font-family:inherit; display:inline-flex; gap:4px; align-items:center; transition:background .18s, border-color .18s, color .18s; }
+.code-toolbar button:hover { background:#4b565d; }
+.code-toolbar button:active { background:#5a666e; }
+.code-toolbar button:focus-visible { outline:2px solid var(--link-col); outline-offset:2px; }
+.code-toolbar button[aria-pressed="true"] { background:#2f72aa; border-color:#2f72aa; }
+.code-toolbar .copy-status { font-size:11px; margin-left:8px; color:#9ab6c5; min-width:52px; text-align:right; font-weight:400; }
+
+/* Line numbers (opt-in via class `line-numbers` on code or parent .highlight, or data-line-numbers attribute) */
+.highlight.line-numbers pre, .highlight.line-numbers pre code { position:relative; }
+.highlight.line-numbers pre { padding-left:3.5em; }
+.highlight.line-numbers pre code { counter-reset:code-line; display:block; }
+.highlight.line-numbers pre code span.code-line { display:block; padding-left:0.25rem; }
+.highlight.line-numbers pre code span.code-line:before { counter-increment:code-line; content:counter(code-line); position:absolute; left:0; width:3em; text-align:right; padding-right:.75em; color:#6d7a80; opacity:.8; font-size:12px; user-select:none; }
+.highlight.line-numbers pre code span.code-line.highlighted { background:rgba(255,255,255,.06); }
+
+/* Ensure unified radii when toolbar present */
+.with-toolbar pre { border-top-left-radius:0; border-top-right-radius:0; margin-top:0; }
+.with-toolbar .code-toolbar + pre { margin-top:0; }
+
+/* ===== GitHub Gist Overrides (Unify with site syntax theme) ===== */
+/* Base containers */
+.gist .gist-file { border:1px solid #333 !important; border-radius:6px !important; background:#2d2d2d !important; }
+.gist .gist-file .file-header { background:#242424 !important; color:#f0f4f7 !important; border-bottom:1px solid #333 !important; padding:.55rem .75rem !important; }
+.gist .gist-file .file-header a { color:#9cdcfe !important; text-decoration:none; }
+.gist .gist-file .file-header a:hover, .gist .gist-file .file-header a:focus-visible { color:#fff !important; }
+.gist .gist-meta { background:#242424 !important; color:#9fb2c1 !important; border-top:1px solid #333 !important; padding:.45rem .7rem !important; }
+.gist .gist-meta a { color:#78b3ff !important; text-decoration:none; }
+.gist .gist-meta a:hover, .gist .gist-meta a:focus-visible { color:#fff !important; }
+
+/* Code area */
+.gist .blob-wrapper { background:#2d2d2d !important; }
+.gist table { background:transparent !important; }
+.gist .highlight { background:#2d2d2d !important; }
+.gist .blob-num { color:#6d7a80 !important; background:#2d2d2d !important; padding:0 .6rem 0 .8rem !important; user-select:none; }
+.gist .blob-num:hover { color:#9fb2c1 !important; }
+.gist .blob-code { color:#f0f4f7 !important; font-family: Menlo,Consolas,monaco,monospace !important; font-size:13px !important; }
+.gist .blob-code-inner { white-space:pre !important; }
+
+/* Token color mapping (GitHub to site palette) */
+.gist .pl-c { color:#7cad6a !important; font-style:italic; } /* comment */
+.gist .pl-s, .gist .pl-pds, .gist .pl-s .pl-pse .pl-s1, .gist .pl-s1, .gist .pl-smi { color:#e69d85 !important; } /* strings & string-ish */
+.gist .pl-k, .gist .pl-kd, .gist .pl-kv, .gist .pl-c1 { color:#78b3ff !important; } /* keywords & constants */
+.gist .pl-en, .gist .pl-ent, .gist .pl-e { color:#f8d57e !important; } /* function / entity names */
+.gist .pl-v, .gist .pl-sv, .gist .pl-va { color:#bcbcff !important; } /* variables */
+.gist .pl-n, .gist .pl-vi, .gist .pl-vo { color:#f0f4f7 !important; } /* generic identifiers */
+.gist .pl-mi1 { color:#98c379 !important; background:rgba(152,195,121,.12) !important; } /* added */
+.gist .pl-md, .gist .pl-mdhf { color:#ff6e6e !important; background:rgba(255,110,110,.12) !important; } /* removed */
+.gist .pl-mb { color:#c5e39b !important; } /* numeric / boolean */
+.gist .pl-ii { color:#ff8080 !important; background:rgba(255,128,128,.15) !important; border-bottom:1px dotted #ff8080 !important; }
+
+/* Selection & focus */
+.gist ::selection { background:rgba(120,179,255,.28) !important; color:#fff !important; }
+.gist :focus-visible { outline:2px solid #78b3ff !important; outline-offset:2px !important; }
+
+/* Hide default light theme shadows/borders that clash */
+.gist .gist-data { border:none !important; }
+.gist .blob-num, .gist .blob-code { border:none !important; }
+
+/* Scrollbars inside gists (WebKit) */
+.gist .blob-wrapper::-webkit-scrollbar { height:10px; }
+.gist .blob-wrapper::-webkit-scrollbar-track { background:#2d2d2d; }
+.gist .blob-wrapper::-webkit-scrollbar-thumb { background:#3a4349; border:2px solid #2d2d2d; border-radius:6px; }
+.gist .blob-wrapper::-webkit-scrollbar-thumb:hover { background:#465158; }
+
+
+/* Soft wrap toggle */
+.highlight pre.soft-wrap { white-space:pre-wrap; word-break:break-word; overflow-x:auto; }
+
+@media (max-width: 640px) {
+  .code-toolbar { font-size:11px; padding:4px 6px; }
+  .code-toolbar button { padding:2px 6px 3px; }
+}
+
+
+

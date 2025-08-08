@@ -27,17 +27,29 @@ common-ext-js:
   {% include head.html %}
 </head>
 
-<body>
+<body class="modern">
+  <a href="#main-content" class="skip-link">Skip to content</a>
 
   {% include nav.html %}
 
-  {{ content }}
+  <main class="wrapper" id="main-content">
+    {{ content }}
+  </main>
 
   {% include footer.html %}
 
   {% include footer-scripts.html %}
+  {% if layout.common-ext-js %}
+    {% for js in layout.common-ext-js %}
+      {% if js.href %}
+        <script src="{{ js.href }}"{% if js.sri %} integrity="{{ js.sri }}" crossorigin="anonymous"{% endif %}></script>
+      {% else %}
+        <script src="{{ js }}"></script>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
   <script src="{{ '/assets/js/scroll-to-top.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/google-analytics.js' | relative_url }}"></script  
+  <script src="{{ '/assets/js/google-analytics.js' | relative_url }}"></script>
 </body>
 </html>

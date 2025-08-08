@@ -1,0 +1,162 @@
+<script>
+// Apply staggered animation delays defined in data-delay
+window.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('[data-delay]').forEach(el=>{
+    const ms=el.getAttribute('data-delay');
+    el.style.animationDelay = ms+'ms';
+  });
+  // Make read-more-chip clickable (acts as link) without nested anchors
+  document.querySelectorAll('.post-card.modern-card').forEach(card=>{
+    const chip = card.querySelector('.read-more-chip');
+    const anchor = card.querySelector('a.post-card-link');
+    if(chip && anchor){
+      chip.setAttribute('role','link');
+      chip.setAttribute('tabindex','0');
+      chip.addEventListener('click',()=> anchor.click());
+      chip.addEventListener('keypress',e=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); anchor.click(); }});
+    }
+  });
+});
+</script>
+
+<script>
+// Code block enhancements: copy button, optional line numbers, soft wrap toggle
+window.addEventListener('DOMContentLoaded', () => {
+  // Prefer outer Rouge wrapper (.highlighter-rouge) if present, else fallback to direct highlight/pre
+  let nodeList = document.querySelectorAll('.highlighter-rouge');
+  if(!nodeList.length) {
+    nodeList = document.querySelectorAll('figure.highlight, div.highlight, pre.highlight');
+  }
+
+  nodeList.forEach(wrapper => {
+    // Identify the container we'll decorate (avoid decorating both outer and inner)
+    let container = wrapper;
+    // If this wrapper contains another .highlight and itself is NOT .highlight but is .highlighter-rouge, use wrapper; else ensure we don't process nested inner highlight twice
+    if(container.classList.contains('highlight') && container.parentElement && container.parentElement.classList.contains('highlighter-rouge')) {
+      // Skip inner highlight, outer will handle
+      return;
+    }
+    if(container.classList.contains('enhanced')) return;
+    container.classList.add('enhanced');
+
+    // Find pre/code inside container
+    let pre = container.querySelector('pre');
+    if(!pre && container.tagName.toLowerCase()==='pre') pre = container;
+    if(!pre) return;
+    const code = pre.querySelector('code');
+    if(!code) return;
+
+    container.classList.add('with-toolbar');
+
+    // Build toolbar
+    const toolbar = document.createElement('div');
+    toolbar.className = 'code-toolbar';
+
+    const copyBtn = document.createElement('button');
+    copyBtn.type = 'button';
+    copyBtn.className = 'code-copy-btn';
+    copyBtn.setAttribute('aria-label','Copy code to clipboard');
+    copyBtn.textContent = 'Copy';
+
+    const wrapBtn = document.createElement('button');
+    wrapBtn.type = 'button';
+    wrapBtn.className = 'code-wrap-btn';
+    wrapBtn.setAttribute('aria-label','Toggle soft wrap');
+    wrapBtn.textContent = 'Wrap Off';
+    wrapBtn.dataset.state = 'off';
+
+    const lineNumBtn = document.createElement('button');
+    lineNumBtn.type = 'button';
+    lineNumBtn.className = 'code-lines-btn';
+    lineNumBtn.setAttribute('aria-label','Toggle line numbers');
+    lineNumBtn.textContent = 'Lines';
+    lineNumBtn.dataset.state = 'off';
+
+    const status = document.createElement('span');
+    status.className = 'copy-status';
+    status.setAttribute('aria-live','polite');
+
+    toolbar.append(copyBtn, wrapBtn, lineNumBtn, status);
+    // Insert toolbar before pre inside highlight container
+    if(pre.parentElement === container) {
+      container.insertBefore(toolbar, pre);
+    } else {
+      container.prepend(toolbar);
+    }
+
+    // Copy logic (strip line number spans when copying)
+    copyBtn.addEventListener('click', () => {
+      let text = '';
+      if(code.innerText) {
+        text = code.innerText; // innerText respects layout (excludes pseudo line numbers)
+      } else {
+        text = code.textContent || '';
+      }
+      navigator.clipboard.writeText(text).then(() => {
+        status.textContent = 'Copied';
+        copyBtn.disabled = true;
+        setTimeout(()=>{ status.textContent=''; copyBtn.disabled=false; }, 1800);
+      }).catch(err => {
+        console.error('Copy failed', err);
+        status.textContent = 'Failed';
+        setTimeout(()=>{ status.textContent=''; }, 2000);
+      });
+    });
+
+    // Soft wrap toggle
+    wrapBtn.addEventListener('click', () => {
+      const isOn = wrapBtn.dataset.state === 'on';
+      if(isOn) {
+        pre.classList.remove('soft-wrap');
+        wrapBtn.dataset.state = 'off';
+        wrapBtn.textContent = 'Wrap Off';
+        wrapBtn.setAttribute('aria-pressed','false');
+      } else {
+        pre.classList.add('soft-wrap');
+        wrapBtn.dataset.state = 'on';
+        wrapBtn.textContent = 'Wrap On';
+        wrapBtn.setAttribute('aria-pressed','true');
+      }
+    });
+
+    // Line numbers toggle (idempotent) - only add spans if turning on first time
+    function applyLineNumbers() {
+      if(code.querySelector('span.code-line')) return; // already processed
+      const rawHtml = code.innerHTML.split(/\n/);
+      // Preserve trailing newline indicator
+      const last = rawHtml[rawHtml.length-1];
+      if(last === '') rawHtml.pop();
+      code.innerHTML = rawHtml.map(l => `<span class="code-line">${l || '\u200b'}</span>`).join('\n');
+    }
+
+    lineNumBtn.addEventListener('click', () => {
+      const isOn = lineNumBtn.dataset.state === 'on';
+      if(isOn) {
+  container.classList.remove('line-numbers');
+        lineNumBtn.dataset.state = 'off';
+        lineNumBtn.textContent = 'Lines';
+        lineNumBtn.setAttribute('aria-pressed','false');
+      } else {
+        applyLineNumbers();
+  container.classList.add('line-numbers');
+        lineNumBtn.dataset.state = 'on';
+        lineNumBtn.textContent = 'Lines ✔';
+        lineNumBtn.setAttribute('aria-pressed','true');
+      }
+    });
+
+    // Auto-enable if data attributes present
+    if(container.hasAttribute('data-line-numbers')) {
+      applyLineNumbers();
+      container.classList.add('line-numbers');
+      lineNumBtn.dataset.state = 'on';
+      lineNumBtn.textContent = 'Lines ✔';
+    }
+    if(container.hasAttribute('data-soft-wrap')) {
+      pre.classList.add('soft-wrap');
+      wrapBtn.dataset.state = 'on';
+      wrapBtn.textContent = 'Wrap On';
+    }
+  });
+});
+</script>

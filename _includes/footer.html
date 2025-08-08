@@ -1,0 +1,27 @@
+<footer class="footer-modern" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-block">
+      <h4>About</h4>
+      <p style="font-size:.8rem; line-height:1.25rem; color:#9fb3c4; max-width:50ch;">{{ site.description }}</p>
+    </div>
+    <div class="footer-block">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="/archives"><i class="fas fa-archive"></i> Archives</a></li>
+        <li><a href="/feed.xml"><i class="fas fa-rss"></i> RSS</a></li>
+      </ul>
+    </div>
+    <div class="footer-block">
+      <h4>Social</h4>
+      <div class="social-chips">
+        {% if site.social-network-links.github %}<a href="https://github.com/{{ site.social-network-links.github }}" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>{% endif %}
+        {% if site.social-network-links.linkedin %}<a href="https://www.linkedin.com/in/{{ site.social-network-links.linkedin }}" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>{% endif %}
+        {% if site.social-network-links.rss %}<a href="/feed.xml"><i class="fas fa-rss"></i> RSS</a>{% endif %}
+      </div>
+    </div>
+    <div class="footer-meta">
+      <span>&copy; {{ site.time | date: '%Y' }} {{ site.author }}. All rights reserved.</span>
+      <span>Built with Jekyll.</span>
+    </div>
+  </div>
+</footer>

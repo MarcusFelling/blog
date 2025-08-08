@@ -1,0 +1,38 @@
+<nav class="navbar-modern" role="navigation" aria-label="Main navigation">
+  <a class="brand" href="/" aria-label="Homepage">
+    <i class="fas fa-house" style="opacity:.9;"></i>
+    <span>{{ site.author }}</span>
+  </a>
+  <ul class="nav-links" id="primary-nav">
+    {% for nav in site['navbar-links'] %}
+      {% assign label = nav[0] %}
+      {% assign path = nav[1] %}
+      <li><a href="/{{ path | downcase | replace: ' ', '-' }}"><i class="fas fa-folder-open"></i> {{ label }}</a></li>
+    {% endfor %}
+  </ul>
+  <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" onclick="toggleDrawer()">Menu</button>
+</nav>
+<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+  <div class="drawer-header">
+    <h3>Navigate</h3>
+    <button class="close-drawer" onclick="toggleDrawer()" aria-label="Close navigation"><i class="fas fa-times"></i></button>
+  </div>
+  <ul class="drawer-links">
+    {% for nav in site['navbar-links'] %}
+      {% assign label = nav[0] %}
+      {% assign path = nav[1] %}
+      <li><a href="/{{ path | downcase | replace: ' ', '-' }}"><i class="fas fa-folder-open"></i> {{ label }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+<script>
+function toggleDrawer(){
+  const drawer=document.getElementById('mobile-drawer');
+  const btn=document.querySelector('.nav-toggle');
+  const open=drawer.classList.toggle('open');
+  drawer.setAttribute('aria-hidden', !open);
+  btn.setAttribute('aria-expanded', open);
+  if(open){ drawer.querySelector('a,button').focus(); }
+}
+window.addEventListener('keydown',e=>{ if(e.key==='Escape'){ const d=document.getElementById('mobile-drawer'); if(d.classList.contains('open')) toggleDrawer(); }});
+</script>
