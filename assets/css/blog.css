@@ -1241,6 +1241,14 @@ pre:focus-within { outline:2px solid #78b3ff; outline-offset:2px; }
 .gist .blob-wrapper::-webkit-scrollbar-thumb { background:#3a4349; border:2px solid #2d2d2d; border-radius:6px; }
 .gist .blob-wrapper::-webkit-scrollbar-thumb:hover { background:#465158; }
 
+/* ===== Footer Centering Overrides ===== */
+.footer-modern { text-align:center; }
+.footer-inner { justify-items:center; }
+.footer-block h4, .footer-block p, .footer-block ul, .footer-block a { text-align:center; }
+.footer-block ul { align-items:center; }
+.social-chips { justify-content:center; }
+.footer-meta { justify-content:center !important; text-align:center; }
+
 
 /* Soft wrap toggle */
 .highlight pre.soft-wrap { white-space:pre-wrap; word-break:break-word; overflow-x:auto; }
