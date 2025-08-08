@@ -25,7 +25,7 @@ test.describe('Search Functionality', () => {
     
     // Wait for results to appear
     const searchResults = page.locator('#search-results');
-    await expect(searchResults).toBeVisible();
+    await expect(searchResults).toBeVisible({ timeout: 5000 });
     
     // Verify we have results
     const resultItems = page.locator('.search-result-item');
