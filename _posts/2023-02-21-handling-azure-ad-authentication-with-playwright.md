@@ -38,6 +38,7 @@ To make local development easier, we can use [.env files](https://github.com/mot
 - Create a new tenant for testing and turn off MFA and security defaults. MFA cannot be fully automated and requires manual intervention.
 - Optionally, set [conditional access policies](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/overview) on your test environment to bypass login, then have a separate environment and tests for the login scenario itself.
 - The test account will need to be granted permission to the app under test for the first time. You can either add conditionals to your test script (if X locator is present, then click Yes) to account for this or manually log in once to grant permissions. This is a one-time step.
+
     ![Azure AD App Permissions for login auth](/content/uploads/2023/02/aad-app-permissions.jpg)
 
 <script src="https://gist.github.com/MarcusFelling/b28e64cc083aac32311ba5721deee14f.js"></script>

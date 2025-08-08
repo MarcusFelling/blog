@@ -1,0 +1,9 @@
+# Manually maintained list of top page views
+- path: /blog/2023/handling-azure-ad-authentication-with-playwright/
+  title: Handling Azure AD/Entra ID Authentication with Playwright
+- path: /blog/2023/using-azure-test-plans-with-playwright/
+  title: Using Azure Test Plans with Playwright
+- path: /blog/2020/how-to-reduce-the-size-of-your-tfs-azure-devops-server-collection-databases/
+  title: How to reduce the size of your TFS/Azure DevOps Server collection databases
+- path: /blog/2025/vpn-toggle-vscode-extension
+  title: Control Your Windows VPN Connections from VS Code

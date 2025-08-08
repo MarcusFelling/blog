@@ -138,3 +138,6 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
+
+include:
+  - .well-known
