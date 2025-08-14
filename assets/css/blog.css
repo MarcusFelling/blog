@@ -1149,6 +1149,24 @@ body.modern .intro-header { background: transparent; }
 /* Blend legacy page-heading with modern background */
 .page-heading { background:transparent !important; box-shadow:none !important; border:0 !important; }
 
+/* Blend post header sections with body.modern background but keep inner containers (like .container-md) styled */
+body.modern .post-header,
+body.modern .page-header,
+body.modern .header-section {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body.modern .post-header::before,
+body.modern .post-header::after,
+body.modern .page-header::before,
+body.modern .page-header::after,
+body.modern .header-section::before,
+body.modern .header-section::after {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
 /* ===== Unified Syntax Highlight Theme (Matches 'Optimizing GitHub Actions' post) ===== */
 /* Applied last to ensure consistency across pages */
 .highlight, pre.highlight, pre code { background:#2d2d2d !important; color:#f0f4f7 !important; }
