@@ -1096,6 +1096,24 @@ footer .fas:hover,
   color: #888;
 }
 
+/* Search dropdown stacking: ensure above card grid without hiding grid */
+.hero-grid { position: relative; }
+.search-container { position: relative; }
+.search-results { z-index: 300; }
+@media (max-width: 768px){
+  .search-results { max-height: 60vh; }
+}
+/* Hide posts while actively searching */
+body.search-active .post-cards-container { display:none !important; }
+body.search-active .search-results { display:block; }
+body.search-active footer,
+body.search-active .footer,
+body.search-active .site-footer,
+body.search-active .footer-modern,
+body.search-active .footer-compact,
+body.search-active .footer-inner,
+body.search-active .footer-inner-compact { display:none !important; }
+
 /* ===== 13. ACCESSIBILITY ENHANCEMENTS ===== */
 /* Replace deprecated -ms-high-contrast with standard media queries */
 @media (prefers-contrast: more) {
