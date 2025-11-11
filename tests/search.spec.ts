@@ -1,7 +1,13 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
+    const searchDataResponse = page.waitForResponse(
+      response => response.url().includes('/search-data.json') && [200, 304].includes(response.status()),
+      { timeout: 30000 }
+    );
+
     await page.goto('');
+    await searchDataResponse;
   });
 
 test.describe('Search Functionality', () => {
@@ -16,7 +22,7 @@ test.describe('Search Functionality', () => {
     
     // Verify search results container exists but is hidden
     const searchResults = page.locator('#search-results');
-    await expect(searchResults).toBeVisible({ visible: false });
+  await expect(searchResults).toBeHidden();
   });
 
   test('should show search results when typing', async ({ page }) => {
@@ -46,7 +52,7 @@ test.describe('Search Functionality', () => {
     const firstResultTitle = await page.locator('.search-result-item h3').first().textContent();
     
     // Click on the first result
-    await page.locator('.search-result-item').first().click();
+  await page.locator('.search-result-link').first().click();
     
     // Verify we've navigated to the post
     await expect(page).toHaveURL(/.*\/blog\/.*/);
