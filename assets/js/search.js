@@ -7,35 +7,58 @@ document.addEventListener('DOMContentLoaded', function() {
   if (!searchInput) return;
 
   let posts = [];
+  window.__searchDataReady = false;
+  let dataLoaded = false;
+  let latestSearchTerm = '';
+
+  const clearResults = () => {
+    searchResults.innerHTML = '';
+    searchResults.style.display = 'none';
+    bodyEl.classList.remove('search-active');
+  };
+
+  const filterPosts = (term) => posts.filter(post => {
+    return post.title.toLowerCase().includes(term) ||
+      (post.subtitle && post.subtitle.toLowerCase().includes(term)) ||
+      post.content.toLowerCase().includes(term);
+  });
+
+  const updateResults = (term) => {
+    if (term.length < 2) {
+      clearResults();
+      return;
+    }
+
+    if (!dataLoaded) {
+      // Keep the UI hidden until data is available to avoid flashing empty states.
+      searchResults.style.display = 'none';
+      bodyEl.classList.remove('search-active');
+      return;
+    }
+
+    // Display results
+    displayResults(filterPosts(term));
+  };
+
+  searchInput.addEventListener('input', function() {
+    latestSearchTerm = this.value.toLowerCase().trim();
+    updateResults(latestSearchTerm);
+  });
 
   // Load all posts data
   fetch('/search-data.json')
     .then(response => response.json())
     .then(data => {
       posts = data;
-
-      searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase().trim();
-
-        if (searchTerm.length < 2) {
-          searchResults.innerHTML = '';
-          searchResults.style.display = 'none';
-          bodyEl.classList.remove('search-active');
-          return;
-        }
-
-        // Filter posts based on search term
-        const filteredPosts = posts.filter(post => {
-          return post.title.toLowerCase().includes(searchTerm) || 
-                (post.subtitle && post.subtitle.toLowerCase().includes(searchTerm)) ||
-                post.content.toLowerCase().includes(searchTerm);
-        });
-
-        // Display results
-        displayResults(filteredPosts);
-      });
+      window.__searchDataReady = true;
+      dataLoaded = true;
+      // Re-run the latest query now that data is available.
+      updateResults(latestSearchTerm);
     })
-    .catch(error => console.error('Error loading search data:', error));
+    .catch(error => {
+      window.__searchDataReady = 'error';
+      console.error('Error loading search data:', error);
+    });
 
   function displayResults(results) {
     // Ensure positioning for mobile overlay
@@ -52,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     };
     setResultsPosition();
-    window.addEventListener('resize', setResultsPosition);
+  window.addEventListener('resize', setResultsPosition);
     if (results.length === 0) {
       searchResults.innerHTML = '<p class="no-results">No posts found</p>';
       searchResults.style.display = 'block';
