@@ -47,6 +47,8 @@ Specific to Fabric data agents, we experienced issues like using incorrect DAX q
 - Select only the essential measures and tables when creating the agent.
 - Provide explicit instructions to the agent about when it should perform its own calculations.
 
+We now have 6 (and growing) specialized agents...
+
 ## Engage Stakeholders Throughout the Process
 
 Having stakeholders involved throughout the hackathon was extremely valuable. This helped us continuously validate what we were building and speed up the feedback loop. Which KPI moves actually mattered, how they wanted the summaries written, and what context was missing, etc. Bringing them in early meant we didn't waste time building stuff nobody wanted. We could pivot fast based on what they told us.
