@@ -15,14 +15,16 @@ I recently led a 3 day hackathon to build an AI solution that streamlines our mo
 
 To set some context, our team builds on [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (data analytics SaaS platform) which recently announced [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/overview) that included new features/capabilities such as Ontology and Data Agents, so the timing worked out great to kick the tires on what's actually possible in practice.
 
+---
+
 ## TL;DR
 
-- Start with the real problem, not the tools.
-- Cut scope ruthlessly and ship something valuable, not everything.
-- Keep the delivery simple while you're figuring out if it even works.
-- Break big agents into smaller, more focused sub agents.
-- Engage stakeholders throughout the process.
-- Test often and iterate fast.
+- **Start with the real problem**, not the tools
+- **Cut scope ruthlessly** and ship something valuable, not everything
+- **Keep the delivery simple** while you're figuring out if it even works
+- **Break big agents into smaller**, more focused sub agents
+- **Engage stakeholders** throughout the process
+- **Test often** and iterate fast
 
 ## Begin With a Clear Business Problem
 
@@ -36,25 +38,31 @@ There are a ton of options when it comes to user experience and how stakeholders
 
 From a tooling perspective, this allowed us to leverage tools we already had experience with to move fast: we chose Logic Apps to orchestrate Fabric data agents, passing outputs as variables, and merging them together to send the final email. There was quite a learning curve that came with ramping up on AI native orchestrators (Copilot Studio, AI Foundry, etc.) and environment setup, that just wasn't realistic for a 3 day timeline.
 
-## Break big agents into smaller, more focused sub agents
+## Break Big Agents Into Smaller, More Focused Sub Agents
 
-We started with a plan for two big agents: one for KPI analysis, one for writing narratives. As we threw more and more data sources at our agents, we found their accuracy turned to slop. We moved to finely scoped sub agents that were specialized for their tasks. We stripped out tables and measures we didn't need, cleaned up the filtering logic, and set the agents to use narrower data sources. Those tweaks stabilized things and made sure each piece was actually doing what it was supposed to do. When we split up the work and trimmed unnecessary complexity from the agents, accuracy went way up. 
+We started with a plan for two big agents: one for KPI analysis, one for writing narratives. As we threw more and more data sources at our agents, we found their accuracy turned to slop. We moved to finely scoped sub agents that were specialized for their tasks. We stripped out tables and measures we didn't need, cleaned up the filtering logic, and set the agents to use narrower data sources. Those tweaks stabilized things and made sure each piece was actually doing what it was supposed to do. When we split up the work and trimmed unnecessary complexity from the agents, **accuracy went way up**. We now have 6 (and growing) specialized agents...
+
+### Lessons Learned: Fabric Data Agents
 
 Specific to Fabric data agents, we experienced issues like using incorrect DAX queries and tables/columns that weren't even in scope. To overcome this, we implemented a few practices:
 
-- Keep the Semantic Model as clear as possible, especially custom DAX measures.
-- Use the [Prepare your data for AI](https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai) tool on the published semantic model.
-- Select only the essential measures and tables when creating the agent.
-- Provide explicit instructions to the agent about when it should perform its own calculations.
-
-We now have 6 (and growing) specialized agents...
+> **Good Practices for Fabric Data Agents:**
+> 
+> - Keep the Semantic Model as clear as possible, especially custom DAX measures
+> - Use the [Prepare your data for AI](https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai) tool on the published semantic model
+> - Select only the essential measures and tables when creating the agent
+> - Provide explicit instructions to the agent about when it should perform its own calculations
 
 ## Engage Stakeholders Throughout the Process
 
-Having stakeholders involved throughout the hackathon was extremely valuable. This helped us continuously validate what we were building and speed up the feedback loop. Which KPI moves actually mattered, how they wanted the summaries written, and what context was missing, etc. Bringing them in early meant we didn't waste time building stuff nobody wanted. We could pivot fast based on what they told us.
+Having stakeholders involved throughout the hackathon was **extremely valuable**. This helped us continuously validate what we were building and speed up the feedback loop. Which KPI moves actually mattered, how they wanted the summaries written, and what context was missing, etc. Bringing them in early meant we didn't waste time building stuff nobody wanted. We could pivot fast based on what they told us.
+
+> **Key Insight:** Early stakeholder engagement turned potential weeks of rework into hours of quick adjustments. Their feedback directly shaped which agents we prioritized and how we structured the outputs.
+
+---
 
 ## Closing Thoughts
 
-Three days gave us a chance to see what AI-powered agents could actually do. And honestly, it showed that with a tight timeline, you can still ship something real if you nail the problem, keep scope tight, and iterate like crazy.
+Three days gave us a chance to see what AI-powered agents could actually do. And honestly, it showed that with a tight timeline, you can still ship something real if you **nail the problem**, **keep scope tight**, and **iterate like crazy**.
 
 Since the hackathon, we've come a long way with our solution but this gave us a jump start on the work.
