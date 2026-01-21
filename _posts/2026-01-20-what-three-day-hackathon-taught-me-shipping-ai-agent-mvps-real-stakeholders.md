@@ -11,7 +11,7 @@ nav-short: true
 tags: [AI, Fabric]
 ---
 
-I recently led a 3 day hackathon to build an AI solution that streamlines our monthly business reviews for our Microsoft direct to consumer ecommerce store (think Surface devices, M365, Xbox). Our team had been spending way too much time talking at high levels and planning what to build; this was an opportunity to dive in and start executing. In this post I'll summarize the practical lessons learned from the experience.
+I recently led a 3 day hackathon to build an AI solution that streamlines our monthly business reviews for our Microsoft direct sales ecommerce store (think Surface devices, M365, Xbox). Our team had been spending way too much time talking at high levels and planning what to build; this was an opportunity to dive in and start executing. In this post I'll summarize the practical lessons learned from the experience.
 
 To set some context, our team builds on [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (data analytics SaaS platform) which recently announced [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/overview) that included new features/capabilities such as Ontology and Data Agents, so the timing worked out great to kick the tires on what's actually possible in practice.
 
