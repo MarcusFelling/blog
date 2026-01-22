@@ -582,7 +582,7 @@ header a:hover {
 .dropdown-item:hover,
 .dropdown-item:focus {
   background-color: var(--card-image-placeholder);
-  color: var (--text-col);
+  color: var(--text-col);
 }
 
 /* Navbar toggler for mobile */
@@ -1054,7 +1054,7 @@ footer .fas:hover,
 
 .search-result-item {
   padding: 12px 20px;
-  border-bottom: 1px solid var (--card-border);
+  border-bottom: 1px solid var(--card-border);
 }
 
 .search-result-item:last-child {
@@ -1410,9 +1410,30 @@ textarea {
 
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
+  /* Globally minimize motion-heavy animations */
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
     transition: none !important;
+  }
+
+  /* Explicitly disable shimmer / moving background animations */
+  .loading {
+    animation: none !important;
+  }
+
+  /* Allow essential non-motion feedback transitions */
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    transition: color 120ms ease-out,
+                background-color 120ms ease-out,
+                border-color 120ms ease-out,
+                box-shadow 120ms ease-out,
+                opacity 120ms ease-out !important;
   }
 }
 

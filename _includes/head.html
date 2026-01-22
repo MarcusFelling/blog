@@ -50,7 +50,11 @@ body.modern {
   background: radial-gradient(circle at 20% 20%, #1d2935, #0b1116 60%) fixed;
   background-attachment: fixed;
   color: var(--text-secondary);
-  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: no-preference) {
+  body.modern {
+    scroll-behavior: smooth;
+  }
 }
 /* Subtle animated gradient veil */
 body.modern:before {
