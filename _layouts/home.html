@@ -30,14 +30,14 @@ layout: base
     {% if top and top.size > 0 %}
     <div style="background:rgba(255,255,255,.06); padding:1rem 1.1rem; border:1px solid rgba(255,255,255,.1); border-radius:10px; margin-bottom:1.5rem;">
       <p style="margin:0 0 .5rem; font-size:.55rem; font-weight:700; letter-spacing:.8px; color:#6d889c; text-transform:uppercase;">🔝 Top Page Views</p>
-      <ol style="margin:0; padding-left:1.1rem; font-size:.65rem; line-height:1.2rem; color:#dfe7ed; display:grid; gap:.35rem; list-style:decimal;">
+      <ol style="margin:0; padding-left:1.1rem; font-size:.65rem; line-height:1.5rem; color:#dfe7ed; display:grid; gap:.4rem; list-style:decimal;">
         {% for p in top limit:5 %}
           {% assign path = p.path %}
           {% unless path %}{% continue %}{% endunless %}
-          <li style="margin:0; padding:0;">
-            <a href="{{ path | relative_url }}" aria-label="View post: {{ p.title | escape }}" style="color:#b9cfdc; text-decoration:none; display:flex; justify-content:space-between; align-items:center; padding:.35rem .4rem; border-radius:5px; transition:all 160ms ease; hover:background:rgba(255,255,255,.05);">
-              <span style="display:block; max-width:85%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ p.title | default: path | truncate: 50 }}</span>
-              {% if p.views %}<span style="color:#6f889b; font-size:.58rem; font-weight:600; letter-spacing:.4px; flex-shrink:0; margin-left:.3rem;">{{ p.views }}</span>{% endif %}
+          <li style="margin:0; padding:0; overflow:hidden;">
+            <a href="{{ path | relative_url }}" aria-label="View post: {{ p.title | escape }}" style="color:#b9cfdc; text-decoration:none; display:block; padding:.35rem .4rem; border-radius:5px; transition:all 160ms ease; word-break:break-word; overflow-wrap:break-word;">
+              {{ p.title | default: path }}
+              {% if p.views %}<span style="color:#6f889b; font-size:.58rem; font-weight:600; letter-spacing:.4px; margin-left:.5rem;">{{ p.views }}</span>{% endif %}
             </a>
           </li>
         {% endfor %}
@@ -46,17 +46,20 @@ layout: base
     {% endif %}
     
     <div class="hero-kpis">
-      <div title="Total blog posts">
+      <div title="Total blog posts published">
         <span>{{ site.posts | size }}</span>
         <div>Posts</div>
       </div>
-      <div title="Current year">
-        <span>{{ site.time | date: '%Y' }}</span>
-        <div>Year</div>
-      </div>
-      <div title="Always learning">
-        <span>∞</span>
-        <div>Learning</div>
+      <div title="Years of blogging">
+        <span>
+          {% assign first_post = site.posts | last %}
+          {% assign last_post = site.posts | first %}
+          {% assign first_year = first_post.date | date: '%Y' %}
+          {% assign last_year = last_post.date | date: '%Y' %}
+          {% assign years_active = last_year | minus: first_year | plus: 1 %}
+          {{ years_active }}+
+        </span>
+        <div>Years Blogging</div>
       </div>
     </div>
   </div>
