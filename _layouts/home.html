@@ -6,69 +6,92 @@ layout: base
   <div class="hero-intro">
     <h1>Sharing what I learn about DevOps & automation.</h1>
     <p>CI/CD, Cloud, Infrastructure as Code, and the tools that keep modern engineering teams shipping. Curated notes, guides, and experiments from the keyboard.</p>
-    <!-- Search bar -->
-    <div class="search-container" style="margin-top:1.6rem;">
+    <!-- Enhanced search bar -->
+    <div class="search-container" style="margin-top:1.8rem;">
       <div class="search-input-wrapper">
-        <input type="text" id="search-input" class="search-input" placeholder="Search posts..." aria-label="Search posts" />
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Search posts by keyword..." 
+          aria-label="Search posts" 
+          autocomplete="off"
+        />
         <i class="fas fa-search search-icon" aria-hidden="true"></i>
       </div>
       <div id="search-results" class="search-results" role="listbox" aria-label="Search results"></div>
     </div>
   </div>
+  
   <div class="hero-panel fade-in-up" style="animation-delay:.15s;">
-    <h2 style="font-size:.85rem; letter-spacing:.8px; font-weight:700; text-transform:uppercase; color:#b9c9d6; margin:0 0 1rem;">Pulse</h2>
+    <h2 style="font-size:.85rem; letter-spacing:.8px; font-weight:700; text-transform:uppercase; color:#b9c9d6; margin:0 0 1.2rem;"><span aria-hidden="true">📊</span> Pulse</h2>
+    
     {% assign top = site.data.top_pages %}
     {% if top and top.size > 0 %}
-    <div style="background:rgba(255,255,255,.04); padding:.9rem .95rem; border:1px solid rgba(255,255,255,.08); border-radius:10px; margin-bottom:1.2rem;">
-  <p style="margin:0 0 .4rem; font-size:.55rem; font-weight:700; letter-spacing:.8px; color:#6d889c; text-transform:uppercase;">Top Page Views</p>
-      <ol style="margin:0; padding-left:1.1rem; font-size:.65rem; line-height:1.15rem; color:#dfe7ed; display:grid; gap:.25rem; list-style:decimal;">
-        {% for p in top %}
+    <div style="background:rgba(255,255,255,.06); padding:1.4rem 1.3rem; border:1px solid rgba(255,255,255,.1); border-radius:10px; margin-bottom:1.5rem;">
+      <p style="margin:0 0 .5rem; font-size:.55rem; font-weight:700; letter-spacing:.8px; color:#6d889c; text-transform:uppercase;"><span aria-hidden="true">🔝</span> Top Page Views</p>
+      <ol style="margin:0; padding-left:1.1rem; font-size:.65rem; line-height:1.5rem; color:#dfe7ed; display:grid; gap:.4rem; list-style:decimal;">
+        {% for p in top limit:5 %}
           {% assign path = p.path %}
           {% unless path %}{% continue %}{% endunless %}
-          <li style="margin:0; padding:0;">
-            <a href="{{ path | relative_url }}" aria-label="View post: {{ p.title | escape }}" style="color:#b9cfdc; text-decoration:none; display:block; padding:.3rem .4rem .3rem 0; border-radius:4px;">
-              <span style="display:inline-block; max-width:100%;">{{ p.title | default: path | truncate: 60 }}</span>
-              {% if p.views %}<span style="color:#6f889b; font-size:.6rem; font-weight:600; letter-spacing:.5px; margin-left:.35rem;">{{ p.views }}</span>{% endif %}
+          <li style="margin:0; padding:0; overflow:visible;">
+            <a href="{{ path | relative_url }}" aria-label="View post: {{ p.title | escape }}" style="color:#b9cfdc; text-decoration:none; display:flex; gap:.5rem; align-items:flex-start; padding:.35rem .4rem; border-radius:5px; transition:all 160ms ease; word-wrap:break-word; word-break:break-word; white-space:normal;">
+              <span style="display:block; flex:1; word-wrap:break-word; word-break:break-word;">{{ p.title | default: path }}</span>
+              {% if p.views %}<span style="color:#6f889b; font-size:.58rem; font-weight:600; letter-spacing:.4px; flex-shrink:0; white-space:nowrap;">{{ p.views }}</span>{% endif %}
             </a>
           </li>
         {% endfor %}
       </ol>
     </div>
     {% endif %}
+    
     <div class="hero-kpis">
-      <div><span>{{ site.posts | size }}</span>Posts</div>
-      <div><span>{{ site.time | date: '%Y' }}</span>Year</div>
-      <div><span>∞</span>Learning</div>
+      <div title="Total blog posts published">
+        <span>{{ site.posts | size }}</span>
+        <div>Posts</div>
+      </div>
+      <div title="Years of blogging">
+        <span>
+          {% assign first_post = site.posts | last %}
+          {% assign last_post = site.posts | first %}
+          {% assign first_year = first_post.date | date: '%Y' %}
+          {% assign last_year = last_post.date | date: '%Y' %}
+          {% assign years_active = last_year | minus: first_year | plus: 1 %}
+          {{ years_active }}+
+        </span>
+        <div>Years Blogging</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="post-cards-container modern-grid" aria-label="Recent posts">
+<section class="post-cards-container modern-grid" aria-label="Recent blog posts">
   {% for post in site.posts limit: 12 %}
-  <article class="post-card modern-card fade-in-up" data-delay="{{ forloop.index0 | times: 40 | plus: 200 }}">
-      <a href="{{ post.url | relative_url }}" class="post-card-link" style="text-decoration:none;">
-        <div class="post-card-image-container" aria-hidden="true">
-          {% if post.thumbnail-img %}
-            <img src="{{ post.thumbnail-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
-          {% elsif post.cover-img %}
-            <img src="{{ post.cover-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
-          {% else %}
-            <div class="post-card-image-placeholder"></div>
-          {% endif %}
+  <article class="post-card modern-card fade-in-up" data-delay="{{ forloop.index0 | times: 40 | plus: 200 }}" style="--delay: {{ forloop.index0 | times: 80 }};">
+    <a href="{{ post.url | relative_url }}" class="post-card-link" style="text-decoration:none;" aria-label="Read: {{ post.title | escape }}">
+      <div class="post-card-image-container" aria-hidden="true">
+        {% if post.thumbnail-img %}
+          <img src="{{ post.thumbnail-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
+        {% elsif post.cover-img %}
+          <img src="{{ post.cover-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
+        {% else %}
+          <div class="post-card-image-placeholder"></div>
+        {% endif %}
+      </div>
+      <div class="post-card-content">
+        <h2 class="post-card-title">{{ post.title }}</h2>
+        {% if post.excerpt %}
+          <div class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
+        {% endif %}
+        <div class="post-card-meta">
+          <span class="post-card-date">{{ post.date | date: site.date_format }}</span>
         </div>
-        <div class="post-card-content">
-          <h2 class="post-card-title">{{ post.title }}</h2>
-          {% if post.excerpt %}
-            <div class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
-          {% endif %}
-          <div class="post-card-meta"><span class="post-card-date">{{ post.date | date: site.date_format }}</span></div>
-          <span class="read-more-chip">Read Post <i class="fas fa-arrow-right"></i></span>
-        </div>
-      </a>
-    </article>
+        <span class="read-more-chip">Read Post <i class="fas fa-arrow-right" style="font-size:.6em;"></i></span>
+      </div>
+    </a>
+  </article>
   {% endfor %}
 </section>
 
-<div style="text-align:center; margin:3rem 0 1.5rem;">
-  <a href="/archives" class="read-more-chip" style="font-size:.7rem; padding:.7rem 1.1rem;">Browse Full Archive <i class="fas fa-layer-group"></i></a>
-</div>
+<div class="browse-archive-btn">
+  <a href="/archives" class="read-more-chip" style="font-size:.75rem; padding:.7rem 1.3rem; display:inline-flex;">Browse Full Archive <i class="fas fa-layer-group" style="font-size:.7em;"></i></a>

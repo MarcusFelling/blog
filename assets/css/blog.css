@@ -582,7 +582,7 @@ header a:hover {
 .dropdown-item:hover,
 .dropdown-item:focus {
   background-color: var(--card-image-placeholder);
-  color: var (--text-col);
+  color: var(--text-col);
 }
 
 /* Navbar toggler for mobile */
@@ -1054,7 +1054,7 @@ footer .fas:hover,
 
 .search-result-item {
   padding: 12px 20px;
-  border-bottom: 1px solid var (--card-border);
+  border-bottom: 1px solid var(--card-border);
 }
 
 .search-result-item:last-child {
@@ -1299,5 +1299,150 @@ pre:focus-within { outline:2px solid #78b3ff; outline-offset:2px; }
   .code-toolbar button { padding:2px 6px 3px; }
 }
 
+/* ===== 14. SCROLL ANIMATIONS & EFFECTS ===== */
 
+/* Scroll-triggered animation setup */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
+}
+
+.scroll-slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
+}
+
+.scroll-slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-scale-in {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered animation for card grids */
+.post-card {
+  transition: all 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.post-card.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.post-card.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+  animation: none;
+}
+
+/* Smooth parallax effect for hero section */
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .hero-panel {
+    will-change: transform;
+  }
+}
+
+/* Enhanced hover effects with depth */
+.post-card:hover {
+  will-change: transform, box-shadow;
+}
+
+.post-card {
+  will-change: auto;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+select,
+textarea {
+  transition: all 160ms cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+/* Subtle glow effect on focus */
+*:focus-visible {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.loading {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  /* Globally minimize motion-heavy animations */
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
+  /* Explicitly disable shimmer / moving background animations */
+  .loading {
+    animation: none !important;
+  }
+
+  /* Allow essential non-motion feedback transitions */
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    transition: color 120ms ease-out,
+                background-color 120ms ease-out,
+                border-color 120ms ease-out,
+                box-shadow 120ms ease-out,
+                opacity 120ms ease-out !important;
+  }
+}
+
+/* Enhanced print styles */
+@media print {
+  .hero-grid,
+  .post-cards-container,
+  .search-container,
+  .browse-archive-btn {
+    display: none;
+  }
+}
