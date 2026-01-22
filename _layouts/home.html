@@ -34,10 +34,10 @@ layout: base
         {% for p in top limit:5 %}
           {% assign path = p.path %}
           {% unless path %}{% continue %}{% endunless %}
-          <li style="margin:0; padding:0; overflow:hidden;">
-            <a href="{{ path | relative_url }}" aria-label="View post: {{ p.title | escape }}" style="color:#b9cfdc; text-decoration:none; display:block; padding:.35rem .4rem; border-radius:5px; transition:all 160ms ease; word-break:break-word; overflow-wrap:break-word;">
-              {{ p.title | default: path | truncate: 60 }}
-              {% if p.views %}<span style="color:#6f889b; font-size:.58rem; font-weight:600; letter-spacing:.4px; margin-left:.5rem;">{{ p.views }}</span>{% endif %}
+          <li style="margin:0; padding:0; overflow:visible;">
+            <a href="{{ path | relative_url }}" aria-label="View post: {{ p.title | escape }}" style="color:#b9cfdc; text-decoration:none; display:flex; gap:.5rem; align-items:flex-start; padding:.35rem .4rem; border-radius:5px; transition:all 160ms ease; word-wrap:break-word; word-break:break-word; white-space:normal;">
+              <span style="display:block; flex:1; word-wrap:break-word; word-break:break-word;">{{ p.title | default: path }}</span>
+              {% if p.views %}<span style="color:#6f889b; font-size:.58rem; font-weight:600; letter-spacing:.4px; flex-shrink:0; white-space:nowrap;">{{ p.views }}</span>{% endif %}
             </a>
           </li>
         {% endfor %}
