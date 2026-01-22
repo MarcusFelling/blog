@@ -28,7 +28,7 @@ layout: base
     
     {% assign top = site.data.top_pages %}
     {% if top and top.size > 0 %}
-    <div style="background:rgba(255,255,255,.06); padding1rem 1.1rem; border:1px solid rgba(255,255,255,.1); border-radius:10px; margin-bottom:1.5rem;">
+    <div style="background:rgba(255,255,255,.06); padding:1.4rem 1.3rem; border:1px solid rgba(255,255,255,.1); border-radius:10px; margin-bottom:1.5rem;">
       <p style="margin:0 0 .5rem; font-size:.55rem; font-weight:700; letter-spacing:.8px; color:#6d889c; text-transform:uppercase;"><span aria-hidden="true">🔝</span> Top Page Views</p>
       <ol style="margin:0; padding-left:1.1rem; font-size:.65rem; line-height:1.5rem; color:#dfe7ed; display:grid; gap:.4rem; list-style:decimal;">
         {% for p in top limit:5 %}

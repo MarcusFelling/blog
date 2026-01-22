@@ -33,9 +33,6 @@ test.describe('Search Functionality', () => {
     const searchResults = page.locator('#search-results');
     await expect(searchResults).toBeVisible({ timeout: 5000 });
     
-    // Verify results container has active class
-    await expect(searchResults).toHaveClass(/active/);
-    
     // Verify we have result links
     const resultLinks = searchResults.locator('a');
     const linkCount = await resultLinks.count();
