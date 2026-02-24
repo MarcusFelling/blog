@@ -12,9 +12,9 @@
 | Name | Role | Model | Badge |
 |------|------|-------|-------|
 | Mal | Lead | auto | 🏗️ Lead |
-| Kaylee | Designer/Dev | claude-sonnet-4.5 | ⚛️ Frontend |
-| Wash | Content Dev | claude-haiku-4.5 | 📝 DevRel |
-| Zoe | Tester | claude-sonnet-4.5 | 🧪 Tester |
+| Kaylee | Designer/Dev | claude-opus-4.6 | ⚛️ Frontend |
+| Wash | Content Dev | claude-opus-4.6 | 📝 DevRel |
+| Zoe | Tester | claude-opus-4.6 | 🧪 Tester |
 | Scribe | Session Logger | claude-haiku-4.5 | 📋 Scribe |
 | Ralph | Work Monitor | — | 🔄 Monitor |
 | @copilot | Coding Agent | — | 🤖 Coding Agent |
