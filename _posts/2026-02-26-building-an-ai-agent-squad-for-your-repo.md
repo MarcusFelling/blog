@@ -10,7 +10,7 @@ nav-short: true
 tags: [AI, GitHub Copilot, DevOps]
 ---
 
-What if your repo had a whole team of AI agents — a lead, a frontend dev, a tester, a content writer — each with their own context window, persistent memory, and defined boundaries? That's exactly what [Squad](https://github.com/bradygaster/squad) gives you.
+What if your repo had a whole team of AI agents: a lead, a frontend dev, a tester, a content writer, each with their own context window, persistent memory, and defined boundaries? That's exactly what [Squad](https://github.com/bradygaster/squad) gives you.
 
 [Squad](https://github.com/bradygaster/squad) is an open-source framework conceived by [Brady Gaster](https://github.com/bradygaster) that creates an AI development team through GitHub Copilot. You describe what you're building, and Squad proposes a team of specialists that live in your repo as files. They persist across sessions, learn your codebase, share decisions, and get better the more you use them.
 
