@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "agents": [
+    {
+      "persistent_name": "Mal",
+      "universe": "firefly",
+      "role": "Lead",
+      "created_at": "2026-02-24T00:00:00Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    {
+      "persistent_name": "Kaylee",
+      "universe": "firefly",
+      "role": "Designer/Dev",
+      "created_at": "2026-02-24T00:00:00Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    {
+      "persistent_name": "Wash",
+      "universe": "firefly",
+      "role": "Content Dev",
+      "created_at": "2026-02-24T00:00:00Z",
+      "legacy_named": false,
+      "status": "active"
+    },
+    {
+      "persistent_name": "Zoe",
+      "universe": "firefly",
+      "role": "Tester",
+      "created_at": "2026-02-24T00:00:00Z",
+      "legacy_named": false,
+      "status": "active"
+    }
+  ]
+}
