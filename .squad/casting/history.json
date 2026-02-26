@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "assignments": [
+    {
+      "assignment_id": "firefly-blog-2026-02-24",
+      "universe": "firefly",
+      "created_at": "2026-02-24T00:00:00Z",
+      "agents": [
+        { "name": "Mal", "role": "Lead" },
+        { "name": "Kaylee", "role": "Designer/Dev" },
+        { "name": "Wash", "role": "Content Dev" },
+        { "name": "Zoe", "role": "Tester" }
+      ],
+      "context": "Jekyll blog redesign and code review for marcusfelling.com"
+    }
+  ]
+}
