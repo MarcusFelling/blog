@@ -9,3 +9,8 @@ node_modules/
 /playwright/.cache/
 .env 
 
+# Squad state — committed on dev branches, forbidden on main/preview
+# The guard workflow blocks these paths; .gitignore prevents re-add after removal
+.squad/
+.squad-templates/
+.github/agents/squad.agent.md
