@@ -1,6 +1,0 @@
-{
-  "version": 1,
-  "universes_allowed": ["firefly"],
-  "max_agents_per_universe": 10,
-  "overflow_strategy": "diegetic_expansion"
-}
