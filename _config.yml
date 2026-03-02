@@ -62,7 +62,7 @@ view_page_button: true
 navbar-var-length: false
 
 # The keywords to associate with your website, for SEO purposes
-#keywords: "my,list,of,keywords"
+keywords: "DevOps,CI/CD,Azure DevOps,GitHub Actions,Playwright,Infrastructure as Code,Terraform,Bicep,Azure Pipelines,Test Automation,Cloud Engineering"
 
 ######################################
 # --- Colors / background image --- #
