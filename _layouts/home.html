@@ -24,20 +24,20 @@ layout: base
   </div>
   
   <div class="hero-panel fade-in-up" style="animation-delay:.15s;">
-    <h2 style="font-size:.85rem; letter-spacing:.8px; font-weight:700; text-transform:uppercase; color:#b9c9d6; margin:0 0 1.2rem;"><span aria-hidden="true">📊</span> Pulse</h2>
+    <h2 style="font-size:1rem; letter-spacing:.8px; font-weight:700; text-transform:uppercase; color:#d4e3ee; margin:0 0 1.2rem;"><span aria-hidden="true">📊</span> Pulse</h2>
     
     {% assign top = site.data.top_pages %}
     {% if top and top.size > 0 %}
     <div style="background:rgba(255,255,255,.06); padding:1.4rem 1.3rem; border:1px solid rgba(255,255,255,.1); border-radius:10px; margin-bottom:1.5rem;">
-      <p style="margin:0 0 .5rem; font-size:.55rem; font-weight:700; letter-spacing:.8px; color:#6d889c; text-transform:uppercase;"><span aria-hidden="true">🔝</span> Top Page Views</p>
-      <ol style="margin:0; padding-left:1.1rem; font-size:.65rem; line-height:1.5rem; color:#dfe7ed; display:grid; gap:.4rem; list-style:decimal;">
+      <p style="margin:0 0 .75rem; font-size:.7rem; font-weight:700; letter-spacing:.8px; color:#8cafc8; text-transform:uppercase;"><span aria-hidden="true">🔝</span> Top Page Views</p>
+      <ol style="margin:0; padding-left:1.1rem; font-size:.82rem; line-height:1.7; color:#dfe7ed; display:grid; gap:.5rem; list-style:decimal;">
         {% for p in top limit:5 %}
           {% assign path = p.path %}
           {% unless path %}{% continue %}{% endunless %}
           <li style="margin:0; padding:0; overflow:visible;">
-            <a href="{{ path | relative_url }}" aria-label="View post: {{ p.title | escape }}" style="color:#b9cfdc; text-decoration:none; display:flex; gap:.5rem; align-items:flex-start; padding:.35rem .4rem; border-radius:5px; transition:all 160ms ease; word-wrap:break-word; word-break:break-word; white-space:normal;">
+            <a href="{{ path | relative_url }}" aria-label="View post: {{ p.title | escape }}" style="color:#ccdcea; text-decoration:none; display:flex; gap:.6rem; align-items:flex-start; padding:.4rem .5rem; border-radius:5px; transition:all 160ms ease; word-wrap:break-word; word-break:break-word; white-space:normal;">
               <span style="display:block; flex:1; word-wrap:break-word; word-break:break-word;">{{ p.title | default: path }}</span>
-              {% if p.views %}<span style="color:#6f889b; font-size:.58rem; font-weight:600; letter-spacing:.4px; flex-shrink:0; white-space:nowrap;">{{ p.views }}</span>{% endif %}
+              {% if p.views %}<span style="color:#8cafc8; font-size:.72rem; font-weight:600; letter-spacing:.4px; flex-shrink:0; white-space:nowrap;">{{ p.views }}</span>{% endif %}
             </a>
           </li>
         {% endfor %}
