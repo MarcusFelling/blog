@@ -10,7 +10,7 @@ layout: base
           <div class="post-heading">
             <h1>{{ page.title | strip_html }}</h1>
             {% if page.subtitle %}<h2 class="post-subheading">{{ page.subtitle }}</h2>{% endif %}
-            <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
+            {% if page.collection == "posts" %}<span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>{% endif %}
           </div>
         </div>
       </div>
@@ -35,8 +35,6 @@ layout: base
           {% comment %}Normalize tag to the same slug used by the archives filter buttons{% endcomment %}
           {% if tag == "Azure Pipelines" or tag == "Azure DevOps" %}
             {% assign _tag_slug = "azure-devops" %}
-          {% elsif tag == "GitHub Copilot" %}
-            {% assign _tag_slug = "ai" %}
           {% elsif tag == "DevOps" %}
             {% assign _tag_slug = "cicd" %}
           {% elsif tag == "CICD" %}
@@ -53,8 +51,10 @@ layout: base
       {% assign posts = site.posts %}
       {% for i in (0..posts.size) %}
         {% if posts[i].id == page.id %}
-          {% assign prev_post = posts[i | minus: 1] %}
-          {% assign next_post = posts[i | plus: 1] %}
+          {% assign _prev_idx = i | minus: 1 %}
+          {% assign _next_idx = i | plus: 1 %}
+          {% assign prev_post = posts[_prev_idx] %}
+          {% assign next_post = posts[_next_idx] %}
           {% break %}
         {% endif %}
       {% endfor %}

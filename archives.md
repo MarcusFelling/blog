@@ -34,8 +34,6 @@ guid: 'https://marcusfelling.com/?page_id=492'
     {% for tag in post.tags %}
       {% if tag == "Azure Pipelines" or tag == "Azure DevOps" %}
         {% assign _slug = "azure-devops" %}
-      {% elsif tag == "GitHub Copilot" %}
-        {% assign _slug = "ai" %}
       {% elsif tag == "DevOps" %}
         {% assign _slug = "cicd" %}
       {% else %}
@@ -61,39 +59,51 @@ guid: 'https://marcusfelling.com/?page_id=492'
 </section>
 {% endfor %}
 
+<p class="archive-empty-state" id="archive-empty">No posts match this filter.</p>
+
 <script>
 (function () {
   var filters = document.querySelectorAll('.tag-filter');
-  var items = document.querySelectorAll('.archive-post-item');
-  var groups = document.querySelectorAll('.archive-year-group');
+  var items   = document.querySelectorAll('.archive-post-item');
+  var groups  = document.querySelectorAll('.archive-year-group');
   var countEl = document.getElementById('visible-count');
+  var emptyEl = document.getElementById('archive-empty');
+
+  function applyFilter(filter) {
+    var visible = 0;
+
+    items.forEach(function (item) {
+      var show = filter === 'all' || (' ' + item.dataset.tags + ' ').indexOf(' ' + filter + ' ') !== -1;
+      if (show) {
+        item.style.display = '';
+        item.style.opacity = '1';
+        visible++;
+      } else {
+        item.style.opacity = '0';
+        item.style.display = 'none';
+      }
+    });
+
+    groups.forEach(function (group) {
+      var anyVisible = Array.prototype.some.call(
+        group.querySelectorAll('.archive-post-item'),
+        function (i) { return i.style.display !== 'none'; }
+      );
+      group.style.display = anyVisible ? '' : 'none';
+    });
+
+    countEl.textContent = visible;
+    if (emptyEl) emptyEl.classList.toggle('visible', visible === 0);
+  }
 
   filters.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var filter = this.dataset.filter;
       filters.forEach(function (b) { b.classList.remove('active'); });
       this.classList.add('active');
-
-      var visible = 0;
-      items.forEach(function (item) {
-        var show = filter === 'all' || (' ' + item.dataset.tags + ' ').indexOf(' ' + filter + ' ') !== -1;
-        item.style.display = show ? '' : 'none';
-        if (show) visible++;
-      });
-
-      groups.forEach(function (group) {
-        var anyVisible = Array.prototype.some.call(
-          group.querySelectorAll('.archive-post-item'),
-          function (i) { return i.style.display !== 'none'; }
-        );
-        group.style.display = anyVisible ? '' : 'none';
-      });
-
-      countEl.textContent = visible;
+      applyFilter(this.dataset.filter);
     });
   });
 
-  // Activate filter from URL hash on page load
   function activateFromHash() {
     var hash = window.location.hash.replace('#', '');
     if (!hash) return;

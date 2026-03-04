@@ -321,7 +321,7 @@ Before spawning an agent, determine which model to use. Check these layers in or
 | Writing code (implementation, refactoring, test code, bug fixes) | `claude-opus-4.6` | Standard | Quality and accuracy matter for code. Use standard tier. |
 | Writing prompts or agent designs (structured text that functions like code) | `claude-opus-4.6` | Standard | Prompts are executable — treat like code. |
 | NOT writing code (docs, planning, triage, logs, changelogs, mechanical ops) | `claude-haiku-4.5` | Fast | Cost first. Haiku handles non-code tasks. |
-| Visual/design work requiring image analysis | `claude-opus-4.5` | Premium | Vision capability required. Overrides cost rule. |
+| Visual/design work requiring image analysis | `claude-opus-4.6` | Premium | Vision capability required. Overrides cost rule. |
 
 **Role-to-model mapping** (applying cost-first principle):
 
@@ -385,7 +385,7 @@ When spawning, include the model in your acknowledgment:
 
 ```
 🔧 Fenster (claude-opus-4.6) — refactoring auth module
-🎨 Redfoot (claude-opus-4.5 · vision) — designing color system
+🎨 Redfoot (claude-opus-4.6 · vision) — designing color system
 📋 Scribe (claude-haiku-4.5 · fast) — logging session
 ⚡ Keaton (claude-opus-4.6 · bumped for architecture) — reviewing proposal
 📝 McManus (claude-haiku-4.5 · fast) — updating docs
