@@ -48,7 +48,7 @@ GitHub Actions enables you to share data between jobs in any workflow as [artifa
 
 ## 6. Use contexts to access workflow information
 
-[Contexts ](https://docs.github.com/en/actions/learn-github-actions/contexts)represent a group of variables that can access details about workflow runs, runner environments, jobs, and steps to help derive key information about workflow operations. Contexts use expression syntax such as ${{ }}, and you can use most of them at any point in the workflow. I like to dump the entire context at the beginning of jobs to aid in troubleshooting:
+[Contexts ](https://docs.github.com/en/actions/learn-github-actions/contexts)represent a group of variables that can access details about workflow runs, runner environments, jobs, and steps to help derive key information about workflow operations. Contexts use expression syntax such as {% raw %}${{ }}{% endraw %}, and you can use most of them at any point in the workflow. I like to dump the entire context at the beginning of jobs to aid in troubleshooting:
 
 <script src="https://gist.github.com/MarcusFelling/01d9e6ed08b3677b9aad5adb3a624aca.js"></script>
 
