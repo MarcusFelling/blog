@@ -1,0 +1,82 @@
+---
+layout: base
+---
+
+<header class="header-section">
+  <div class="intro-header">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+          <div class="post-heading">
+            <h1>{{ page.title | strip_html }}</h1>
+            {% if page.subtitle %}<h2 class="post-subheading">{{ page.subtitle }}</h2>{% endif %}
+            <span class="post-meta">Posted on {{ page.date | date: "%B %-d, %Y" }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container-md">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <div class="blog-post">
+        {% if page.thumbnail-img %}
+          <img src="{{ page.thumbnail-img | relative_url }}" alt="Thumbnail Image" class="img-fluid">
+        {% endif %}
+        {{ content }}
+      </div>
+
+      {% if page.tags.size > 0 %}
+      <div class="blog-tags">
+        <span>Tags:</span>
+        {% for tag in page.tags %}
+          {% comment %}Normalize tag to the same slug used by the archives filter buttons{% endcomment %}
+          {% if tag == "Azure Pipelines" or tag == "Azure DevOps" %}
+            {% assign _tag_slug = "azure-devops" %}
+          {% elsif tag == "GitHub Copilot" %}
+            {% assign _tag_slug = "ai" %}
+          {% elsif tag == "DevOps" %}
+            {% assign _tag_slug = "cicd" %}
+          {% elsif tag == "CICD" %}
+            {% assign _tag_slug = "cicd" %}
+          {% else %}
+            {% assign _tag_slug = tag | slugify %}
+          {% endif %}
+          <a href="{{ '/archives' | relative_url }}#{{ _tag_slug }}">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% comment %}Prev/Next pagination{% endcomment %}
+      {% assign posts = site.posts %}
+      {% for i in (0..posts.size) %}
+        {% if posts[i].id == page.id %}
+          {% assign prev_post = posts[i | minus: 1] %}
+          {% assign next_post = posts[i | plus: 1] %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+
+      <ul class="pagination blog-pager">
+        {% if next_post %}
+        <li class="page-item previous">
+          <a class="page-link" href="{{ next_post.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{ next_post.title | strip_html | escape }}">
+            <i class="fas fa-arrow-left" alt="Previous Post"></i>
+            <span class="d-none d-sm-inline-block">Previous Post</span>
+          </a>
+        </li>
+        {% endif %}
+        {% if prev_post %}
+        <li class="page-item next">
+          <a class="page-link" href="{{ prev_post.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{ prev_post.title | strip_html | escape }}">
+            <span class="d-none d-sm-inline-block">Next Post</span>
+            <i class="fas fa-arrow-right" alt="Next Post"></i>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=1276'
 permalink: /blog/2026/three-day-hackathon-shipping-ai-agent-mvps
 thumbnail-img: /content/uploads/2026/01/ai-hackathon-mvp.png
 nav-short: true
-tags: [AI, Fabric]
+tags: [AI]
 ---
 
 I recently led a 3 day hackathon to build an AI solution that streamlines our monthly business reviews for our Microsoft direct sales ecommerce store (think Surface devices, M365, Xbox). Our team had been spending way too much time talking at high levels and planning what to build; this was an opportunity to dive in and start executing. In this post I'll summarize the practical lessons learned from the experience.
