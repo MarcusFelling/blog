@@ -41,14 +41,14 @@ test.describe('Archives Page', () => {
     ];
 
     for (const filter of expectedFilters) {
-      await expect(page.locator(`[data-filter="${filter}"]`)).toBeVisible();
+      await expect(page.locator(`.tag-filter[data-filter="${filter}"]`)).toBeVisible();
     }
 
     // Exactly 12 filter buttons
     await expect(page.locator('.tag-filter')).toHaveCount(12);
 
     // "All" button is active on initial load
-    await expect(page.locator('[data-filter="all"]')).toHaveClass(/active/);
+    await expect(page.locator('.tag-filter[data-filter="all"]')).toHaveClass(/active/);
   });
 
   // ---------------------------------------------------------------------------
@@ -80,8 +80,8 @@ test.describe('Archives Page', () => {
     const totalText = await page.locator('#visible-count').textContent();
     const totalCount = parseInt(totalText ?? '0', 10);
 
-    const playwrightBtn = page.locator('[data-filter="playwright"]');
-    const allBtn = page.locator('[data-filter="all"]');
+    const playwrightBtn = page.locator('.tag-filter[data-filter="playwright"]');
+    const allBtn = page.locator('.tag-filter[data-filter="all"]');
 
     await playwrightBtn.click();
 
@@ -116,10 +116,10 @@ test.describe('Archives Page', () => {
     const totalCount = parseInt(totalText ?? '0', 10);
 
     // Filter first
-    await page.locator('[data-filter="playwright"]').click();
+    await page.locator('.tag-filter[data-filter="playwright"]').click();
 
     // Then reset
-    const allBtn = page.locator('[data-filter="all"]');
+    const allBtn = page.locator('.tag-filter[data-filter="all"]');
     await allBtn.click();
 
     await expect(allBtn).toHaveClass(/active/);
@@ -142,8 +142,8 @@ test.describe('Archives Page', () => {
   test('navigating to /archives#ai activates the ai filter', async ({ page }) => {
     await page.goto('/archives#ai');
 
-    const aiBtn = page.locator('[data-filter="ai"]');
-    const allBtn = page.locator('[data-filter="all"]');
+    const aiBtn = page.locator('.tag-filter[data-filter="ai"]');
+    const allBtn = page.locator('.tag-filter[data-filter="all"]');
 
     await expect(aiBtn).toHaveClass(/active/);
     await expect(allBtn).not.toHaveClass(/active/);
@@ -205,7 +205,7 @@ test.describe('Archives Page', () => {
     await aiTagLink.click();
 
     await expect(page).toHaveURL(/\/archives\/?#ai/);
-    await expect(page.locator('[data-filter="ai"]')).toHaveClass(/active/);
+    await expect(page.locator('.tag-filter[data-filter="ai"]')).toHaveClass(/active/);
   });
 
 });

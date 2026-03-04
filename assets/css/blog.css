@@ -1571,32 +1571,23 @@ textarea {
   flex-wrap: wrap;
   gap: 0.3rem;
 }
-.archive-date {
-  color: var(--mid-col);
-  font-size: 0.74rem;
-  white-space: nowrap;
-}
-
 .archive-tag {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 10px;
   color: var(--mid-col);
+  cursor: pointer;
   font-size: 0.69rem;
   font-weight: 500;
   padding: 0.1rem 0.5rem;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
   white-space: nowrap;
 }
-.archive-post-item[data-tags~="azure-devops"] .archive-tag:first-of-type { border-color: rgba(0,120,212,0.4); color: #60b0ff; }
-.archive-post-item[data-tags~="playwright"] .archive-tag:first-of-type { border-color: rgba(45,186,138,0.4); color: #2dba8a; }
-.archive-post-item[data-tags~="cicd"] .archive-tag:first-of-type { border-color: rgba(248,213,126,0.4); color: #f8d57e; }
-.archive-post-item[data-tags~="git"] .archive-tag:first-of-type { border-color: rgba(240,80,51,0.4); color: #f07050; }
-.archive-post-item[data-tags~="github-actions"] .archive-tag:first-of-type { border-color: rgba(63,185,80,0.4); color: #3fb950; }
-.archive-post-item[data-tags~="octopus-deploy"] .archive-tag:first-of-type { border-color: rgba(0,180,180,0.4); color: #00c8c8; }
-.archive-post-item[data-tags~="infra-as-code"] .archive-tag:first-of-type { border-color: rgba(156,220,254,0.35); color: #9cdcfe; }
-.archive-post-item[data-tags~="windows"] .archive-tag:first-of-type { border-color: rgba(0,173,239,0.4); color: #00adef; }
-.archive-post-item[data-tags~="vs-code-extensions"] .archive-tag:first-of-type { border-color: rgba(0,122,204,0.45); color: #5eaeff; }
-.archive-post-item[data-tags~="ai"] .archive-tag:first-of-type { border-color: rgba(198,120,221,0.4); color: #c678dd; }
+.archive-tag:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.25);
+  color: var(--text-col);
+}
 
 .archive-empty-state {
   display: none;

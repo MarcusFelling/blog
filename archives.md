@@ -49,9 +49,17 @@ guid: 'https://marcusfelling.com/?page_id=492'
     <li class="archive-post-item" data-tags="{{ _tag_slugs }}">
       <a class="archive-post-title" href="{{ post.url }}">{{ post.title }}</a>
       <span class="archive-meta">
-        <span class="archive-date">{{ post.date | date: "%b %Y" }}</span>
-        {% for tag in post.tags %}<span class="archive-tag">{{ tag }}</span>{% endfor %}
-        {% if post.tags.size == 0 %}<span class="archive-tag">Other</span>{% endif %}
+        {% for tag in post.tags %}
+          {% if tag == "Azure Pipelines" or tag == "Azure DevOps" %}
+            {% assign _atag_slug = "azure-devops" %}
+          {% elsif tag == "CICD" %}
+            {% assign _atag_slug = "cicd" %}
+          {% else %}
+            {% assign _atag_slug = tag | slugify %}
+          {% endif %}
+          <span class="archive-tag" data-filter="{{ _atag_slug }}">{{ tag }}</span>
+        {% endfor %}
+        {% if post.tags.size == 0 %}<span class="archive-tag" data-filter="other">Other</span>{% endif %}
       </span>
     </li>
     {% endfor %}
@@ -102,6 +110,15 @@ guid: 'https://marcusfelling.com/?page_id=492'
       this.classList.add('active');
       applyFilter(this.dataset.filter);
     });
+  });
+
+  document.addEventListener('click', function (e) {
+    var tag = e.target.closest('.archive-tag[data-filter]');
+    if (!tag) return;
+    var slug = tag.dataset.filter;
+    var matchBtn = null;
+    filters.forEach(function (b) { if (b.dataset.filter === slug) matchBtn = b; });
+    if (matchBtn) matchBtn.click();
   });
 
   function activateFromHash() {

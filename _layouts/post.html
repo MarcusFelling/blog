@@ -35,8 +35,6 @@ layout: base
           {% comment %}Normalize tag to the same slug used by the archives filter buttons{% endcomment %}
           {% if tag == "Azure Pipelines" or tag == "Azure DevOps" %}
             {% assign _tag_slug = "azure-devops" %}
-          {% elsif tag == "DevOps" %}
-            {% assign _tag_slug = "cicd" %}
           {% elsif tag == "CICD" %}
             {% assign _tag_slug = "cicd" %}
           {% else %}
