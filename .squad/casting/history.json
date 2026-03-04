@@ -1,0 +1,24 @@
+{
+  "universe_usage_history": [
+    {
+      "universe": "The Usual Suspects",
+      "first_used": "2026-03-04T00:00:00.000Z",
+      "agent_count": 6
+    }
+  ],
+  "assignment_cast_snapshots": {
+    "init-blog-2026-03-04": {
+      "assignment_id": "init-blog-2026-03-04",
+      "universe": "The Usual Suspects",
+      "created_at": "2026-03-04T00:00:00.000Z",
+      "cast": [
+        { "agent": "keaton", "role": "Lead" },
+        { "agent": "verbal", "role": "Content Dev" },
+        { "agent": "mcmanus", "role": "Frontend Dev" },
+        { "agent": "hockney", "role": "Tester" },
+        { "agent": "fenster", "role": "Design/UX" },
+        { "agent": "kobayashi", "role": "DevRel" }
+      ]
+    }
+  }
+}
