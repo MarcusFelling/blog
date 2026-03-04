@@ -119,6 +119,7 @@ defaults:
 
 # Exclude these files from production site
 exclude:
+  - _config-dev.yml
   - CHANGELOG.md
   - CNAME
   - Gemfile
@@ -127,11 +128,14 @@ exclude:
   - docs/
   - node_modules
   - playwright-report
+  - playwright.config.ts
   - tests/
   - package.json
   - package-lock.json
+  - squad.config.ts
   - .github/
   - .gitignore
+  - .squad/
   - LICENSE
 
 plugins:
@@ -141,3 +145,11 @@ plugins:
 
 include:
   - .well-known
+
+# Skip HTML compression in development (compress.html is expensive)
+compress_html:
+  ignore:
+    envs: development
+
+# Enable incremental regeneration (only rebuild changed files)
+incremental: true

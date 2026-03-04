@@ -1,0 +1,8 @@
+# Development overrides — use with:
+#   bundle exec jekyll serve --config _config.yml,_config-dev.yml
+#
+# Skips feed and sitemap generation (not needed locally, forces full rebuild)
+# HTML compression is already skipped via compress_html.ignore.envs in _config.yml
+
+plugins:
+  - jekyll-paginate
