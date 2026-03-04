@@ -8,7 +8,7 @@ guid: 'https://marcusfelling.com/?p=1280'
 permalink: /blog/2026/building-an-ai-agent-squad-for-your-repo
 thumbnail-img: /content/uploads/2026/02/squad.png
 nav-short: true
-tags: [AI, GitHub Copilot, DevOps]
+tags: [GitHub Copilot, DevOps]
 ---
 
 What if your repo had a whole team of AI agents: a lead, a frontend dev, a tester, a content writer, each with their own context window, persistent memory, and defined boundaries? That's exactly what [Squad](https://github.com/bradygaster/squad) gives you.

@@ -14,11 +14,13 @@ This repo hosts my Jekyll-based blog. It uses a custom theme that's hosted at [h
    ```
    bundle install
    ```
-3. Serve the site locally:
+3. Serve the site locally using the dev config for faster builds:
    ```
-   bundle exec jekyll serve
+   bundle exec jekyll serve --config _config.yml,_config-dev.yml
    ```
 4. Open your browser at http://localhost:4000
+
+> **Note:** The dev config (`_config-dev.yml`) skips HTML compression and feed/sitemap generation, reducing cold build time from ~31s to ~19s and incremental rebuilds to ~8s. Production builds on GitHub Actions use only `_config.yml`.
 
 ## Overview
 

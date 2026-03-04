@@ -38,6 +38,17 @@
   --card-image-placeholder: #2d2d2d;
   --tag-bg: #2a2a2a;
   --tag-color: #d0d0d0;
+  --tag-azure-devops: #0078d4;
+  --tag-cicd:         #f8d57e;
+  --tag-playwright:   #2dba8a;
+  --tag-git:          #f05033;
+  --tag-github-actions: #3fb950;
+  --tag-octopus-deploy: #00b4b4;
+  --tag-infra-as-code:  #9cdcfe;
+  --tag-windows:      #00adef;
+  --tag-vs-code-extensions: #007acc;
+  --tag-ai:           #c678dd;
+  --tag-other:        #aaaaaa;
 }
 
 /* ===== 2. BASIC ELEMENTS ===== */
@@ -220,8 +231,13 @@ code {
 /* Syntax Highlighting - use CSS variables */
 .highlight {
   background-color: var(--card-image-placeholder);
-  padding: 1px; /* Added minimal padding */
   border-radius: 3px; /* Consistent with code styling */
+  overflow: hidden;
+}
+
+/* Prevent empty blocks above/below code from pre margin inside highlight wrapper */
+.highlight > pre {
+  margin: 0;
 }
 
 /* Syntax highlighting color scheme */
@@ -1218,28 +1234,6 @@ pre::-webkit-scrollbar-thumb:hover { background:#465158; }
 pre:focus-within { outline:2px solid #78b3ff; outline-offset:2px; }
 
 
-/* ===== Code Block Enhancements (Toolbar / Copy / Line Numbers / Wrap) ===== */
-.highlight.with-toolbar { position:relative; }
-.highlighter-rouge.with-toolbar, figure.highlight.with-toolbar { position:relative; }
-.code-toolbar { display:flex; gap:6px; justify-content:flex-end; align-items:center; font-size:12px; font-weight:500; padding:4px 8px; background:linear-gradient(90deg, rgba(45,45,45,.85), rgba(45,45,45,.55)); border-bottom:1px solid #333; border-top-left-radius:4px; border-top-right-radius:4px; backdrop-filter:blur(6px); position:sticky; top:0; z-index:3; }
-.code-toolbar button { appearance:none; border:1px solid #444; background:#3a4349; color:#f0f4f7; padding:2px 8px 3px; border-radius:4px; cursor:pointer; line-height:1.2; font-family:inherit; display:inline-flex; gap:4px; align-items:center; transition:background .18s, border-color .18s, color .18s; }
-.code-toolbar button:hover { background:#4b565d; }
-.code-toolbar button:active { background:#5a666e; }
-.code-toolbar button:focus-visible { outline:2px solid var(--link-col); outline-offset:2px; }
-.code-toolbar button[aria-pressed="true"] { background:#2f72aa; border-color:#2f72aa; }
-.code-toolbar .copy-status { font-size:11px; margin-left:8px; color:#9ab6c5; min-width:52px; text-align:right; font-weight:400; }
-
-/* Line numbers (opt-in via class `line-numbers` on code or parent .highlight, or data-line-numbers attribute) */
-.highlight.line-numbers pre, .highlight.line-numbers pre code { position:relative; }
-.highlight.line-numbers pre { padding-left:3.5em; }
-.highlight.line-numbers pre code { counter-reset:code-line; display:block; }
-.highlight.line-numbers pre code span.code-line { display:block; padding-left:0.25rem; }
-.highlight.line-numbers pre code span.code-line:before { counter-increment:code-line; content:counter(code-line); position:absolute; left:0; width:3em; text-align:right; padding-right:.75em; color:#6d7a80; opacity:.8; font-size:12px; user-select:none; }
-.highlight.line-numbers pre code span.code-line.highlighted { background:rgba(255,255,255,.06); }
-
-/* Ensure unified radii when toolbar present */
-.with-toolbar pre { border-top-left-radius:0; border-top-right-radius:0; margin-top:0; }
-.with-toolbar .code-toolbar + pre { margin-top:0; }
 
 /* ===== GitHub Gist Overrides (Unify with site syntax theme) ===== */
 /* Base containers */
@@ -1295,13 +1289,7 @@ pre:focus-within { outline:2px solid #78b3ff; outline-offset:2px; }
 .footer-meta { justify-content:center !important; text-align:center; }
 
 
-/* Soft wrap toggle */
-.highlight pre.soft-wrap { white-space:pre-wrap; word-break:break-word; overflow-x:auto; }
 
-@media (max-width: 640px) {
-  .code-toolbar { font-size:11px; padding:4px 6px; }
-  .code-toolbar button { padding:2px 6px 3px; }
-}
 
 /* ===== 14. SCROLL ANIMATIONS & EFFECTS ===== */
 
@@ -1439,6 +1427,177 @@ textarea {
                 box-shadow 120ms ease-out,
                 opacity 120ms ease-out !important;
   }
+}
+
+/* ===== ARCHIVES PAGE ===== */
+
+.archive-filters {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(18, 18, 18, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.75rem 0;
+  margin: 0 0 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.tag-filter {
+  border-radius: 20px;
+  border: 1px solid var(--card-border);
+  background: rgba(255,255,255,0.04);
+  color: var(--mid-col);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  padding: 0.3rem 0.9rem;
+  transition: background 0.18s, border-color 0.18s, color 0.18s, transform 0.12s;
+}
+.tag-filter:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--text-col);
+  transform: translateY(-1px);
+}
+
+.tag-filter.active,
+.tag-filter[data-filter="all"].active { background: var(--link-col); border-color: var(--link-col); color: #fff; }
+.tag-filter[data-filter="azure-devops"].active { background: var(--tag-azure-devops); border-color: var(--tag-azure-devops); color: #fff; }
+.tag-filter[data-filter="cicd"].active { background: var(--tag-cicd); border-color: var(--tag-cicd); color: #121212; }
+.tag-filter[data-filter="playwright"].active { background: var(--tag-playwright); border-color: var(--tag-playwright); color: #fff; }
+.tag-filter[data-filter="git"].active { background: var(--tag-git); border-color: var(--tag-git); color: #fff; }
+.tag-filter[data-filter="github-actions"].active { background: var(--tag-github-actions); border-color: var(--tag-github-actions); color: #fff; }
+.tag-filter[data-filter="octopus-deploy"].active { background: var(--tag-octopus-deploy); border-color: var(--tag-octopus-deploy); color: #fff; }
+.tag-filter[data-filter="infra-as-code"].active { background: var(--tag-infra-as-code); border-color: var(--tag-infra-as-code); color: #121212; }
+.tag-filter[data-filter="windows"].active { background: var(--tag-windows); border-color: var(--tag-windows); color: #fff; }
+.tag-filter[data-filter="vs-code-extensions"].active { background: var(--tag-vs-code-extensions); border-color: var(--tag-vs-code-extensions); color: #fff; }
+.tag-filter[data-filter="ai"].active { background: var(--tag-ai); border-color: var(--tag-ai); color: #fff; }
+.tag-filter[data-filter="other"].active { background: var(--tag-other); border-color: var(--tag-other); color: #121212; }
+
+.archive-count {
+  color: var(--mid-col);
+  font-size: 0.8rem;
+  margin: 0 0 1.75rem;
+  letter-spacing: 0.2px;
+}
+.archive-count strong, .archive-count span {
+  color: var(--text-col);
+  font-weight: 600;
+}
+
+.archive-year-group {
+  margin-bottom: 2.5rem;
+}
+.archive-year-heading {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--link-col);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(0,138,255,0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.archive-year-heading::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 1.1em;
+  background: var(--link-col);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.archive-post-item {
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.045);
+  border-left: 3px solid transparent;
+  border-radius: 0 4px 4px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.75rem;
+  padding: 0.55rem 0.6rem;
+  opacity: 1;
+  transition: opacity 0.2s ease, background 0.15s, border-color 0.15s, padding-left 0.15s;
+}
+.archive-post-item:hover {
+  background: rgba(255,255,255,0.04);
+  border-left-color: var(--link-col);
+  padding-left: 0.9rem;
+}
+
+.archive-post-item[data-tags~="azure-devops"]:hover { border-left-color: var(--tag-azure-devops); }
+.archive-post-item[data-tags~="playwright"]:hover { border-left-color: var(--tag-playwright); }
+.archive-post-item[data-tags~="cicd"]:hover { border-left-color: var(--tag-cicd); }
+.archive-post-item[data-tags~="git"]:hover { border-left-color: var(--tag-git); }
+.archive-post-item[data-tags~="github-actions"]:hover { border-left-color: var(--tag-github-actions); }
+.archive-post-item[data-tags~="github-actions"]:hover { border-left-color: var(--tag-github-actions); }
+.archive-post-item[data-tags~="octopus-deploy"]:hover { border-left-color: var(--tag-octopus-deploy); }
+.archive-post-item[data-tags~="infra-as-code"]:hover { border-left-color: var(--tag-infra-as-code); }
+.archive-post-item[data-tags~="windows"]:hover { border-left-color: var(--tag-windows); }
+.archive-post-item[data-tags~="vs-code-extensions"]:hover { border-left-color: var(--tag-vs-code-extensions); }
+.archive-post-item[data-tags~="ai"]:hover { border-left-color: var(--tag-ai); }
+
+.archive-post-title {
+  color: var(--text-col);
+  flex: 1 1 auto;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-width: 0;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.archive-post-title:hover {
+  color: var(--link-col);
+  text-decoration: none;
+}
+.archive-meta {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+.archive-tag {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: var(--mid-col);
+  cursor: pointer;
+  font-size: 0.69rem;
+  font-weight: 500;
+  padding: 0.1rem 0.5rem;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.archive-tag:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.25);
+  color: var(--text-col);
+}
+
+.archive-empty-state {
+  display: none;
+  color: var(--mid-col);
+  font-size: 0.9rem;
+  padding: 2.5rem 0 1rem;
+  text-align: center;
+}
+.archive-empty-state.visible {
+  display: block;
 }
 
 /* Enhanced print styles */
