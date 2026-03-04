@@ -36,6 +36,8 @@ guid: 'https://marcusfelling.com/?page_id=492'
         {% assign _slug = "azure-devops" %}
       {% elsif tag == "DevOps" %}
         {% assign _slug = "cicd" %}
+      {% elsif tag == "GitHub Copilot" %}
+        {% assign _slug = "ai" %}
       {% else %}
         {% assign _slug = tag | slugify %}
       {% endif %}
@@ -52,8 +54,10 @@ guid: 'https://marcusfelling.com/?page_id=492'
         {% for tag in post.tags %}
           {% if tag == "Azure Pipelines" or tag == "Azure DevOps" %}
             {% assign _atag_slug = "azure-devops" %}
-          {% elsif tag == "CICD" %}
+          {% elsif tag == "CICD" or tag == "DevOps" %}
             {% assign _atag_slug = "cicd" %}
+          {% elsif tag == "GitHub Copilot" %}
+            {% assign _atag_slug = "ai" %}
           {% else %}
             {% assign _atag_slug = tag | slugify %}
           {% endif %}
