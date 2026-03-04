@@ -28,8 +28,7 @@ I'll go through some optimization techniques I've found to be effective:
 
 The most immediate win for most workflows is proper dependency caching:
 
-{% raw %}
-```yaml
+{% raw %}```yaml
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -53,8 +52,7 @@ jobs:
             
       - name: Install dependencies
         run: npm ci --prefer-offline --no-audit
-```
-{% endraw %}
+```{% endraw %}
 
 The above example includes several optimizations:
 - Caching both `~/.npm` and `node_modules`
@@ -66,8 +64,7 @@ The above example includes several optimizations:
 
 For workflows using Docker, image layering and caching are critical:
 
-{% raw %}
-```yaml
+{% raw %}```yaml
 jobs:
   docker-build:
     runs-on: ubuntu-latest
@@ -92,8 +89,7 @@ jobs:
           push: false
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
-```
-{% endraw %}
+```{% endraw %}
 
 After your build, add this step to prevent cache size explosion:
 
@@ -134,8 +130,7 @@ jobs:
 
 For multi-environment testing, use matrix builds:
 
-{% raw %}
-```yaml
+{% raw %}```yaml
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -150,8 +145,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
       - run: npm test
-```
-{% endraw %}
+```{% endraw %}
 
 ## Selective Testing with Path Filtering
 

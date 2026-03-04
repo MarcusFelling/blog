@@ -220,8 +220,13 @@ code {
 /* Syntax Highlighting - use CSS variables */
 .highlight {
   background-color: var(--card-image-placeholder);
-  padding: 1px; /* Added minimal padding */
   border-radius: 3px; /* Consistent with code styling */
+  overflow: hidden;
+}
+
+/* Prevent empty blocks above/below code from pre margin inside highlight wrapper */
+.highlight > pre {
+  margin: 0;
 }
 
 /* Syntax highlighting color scheme */
@@ -1218,28 +1223,6 @@ pre::-webkit-scrollbar-thumb:hover { background:#465158; }
 pre:focus-within { outline:2px solid #78b3ff; outline-offset:2px; }
 
 
-/* ===== Code Block Enhancements (Toolbar / Copy / Line Numbers / Wrap) ===== */
-.highlight.with-toolbar { position:relative; }
-.highlighter-rouge.with-toolbar, figure.highlight.with-toolbar { position:relative; }
-.code-toolbar { display:flex; gap:6px; justify-content:flex-end; align-items:center; font-size:12px; font-weight:500; padding:4px 8px; background:linear-gradient(90deg, rgba(45,45,45,.85), rgba(45,45,45,.55)); border-bottom:1px solid #333; border-top-left-radius:4px; border-top-right-radius:4px; backdrop-filter:blur(6px); position:sticky; top:0; z-index:3; }
-.code-toolbar button { appearance:none; border:1px solid #444; background:#3a4349; color:#f0f4f7; padding:2px 8px 3px; border-radius:4px; cursor:pointer; line-height:1.2; font-family:inherit; display:inline-flex; gap:4px; align-items:center; transition:background .18s, border-color .18s, color .18s; }
-.code-toolbar button:hover { background:#4b565d; }
-.code-toolbar button:active { background:#5a666e; }
-.code-toolbar button:focus-visible { outline:2px solid var(--link-col); outline-offset:2px; }
-.code-toolbar button[aria-pressed="true"] { background:#2f72aa; border-color:#2f72aa; }
-.code-toolbar .copy-status { font-size:11px; margin-left:8px; color:#9ab6c5; min-width:52px; text-align:right; font-weight:400; }
-
-/* Line numbers (opt-in via class `line-numbers` on code or parent .highlight, or data-line-numbers attribute) */
-.highlight.line-numbers pre, .highlight.line-numbers pre code { position:relative; }
-.highlight.line-numbers pre { padding-left:3.5em; }
-.highlight.line-numbers pre code { counter-reset:code-line; display:block; }
-.highlight.line-numbers pre code span.code-line { display:block; padding-left:0.25rem; }
-.highlight.line-numbers pre code span.code-line:before { counter-increment:code-line; content:counter(code-line); position:absolute; left:0; width:3em; text-align:right; padding-right:.75em; color:#6d7a80; opacity:.8; font-size:12px; user-select:none; }
-.highlight.line-numbers pre code span.code-line.highlighted { background:rgba(255,255,255,.06); }
-
-/* Ensure unified radii when toolbar present */
-.with-toolbar pre { border-top-left-radius:0; border-top-right-radius:0; margin-top:0; }
-.with-toolbar .code-toolbar + pre { margin-top:0; }
 
 /* ===== GitHub Gist Overrides (Unify with site syntax theme) ===== */
 /* Base containers */
@@ -1295,13 +1278,7 @@ pre:focus-within { outline:2px solid #78b3ff; outline-offset:2px; }
 .footer-meta { justify-content:center !important; text-align:center; }
 
 
-/* Soft wrap toggle */
-.highlight pre.soft-wrap { white-space:pre-wrap; word-break:break-word; overflow-x:auto; }
 
-@media (max-width: 640px) {
-  .code-toolbar { font-size:11px; padding:4px 6px; }
-  .code-toolbar button { padding:2px 6px 3px; }
-}
 
 /* ===== 14. SCROLL ANIMATIONS & EFFECTS ===== */
 
