@@ -17,6 +17,7 @@ guid: 'https://marcusfelling.com/?page_id=492'
     <a href="#infra-as-code" class="view-all-posts" style="font-size: 1em; margin: 0.5em; display: inline-block;">Infra as Code</a>
     <a href="#windows" class="view-all-posts" style="font-size: 1em; margin: 0.5em; display: inline-block;">Windows</a>
     <a href="#vs-code-extensions" class="view-all-posts" style="font-size: 1em; margin: 0.5em; display: inline-block;">VS Code Extensions</a>
+    <a href="#ai" class="view-all-posts" style="font-size: 1em; margin: 0.5em; display: inline-block;">AI</a>
     <a href="#other" class="view-all-posts" style="font-size: 1em; margin: 0.5em; display: inline-block;">Other</a>
 </div>
 
@@ -40,7 +41,7 @@ guid: 'https://marcusfelling.com/?page_id=492'
 - [VSTS Marketplace Extension: Queue Build(s) Task](https://marcusfelling.com/blog/2017/vsts-marketplace-extension-queue-builds-task/)
 - [Using Task Groups in TFS/VSTS](https://marcusfelling.com/blog/2017/using-task-groups-tfsvsts/)
 - [Versioning .Net assemblies using TFS/VSTS Build.BuildID](https://marcusfelling.com/blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/)
-- [Trigger an Azure Function (PowerShell) from an Azure DevOps Pipeline](https://marcusfelling.com/blog/2019/trigger-an-azure-function-powershell-from-an-azure-devops-pipeline/)
+- [Code Sharing (PowerShell): Create Pull Request via VSTS REST API](https://marcusfelling.com/blog/2017/create-vsts-pull-request-via-vsts-rest-api/)
 
 ## CI/CD
 - [💪 Azure Bicep CI/CD 🚀](https://marcusfelling.com/blog/2021/azure-bicep-ci-cd/)
@@ -51,6 +52,7 @@ guid: 'https://marcusfelling.com/?page_id=492'
 - [Rolling deployments to AWS using Octopus Deploy and Auto Scaling Groups](https://marcusfelling.com/blog/2017/rolling-deployments-aws-using-octopus-deploy-auto-scaling-groups/)
 - [Setting up a build/deploy pipeline for MySQL seed scripts using VSTS and Octopus Deploy](https://marcusfelling.com/blog/2017/setting-up-a-build-deploy-pipeline-for-mysql-seed-scripts-using-vsts-and-octopus-deploy/)
 - [Deploying IIS hosted ASP.NET Core apps using app_offline.htm](https://marcusfelling.com/blog/2018/deploying-iis-hosted-asp-net-core-apps-using-app_offline-htm/)
+- [Start-IISCommitDelay / Stop-IISCommitDelay](https://marcusfelling.com/blog/2019/start-iiscommitdelay-stop-iiscommitdelay/)
 
 ## Git
 - [Removing Sensitive Data from Git History with BFG and VS Code](https://marcusfelling.com/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/)
@@ -62,6 +64,10 @@ guid: 'https://marcusfelling.com/?page_id=492'
 - [6 Nifty GitHub Actions Features 🚀](https://marcusfelling.com/blog/2023/6-nifty-github-actions-features/)
 - [Using Terraform's Azure provider (azurerm) with GitHub Actions and Terraform Cloud](https://marcusfelling.com/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/)
 - [Porting an Azure Pipeline (YAML) to a GitHub Action](https://marcusfelling.com/blog/2020/porting-an-azure-pipeline-yaml-to-a-github-action/)
+
+## AI
+- [Building an AI Agent Squad for Your Repo](https://marcusfelling.com/blog/2026/building-an-ai-agent-squad-for-your-repo)
+- [Shipping an AI Agent MVP: What Actually Worked](https://marcusfelling.com/blog/2026/three-day-hackathon-shipping-ai-agent-mvps)
 
 ## Infra as Code
 - [Using Terraform's Azure provider (azurerm) with GitHub Actions and Terraform Cloud](https://marcusfelling.com/blog/2021/using-terraforms-azure-provider-azurerm-with-github-actions-and-terraform-cloud/)
@@ -86,7 +92,6 @@ guid: 'https://marcusfelling.com/?page_id=492'
 ## VS Code Extensions
 - [Control Your Windows VPN Connections from VS Code](https://marcusfelling.com/blog/2025/vpn-toggle-vscode-extension)
 - [Removing Sensitive Data from Git History with BFG and VS Code](https://marcusfelling.com/blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/)
-- [Visual Studio Marketplace Metrics](https://marcusfelling.com/blog/2017/visual-studio-marketplace-metrics/)
 
 ## Windows
 - [Control Your Windows VPN Connections from VS Code](https://marcusfelling.com/blog/2025/vpn-toggle-vscode-extension)
@@ -101,3 +106,4 @@ guid: 'https://marcusfelling.com/?page_id=492'
 - [Configuration Management for Serverless Microservice Projects](https://marcusfelling.com/blog/2017/configuration-management-serverless-microservice-projects/)
 - [Feature Flag journey with LaunchDarkly – Part 1](https://marcusfelling.com/blog/2017/feature-flag-journey-launchdarkly/)
 - [Feature Flag journey with LaunchDarkly – Part 2](https://marcusfelling.com/blog/2017/feature-flag-journey-launchdarkly-part-2/)
+- [Visual Studio Marketplace Metrics](https://marcusfelling.com/blog/2017/visual-studio-marketplace-metrics/)
