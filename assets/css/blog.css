@@ -108,8 +108,8 @@ hr {
 /* Image styling */
 .img-fluid {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   border-radius: 6px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
