@@ -23,7 +23,6 @@ social-network-links:
   linkedin: marcusfelling
 # If you want your website to generate an RSS feed, provide a description
 # The URL for the feed will be https://<your_website>/feed.xml
-rss-description: A blog about things I learn at the keyboard - DevOps, CI/CD, Cloud, Automation, to name a few….
 
 ###########################
 # --- General options --- #
@@ -60,7 +59,6 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      social-share: false # add social media sharing buttons to all blog posts
   -
     scope:
       path: "" # any file that's not a post will be a "page" layout by default

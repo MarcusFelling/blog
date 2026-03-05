@@ -185,14 +185,6 @@ hr {
   color: var(--text-col);
 }
 
-/* Adjust anchor link behavior for support across browsers */
-.anchor-link {
-  display: block;
-  position: relative;
-  top: -70px;
-  visibility: hidden;
-}
-
 /* ===== 3. CONTAINER STYLING ===== */
 .container-md {
   background-color: var(--card-bg);
@@ -299,124 +291,6 @@ pre.highlight::before {
   background: transparent;
 }
 
-/* Syntax highlighting color scheme */
-/* Comments */
-.highlight .c,
-.highlight .c1,
-.highlight .cm,
-.highlight .cs {
-  color: #7cad6a;
-}
-
-/* Strings */
-.highlight .s,
-.highlight .s1,
-.highlight .s2,
-.highlight .sb,
-.highlight .sc,
-.highlight .sd,
-.highlight .sh,
-.highlight .si,
-.highlight .sx {
-  color: #e69d85;
-}
-
-/* Keywords */
-.highlight .k,
-.highlight .kd,
-.highlight .kn,
-.highlight .kp,
-.highlight .kr,
-.highlight .kt {
-  color: #78b3ff;
-}
-
-/* Function names */
-.highlight .nf,
-.highlight .nx,
-.highlight .fm {
-  color: #f8d57e;
-}
-
-/* Numbers */
-.highlight .mi,
-.highlight .mf,
-.highlight .m,
-.highlight .mb,
-.highlight .mh,
-.highlight .mo {
-  color: #c5e39b;
-}
-
-/* Class names/types */
-.highlight .nc,
-.highlight .nn,
-.highlight .nl {
-  color: #70e8cb;
-}
-
-/* Operators/punctuation */
-.highlight .o,
-.highlight .p {
-  color: #f0f0f0;
-}
-
-/* Names/attributes */
-.highlight .na,
-.highlight .nb,
-.highlight .bp {
-  color: #9cdcfe;
-}
-
-/* HTML/XML tags */
-.highlight .nt {
-  color: #78aeff;
-}
-
-/* Variables */
-.highlight .nv,
-.highlight .vc,
-.highlight .vg,
-.highlight .vi {
-  color: #bcbcff;
-}
-
-/* Regex */
-.highlight .sr {
-  color: #ff8ca3;
-}
-
-/* Important elements */
-.highlight .gi {
-  color: #98c379;
-  background-color: rgba(152, 195, 121, 0.1);
-} /* Git insertion */
-.highlight .gd {
-  color: #ff6e6e;
-  background-color: rgba(255, 110, 110, 0.1);
-} /* Git deletion */
-.highlight .gh {
-  color: #ffffff;
-  font-weight: bold;
-} /* GitHub headers */
-.highlight .gu {
-  color: #bcbcbc;
-} /* GitHub subheaders */
-
-/* Language specific styling */
-.language-diff .highlight .gd {
-  color: #ff6e6e;
-}
-.language-diff .highlight .gi {
-  color: #98c379;
-}
-.language-bash .highlight .nb {
-  color: #98c379;
-}
-.language-json .highlight .attr {
-  color: #9cdcfe;
-}
-
 /* ===== 5. CARD STYLES ===== */
 /* Card container layout */
 .post-cards-container {
@@ -512,39 +386,6 @@ pre.highlight::before {
   padding-top: 0.75rem;
   border-top: 1px solid var(--card-border);
   margin-top: 0.75rem;
-}
-
-.read-more {
-  font-weight: 600;
-  color: var(--link-col);
-  display: flex;
-  align-items: center;
-}
-
-.read-more i {
-  margin-left: 5px;
-}
-
-/* View All Posts button styling */
-.view-all-posts {
-  display: inline-block;
-  background-color: var(--link-col);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: none;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.view-all-posts:hover {
-  background-color: var(--hover-col);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  color: white;
-  text-decoration: none;
 }
 
 /* Page heading styles */
@@ -643,11 +484,6 @@ header a:hover {
   color: var(--link-col) !important;
 }
 
-.navbar-brand,
-.site-title {
-  font-weight: 600;
-}
-
 .brand span {
   font-weight: 800;
   letter-spacing: -0.5px;
@@ -656,42 +492,6 @@ header a:hover {
 
 .nav-links {
   gap: 2rem;
-}
-
-/* Dropdown menus */
-.dropdown-menu {
-  background-color: var(--page-col);
-  border: 1px solid var(--navbar-border-col);
-  box-shadow: 0 5px 15px var(--card-shadow);
-}
-
-.dropdown-item {
-  color: var(--text-col);
-}
-
-.dropdown-item:hover,
-.dropdown-item:focus {
-  background-color: var(--card-image-placeholder);
-  color: var(--text-col);
-}
-
-/* Navbar toggler for mobile */
-.navbar-toggler {
-  border-color: var(--link-col);
-  padding: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.navbar-toggler:hover,
-.navbar-toggler:focus {
-  border-color: var(--hover-col);
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.3);
-}
-
-/* Navbar toggler icon for dark theme */
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1.0)' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 /* Active navigation items */
@@ -797,11 +597,6 @@ footer .social-links a:focus {
   border-color: var(--footer-hover-col);
 }
 
-/* Social media icons fix */
-.fa-stack-2x {
-  display: none !important;
-}
-
 footer .fa:hover,
 footer .fab:hover,
 footer .fas:hover,
@@ -858,48 +653,7 @@ footer hr,
   border-color: var(--navbar-border-col);
 }
 
-.copyright,
-footer .copyright {
-  color: var(--footer-text-col) !important;
-  font-size: 0.85rem;
-  margin-top: 15px;
-}
-
-.rss-subscribe,
-footer .rss-subscribe {
-  color: var(--footer-text-col) !important;
-}
-
-.rss-subscribe:hover,
-footer .rss-subscribe:hover {
-  color: var(--footer-hover-col) !important;
-}
-
-/* Social Media Icons in footer */
-.social-list,
-.footer-links,
-.social-icons,
-footer ul,
-.footer ul,
-.site-footer ul {
-  display: block !important;
-  list-style: none !important;
-  padding-left: 0 !important;
-  margin-bottom: 1rem !important;
-}
-
-.social-list li,
-.footer-links li,
-.social-icons li,
-footer ul li,
-.footer ul li,
-.site-footer ul li {
-  display: inline-block !important;
-  margin-right: 10px !important;
-}
-
 /* Fix Font Awesome icon display */
-.social-icons i,
 footer .fa,
 footer .fab,
 footer .fas,
@@ -912,7 +666,6 @@ footer .fas,
   background: transparent !important;
 }
 
-.social-icons a:hover,
 footer .fa:hover,
 footer .fab:hover,
 footer .fas:hover,
@@ -1063,11 +816,6 @@ footer .fas:hover,
 
   .page-heading h1 {
     font-size: 1.8rem;
-  }
-
-  .view-all-posts {
-    padding: 8px 16px;
-    font-size: 0.9rem;
   }
 }
 
@@ -1239,12 +987,6 @@ body.search-active .footer-inner-compact { display:none !important; }
   }
 }
 
-/* Additional contrast mode for Windows High Contrast Mode */
-@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: black-on-white) {
-  /* This will be gradually phased out, but keeps compatibility with older browsers */
-  /* Inherit styles from the standard media query above */
-}
-
 /* ===== Modern Redesign Overrides ===== */
 .intro-header {
   background: transparent !important;
@@ -1258,17 +1000,11 @@ body.modern .intro-header { background: transparent; }
 .page-heading { background:transparent !important; box-shadow:none !important; border:0 !important; }
 
 /* Blend post header sections with body.modern background but keep inner containers (like .container-md) styled */
-body.modern .post-header,
-body.modern .page-header,
 body.modern .header-section {
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
 }
-body.modern .post-header::before,
-body.modern .post-header::after,
-body.modern .page-header::before,
-body.modern .page-header::after,
 body.modern .header-section::before,
 body.modern .header-section::after {
   background: transparent !important;
@@ -1363,67 +1099,9 @@ pre:focus-within { outline:2px solid #78b3ff; outline-offset:2px; }
 
 
 
-/* ===== 14. SCROLL ANIMATIONS & EFFECTS ===== */
-
-/* Scroll-triggered animation setup */
-.scroll-fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.scroll-fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.scroll-slide-left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
-}
-
-.scroll-slide-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.scroll-slide-right {
-  opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
-}
-
-.scroll-slide-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.scroll-scale-in {
-  opacity: 0;
-  transform: scale(0.95);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.scroll-scale-in.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
 /* Staggered animation for card grids */
 .post-card {
   transition: all 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
-
-.post-card.scroll-animate {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.post-card.scroll-animate.visible {
-  opacity: 1;
-  transform: translateY(0);
-  animation: none;
 }
 
 /* Smooth parallax effect for hero section */
@@ -1456,22 +1134,6 @@ textarea {
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
-/* Loading animation */
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
-.loading {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
-  background-size: 1000px 100%;
-  animation: shimmer 2s infinite;
-}
-
 /* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   /* Globally minimize motion-heavy animations */
@@ -1480,11 +1142,6 @@ textarea {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition: none !important;
-  }
-
-  /* Explicitly disable shimmer / moving background animations */
-  .loading {
-    animation: none !important;
   }
 
   /* Allow essential non-motion feedback transitions */

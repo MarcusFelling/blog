@@ -27,6 +27,39 @@ Replaced the entire `/* ===== ARCHIVES PAGE ===== */` CSS block in `assets/css/b
 
 ---
 
+### 2026-03-05 — Unused code purge across blog.css, _config.yml, _layouts/post.html
+
+Removed all confirmed-unused code identified in Keaton's audit (`keaton-unused-code-audit.md`). Approximate savings: ~338 lines removed from `assets/css/blog.css` (1732 → 1394 lines), 2 lines from `_config.yml`, 2 lines from `_layouts/post.html`.
+
+**CSS removed (by target letter):**
+- **A** — `.anchor-link` block (5 lines) — legacy utility, never referenced in any template
+- **B** — First syntax highlight token block (~100 lines: `.highlight .c` through `.language-json .highlight .attr`) — fully superseded by the later `!important`-qualified Unified Syntax Highlight Theme block
+- **C** — `.read-more` and `.read-more i` (8 lines) — replaced by `.read-more-chip` in home layout
+- **D** — `.view-all-posts` and `.view-all-posts:hover` (18 lines) — class never applied in any template
+- **E** — `.navbar-brand, .site-title` (3 lines) — nav uses `.brand` class; Bootstrap selectors never present
+- **F** — `.dropdown-menu`, `.dropdown-item`, `.dropdown-item:hover/focus` (14 lines) — no dropdown menus in any template
+- **G** — `.navbar-toggler`, `:hover`, `:focus`, `.navbar-toggler-icon` (16 lines) — nav uses `.nav-toggle`, not Bootstrap toggler
+- **H** — `.fa-stack-2x { display: none !important }` (3 lines) — no matching elements in any template
+- **I** — `.copyright` and `footer .copyright` (5 lines) — footer uses `.footer-copy`, not `.copyright`
+- **J** — `.rss-subscribe`, `footer .rss-subscribe`, `.rss-subscribe:hover` (9 lines) — footer uses `.social-chips`
+- **K** — `.social-list`, `.footer-links`, `.social-icons` full selector blocks (21 lines) — legacy Bootstrap-era classes, no matching elements
+- **L** — `.social-icons i,` and `.social-icons a:hover,` prefixes removed from comma-separated selector lists (2 lines) — kept the live `footer .fa` etc. selectors intact
+- **M** — `@media screen and (-ms-high-contrast)` empty block (4 lines) — IE-only, zero declarations
+- **N** — `body.modern .post-header` and `body.modern .page-header` selectors removed from combined rules (5 lines), keeping `body.modern .header-section` intact as it IS used in `_layouts/post.html`
+- **O** — Scroll animation classes: `.scroll-fade-in`, `.scroll-slide-left`, `.scroll-slide-right`, `.scroll-scale-in` (all with `.visible` variants) and `.post-card.scroll-animate` / `.visible` (57 lines) — no JS Intersection Observer implementation, never applied
+- **P** — `@keyframes shimmer`, `.loading` block, and `.loading { animation: none }` override inside `@media (prefers-reduced-motion)` (19 lines) — class never applied; kept the rest of the reduced-motion block untouched
+
+**Config removed:**
+- **Q** — `social-share: false` from posts defaults — `page.social-share` never referenced in any template
+- **R** — `rss-description: "..."` top-level variable — `site.rss-description` never referenced; `jekyll-feed` uses `site.description`
+
+**Liquid removed:**
+- **S** — `{% elsif tag == "CICD" %}` branch in `_layouts/post.html` tag slug normalization — redundant because `"CICD" | slugify` produces `"cicd"` identically via the `else` fallback
+
+Key lesson: when removing selectors from comma-separated lists, always read the full selector before acting — several blocks mixed live selectors (`footer .fa`, `footer .fab`) with dead ones (`.social-icons`), and only the dead portions were removed.
+
+---
+
 ### 2026-03-04 — Code block "empty blocks" fix
 
 Jekyll wraps fenced code blocks in `div.highlight > div.highlight > pre.highlight > code`. The `div.highlight` carries `background-color`, so the `pre`'s default `margin: 1em 0` punches visible coloured gaps above and below the code. Fix: remove `padding` from `.highlight`, add `overflow: hidden` (so `border-radius` clips children correctly), and add `.highlight > pre { margin: 0; }` to collapse those margins. This pattern applies any time a background-coloured wrapper contains a block element with vertical margin.
