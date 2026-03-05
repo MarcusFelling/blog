@@ -9,6 +9,17 @@
 
 <!-- Append new learnings below. Each entry is something lasting about the project. -->
 
+### 2026-03-05 — Full CSS Redesign
+
+- **Font decision:** Replaced Lora + Open Sans (the single most template-signalling combo on the internet) with Inter (body + headings at 700–800 weight) and JetBrains Mono (code). Inter at 800 weight is a credible heading font on its own — no separate display font needed. One Google Fonts request instead of two. Added `--body-font`, `--header-font`, `--mono-font` CSS variables; `--header-font` was already referenced in the pagination rule so this also fixed a latent undefined-variable bug.
+- **Accent color:** Replaced `#008aff` (ubiquitous generic blue) with `#f97316` amber-orange. Orange on dark is almost never used in the DevOps/tech blog space — it signals confidence and differentiates immediately. `--link-col` and `--accent-col` are both `#f97316`; the distinction is intentional (semantic vs structural), keeps the door open for future divergence.
+- **Color palette depth:** Moved from flat `#121212` background to `#0d1117` (GitHub's dark bg). The difference is subtle but the palette coherence across `--page-col` / `--card-bg` (`#161b22`) / `--card-image-placeholder` (`#1c2128`) creates three distinct depth levels that make the UI feel designed rather than defaulted.
+- **Card redesign:** Reduced border from 2px to 1px, softened radius from 8px to 12px, replaced flat box-shadow with deeper `rgba(0,0,0,0.4)` resting shadow. Hover accent: left border transitions to `--accent-col` — creates a directional focus cue that reads as intentional, not just a hover state.
+- **Blog post h1:** Removed the gradient-background treatment (unmistakably 2019 tutorial CSS). Replaced with clean bottom border in accent color, `clamp()` font size, weight 800, tight letter-spacing. This is the most impactful single change — it resets the reader's first impression of every post.
+- **Code blocks (terminal style):** Added `.highlight::before` with `"● ● ●"` chrome bar using `#1c2128` header + `#0d1117` body. This pattern is recognized as "premium DevOps tooling" by the target audience. Required updating the Unified Syntax Highlight Theme's `!important` overrides and adding a `.highlight > pre` specificity override to keep the inner pre transparent.
+- **`!important` cascade:** The Unified Syntax Highlight Theme block uses `!important` to lock in consistent syntax colors across all posts. New `.highlight > pre { background: transparent !important; border: none !important; }` rule placed after that block uses higher specificity to punch through — avoid putting structural code-block rules in the unified theme block itself; keep the theme block purely about token colors.
+- **Archive page color consistency:** `archive-filters` had hardcoded `rgba(18,18,18,0.88)` — updated to `rgba(13,17,23,0.88)` to match new `--page-col`. `archive-year-heading` border-bottom had hardcoded blue `rgba(0,138,255,0.25)` — updated to orange. Always grep for hardcoded hex values when doing a palette swap.
+
 ### 2026-03-04 — Archives Design Spec
 
 - **Tag accent strategy:** Assigned each filter slug a distinct brand-appropriate accent color. The three Microsoft-adjacent tags (azure-devops, windows, vs-code-extensions) required deliberate hue separation: Azure blue (#0078D4), cornflower blue (#68B5FB), and VS Code teal (#4EC9B0) to avoid clustering. Light accents (windows, vs-code-extensions, ai) need `color: #111` on the active button — always check contrast when accent is light.

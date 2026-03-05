@@ -17,26 +17,32 @@
 /* ===== 1. VARIABLES ===== */
 :root {
   /* Core theme variables - dark theme only */
-  --page-col: #121212;
-  --text-col: #e0e0e0;
-  --link-col: #008aff;
-  --hover-col: #0099ff;
-  --navbar-col: #1a1a1a;
-  --navbar-text-col: #e0e0e0;
-  --navbar-border-col: #333333;
-  --footer-col: #1a1a1a;
-  --footer-text-col: #aaaaaa;
-  --footer-link-col: #b8b8b8;
-  --footer-hover-col: #008aff;
-  --mid-col: #aaaaaa;
+  --page-col: #0d1117;
+  --text-col: #e6edf3;
+  --link-col: #f97316;
+  --hover-col: #fb923c;
+  --navbar-col: #161b22;
+  --navbar-text-col: #e6edf3;
+  --navbar-border-col: #30363d;
+  --footer-col: #161b22;
+  --footer-text-col: #8b949e;
+  --footer-link-col: #a0b0bf;
+  --footer-hover-col: #fb923c;
+  --mid-col: #8b949e;
+
+  /* Typography */
+  --body-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --header-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono-font: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --accent-col: #f97316;
 
   /* Card specific variables */
-  --card-bg: #1e1e1e;
-  --card-border: #333333;
+  --card-bg: #161b22;
+  --card-border: #30363d;
   --card-shadow: rgba(0, 0, 0, 0.3);
   --card-shadow-hover: rgba(0, 0, 0, 0.5);
-  --card-image-placeholder: #2d2d2d;
-  --tag-bg: #2a2a2a;
+  --card-image-placeholder: #1c2128;
+  --tag-bg: #1c2128;
   --tag-color: #d0d0d0;
   --tag-azure-devops: #0078d4;
   --tag-cicd:         #f8d57e;
@@ -56,6 +62,11 @@ html,
 body {
   background-color: var(--page-col);
   color: var(--text-col);
+  font-family: var(--body-font);
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -68,8 +79,16 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--header-font);
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
   color: var(--text-col);
   scroll-margin-top: 70px; /* Modern browsers - ensures anchors don't get hidden under navbar */
+}
+
+code, pre, kbd, samp {
+  font-family: var(--mono-font);
 }
 
 blockquote {
@@ -117,13 +136,20 @@ hr {
 }
 
 .blog-post h1 {
-  background: linear-gradient(to right, #1e2024, #171a1d);
-  padding: 15px 20px;
-  border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  margin-left: -10px;
-  margin-right: -10px;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  border-bottom: 2px solid var(--accent-col);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-col);
+}
+
+.blog-post p {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  max-width: 72ch;
+  color: var(--text-col);
 }
 
 .blog-post h2 {
@@ -151,6 +177,14 @@ hr {
   font-style: italic;
 }
 
+.hero-intro h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.15;
+  color: var(--text-col);
+}
+
 /* Adjust anchor link behavior for support across browsers */
 .anchor-link {
   display: block;
@@ -161,7 +195,7 @@ hr {
 
 /* ===== 3. CONTAINER STYLING ===== */
 .container-md {
-  background-color: #161616; /* Slightly lighter than page but darker than navbar */
+  background-color: var(--card-bg);
   border-radius: 8px;
   border: 1px solid var(--card-border);
   box-shadow: 0 4px 12px var(--card-shadow);
@@ -210,11 +244,13 @@ code {
 }
 
 pre {
-  padding: 12px 15px;
+  padding: 16px 20px;
   border: 1px solid var(--card-border);
+  border-left: 3px solid var(--accent-col);
   overflow: auto;
   margin: 1em 0;
-  border-left: 3px solid var(--link-col); /* Changed from navbar-border-col to link-col for better visibility */
+  border-radius: 6px;
+  background-color: var(--card-image-placeholder);
 }
 
 code {
@@ -228,16 +264,39 @@ code {
   border: 1px solid var(--card-border); /* Added border for better definition */
 }
 
-/* Syntax Highlighting - use CSS variables */
+/* Syntax Highlighting - terminal style */
 .highlight {
-  background-color: var(--card-image-placeholder);
-  border-radius: 3px; /* Consistent with code styling */
+  position: relative;
+  border-radius: 10px;
+  border: 1px solid var(--card-border);
+  background: #0d1117;
+  margin: 1.5em 0;
   overflow: hidden;
+}
+
+div.highlight::before {
+  content: "\25CF \25CF \25CF";
+  display: block;
+  padding: 10px 16px 8px;
+  background: #1c2128;
+  color: #484f58;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  border-bottom: 1px solid var(--card-border);
+  font-family: var(--mono-font);
+}
+
+pre.highlight::before {
+  display: none;
 }
 
 /* Prevent empty blocks above/below code from pre margin inside highlight wrapper */
 .highlight > pre {
   margin: 0;
+  padding: 16px 20px;
+  border: none;
+  border-left: none;
+  background: transparent;
 }
 
 /* Syntax highlighting color scheme */
@@ -372,19 +431,20 @@ code {
 /* Individual card styling */
 .post-card {
   background-color: var(--card-bg);
-  border-radius: 8px;
-  border: 2px solid var(--card-border);
-  box-shadow: 0 4px 6px var(--card-shadow);
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .post-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.6);
+  border-left-color: var(--accent-col);
 }
 
 /* Card image container */
@@ -588,6 +648,16 @@ header a:hover {
   font-weight: 600;
 }
 
+.brand span {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  font-size: 1.05rem;
+}
+
+.nav-links {
+  gap: 2rem;
+}
+
 /* Dropdown menus */
 .dropdown-menu {
   background-color: var(--page-col);
@@ -616,7 +686,7 @@ header a:hover {
 .navbar-toggler:focus {
   border-color: var(--hover-col);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(0, 138, 255, 0.3);
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.3);
 }
 
 /* Navbar toggler icon for dark theme */
@@ -1038,7 +1108,7 @@ footer .fas:hover,
   font-size: 16px;
   border-radius: 25px;
   border: 1px solid var(--card-border);
-  background-color: #161616;
+  background-color: var(--card-bg);
   color: #fff;
   outline: none;
   transition: all 0.3s ease;
@@ -1046,7 +1116,7 @@ footer .fas:hover,
 
 .search-input:focus {
   border-color: var(--link-col);
-  box-shadow: 0 0 0 3px rgba(0, 133, 161, 0.25);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
 }
 
 .search-icon {
@@ -1064,7 +1134,7 @@ footer .fas:hover,
   width: 100%;
   max-height: 400px;
   overflow-y: auto;
-  background-color: #161616;
+  background-color: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -1089,7 +1159,7 @@ footer .fas:hover,
 }
 
 .search-result-link:hover {
-  background-color: rgba(0, 133, 161, 0.1);
+  background-color: rgba(249, 115, 22, 0.1);
 }
 
 .search-result-link h3 {
@@ -1207,10 +1277,12 @@ body.modern .header-section::after {
 
 /* ===== Unified Syntax Highlight Theme (Matches 'Optimizing GitHub Actions' post) ===== */
 /* Applied last to ensure consistency across pages */
-.highlight, pre.highlight, pre code { background:#2d2d2d !important; color:#f0f4f7 !important; }
-pre { background:#2d2d2d !important; border:1px solid #333 !important; border-left:3px solid var(--link-col) !important; box-shadow:0 0 0 1px rgba(0,0,0,.4) inset; }
+.highlight, pre.highlight, pre code { background:#0d1117 !important; color:#f0f4f7 !important; }
+pre { background:#1c2128 !important; border:1px solid #30363d !important; border-left:3px solid var(--accent-col) !important; box-shadow:0 0 0 1px rgba(0,0,0,.4) inset; }
 pre code { background:transparent !important; }
-:not(pre) > code { background:#2d2d2d !important; border:1px solid #333 !important; color:#f0f4f7 !important; padding:2px 5px; border-radius:4px; }
+:not(pre) > code { background:#1c2128 !important; border:1px solid #30363d !important; color:#f0f4f7 !important; padding:2px 5px; border-radius:4px; }
+/* Override: highlight > pre must be transparent — terminal chrome (.highlight::before) handles the header */
+.highlight > pre { background: transparent !important; border: none !important; border-left: none !important; padding: 16px 20px !important; box-shadow: none !important; }
 /* Token colors (kept identical to original palette used in reference post) */
 .highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color:#7cad6a !important; font-style:italic; }
 .highlight .s, .highlight .s1, .highlight .s2, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .sh, .highlight .si, .highlight .sx { color:#e69d85 !important; }
@@ -1228,8 +1300,8 @@ pre code { background:transparent !important; }
 .highlight .err { color:#ff8080 !important; background:rgba(255,128,128,.15) !important; border-bottom:1px dotted #ff8080; }
 /* Scrollbar refinement */
 pre::-webkit-scrollbar { height:10px; }
-pre::-webkit-scrollbar-track { background:#2d2d2d; }
-pre::-webkit-scrollbar-thumb { background:#3a4349; border:2px solid #2d2d2d; border-radius:6px; }
+pre::-webkit-scrollbar-track { background:#0d1117; }
+pre::-webkit-scrollbar-thumb { background:#3a4349; border:2px solid #0d1117; border-radius:6px; }
 pre::-webkit-scrollbar-thumb:hover { background:#465158; }
 pre:focus-within { outline:2px solid #78b3ff; outline-offset:2px; }
 
@@ -1435,7 +1507,7 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(18, 18, 18, 0.88);
+  background: rgba(13, 17, 23, 0.88);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   display: flex;
@@ -1500,7 +1572,7 @@ textarea {
   color: var(--link-col);
   margin: 0 0 0.75rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(0,138,255,0.25);
+  border-bottom: 2px solid rgba(249, 115, 22, 0.25);
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -1608,4 +1680,52 @@ textarea {
   .browse-archive-btn {
     display: none;
   }
+}
+
+
+/* ===== HERO PANEL EXTRACTED CLASSES ===== */
+.pulse-heading {
+  font-size: 1rem;
+  letter-spacing: .8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-col);
+  margin: 0 0 1.2rem;
+}
+
+.top-pages-box {
+  background: rgba(255,255,255,.06);
+  padding: 1.4rem 1.3rem;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.top-pages-label {
+  margin: 0 0 .75rem;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .8px;
+  color: var(--mid-col);
+  text-transform: uppercase;
+}
+
+.top-page-link {
+  color: var(--text-col);
+  text-decoration: none;
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+  padding: .4rem .5rem;
+  border-radius: 5px;
+  transition: all 160ms ease;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.top-page-link:hover {
+  background: rgba(255,255,255,.06);
+  color: var(--link-col);
+  text-decoration: none;
 }
