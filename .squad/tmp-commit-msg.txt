@@ -1,0 +1,6 @@
+﻿chore: remove unused CSS, config vars, and redundant Liquid branch
+
+- Remove ~342 lines of dead CSS selectors (Bootstrap nav remnants, scroll animations, loading shimmer, legacy footer classes, duplicate syntax highlight block)
+- Remove unused _config.yml vars: social-share, rss-description
+- Remove redundant tag == CICD elsif branch from post.html layout
+- No visual or functional impact (verified: Jekyll build clean, 18/19 Playwright tests pass)

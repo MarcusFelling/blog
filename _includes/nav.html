@@ -7,7 +7,7 @@
     {% for nav in site['navbar-links'] %}
       {% assign label = nav[0] %}
       {% assign path = nav[1] %}
-      <li><a href="/{{ path | downcase | replace: ' ', '-' }}"><i class="fas fa-folder-open"></i> {{ label }}</a></li>
+      <li><a href="/{{ path | downcase | replace: ' ', '-' }}">{{ label }}</a></li>
     {% endfor %}
   </ul>
   <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" onclick="toggleDrawer()">Menu</button>
@@ -21,7 +21,7 @@
     {% for nav in site['navbar-links'] %}
       {% assign label = nav[0] %}
       {% assign path = nav[1] %}
-      <li><a href="/{{ path | downcase | replace: ' ', '-' }}"><i class="fas fa-folder-open"></i> {{ label }}</a></li>
+      <li><a href="/{{ path | downcase | replace: ' ', '-' }}">{{ label }}</a></li>
     {% endfor %}
   </ul>
 </div>

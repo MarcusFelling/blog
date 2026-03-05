@@ -57,6 +57,15 @@ Pattern applies any time a background-coloured wrapper contains a block element 
 
 ---
 
+### No Auto-Commit Directive
+
+**Date:** 2026-03-05
+**By:** Marcus Felling (via Copilot)
+
+Do not auto-commit changes. Stage files but skip the `git commit` step. Marcus needs to review changes before they are committed.
+
+---
+
 ## Governance
 
 - All meaningful changes require team consensus
