@@ -32,3 +32,8 @@
 - Finding: `scroll-to-top.js` and `search.js` are pure vanilla JS  neither uses jQuery. jQuery, Popper.js, and Bootstrap JS are loaded solely to power `data-toggle="tooltip"` on pagination links in `post.html`.
 - Flagged as Phase 2 quick-win: drop Bootstrap JS + Popper + jQuery by replacing pagination tooltips with native `title` attributes. Three CDN requests eliminated, no functional regression.
 - Decision filed at `.squad/decisions/inbox/keaton-bootstrap-decision-2026.md`.
+
+### 2026-03-06 — Keep responsive navbar media queries outside reduced-motion
+
+- The navbar social-chip breakpoint rules in `assets/css/blog.css` must stay as top-level `@media` blocks. Nesting them inside `@media (prefers-reduced-motion: reduce)` breaks responsive navbar/drawer behavior for most users and makes the stylesheet structure misleading.
+- For this codebase, reduced-motion overrides should only contain motion/accessibility adjustments; layout and breakpoint rules belong at the normal top level.

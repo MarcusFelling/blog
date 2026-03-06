@@ -5,19 +5,35 @@ test('should allow me to view landing page', async ({ page }) => {
 
   await expect(page.getByRole('link', { name: 'Home' })).toBeVisible();
 
+  const nav = page.getByRole('navigation', { name: 'Main navigation' });
   const footer = page.locator('footer');
+  const socialChipHosts = nav.locator('.nav-social .social-chips');
+  const socialChips = nav.locator('.nav-social .social-chip');
 
-  const rssLink = footer.getByRole('link', { name: /rss/i });
-  await expect(rssLink).toBeVisible();
-  await expect(rssLink).toHaveAttribute('href', /feed\.xml/);
+  expect(await socialChipHosts.count()).toBeGreaterThan(0);
 
-  const ghLink = footer.getByRole('link', { name: 'GitHub', exact: true });
-  await expect(ghLink).toBeVisible();
-  await expect(ghLink).toHaveAttribute('href', /github\.com/);
+  const configuredSocialChips = await socialChips.evaluateAll((links) =>
+    links.map((link) => ({
+      label: link.getAttribute('aria-label') ?? link.getAttribute('title') ?? '',
+      href: link.getAttribute('href') ?? '',
+    }))
+  );
 
-  const lnLink = footer.getByRole('link', { name: 'LinkedIn', exact: true });
-  await expect(lnLink).toBeVisible();
-  await expect(lnLink).toHaveAttribute('href', /linkedin\.com/);
+  for (const chip of configuredSocialChips) {
+    expect(chip.label).toBeTruthy();
+
+    if (/github/i.test(chip.label)) {
+      expect(chip.href).toMatch(/github\.com/);
+    } else if (/linkedin/i.test(chip.label)) {
+      expect(chip.href).toMatch(/linkedin\.com/);
+    } else if (/rss/i.test(chip.label)) {
+      expect(chip.href).toMatch(/feed\.xml|rss|feed/i);
+    }
+
+    await expect(footer.getByRole('link', { name: new RegExp(chip.label, 'i') })).toHaveCount(0);
+  }
+
+  await expect(footer.locator('.social-chip')).toHaveCount(0);
 
   await expect(page.getByRole('link', { name: 'Archive' }).first()).toBeVisible();
 });

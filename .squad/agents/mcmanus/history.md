@@ -63,3 +63,11 @@ Key lesson: when removing selectors from comma-separated lists, always read the 
 ### 2026-03-04 — Code block "empty blocks" fix
 
 Jekyll wraps fenced code blocks in `div.highlight > div.highlight > pre.highlight > code`. The `div.highlight` carries `background-color`, so the `pre`'s default `margin: 1em 0` punches visible coloured gaps above and below the code. Fix: remove `padding` from `.highlight`, add `overflow: hidden` (so `border-radius` clips children correctly), and add `.highlight > pre { margin: 0; }` to collapse those margins. This pattern applies any time a background-coloured wrapper contains a block element with vertical margin.
+
+### 2026-03-06 — Reused social links via Liquid capture for desktop nav and mobile drawer
+
+Moved the site social links out of `_includes/footer.html` and into `_includes/nav.html`, but kept the markup DRY by capturing the anchor list once with `{% capture %}` and reusing it in both the desktop navbar and the mobile drawer. Styling stays in `assets/css/blog.css` using more specific `.navbar-modern .nav-social` and `.mobile-drawer .nav-social` selectors so the nav version can look richer without disturbing the generic `.social-chips` rules already injected from `_includes/head.html`.
+
+### 2026-03-06 — Use bracket-key Liquid access for dashed config keys in nav includes
+
+`_config.yml` stores navigation and social settings under dashed keys like `navbar-links` and `social-network-links`. In `_includes/nav.html`, those values must be read via bracket access (`site['navbar-links']`, `social_links['github']`, etc.) after assigning the parent hashes first; dashed dot access can evaluate incorrectly in Liquid and silently render empty nav lists or empty social chip groups.

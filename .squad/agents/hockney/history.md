@@ -9,6 +9,17 @@
 
 <!-- Append new learnings below. Each entry is something lasting about the project. -->
 
+### 2026-03-06 — Landing social chips regression
+
+- The landing-page regression in [tests/landing.spec.ts](tests/landing.spec.ts#L3-L30) should assert the social chips rendered in the navbar, not hard-code `RSS feed`, because local test runs may be served from config combinations that omit some chips.
+- For this site, the stable invariant is location: configured social-chip links belong under `.nav-social` in the main navigation, and the footer should expose zero `.social-chip` links.
+
+### 2026-03-06 — Social chips verification
+
+- For UI verification on this site, use merged Jekyll config (`_config.yml,_config-dev.yml`). `_config-dev.yml` by itself omits `site.social-network-links`, so navbar/footer assertions can give false negatives.
+- The landing-page regression belongs in [tests/landing.spec.ts](tests/landing.spec.ts#L3-L25): assert the social links under `navigation[aria-label="Main navigation"]` and explicitly assert the footer no longer exposes those links.
+- Watch for accidental media-query nesting near [assets/css/blog.css](assets/css/blog.css#L1223-L1261). A missing closing brace can silently trap later breakpoint rules inside `prefers-reduced-motion`, which makes mobile-only UI behavior look correct in markup but fail in the browser.
+
 ### 2026-03-04 — Archives spec rewrite
 
 - The old `archives.spec.ts` targeted an h2-section + tag-cloud structure that was replaced with a JS filter UI (`div.archive-filters`, `button.tag-filter[data-filter]`, `#visible-count`).
