@@ -173,9 +173,9 @@ test.describe('Archives Page', () => {
   });
 
   // ---------------------------------------------------------------------------
-  // 9. Squad post tag normalization (GitHub Copilot → ai, DevOps → cicd)
+  // 9. Squad post tag normalization (AI → ai)
   // ---------------------------------------------------------------------------
-  test('squad post data-tags contains "ai" and "cicd" after normalization', async ({ page }) => {
+  test('squad post data-tags contains "ai" after normalization', async ({ page }) => {
     await page.goto('/archives');
 
     const squadItem = page.locator(
@@ -185,7 +185,7 @@ test.describe('Archives Page', () => {
 
     const tags = await squadItem.getAttribute('data-tags');
     expect(tags).toContain('ai');
-    expect(tags).toContain('cicd');
+    expect(tags).not.toContain('cicd');
   });
 
   // ---------------------------------------------------------------------------
