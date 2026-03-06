@@ -93,6 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </a>
               </div>`;
     });
+    html += `<div class="search-browse-all"><a href="/archives">Browse Full Archive <i class="fas fa-layer-group" style="font-size:.8em;"></i></a></div>`;
 
     searchResults.innerHTML = html;
     searchResults.style.display = 'block';
