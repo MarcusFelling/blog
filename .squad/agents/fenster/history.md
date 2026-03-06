@@ -9,6 +9,12 @@
 
 <!-- Append new learnings below. Each entry is something lasting about the project. -->
 
+### 2026-03-06 — Navbar Utility Items
+
+- Utility links in the sticky navbar must read as secondary actions, not compete with primary navigation. The right pattern here is: brand on the left, primary page links in the middle, utility/social chips as a smaller trailing cluster separated by whitespace or a hairline divider.
+- Social chips that work in the footer are too visually detached for the navbar unless they are tightened for the header context: 34–36px touch targets, lower-contrast resting state, and a restrained hover lift are enough. Save the loud accent fill for interaction, not idle state.
+- On mobile, do not cram social chips into the top bar beside the menu button. Keep the header focused on brand + menu, then move the same social destinations into the drawer as a distinct secondary section with full 44px targets and clear heading/spacing.
+
 ### 2026-03-05 — Full CSS Redesign
 
 - **Font decision:** Replaced Lora + Open Sans (the single most template-signalling combo on the internet) with Inter (body + headings at 700–800 weight) and JetBrains Mono (code). Inter at 800 weight is a credible heading font on its own — no separate display font needed. One Google Fonts request instead of two. Added `--body-font`, `--header-font`, `--mono-font` CSS variables; `--header-font` was already referenced in the pagination rule so this also fixed a latent undefined-variable bug.

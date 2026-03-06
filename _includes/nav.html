@@ -1,38 +1,117 @@
+{% assign navbar_links = site['navbar-links'] %}
+{% assign social_links = site['social-network-links'] %}
+
+{% capture nav_social_chips %}
+  {% assign gh = social_links['github'] %}
+  {% if gh %}
+    {% if gh contains 'http' %}
+      <a class="social-chip social-chip-github" href="{{ gh }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+    {% else %}
+      <a class="social-chip social-chip-github" href="https://github.com/{{ gh }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a>
+    {% endif %}
+  {% endif %}
+  {% assign ln = social_links['linkedin'] %}
+  {% if ln %}
+    {% if ln contains 'http' %}
+      <a class="social-chip social-chip-linkedin" href="{{ ln }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    {% else %}
+      <a class="social-chip social-chip-linkedin" href="https://www.linkedin.com/in/{{ ln }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    {% endif %}
+  {% endif %}
+  {% assign rss = social_links['rss'] %}
+  {% if rss %}
+    {% if rss == true %}
+      <a class="social-chip social-chip-rss" href="/feed.xml" aria-label="RSS feed" title="RSS feed"><i class="fas fa-rss"></i></a>
+    {% elsif rss contains 'http' or rss contains '/' %}
+      <a class="social-chip social-chip-rss" href="{{ rss }}" aria-label="RSS feed" title="RSS feed"><i class="fas fa-rss"></i></a>
+    {% else %}
+      <a class="social-chip social-chip-rss" href="{{ rss }}" aria-label="RSS feed" title="RSS feed"><i class="fas fa-rss"></i></a>
+    {% endif %}
+  {% endif %}
+{% endcapture %}
+
 <nav class="navbar-modern" role="navigation" aria-label="Main navigation">
   <a class="brand" href="/" aria-label="Homepage">
     <i class="fas fa-house" style="opacity:.9;"></i>
     <span>{{ site.author }}</span>
   </a>
-  <ul class="nav-links" id="primary-nav">
-    {% for nav in site['navbar-links'] %}
-      {% assign label = nav[0] %}
-      {% assign path = nav[1] %}
-      <li><a href="/{{ path | downcase | replace: ' ', '-' }}">{{ label }}</a></li>
-    {% endfor %}
-  </ul>
+  <div class="nav-utility-group">
+    <ul class="nav-links nav-links-utility" id="primary-nav">
+      {% for nav in navbar_links %}
+        {% assign label = nav[0] %}
+        {% assign path = nav[1] %}
+        <li><a{% if label == 'Archives' %} class="nav-link-archives"{% endif %} href="/{{ path | downcase | replace: ' ', '-' }}">{{ label }}</a></li>
+      {% endfor %}
+    </ul>
+    <div class="nav-social nav-social-desktop" role="group" aria-label="Social links">
+      <div class="social-chips compact">
+        {{ nav_social_chips | strip }}
+      </div>
+    </div>
+  </div>
   <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" onclick="toggleDrawer()">Menu</button>
 </nav>
-<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true" role="dialog" aria-label="Mobile navigation">
+<div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" hidden onclick="toggleDrawer(false)"></div>
+<div class="mobile-drawer" id="mobile-drawer" aria-hidden="true" aria-modal="true" role="dialog" aria-label="Mobile navigation">
   <div class="drawer-header">
     <h3>Navigate</h3>
     <button class="close-drawer" onclick="toggleDrawer()" aria-label="Close navigation"><i class="fas fa-times"></i></button>
   </div>
-  <ul class="drawer-links">
-    {% for nav in site['navbar-links'] %}
-      {% assign label = nav[0] %}
-      {% assign path = nav[1] %}
-      <li><a href="/{{ path | downcase | replace: ' ', '-' }}">{{ label }}</a></li>
-    {% endfor %}
-  </ul>
+  <div class="drawer-section">
+    <p class="drawer-section-label">Explore</p>
+    <ul class="drawer-links">
+      {% for nav in navbar_links %}
+        {% assign label = nav[0] %}
+        {% assign path = nav[1] %}
+        <li><a{% if label == 'Archives' %} class="nav-link-archives"{% endif %} href="/{{ path | downcase | replace: ' ', '-' }}" data-drawer-close>{{ label }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="drawer-section nav-social nav-social-drawer" role="group" aria-label="Social links">
+    <p class="drawer-section-label">Connect</p>
+    <div class="social-chips compact">
+      {{ nav_social_chips | strip }}
+    </div>
+  </div>
 </div>
 <script>
-function toggleDrawer(){
-  const drawer=document.getElementById('mobile-drawer');
-  const btn=document.querySelector('.nav-toggle');
-  const open=drawer.classList.toggle('open');
-  drawer.setAttribute('aria-hidden', !open);
-  btn.setAttribute('aria-expanded', open);
-  if(open){ drawer.querySelector('a,button').focus(); }
-}
-window.addEventListener('keydown',e=>{ if(e.key==='Escape'){ const d=document.getElementById('mobile-drawer'); if(d.classList.contains('open')) toggleDrawer(); }});
+(function(){
+  const drawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-drawer-backdrop');
+  const button = document.querySelector('.nav-toggle');
+
+  if (!drawer || !button || !backdrop) {
+    return;
+  }
+
+  window.toggleDrawer = function(forceOpen) {
+    const open = typeof forceOpen === 'boolean' ? forceOpen : !drawer.classList.contains('open');
+
+    drawer.classList.toggle('open', open);
+    backdrop.classList.toggle('open', open);
+    backdrop.hidden = !open;
+    drawer.setAttribute('aria-hidden', String(!open));
+    button.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('drawer-open', open);
+
+    if (open) {
+      const firstFocusable = drawer.querySelector('a, button');
+      if (firstFocusable) {
+        firstFocusable.focus();
+      }
+    } else {
+      button.focus();
+    }
+  };
+
+  drawer.querySelectorAll('[data-drawer-close]').forEach((link) => {
+    link.addEventListener('click', () => window.toggleDrawer(false));
+  });
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && drawer.classList.contains('open')) {
+      window.toggleDrawer(false);
+    }
+  });
+})();
 </script>

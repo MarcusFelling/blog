@@ -66,6 +66,68 @@ Do not auto-commit changes. Stage files but skip the `git commit` step. Marcus n
 
 ---
 
+### Navbar Social Chips Placement, CSS Scope, and Regression Rules
+
+**Date:** 2026-03-06
+**Authors:** Fenster (Design/UX), McManus (Frontend Dev), Hockney (Tester), Keaton (Lead)
+
+Social links are part of the site chrome and now belong in the navigation system, not the footer.
+
+**Layout and UX rules**
+
+- Desktop order stays: brand → primary nav links → social chip cluster.
+- The social cluster is a right-aligned utility group and should remain visually lighter than the primary nav.
+- On mobile, hide social chips from the top bar and render them below the main drawer links as secondary utility actions.
+- The footer stays minimal: copyright only.
+
+**Implementation rules**
+
+- Capture shared social-link markup once in `_includes/nav.html` and reuse it for both desktop navbar and mobile drawer rendering.
+- Keep navbar-specific styling in `assets/css/blog.css` under `.navbar-modern .nav-social` and `.mobile-drawer .nav-social` so it does not disturb generic chip styling.
+- Preserve existing icon-only `aria-label`s and strong focus treatment.
+
+**CSS structure rules**
+
+- Responsive navbar and drawer rules must remain in top-level breakpoint `@media` blocks.
+- Reduced-motion media queries may change animation or transition behavior only; they must not own navbar layout or breakpoint behavior.
+
+**Testing rules**
+
+- Landing-page regression coverage should assert placement, not a hard-coded social-link list.
+- Assert the navbar social-chip container exists, validate any rendered chip hrefs sanely match their labels, and assert the footer exposes no `.social-chip` links.
+- Do not add mobile drawer assertions until the drawer behavior is stable in CI.
+
+---
+
+### Navbar Archives Utility Pattern and Intentional Mobile Drawer
+
+**Date:** 2026-03-06
+**Authors:** Fenster (Design/UX), McManus (Frontend Dev)
+
+When the site only exposes a single browse link in the main navigation, `Archives` should be treated as a utility action, not centered like a full primary-nav set.
+
+**Desktop rules**
+
+- Keep the navbar hierarchy intentional: brand on the left, then a trailing utility cluster that contains the `Archives` action and social chips.
+- Style `Archives` like a quiet pill or button so it reads as a deliberate utility CTA rather than a stranded text tab.
+- Prefer a tinted pill treatment with subtle inset accents and a slightly warmer border/background; avoid decorative status dots or other ornamental markers.
+- Preserve the lighter visual weight of the social-chip cluster relative to primary navigation.
+
+**Mobile rules**
+
+- Keep the top bar limited to brand + menu trigger.
+- In the drawer, surface `Archives` first as the primary browse action, then other page links, then a clearly separated social/elsewhere section.
+- The drawer should feel modal: use a backdrop, lock page scroll while open, and close it on link activation.
+
+**Implementation rules**
+
+- Keep navbar and drawer layout rules together in `assets/css/blog.css`; do not split layout ownership between CSS files and injected head styles.
+- Reuse the shared captured social-link markup inside the drawer instead of maintaining separate mobile-only social markup.
+- Target the polished `Archives` utility treatment with an explicit `nav-link-archives` class in `_includes/nav.html` instead of positional selectors so future nav refinements stay tightly scoped.
+- Keep the emphasis CSS-only and scoped to `.nav-link-archives` so future navbar refinements stay isolated from surrounding links.
+
+---
+
 ## Governance
 
 - All meaningful changes require team consensus
