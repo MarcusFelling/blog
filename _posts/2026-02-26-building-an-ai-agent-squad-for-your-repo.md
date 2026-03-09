@@ -21,17 +21,14 @@ I set it up for the repo of this blog. Here's what I learned.
 
 ## Installing Squad
 
-Getting started takes one command:
+Getting started takes two commands:
 
 ```bash
-npx github:bradygaster/squad
+npm i -g @bradygaster/squad-cli
+squad
 ```
 
-This installs the Squad agent, 10 GitHub Actions workflows for automation (Ralph heartbeat, CI, triage, etc.), templates, and starter skills. You'll also want to authenticate with GitHub for issue integration and Ralph:
-
-```bash
-gh auth login
-```
+For additional installation options (including npx and cloning from source), see the [official installation guide](https://bradygaster.github.io/squad/docs/get-started/installation/).
 
 Then open Copilot in VS Code, type `@squad`, and tell it what you're building:
 
