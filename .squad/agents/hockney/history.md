@@ -35,3 +35,24 @@
 - After a ~338-line CSS cleanup, the built `blog.css` was 36,087 bytes  all active selectors intact, all 8 removed selectors absent. One dead selector (`.view-all-posts`) survived the cleanup; it has no template usage and should be removed in a follow-up.
 - When verifying CSS removal, always grep both source and built files. Source grep is the ground truth; built output confirms the pipeline worked correctly.
 - 18/19 Playwright tests passed; the 1 failure (`landing.spec.ts` RSS link) is a pre-existing config mismatch, not caused by the CSS/Liquid changes. Safe to commit.
+
+### 2026-03-11 — Archive post link checker test
+
+- Added test #11 to `archives.spec.ts`: iterates every `a.archive-post-title` on `/archives`, asserts each has a non-empty `href`, and makes an HTTP request to confirm a 200 response.
+- Uses Playwright's built-in `request` fixture for server-side HTTP checks — no extra dependencies needed.
+- Custom assertion messages (`Broken link: ${href}`) make failures immediately actionable in CI logs.
+- This is a regression net for dead internal links; it will catch slug changes, deleted posts, or misconfigured permalinks before they reach production.
+
+### 2026-03-11 — Archives spec cleanup and rewrite
+
+- Rewrote `archives.spec.ts` from 11 tests → 6 focused tests, removing 3 content-specific tests (hackathon slug, squad slug, tag-link navigation) that coupled tests to individual post URLs.
+- Consolidated the "filter works" and "All resets" tests into a single user-flow test.
+- Playwright best practices applied:
+  - `getByRole('button', { name })` for filter button locators instead of CSS-only selectors.
+  - `getByRole('heading', { level: 1, name: 'Archives' })` for the page heading.
+  - `evaluateAll()` for batch data-tag checks instead of sequential `nth(i)` loops.
+  - `locator.all()` for iterating visible items when web-first assertions are needed per element.
+  - Web-first assertions (`toHaveText`, `toBeVisible`) instead of `textContent()` + `parseInt()` where possible.
+  - `test.slow()` on the link checker since it issues an HTTP request per post.
+  - Removed hardcoded filter count (`toHaveCount(12)`) — now asserts each expected filter button exists without a brittle total.
+- Tag normalization is still covered generically: the filter test verifies every visible item carries the expected `data-tags` value, which exercises the normalization pipeline without naming a specific post.
