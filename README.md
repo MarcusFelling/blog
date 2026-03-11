@@ -1,6 +1,6 @@
 # MarcusFelling.com blog
 
-This repo hosts my Jekyll-based blog. It uses a custom theme that's hosted at [https://github.com/MarcusFelling/blog-theme](https://github.com/MarcusFelling/blog-theme)
+This repo hosts my Jekyll-based blog.
 
 ## Helpful Links
 - [Jekyll Documentation](https://jekyllrb.com/docs/)
@@ -29,6 +29,7 @@ This repo hosts my Jekyll-based blog. It uses a custom theme that's hosted at [h
 
 - **GitHub Actions:**  
   GitHub Actions workflows are configured to [build and deploy the site to GitHub Pages](https://github.com/MarcusFelling/blog/actions/workflows/pages/pages-build-deployment) and [run base web tests](/.github/workflows/playwright.yml).
+
 ## Contributing
 
 Contributions are welcome via pull requests.

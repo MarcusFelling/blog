@@ -99,6 +99,31 @@ Social links are part of the site chrome and now belong in the navigation system
 
 ---
 
+### Remove remote_theme Dependency
+
+**Date:** 2026-03-11
+**Author:** McManus (Frontend Dev), verified by Hockney (Tester)
+
+Removed `remote_theme: marcusfelling/blog-theme` from `_config.yml`, removed unused `gem "minima"` from `Gemfile`, and created `_layouts/page.html` locally. All layouts/includes/assets were already local — the remote theme was redundant.
+
+**Rules:**
+- The blog has no remote theme dependency. All layouts, includes, and assets are local.
+- `_layouts/page.html` extends `base` and is the default layout for non-post pages.
+- The `github-pages` gem remains for GitHub Pages deployment.
+
+---
+
+### Archives Spec — Remove Content-Coupled Tests
+
+**Date:** 2026-03-11
+**Author:** Hockney (Tester)
+
+Removed three tests from `archives.spec.ts` that targeted specific blog posts by URL slug. These tests broke when content changed — failures caused by content edits, not feature regressions. The behaviors they guarded (tag normalization, hash deep-linking, filter activation) are already covered generically by the remaining filter and deep-link tests.
+
+**Rule going forward:** Archive tests should assert feature behavior (filtering, deep-linking, link validity) without referencing specific post URLs or titles. If a post-specific regression guard is needed, it belongs in a separate content-focused spec.
+
+---
+
 ### Navbar Archives Utility Pattern and Intentional Mobile Drawer
 
 **Date:** 2026-03-06

@@ -1,0 +1,26 @@
+---
+layout: base
+---
+
+<header class="header-section">
+  <div class="intro-header">
+    <div class="container-md">
+      <div class="row">
+        <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+          <div class="page-heading">
+            <h1>{% if page.title %}{{ page.title | strip_html }}{% endif %}</h1>
+            {% if page.subtitle %}<h2>{{ page.subtitle }}</h2>{% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container-md">
+  <div class="row">
+    <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      {{ content }}
+    </div>
+  </div>
+</div>
