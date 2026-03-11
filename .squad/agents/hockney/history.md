@@ -29,6 +29,10 @@
 - The `Fabric` tag was removed from the hackathon post front matter; tests 7 and 8 guard against its reappearance.
 - Playwright's `:visible` pseudo-class works inside `.locator()` strings when checking filtered items.
 
+### 2026-03-11 — Verified remote_theme removal + cleaned content-coupled tests
+
+McManus removed `remote_theme` from `_config.yml`, dropped `gem "minima"` from `Gemfile`, and created `_layouts/page.html` locally. Verified: Jekyll build clean (0 warnings), 16/16 Playwright tests pass. Also removed three content-coupled tests from `archives.spec.ts` that targeted specific post slugs — the feature behaviors were already covered generically. Decision captured: archive tests should assert feature behavior without referencing specific post URLs.
+
 ### 2026-03-05  Unused code removal verification
 
 - Jekyll build with `--config _config-dev.yml` only loads that one file; `_config.yml` settings (like `social-network-links.rss: true`) are NOT inherited. Landing test `rss` assertion always fails against a dev-config-only server. Fix: add `rss: true` to `_config-dev.yml` or test against a merged config.
@@ -56,3 +60,13 @@
   - `test.slow()` on the link checker since it issues an HTTP request per post.
   - Removed hardcoded filter count (`toHaveCount(12)`) — now asserts each expected filter button exists without a brittle total.
 - Tag normalization is still covered generically: the filter test verifies every visible item carries the expected `data-tags` value, which exercises the normalization pipeline without naming a specific post.
+
+### 2026-03-11 — Remote theme removal verification
+
+- Verified McManus's 3 changes: `remote_theme` removed from `_config.yml`, `gem "minima"` removed from `Gemfile`, `_layouts/page.html` created.
+- Jekyll build (`bundle exec jekyll build --config _config.yml`) completed clean in ~8s. Zero "Layout not found" or "Include not found" warnings. Only pre-existing `faraday-retry` gem notice on stderr.
+- Site structure verified: `_site/index.html`, `_site/404.html`, `_site/archives/index.html`, `_site/llms.txt` all present. Posts span 2017-2026 (10 year directories).
+- Zero references to `remote_theme` or `blog-theme` in any built HTML file.
+- Spot checks: index.html has nav, search, footer, Archives link. Post pages have h1, tags, "Posted on", footer, nav.
+- All 16 Playwright tests passed (19.8s): 6 archives, 5 search, 3 landing, 1 scroll-to-top, 1 post structure.
+- Note: `Gemfile.lock` still lists `minima (~> 2.5)` in DEPENDENCIES section (line 319) — stale entry from the removed gem line. Harmless because `github-pages` gem transitively includes `minima` anyway, but `bundle install` would clean this up.

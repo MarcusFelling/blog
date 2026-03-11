@@ -58,6 +58,10 @@ Removed all confirmed-unused code identified in Keaton's audit (`keaton-unused-c
 
 Key lesson: when removing selectors from comma-separated lists, always read the full selector before acting — several blocks mixed live selectors (`footer .fa`, `footer .fab`) with dead ones (`.social-icons`), and only the dead portions were removed.
 
+### 2026-03-11 — Removed remote_theme dependency, inlined everything locally
+
+Removed `remote_theme: marcusfelling/blog-theme` from `_config.yml`. All layouts, includes, and assets the blog actually uses were already local — the remote theme was a no-op fetch at build time. Created `_layouts/page.html` (extends `base`, Bootstrap grid, title/subtitle header, content body) to satisfy the `layout: "page"` default in `_config.yml` for non-post pages. Removed `gem "minima"` from `Gemfile` — never used, leftover from Jekyll scaffold. The `github-pages` gem remains (still deploying via GitHub Pages). Build verified clean: no missing layout/include warnings.
+
 ---
 
 ### 2026-03-04 — Code block "empty blocks" fix

@@ -12,8 +12,8 @@ jobs:
     timeout-minutes: 7
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: "18"
           cache: 'npm'
@@ -38,13 +38,13 @@ jobs:
           npx playwright test
 
       - name: Create test summary
-        uses: test-summary/action@dist
+        uses: test-summary/action@v2
         if: always()
         with:
           paths: ./test-results/junit.xml
 
       - name: Upload HTML report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         if: always()
         with:
           name: playwright-report
