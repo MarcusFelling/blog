@@ -1616,17 +1616,18 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(20, 28, 40, 0.97);
-  backdrop-filter: blur(18px) saturate(150%);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  background: rgba(22, 27, 34, 0.92);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 0.9rem 0;
-  margin: 0 0 1rem;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 4px 24px -4px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.04) inset;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 1rem 1.25rem;
+  margin: 0 -25px 1.25rem;
+  border-top: none;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 1px 12px -4px rgba(0,0,0,0.5);
 }
 
 .tag-filter {
