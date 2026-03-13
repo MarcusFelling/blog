@@ -124,6 +124,38 @@ Removed three tests from `archives.spec.ts` that targeted specific blog posts by
 
 ---
 
+### Homepage Restrained Polish Rules
+
+**Date:** 2026-03-13
+**Author:** Marcus Felling (via Copilot)
+
+During homepage polish passes, keep the existing homepage copy and information architecture fixed. Prefer CSS-only refinement work focused on the home hero and cards, and reduce AI-template tells by favoring solid headline typography, quieter surfaces, and restrained hover/focus states over louder gradients, glass effects, or structural rewrites.
+
+**Rules:**
+
+- Keep homepage copy and information architecture unchanged during restrained polish passes.
+- Prefer CSS-only refinements before touching homepage markup.
+- Focus visual polish on the home hero and card presentation.
+- Favor quieter surfaces and restrained interactions over louder gradient-heavy or glass-heavy treatments.
+
+---
+
+### Temporary Workspace Gitlink Hygiene
+
+**Date:** 2026-03-13
+**Author:** Hockney (Tester)
+
+The repository must not track temporary tooling workspaces as gitlinks. `.tmp/impeccable` was accidentally tracked as a gitlink without a matching `.gitmodules` entry, which reproduced `fatal: No url found for submodule path '.tmp/impeccable' in .gitmodules`.
+
+**Rules:**
+
+- Remove tracked temp-workspace gitlinks from the repository index instead of trying to repair them as submodules.
+- Keep `.tmp/` ignored so temporary local workspaces cannot be recommitted accidentally.
+- Treat `.tmp/` as local-only workspace state unless the team explicitly chooses to vendor content elsewhere.
+- Validate cleanup with `git submodule status`, `git ls-files -s .tmp/impeccable`, and `git check-ignore -v .tmp .tmp/impeccable`.
+
+---
+
 ### Navbar Archives Utility Pattern and Intentional Mobile Drawer
 
 **Date:** 2026-03-06

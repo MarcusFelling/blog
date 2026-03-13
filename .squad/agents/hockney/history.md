@@ -9,6 +9,12 @@
 
 <!-- Append new learnings below. Each entry is something lasting about the project. -->
 
+### 2026-03-13 — Broken temp gitlink caused CI submodule failure
+
+- The repo accidentally tracked `.tmp/impeccable` as a gitlink (`160000` mode) even though there was no `.gitmodules` file. That state reproduces `fatal: no submodule mapping found in .gitmodules for path '.tmp/impeccable'` on `git submodule status` and can break CI actions that inspect submodules.
+- `.tmp/` is temporary tooling workspace state, not project content. It should stay ignored in `.gitignore`, and the correct repo fix is to delete the tracked gitlink entry while leaving any local temp clone untracked.
+- Current workflows under `.github/workflows/` use `actions/checkout@v6` without any `submodules:` setting; there is no tracked workflow or package script that should recreate `.tmp/impeccable`.
+
 ### 2026-03-06 — Landing social chips regression
 
 - The landing-page regression in [tests/landing.spec.ts](tests/landing.spec.ts#L3-L30) should assert the social chips rendered in the navbar, not hard-code `RSS feed`, because local test runs may be served from config combinations that omit some chips.
