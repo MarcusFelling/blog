@@ -75,3 +75,7 @@ Moved the site social links out of `_includes/footer.html` and into `_includes/n
 ### 2026-03-06 — Use bracket-key Liquid access for dashed config keys in nav includes
 
 `_config.yml` stores navigation and social settings under dashed keys like `navbar-links` and `social-network-links`. In `_includes/nav.html`, those values must be read via bracket access (`site['navbar-links']`, `social_links['github']`, etc.) after assigning the parent hashes first; dashed dot access can evaluate incorrectly in Liquid and silently render empty nav lists or empty social chip groups.
+
+### 2026-03-13 — Homepage polish should preserve copy/IA and adjust intensity at the head include source
+
+The homepage’s hero, Pulse panel, recent-card, and archive CTA styling is still primarily controlled by the inline style block in `_includes/head.html`, not by `_layouts/home.html`. For restrained homepage passes, keep the text and section order frozen in `_layouts/home.html` and tune intensity at the source: remove gradient headline treatments, reduce glass/glow strength, and use smaller hover/focus deltas instead of stacking override CSS in `assets/css/blog.css`.
