@@ -4,11 +4,9 @@ permalink: /llms.txt
 ---
 # Marcus Felling
 
-> A technical blog by Marcus Felling covering DevOps, CI/CD, cloud engineering, and automation. Practical guides and notes from real-world experience building and shipping software with Azure DevOps, GitHub Actions, Playwright, Terraform, Bicep, and more.
+> A technical blog covering DevOps, AI, CI/CD, cloud engineering, and automation. Practical guides from real-world experience with Azure DevOps, GitHub Actions, Playwright, Terraform, Bicep, and more.
 
 ## About
-
-Marcus Felling is a builder at Microsoft who writes about the tools and techniques he uses in his day-to-day work. Topics include continuous integration and delivery pipelines, infrastructure as code, test automation, Azure cloud services, and developer tooling.
 
 - Site: {{ site.url }}
 - RSS Feed: {{ site.url }}/feed.xml
