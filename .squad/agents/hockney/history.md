@@ -76,3 +76,8 @@ McManus removed `remote_theme` from `_config.yml`, dropped `gem "minima"` from `
 - Spot checks: index.html has nav, search, footer, Archives link. Post pages have h1, tags, "Posted on", footer, nav.
 - All 16 Playwright tests passed (19.8s): 6 archives, 5 search, 3 landing, 1 scroll-to-top, 1 post structure.
 - Note: `Gemfile.lock` still lists `minima (~> 2.5)` in DEPENDENCIES section (line 319) — stale entry from the removed gem line. Harmless because `github-pages` gem transitively includes `minima` anyway, but `bundle install` would clean this up.
+
+### 2026-03-18 — llms.txt verification framing
+
+- For publish-readiness checks on this repo, separate repo-backed findings from public-spec guidance. Example: a missing thumbnail asset under `content/uploads/YYYY/MM/` is a concrete repo issue; guidance from `llmstxt.org` about companion context files is external reference material.
+- When reviewing `llms.txt`, note that the current site output is a flat post list. Absence of `llms-ctx.txt` or `llms-ctx-full.txt` should be reported as a spec-alignment gap or decision input, not as a regression, unless the team has already committed to shipping those artifacts.
