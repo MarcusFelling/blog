@@ -43,7 +43,7 @@ test('should display modern hero section on desktop', async ({ page }) => {
   await page.goto('');
 
   // Verify hero heading is visible
-  const heroHeading = page.getByRole('heading', { name: /Sharing what I learn about DevOps & automation/i });
+  const heroHeading = page.getByRole('heading', { name: /Learning technology out loud/i });
   await expect(heroHeading).toBeVisible();
 
   // Verify Pulse section is visible on desktop
