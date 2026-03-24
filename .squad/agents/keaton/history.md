@@ -37,3 +37,12 @@
 
 - The navbar social-chip breakpoint rules in `assets/css/blog.css` must stay as top-level `@media` blocks. Nesting them inside `@media (prefers-reduced-motion: reduce)` breaks responsive navbar/drawer behavior for most users and makes the stylesheet structure misleading.
 - For this codebase, reduced-motion overrides should only contain motion/accessibility adjustments; layout and breakpoint rules belong at the normal top level.
+
+### 2026-03-24 — Factual review of Work IQ MCP + ADO MCP blog post
+
+- Work IQ repo is at `microsoft/work-iq`, NOT `microsoft/work-iq-mcp`. Easy URL mistake.
+- Work IQ MCP exposes `ask_work_iq` (natural language) and `accept_eula` — NOT individual Graph API tools. The blog fabricated tool names like `graph_mail_getMessage`.
+- Work IQ is a single MCP server, not a "family" of domain-specific servers (Mail MCP, Calendar MCP, etc.). Three plugins exist: `workiq`, `microsoft-365-agents-toolkit`, `workiq-productivity`.
+- Azure DevOps MCP claims are accurate — `create_work_item` with standard ADO fields works as described.
+- Copilot Skills (`SKILL.md`) claims check out against VS Code docs. Auto-discovery, slash commands, three-level loading all confirmed.
+- "Copilot Cowork" has no findable public documentation as of 2026-03-24. All learn.microsoft.com and support URLs return 404. Comparison claims are unverifiable.

@@ -185,6 +185,42 @@ When the site only exposes a single browse link in the main navigation, `Archive
 
 ---
 
+### AI-Voice Detection Patterns for Blog Reviews
+
+**Date:** 2026-03-24
+**Author:** Verbal (Content Dev)
+
+During review of the Work IQ MCP + ADO automation post, established concrete AI-voice detection patterns for Marcus's blog.
+
+**Key tells to catch:**
+- Qualifier openers ("The architecture is straightforward")
+- Corporate compound phrases ("structured, governed")
+- LinkedIn-style closers ("It's the difference between X and Y")
+- Thought-leadership framing ("complementary, not competing")
+
+**Marcus's natural voice:** First-person, confessional, specific to real workflow pain, with occasional dry self-deprecation. These patterns should inform future blog reviews.
+
+---
+
+### Blog Post Factual Accuracy — Work IQ and MCP Claims
+
+**Date:** 2026-03-24
+**Author:** Keaton (Lead)
+
+Factual review of the Work IQ MCP + ADO automation blog post.
+
+**Errors corrected:**
+1. Work IQ repo URL fixed: `github.com/microsoft/work-iq-mcp` → `github.com/microsoft/work-iq`
+2. Removed fabricated tool names (`graph_mail_getMessage`, `graph_calendar_listEvents`) — Work IQ exposes a single natural-language query tool, not individual Graph API operations
+3. Removed incorrect "family of MCPs" description (Mail MCP, Calendar MCP, etc.) — Work IQ is one unified MCP server
+
+**Flagged for Marcus:**
+- Cowork comparison claims unverifiable (no public docs found)
+- "User-delegated permissions" phrasing more precise than source material
+- Sensitivity labels enforcement claim not documented in Work IQ repo
+
+---
+
 ## Governance
 
 - All meaningful changes require team consensus
