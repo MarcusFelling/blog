@@ -94,17 +94,16 @@ The setup works. I've used it on a handful of real meetings and the output is go
 
 The prompt file is versioned, the instructions are tuned for my ADO setup, and the whole thing runs in about 30 seconds of GitHub Copilot chat plus a minute of review. Beats the 15 minutes of copy-paste-and-forget that it replaced. Or the zero minutes I spent when I just forgot entirely.
 
-## What's Next: Packaging This as a Skill
+## What's Next
 
-Right now this lives in my prompt files and custom instructions. The next step is turning it into a [Copilot Skill](https://code.visualstudio.com/docs/copilot/copilot-customization#_skills) so my team can use it without having to understand how the pieces fit together.
+Right now this lives in my prompt files and custom instructions. It works for me, but if I want other people on the team to use it, I need to package it up somehow.
 
-A Skill is a `SKILL.md` file that packages domain knowledge, tool usage patterns, and workflow steps into something Copilot can discover and invoke automatically. Instead of every person on the team learning which MCP servers to configure, what fields to set, and how to structure the prompt, they'd just ask GitHub Copilot to create work items from a meeting and the Skill handles the rest.
+GitHub Copilot has three mechanisms for this: [custom agents](https://code.visualstudio.com/docs/copilot/customization/custom-agents) (`.agent.md`), [prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files) (`.prompt.md`), and [skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills) (`SKILL.md`). They all live in the repo, version in git, and give the team a single file to iterate on. But they work differently, and the differences matter for something that creates real work items in an external system.
 
-The reasons I want to go this direction:
+I'm leaning toward a [custom agent](https://code.visualstudio.com/docs/copilot/customization/custom-agents). The main reason is tool restriction. An `.agent.md` file can restrict Copilot to only the tools you declare in frontmatter, so when someone invokes `@meeting-actions`, Copilot operates with only the Work IQ and ADO MCP tools. No stray tool calls against your codebase when the intent is "process a meeting." For a workflow that writes to a real system, scoped tool access matters from day one.
 
-- **Discoverability.** Skills show up in GitHub Copilot's context when they match what the user is asking. Nobody has to know the Skill exists or remember a specific prompt. They just describe what they want and Copilot finds the right Skill.
-- **Encapsulation.** The Skill file captures everything: which MCP servers to call, what order, what fields ADO expects, what counts as an action item vs. a discussion point. Lessons I've already learned the hard way get baked in.
-- **Consistency.** Everyone on the team gets the same extraction logic, the same field mappings, the same review step. No drift between how different people prompt it.
-- **Iteration in one place.** When I fix something (better handling of speculative language in transcripts, a new required field in our ADO process template), I update one file and everyone gets the fix.
+Agents also let you bake in custom instructions, model preferences, and the human review step as part of the agent definition itself. The team invokes it with `@meeting-actions`, and everything about how the workflow runs is encapsulated in one file. The extraction logic, the field mappings, what counts as an action item vs. a discussion point, the "show me the draft before creating anything" gate.
 
-The Skill would reference the default org and project, work item type mappings, and the human-in-the-loop review step. All the stuff I've already figured out so nobody else has to.
+A prompt file (`.prompt.md`) is the lighter alternative. It can declare MCP tool dependencies in frontmatter and you invoke it with `/meeting-work-items`. The difference is that prompt files don't restrict Copilot to only those tools. If you want to prototype the instructions first and don't need tool scoping yet, a prompt file is less conceptual overhead. And upgrading from a prompt file to an agent later is low-cost since the instructions body is the same Markdown either way.
+
+Skills were actually my first instinct, but they're the weakest fit here. A `SKILL.md` gets auto-discovered by Copilot when it matches what you're asking about, which is useful for guidance and reusable patterns. But auto-discovery is a liability when the end result is writing work items to ADO. You can disable auto-discovery with `disable-model-invocation: true` in the frontmatter, but at that point you've turned a skill into a slash command without the tool restriction or model preference support that agents and prompt files offer. Skills also can't declare tool dependencies in machine-readable frontmatter. They reference tools in body text only.
