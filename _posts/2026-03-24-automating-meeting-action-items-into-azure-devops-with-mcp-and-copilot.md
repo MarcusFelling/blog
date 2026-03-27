@@ -25,14 +25,14 @@ So I wired together GitHub Copilot, Work IQ, and Azure DevOps to pull meeting tr
 
 Four things wired together:
 
-1. **GitHub Copilot** in VS Code: the orchestration layer. Runs the prompt, calls the MCP tools, handles the back-and-forth.
-2. **Work IQ MCP**: reads my Microsoft 365 data (meetings, emails, Teams messages). This is where meeting context comes from.
-3. **Azure DevOps MCP Server**: creates work items, sets fields, assigns owners.
-4. **Custom instructions and prompt files**: the glue that tells GitHub Copilot what to extract and how to structure the output.
+1. **[GitHub Copilot](https://code.visualstudio.com/docs/copilot/overview)** in VS Code: the orchestration layer. Runs the prompt, calls the MCP tools, handles the back-and-forth.
+2. **[Work IQ MCP](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/workiq-overview)**: reads my Microsoft 365 data (meetings, emails, Teams messages). This is where meeting context comes from.
+3. **[Azure DevOps MCP Server](https://github.com/microsoft/azure-devops-mcp)**: creates work items, sets fields, assigns owners.
+4. **[Custom instructions](https://code.visualstudio.com/docs/copilot/customization/custom-instructions) and [prompt files](https://code.visualstudio.com/docs/copilot/customization/prompt-files)**: the glue that tells GitHub Copilot what to extract and how to structure the output.
 
 ## Work IQ: Reading Meeting Data
 
-[Work IQ](https://github.com/microsoft/work-iq) is a Microsoft-built, first-party MCP server that exposes your Microsoft 365 work data — mail, calendar, Teams, files, people — as MCP tools.
+[Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/workiq-overview) is a Microsoft-built, first-party MCP server that exposes your Microsoft 365 work data — mail, calendar, Teams, files, people — as MCP tools.
 
 How it works: you ask a natural-language question about your M365 data, the Work IQ MCP server translates that into Microsoft Graph requests behind the scenes, and you get structured data back. It runs under user-delegated permissions, so you're scoped to what you already have access to.
 
