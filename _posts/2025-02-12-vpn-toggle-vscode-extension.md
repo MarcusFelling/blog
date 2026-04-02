@@ -6,7 +6,7 @@ description: 'I built a VS Code extension to toggle VPN connections because clic
 layout: post
 guid: 'https://marcusfelling.com/?p=1271'
 permalink: /blog/2025/vpn-toggle-vscode-extension
-thumbnail-img: /content/uploads/2025/02/icon.png
+thumbnail-img: /content/uploads/2025/02/icon.webp
 nav-short: true
 tags: [VS Code Extensions, Windows]
 ---

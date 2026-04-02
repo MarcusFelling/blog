@@ -6,7 +6,7 @@ description: 'Optimizing GitHub Actions Workflows for Speed and Efficiency'
 layout: post
 guid: 'https://marcusfelling.com/?p=1275'
 permalink: /blog/2025/optimizing-github-actions-workflows-for-speed
-thumbnail-img: /content/uploads/2025/02/optimize-gha.png
+thumbnail-img: /content/uploads/2025/02/optimize-gha.webp
 nav-short: true
 tags: [GitHub Actions, CICD]
 ---

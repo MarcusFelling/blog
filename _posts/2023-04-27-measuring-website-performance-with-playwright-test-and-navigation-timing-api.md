@@ -5,7 +5,7 @@ date: '2023-04-27T14:40:19+00:00'
 layout: post
 guid: 'https://marcusfelling.com/?p=1216'
 permalink: /blog/2023/measuring-website-performance-with-playwright-test-and-navigation-timing-api/
-thumbnail-img: /content/uploads/2023/04/playwright-performance-testing.jpg
+thumbnail-img: /content/uploads/2023/04/playwright-performance-testing.webp
 nav-short: true
 tags: [Playwright]
 ---
@@ -15,7 +15,7 @@ I was recently tasked with measuring the impact of a Redis cache on an e-commerc
 
 Playwright already has useful features built in to report on things like the HTML report test step timing and the trace viewer that includes the call duration of each action.
 
-![](/content/uploads/2023/04/test-step-example.png){: .img-fluid }
+![](/content/uploads/2023/04/test-step-example.webp){: .img-fluid }
 
 HTML report test step duration
 
@@ -27,6 +27,6 @@ Here we have a function **measurePerformance** that can be called inside any tes
 
 As a result, this is what the HTML report looks like:
 
-![](/content/uploads/2023/04/performance-playwright-html-report.png){: .img-fluid }
+![](/content/uploads/2023/04/performance-playwright-html-report.webp){: .img-fluid }
 
 Happy testing!

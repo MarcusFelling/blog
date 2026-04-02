@@ -5,7 +5,7 @@ date: '2024-04-23T14:06:19+00:00'
 layout: post
 guid: 'https://marcusfelling.com/?p=1264'
 permalink: /blog/2024/removing-sensitive-data-from-git-history-with-bfg-and-vs-code/
-thumbnail-img: /content/uploads/2024/04/icon.png
+thumbnail-img: /content/uploads/2024/04/icon.webp
 nav-short: true
 tags: [VS Code Extensions]
 ---

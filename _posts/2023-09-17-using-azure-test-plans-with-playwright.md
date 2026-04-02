@@ -5,7 +5,7 @@ date: '2023-09-17T21:01:58+00:00'
 layout: post
 guid: 'https://marcusfelling.com/?p=1237'
 permalink: /blog/2023/using-azure-test-plans-with-playwright/
-thumbnail-img: /content/uploads/2023/09/test-run-ado.png
+thumbnail-img: /content/uploads/2023/09/test-run-ado.webp
 nav-short: true
 tags: [Azure DevOps, Playwright]
 ---
@@ -41,15 +41,15 @@ Once that is in place:
 1. Manually create new test cases in Azure Test Plans taking note of the ID (planID in query string of URL)
 1. Add the ID in brackets to the test case title. 444, 445 in this example:
 
-![Annotation test ID showing Playwright tests with Azure Test Plan IDs in brackets](/content/uploads/2023/09/annotation-test-id-1024x329.png){: .img-fluid }
+![Annotation test ID showing Playwright tests with Azure Test Plan IDs in brackets](/content/uploads/2023/09/annotation-test-id-1024x329.webp){: .img-fluid }
 
 When these tests get run, you will then be able to see the outcome for each test case:
 
-![](/content/uploads/2023/09/outcome-1024x388.png){: .img-fluid }
+![](/content/uploads/2023/09/outcome-1024x388.webp){: .img-fluid }
 
 My example pipeline runs these tests for every commit on main and also uses the JUnit reporter to publish results to the pipeline’s Test tab:
 
-![](/content/uploads/2023/09/test-tab.png){: .img-fluid }
+![](/content/uploads/2023/09/test-tab.webp){: .img-fluid }
 
 ## Playwright .NET
 
@@ -60,11 +60,11 @@ Here is how I set this up in my example project:
 1. Manually create new Azure Test Plans test cases
 1. Use Visual Studio’s test explorer to associate the automated test cases:
 
-    ![](/content/uploads/2023/09/associate-test-case.png){: .img-fluid }
+    ![](/content/uploads/2023/09/associate-test-case.webp){: .img-fluid }
     
     This will change the Automation status field on the test case work item to automated:
     
-    ![](/content/uploads/2023/09/automation-status.png){: .img-fluid }
+    ![](/content/uploads/2023/09/automation-status.webp){: .img-fluid }
 
     Once the test cases are configured, we can set up our pipelines to run the tests.
 
@@ -72,19 +72,19 @@ Here is how I set this up in my example project:
 
 1. Create a [release pipeline](https://dev.azure.com/marcusfelling/Playground/_releaseDefinition?definitionId=2&_a=definition-tasks&environmentId=4) referencing the artifact created in the previous step:
 
-    ![](/content/uploads/2023/09/artifact.png){: .img-fluid }
+    ![](/content/uploads/2023/09/artifact.webp){: .img-fluid }
 
 1. Add install tasks (that run on Windows agent) for “Visual Studio Test Platform Installer” (prereq for VS Test task), .NET, and Playwright browsers:
 
-    ![](/content/uploads/2023/09/tasks.png){: .img-fluid }
+    ![](/content/uploads/2023/09/tasks.webp){: .img-fluid }
 
 1. Add the VS Test task and reference your test plan:
 
-    ![](/content/uploads/2023/09/vstest-task.png){: .img-fluid }
+    ![](/content/uploads/2023/09/vstest-task.webp){: .img-fluid }
 
 1. Create a new release to run the tests. Example results: [Test tab](https://dev.azure.com/marcusfelling/Playground/_releaseProgress?_a=release-environment-extension&releaseId=12&environmentId=12&extensionId=ms.vss-test-web.test-result-in-release-environment-editor-tab), [test plan results](https://dev.azure.com/marcusfelling/Playground/_testPlans/_results?testCaseId=434&contextPointId=31).
 
-    ![](/content/uploads/2023/09/test-case-results.png){: .img-fluid }
+    ![](/content/uploads/2023/09/test-case-results.webp){: .img-fluid }
 
 ## Summary
 
