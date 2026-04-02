@@ -6,7 +6,7 @@ description: 'Shipping an AI Agent MVP: What Actually Worked'
 layout: post
 guid: 'https://marcusfelling.com/?p=1276'
 permalink: /blog/2026/three-day-hackathon-shipping-ai-agent-mvps
-thumbnail-img: /content/uploads/2026/01/ai-hackathon-mvp.png
+thumbnail-img: /content/uploads/2026/01/ai-hackathon-mvp.webp
 nav-short: true
 tags: [AI]
 ---

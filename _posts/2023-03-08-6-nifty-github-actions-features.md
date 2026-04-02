@@ -5,7 +5,7 @@ date: '2023-03-08T19:23:17+00:00'
 layout: post
 guid: 'https://marcusfelling.com/?p=1197'
 permalink: /blog/2023/6-nifty-github-actions-features/
-thumbnail-img: /content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket.png
+thumbnail-img: /content/uploads/2023/03/Octocat-with-sunglasses-launching-rocket.webp
 nav-short: true
 tags: [GitHub Actions, CICD]
 ---
@@ -16,7 +16,7 @@ I’ve been having a lot of fun with GitHub Actions lately and wanted to documen
 
 GitHub Actions has an [environments feature](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment) to describe a deployment target such as dev, staging, or production. By referencing the environment in a job, you can take advantage of [protection rules](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules) and/or [secrets](https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets) that get scoped to the environment. Some potential use cases include requiring a particular person or team to approve workflow jobs that reference an environment (e.g. manual approval before production deploy), or limiting which branches can deploy to a particular environment. I also like to set the environment URL so it’s easily accessible from the summary page:
 
-![](/content/uploads/2023/03/image.png){: .img-fluid }
+![](/content/uploads/2023/03/image.webp){: .img-fluid }
 
 ## 2. Establish workflow breakpoints with dependencies
 
@@ -24,7 +24,7 @@ By default, GitHub Actions runs multiple commands simultaneously. However, you c
 
 e.g. my app, database, and infra as code projects can be built at the same time before deploying to dev:
 
-![](/content/uploads/2023/03/image-1.png){: .img-fluid }
+![](/content/uploads/2023/03/image-1.webp){: .img-fluid }
 
 ## 3. Use secrets to store sensitive workflow data
 
@@ -32,7 +32,7 @@ GitHub’s secrets allow you to securely store sensitive data, including passwor
 
 e.g. Only the Playwright test job needs to reference AzureAD creds:
 
-![](/content/uploads/2023/03/image-2.png){: .img-fluid }
+![](/content/uploads/2023/03/image-2.webp){: .img-fluid }
 
 ## 4. Conditionals can aid in differences between environments
 

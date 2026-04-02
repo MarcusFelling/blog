@@ -5,7 +5,7 @@ date: '2023-02-21T19:29:38+00:00'
 layout: post
 guid: 'https://marcusfelling.com/?p=1178'
 permalink: /blog/2023/handling-azure-ad-authentication-with-playwright/
-thumbnail-img: /content/uploads/2023/02/DALL·E-3d-render-of-a-theatre-mask-with-a-key.png
+thumbnail-img: /content/uploads/2023/02/DALL·E-3d-render-of-a-theatre-mask-with-a-key.webp
 nav-short: true
 tags: [Playwright]
 ---
@@ -18,17 +18,17 @@ One of the most frequently asked questions I get is how to test web apps that us
 
 Storing secrets in plain text in our code or configuration files can pose a significant security risk, especially if we share our code with others or publish it on public repositories like GitHub. Instead, we can store the credentials of our test accounts using environment variables. The environment variables are then referenced in our tests using the process core module of Node.js:
 
-![](/content/uploads/2023/02/process-node-core-module.png){: .img-fluid }
+![](/content/uploads/2023/02/process-node-core-module.webp){: .img-fluid }
 
 To set the values of these variables we can use our CI system’s secret management. For GitHub Actions, setting the values in the pipeline would look something like this:
 
-![](/content/uploads/2023/02/gha-secrets-playwright.png){: .img-fluid }
+![](/content/uploads/2023/02/gha-secrets-playwright.webp){: .img-fluid }
 
 *example GitHub Actions workflow setting env vars scoped to job*
 
 To make local development easier, we can use [.env files](https://github.com/motdotla/dotenv) that are added to .gitignore to make sure they don’t get committed to source control.
 
-![](/content/uploads/2023/02/example-dotenv-file.png){: .img-fluid }
+![](/content/uploads/2023/02/example-dotenv-file.webp){: .img-fluid }
 
 *example .env file with key-value pairs*
 
@@ -39,7 +39,7 @@ To make local development easier, we can use [.env files](https://github.com/mot
 - Optionally, set [conditional access policies](https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/overview) on your test environment to bypass login, then have a separate environment and tests for the login scenario itself.
 - The test account will need to be granted permission to the app under test for the first time. You can either add conditionals to your test script (if X locator is present, then click Yes) to account for this or manually log in once to grant permissions. This is a one-time step.
 
-    ![Azure AD App Permissions for login auth](/content/uploads/2023/02/aad-app-permissions.jpg)
+    ![Azure AD App Permissions for login auth](/content/uploads/2023/02/aad-app-permissions.webp)
 
 <script src="https://gist.github.com/MarcusFelling/b28e64cc083aac32311ba5721deee14f.js"></script>
 

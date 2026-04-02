@@ -6,7 +6,7 @@ description: 'How I set up Squad, an open-source AI agent team framework, and wh
 layout: post
 guid: 'https://marcusfelling.com/?p=1280'
 permalink: /blog/2026/building-an-ai-agent-squad-for-your-repo
-thumbnail-img: /content/uploads/2026/02/squad.png
+thumbnail-img: /content/uploads/2026/02/squad.webp
 nav-short: true
 tags: [AI]
 ---

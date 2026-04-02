@@ -6,7 +6,7 @@ description: 'How I wired together GitHub Copilot, Work IQ MCP, and Azure DevOps
 layout: post
 guid: 'https://marcusfelling.com/?p=1288'
 permalink: /blog/2026/automating-meeting-action-items-into-azure-devops-with-github-copilot-and-work-iq-mcp
-thumbnail-img: /content/uploads/2026/03/ghcp-workiq-ado.png
+thumbnail-img: /content/uploads/2026/03/ghcp-workiq-ado.webp
 nav-short: true
 tags: [AI, Azure DevOps]
 ---
