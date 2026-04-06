@@ -21,8 +21,8 @@ const config: PlaywrightTestConfig = {
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  /* Run tests in parallel on CI. */
+  workers: process.env.CI ? 4 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['list'],
@@ -37,8 +37,8 @@ const config: PlaywrightTestConfig = {
     baseURL: 'http://127.0.0.1:4000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on',
-    video: 'on',
+    trace: 'on-first-retry',
+    video: 'off',
     screenshot: 'only-on-failure',
   },
 
@@ -52,15 +52,13 @@ const config: PlaywrightTestConfig = {
     }
   ],
 
-  /* Run local dev server before starting the tests for CI */
-  ...(process.env.CI ? {
-    webServer: {
-      command: 'bundle exec jekyll serve',
-      port: 4000,
-      reuseExistingServer: false,
-      timeout: 300 * 1000,
-    }
-  } : {})
+  /* Run local dev server before starting the tests */
+  webServer: {
+    command: 'bundle exec jekyll serve',
+    port: 4000,
+    reuseExistingServer: !process.env.CI,
+    timeout: 300 * 1000,
+  },
 };
 
 export default config;
