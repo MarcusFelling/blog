@@ -1,25 +1,37 @@
 ---
 permalink: /404.html
-layout: post
+layout: page
+title: "404"
 ---
 
 <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
+  .not-found {
     text-align: center;
+    padding: 2rem 0;
   }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
+  .not-found .emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+  .not-found p {
+    font-size: 1.15rem;
+  }
+  .not-found .links {
+    margin-top: 2rem;
+  }
+  .not-found .links a {
+    margin: 0 0.75rem;
+    font-weight: 600;
   }
 </style>
 
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+<div class="not-found">
+  <div class="emoji">🔍</div>
+  <p><strong>Well, this is awkward.</strong></p>
+  <p>This page doesn't exist — but hey, at least the build didn't fail.</p>
+  <div class="links">
+    <a href="{{ '/' | relative_url }}"><i class="fas fa-home"></i> Homepage</a>
+    &middot;
+    <a href="{{ '/archives' | relative_url }}"><i class="fas fa-archive"></i> Archives</a>
+  </div>
 </div>
