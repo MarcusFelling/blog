@@ -19,7 +19,7 @@
 | Fenster | Design/UX | [charter](agents/fenster/charter.md) | active |
 | Kobayashi | DevRel | [charter](agents/kobayashi/charter.md) | active |
 | Scribe | (silent) | [charter](agents/scribe/charter.md) | active |
-| @copilot | 🤖 Coding Agent | — | active |
+| copilot | 🤖 Coding Agent | — | active |
 | Ralph | 🔄 Work Monitor | — | active |
 
 ## Project Context
