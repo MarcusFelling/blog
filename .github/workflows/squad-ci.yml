@@ -1,11 +1,13 @@
 name: Squad CI
 
-on:
-  pull_request:
-    branches: [dev, preview, main, insider]
-    types: [opened, synchronize, reopened]
-  push:
-    branches: [dev, insider]
+# Disabled — no meaningful steps after Playwright tests were moved to playwright.yml
+# on:
+#   pull_request:
+#     branches: [dev, preview, main, insider]
+#     types: [opened, synchronize, reopened]
+#   push:
+#     branches: [dev, insider]
+on: workflow_dispatch
 
 permissions:
   contents: read
