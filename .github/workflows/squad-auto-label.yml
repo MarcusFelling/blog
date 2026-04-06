@@ -142,9 +142,16 @@ jobs:
               }
             }
 
+            // Default: route to @copilot unless explicitly not suitable
             if (!assignedMember) {
-              assignedMember = lead;
-              triageReason = 'No specific domain match — assigned to Lead for further analysis';
+              if (hasCopilot && copilotTier !== 'not-suitable') {
+                copilotTier = 'good-fit';
+                assignedMember = { name: '@copilot', role: 'Coding Agent' };
+                triageReason = '🟢 No specific squad member match — routing to @copilot for autonomous work';
+              } else {
+                assignedMember = lead;
+                triageReason = 'Not suitable for @copilot — assigned to Lead for further analysis';
+              }
             }
 
             // Step 4: Apply labels
