@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   release:
+    if: false # disabled — no changelog workflow needed
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,15 +22,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Validate version consistency
-        run: |
-          VERSION=$(node -e "console.log(require('./package.json').version)")
-          if ! grep -q "## \[$VERSION\]" CHANGELOG.md 2>/dev/null; then
-            echo "::error::Version $VERSION not found in CHANGELOG.md — update CHANGELOG.md before release"
-            exit 1
-          fi
-          echo "✅ Version $VERSION validated in CHANGELOG.md"
 
       - name: Read version from package.json
         id: version
@@ -50,11 +42,54 @@ jobs:
             echo "🆕 Tag ${{ steps.version.outputs.tag }} does not exist — creating release."
           fi
 
-      - name: Create git tag
+      - name: Auto-generate changelog entry
+        if: steps.check_tag.outputs.exists == 'false'
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          DATE=$(date -u +"%Y-%m-%d")
+
+          # Get the previous tag (most recent) for commit range
+          PREV_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+
+          if [ -n "$PREV_TAG" ]; then
+            COMMITS=$(git log "${PREV_TAG}..HEAD" --pretty=format:"- %s" --no-merges)
+          else
+            COMMITS=$(git log --pretty=format:"- %s" --no-merges -20)
+          fi
+
+          # Build the new entry
+          ENTRY="## [$VERSION] - $DATE\n\n${COMMITS}\n"
+
+          # Create CHANGELOG.md if it doesn't exist
+          if [ ! -f CHANGELOG.md ]; then
+            echo -e "# Changelog\n\nAll notable changes to this project will be documented in this file.\n\n${ENTRY}" > CHANGELOG.md
+          else
+            # Prepend entry after the header lines
+            awk -v entry="$ENTRY" '
+              /^## \[/ && !inserted {
+                printf "%s\n\n", entry
+                inserted=1
+              }
+              { print }
+              END { if (!inserted) printf "\n%s\n", entry }
+            ' CHANGELOG.md > CHANGELOG.tmp && mv CHANGELOG.tmp CHANGELOG.md
+          fi
+
+          echo "✅ CHANGELOG.md updated with [$VERSION] entry"
+
+      - name: Commit changelog
         if: steps.check_tag.outputs.exists == 'false'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add CHANGELOG.md
+          git diff --cached --quiet && echo "No changelog changes to commit" || \
+            git commit -m "chore: update CHANGELOG.md for v${{ steps.version.outputs.version }} [skip ci]"
+          git push origin HEAD:main
+
+      - name: Create git tag
+        if: steps.check_tag.outputs.exists == 'false'
+        run: |
           git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.tag }}"
           git push origin "${{ steps.version.outputs.tag }}"
 
