@@ -78,6 +78,7 @@ exclude:
   - playwright.config.ts
   - tests/
   - package.json
+  - vendor
   - package-lock.json
   - squad.config.ts
   - .github/
