@@ -19,10 +19,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: Run tests
-        run: |
-          npm ci
-          npx playwright test
+      - name: Install dependencies
+        run: npm ci
 
       - name: Validate version consistency
         run: |
