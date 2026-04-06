@@ -1,0 +1,35 @@
+name: Squad Auto-Label
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  auto-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add squad label to new issue
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const issue = context.payload.issue;
+            
+            // Skip if already labeled with squad
+            const hasSquadLabel = issue.labels.some(l => l.name === 'squad');
+            if (hasSquadLabel) {
+              core.info('Issue already has squad label — skipping');
+              return;
+            }
+            
+            // Add the squad label (triggers squad-triage.yml)
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: ['squad']
+            });
+            
+            core.info(`Added squad label to issue #${issue.number}`);
