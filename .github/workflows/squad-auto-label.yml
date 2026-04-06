@@ -1,36 +1,218 @@
 name: Squad Auto-Label
 
+# End-to-end pipeline for new issues: label → triage → assign.
+# Uses COPILOT_ASSIGN_TOKEN (PAT) so label events trigger managed workflows
+# as a fallback. This workflow is NOT managed by squad upgrade.
+
 on:
   issues:
     types: [opened]
 
 permissions:
   issues: write
+  contents: read
 
 jobs:
-  auto-label:
+  auto-label-and-triage:
     runs-on: ubuntu-latest
     steps:
-      - name: Add squad label to new issue
+      - uses: actions/checkout@v4
+
+      - name: Label, triage, and assign
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.COPILOT_ASSIGN_TOKEN }}
           script: |
+            const fs = require('fs');
             const issue = context.payload.issue;
-            
-            // Skip if already labeled with squad
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            // Step 1: Add squad label
             const hasSquadLabel = issue.labels.some(l => l.name === 'squad');
-            if (hasSquadLabel) {
-              core.info('Issue already has squad label — skipping');
+            if (!hasSquadLabel) {
+              await github.rest.issues.addLabels({ owner, repo, issue_number: issue.number, labels: ['squad'] });
+              core.info(`Added squad label to issue #${issue.number}`);
+            }
+
+            // Step 2: Read team roster
+            let teamFile = '.squad/team.md';
+            if (!fs.existsSync(teamFile)) teamFile = '.ai-team/team.md';
+            if (!fs.existsSync(teamFile)) {
+              core.warning('No team.md found — cannot triage');
               return;
             }
-            
-            // Add the squad label (triggers squad-triage.yml)
-            await github.rest.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issue.number,
-              labels: ['squad']
-            });
-            
-            core.info(`Added squad label to issue #${issue.number}`);
+
+            const content = fs.readFileSync(teamFile, 'utf8');
+            const lines = content.split('\n');
+
+            // Parse @copilot config
+            const hasCopilot = content.includes('🤖 Coding Agent');
+            const copilotAutoAssign = content.includes('<!-- copilot-auto-assign: true -->');
+
+            let goodFitKeywords = ['bug fix', 'test coverage', 'lint', 'format', 'dependency update', 'small feature', 'scaffolding', 'doc fix', 'documentation'];
+            let needsReviewKeywords = ['medium feature', 'refactoring', 'api endpoint', 'migration'];
+            let notSuitableKeywords = ['architecture', 'system design', 'security', 'auth', 'encryption', 'performance'];
+
+            if (hasCopilot) {
+              const goodMatch = content.match(/🟢\s*Good fit[^:]*:\s*(.+)/i);
+              const reviewMatch = content.match(/🟡\s*Needs review[^:]*:\s*(.+)/i);
+              const notMatch = content.match(/🔴\s*Not suitable[^:]*:\s*(.+)/i);
+              if (goodMatch) goodFitKeywords = goodMatch[1].toLowerCase().split(',').map(s => s.trim());
+              if (reviewMatch) needsReviewKeywords = reviewMatch[1].toLowerCase().split(',').map(s => s.trim());
+              if (notMatch) notSuitableKeywords = notMatch[1].toLowerCase().split(',').map(s => s.trim());
+            }
+
+            // Parse team members
+            const members = [];
+            let inMembersTable = false;
+            for (const line of lines) {
+              if (line.match(/^##\s+(Members|Team Roster)/i)) { inMembersTable = true; continue; }
+              if (inMembersTable && line.startsWith('## ')) break;
+              if (inMembersTable && line.startsWith('|') && !line.includes('---') && !line.includes('Name')) {
+                const cells = line.split('|').map(c => c.trim()).filter(Boolean);
+                if (cells.length >= 2 && cells[0] !== 'Scribe') {
+                  members.push({ name: cells[0], role: cells[1] });
+                }
+              }
+            }
+
+            const lead = members.find(m =>
+              m.role.toLowerCase().includes('lead') ||
+              m.role.toLowerCase().includes('architect') ||
+              m.role.toLowerCase().includes('coordinator')
+            );
+            if (!lead) { core.warning('No Lead found — cannot triage'); return; }
+
+            // Step 3: Triage — determine assignee
+            const issueText = `${issue.title}\n${issue.body || ''}`.toLowerCase();
+            let assignedMember = null;
+            let triageReason = '';
+            let copilotTier = null;
+
+            // Evaluate @copilot fit first
+            if (hasCopilot) {
+              const isNotSuitable = notSuitableKeywords.some(kw => issueText.includes(kw));
+              const isGoodFit = !isNotSuitable && goodFitKeywords.some(kw => issueText.includes(kw));
+              const isNeedsReview = !isNotSuitable && !isGoodFit && needsReviewKeywords.some(kw => issueText.includes(kw));
+
+              if (isGoodFit) {
+                copilotTier = 'good-fit';
+                assignedMember = { name: '@copilot', role: 'Coding Agent' };
+                triageReason = '🟢 Good fit for @copilot — matches capability profile';
+              } else if (isNeedsReview) {
+                copilotTier = 'needs-review';
+                assignedMember = { name: '@copilot', role: 'Coding Agent' };
+                triageReason = '🟡 Routing to @copilot (needs review) — a squad member should review the PR';
+              } else if (isNotSuitable) {
+                copilotTier = 'not-suitable';
+              }
+            }
+
+            // Keyword-based routing to squad members
+            if (!assignedMember) {
+              for (const member of members) {
+                const role = member.role.toLowerCase();
+                if ((role.includes('frontend') || role.includes('ui') || role.includes('design')) &&
+                    (issueText.includes('ui') || issueText.includes('frontend') || issueText.includes('css') ||
+                     issueText.includes('component') || issueText.includes('button') || issueText.includes('page') ||
+                     issueText.includes('layout') || issueText.includes('design'))) {
+                  assignedMember = member; triageReason = 'Issue relates to frontend/UI work'; break;
+                }
+                if ((role.includes('backend') || role.includes('api') || role.includes('server')) &&
+                    (issueText.includes('api') || issueText.includes('backend') || issueText.includes('database') ||
+                     issueText.includes('endpoint') || issueText.includes('server') || issueText.includes('auth'))) {
+                  assignedMember = member; triageReason = 'Issue relates to backend/API work'; break;
+                }
+                if ((role.includes('content') || role.includes('writer') || role.includes('devrel')) &&
+                    (issueText.includes('blog') || issueText.includes('post') || issueText.includes('article') ||
+                     issueText.includes('writing') || issueText.includes('content') || issueText.includes('draft'))) {
+                  assignedMember = member; triageReason = 'Issue relates to content work'; break;
+                }
+                if ((role.includes('test') || role.includes('qa') || role.includes('quality')) &&
+                    (issueText.includes('test') || issueText.includes('bug') || issueText.includes('fix') ||
+                     issueText.includes('regression') || issueText.includes('coverage'))) {
+                  assignedMember = member; triageReason = 'Issue relates to testing/quality work'; break;
+                }
+                if ((role.includes('devops') || role.includes('infra') || role.includes('ops')) &&
+                    (issueText.includes('deploy') || issueText.includes('ci') || issueText.includes('pipeline') ||
+                     issueText.includes('docker') || issueText.includes('infrastructure'))) {
+                  assignedMember = member; triageReason = 'Issue relates to DevOps/infrastructure work'; break;
+                }
+              }
+            }
+
+            if (!assignedMember) {
+              assignedMember = lead;
+              triageReason = 'No specific domain match — assigned to Lead for further analysis';
+            }
+
+            // Step 4: Apply labels
+            const isCopilot = assignedMember.name === '@copilot';
+            const assignLabel = isCopilot ? 'squad:copilot' : `squad:${assignedMember.name.toLowerCase()}`;
+
+            await github.rest.issues.addLabels({ owner, repo, issue_number: issue.number, labels: [assignLabel, 'go:needs-research'] });
+
+            // Step 5: Post triage comment
+            const memberList = members.filter(m => m.name !== 'Ralph' && m.name !== '@copilot')
+              .map(m => `- **${m.name}** (${m.role}) → label: \`squad:${m.name.toLowerCase()}\``)
+              .join('\n');
+
+            let copilotNote = '';
+            if (hasCopilot && !isCopilot) {
+              copilotNote = copilotTier === 'not-suitable'
+                ? `\n\n**@copilot evaluation:** 🔴 Not suitable — issue involves work outside the coding agent's capability profile.`
+                : `\n\n**@copilot evaluation:** No strong capability match — routed to squad member.`;
+            }
+
+            const comment = [
+              `### 🏗️ Squad Triage — ${lead.name} (${lead.role})`,
+              '',
+              `**Issue:** #${issue.number} — ${issue.title}`,
+              `**Assigned to:** ${assignedMember.name} (${assignedMember.role})`,
+              `**Reason:** ${triageReason}`,
+              copilotTier === 'needs-review' ? `\n⚠️ **PR review recommended** — a squad member should review @copilot's work on this one.` : '',
+              copilotNote,
+              '',
+              '---',
+              '',
+              '**Team roster:**',
+              memberList,
+              hasCopilot ? `- **@copilot** (Coding Agent) → label: \`squad:copilot\`` : '',
+              '',
+              `> To reassign, remove the current \`squad:*\` label and add the correct one.`,
+            ].filter(Boolean).join('\n');
+
+            await github.rest.issues.createComment({ owner, repo, issue_number: issue.number, body: comment });
+
+            // Step 6: If routed to @copilot with auto-assign, assign the coding agent
+            if (isCopilot && copilotAutoAssign) {
+              const { data: repoData } = await github.rest.repos.get({ owner, repo });
+              const baseBranch = repoData.default_branch;
+
+              try {
+                await github.request('POST /repos/{owner}/{repo}/issues/{issue_number}/assignees', {
+                  owner, repo, issue_number: issue.number,
+                  assignees: ['copilot-swe-agent[bot]'],
+                  agent_assignment: {
+                    target_repo: `${owner}/${repo}`,
+                    base_branch: baseBranch,
+                    custom_instructions: '',
+                    custom_agent: '',
+                    model: ''
+                  },
+                  headers: { 'X-GitHub-Api-Version': '2022-11-28' }
+                });
+                core.info(`Assigned copilot-swe-agent to issue #${issue.number}`);
+              } catch (err) {
+                core.warning(`Agent assignment failed: ${err.message}`);
+                try {
+                  await github.rest.issues.addAssignees({ owner, repo, issue_number: issue.number, assignees: ['copilot-swe-agent'] });
+                  core.info(`Fallback assigned copilot-swe-agent to issue #${issue.number}`);
+                } catch (err2) {
+                  core.warning(`Fallback also failed: ${err2.message}`);
+                }
+              }
+            }
+
+            core.info(`Triaged issue #${issue.number} → ${assignedMember.name} (${assignLabel})`);
