@@ -70,11 +70,20 @@ jobs:
 
             // Check each file against forbidden path rules
             // Allow removals ΓÇö deleting forbidden files from protected branches is fine
+            //
+            // Allowlist: .squad/ files that workflows need on main at runtime
+            const ALLOWED_SQUAD_FILES = new Set([
+              '.squad/team.md',
+              '.squad/routing.md',
+            ]);
+
             const forbidden = files
               .filter(f => f.status !== 'removed')
               .map(f => f.filename)
               .filter(f => {
-                // .ai-team/** and .squad/** ΓÇö ALL team state files, zero exceptions
+                // Allow specific .squad/ files that workflows read at runtime
+                if (ALLOWED_SQUAD_FILES.has(f)) return false;
+                // .ai-team/** and .squad/** ΓÇö team state files (except allowlisted above)
                 if (f === '.ai-team' || f.startsWith('.ai-team/') || f === '.squad' || f.startsWith('.squad/')) return true;
                 // .ai-team-templates/** ΓÇö Squad's own templates, stay on dev
                 if (f === '.ai-team-templates' || f.startsWith('.ai-team-templates/')) return true;
