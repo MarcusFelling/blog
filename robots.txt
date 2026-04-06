@@ -41,3 +41,4 @@ User-agent: FacebookBot
 Allow: /
 
 Sitemap: https://marcusfelling.com/sitemap.xml
+llms.txt: https://marcusfelling.com/llms.txt
