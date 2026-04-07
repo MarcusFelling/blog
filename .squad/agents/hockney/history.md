@@ -101,3 +101,18 @@ McManus removed `remote_theme` from `_config.yml`, dropped `gem "minima"` from `
 - Created `tests/reading-time.spec.ts` (1 test) to verify the new reading time feature on blog posts.
 - Strategy: navigate to the first post from the homepage (same pattern as `post-nav.spec.ts`), then assert `.reading-time` is visible, text matches `/\d+ min read/`, and the parsed minute value is >= 1.
 - Single test covers visibility, format, and reasonableness — no need for multiple tests since they all operate on the same element on the same page.
+
+### 2026-04-07 — Command Palette test suite
+
+- Created `tests/command-palette.spec.ts` (13 tests) covering the full behavioral spec for the Ctrl+K command palette feature.
+- Tests cover: open/close (keyboard, escape, backdrop), auto-focus, recent posts (empty state), search with results, no-results state, keyboard navigation (ArrowDown highlight + Enter navigate), click-to-navigate, discovery hint badge, interaction with existing search input, and cross-page functionality (post pages).
+- `beforeEach` waits for `/search-data.json` (same pattern as `search.spec.ts`) since the palette uses it for fuzzy search.
+- Selectors use semantic locators where possible: `getByRole('dialog')` for the modal, `[role="option"]` for result items, `[aria-selected="true"]` for highlighted items. Falls back to class-based selectors (`.command-palette-overlay`, `.command-palette-modal`, `.command-palette-result`) where ARIA roles may not be applied.
+- Test #12 ("does not interfere when focused in existing search input") is intentionally permissive — it asserts no crash rather than a specific open/prevent behavior, since that's an implementation decision McManus should make.
+- Test #13 ("palette works on post pages") re-waits for `search-data.json` after navigating to verify the palette is functional outside the homepage.
+
+**Post-test fixes (Coordinator):**
+- Selector mismatches between spec-first tests and actual implementation resolved (dialog targeting, cached data handling)
+- Race condition with async data loading fixed — results re-render after fetch completes
+- Nav hint badge Ctrl/⌘ detection adjusted for platform-aware testing
+- All 13 tests now passing

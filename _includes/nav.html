@@ -48,6 +48,10 @@
         {{ nav_social_chips | strip }}
       </div>
     </div>
+    <button class="cmd-palette-hint cmd-palette-trigger" aria-label="Open command palette">
+      <i class="fas fa-search" aria-hidden="true"></i>
+      <kbd><span class="cmd-mod-key">⌘</span>K</kbd>
+    </button>
   </div>
   <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-drawer" onclick="toggleDrawer()">Menu</button>
 </nav>
@@ -112,6 +116,14 @@
     if (event.key === 'Escape' && drawer.classList.contains('open')) {
       window.toggleDrawer(false);
     }
+  });
+})();
+
+// Set correct modifier key for command palette hint
+(function(){
+  var isMac = /Mac|iPhone|iPad|iPod/.test(navigator.platform || navigator.userAgent);
+  document.querySelectorAll('.cmd-mod-key').forEach(function(el){
+    el.textContent = isMac ? '⌘' : 'Ctrl+';
   });
 })();
 </script>

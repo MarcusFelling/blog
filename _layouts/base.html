@@ -37,6 +37,8 @@ common-ext-js:
 
   {% include footer.html %}
 
+  {% include command-palette.html %}
+
   {% include footer-scripts.html %}
   {% if layout.common-ext-js %}
     {% for js in layout.common-ext-js %}
@@ -49,6 +51,7 @@ common-ext-js:
   {% endif %}
   <script src="{{ '/assets/js/scroll-to-top.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/command-palette.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/google-analytics.js' | relative_url }}"></script>
 </body>
 </html>

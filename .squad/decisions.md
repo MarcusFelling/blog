@@ -259,6 +259,50 @@ Factual review of the Work IQ MCP + ADO automation blog post.
 
 ---
 
+### ASCII-Only in GitHub Actions Workflow Files
+
+**Date:** 2026-04-07
+**Author:** Marcus Felling (via Copilot directive)
+
+Never use Unicode characters (em dashes, emoji, special symbols) in GitHub Actions workflow files. Use ASCII-only — plain dashes (`--`), plain text descriptions, no emoji in strings. Windows encoding mismatches corrupt Unicode in YAML.
+
+---
+
+### Default Model — claude-opus-4.6 for All Agents
+
+**Date:** 2026-04-07
+**Author:** Marcus Felling (via Copilot directive)
+
+Changed the default model to `claude-opus-4.6` across all agents. No more tiered model selection (haiku/sonnet/opus) — everything runs on opus.
+
+---
+
+### Command Palette Architecture
+
+**Date:** 2026-04-07
+**Authors:** McManus (Frontend Dev), Hockney (Tester)
+
+Built a ⌘K / Ctrl+K command palette for quick post navigation using vanilla JS (no framework), matching existing codebase convention.
+
+**Implementation:**
+- `_includes/command-palette.html` — dialog markup with search input, results listbox, ⌘K kbd hint
+- `assets/js/command-palette.js` — keyboard shortcut listener, debounced fuzzy search against `/search-data.json`, keyboard nav ↑/↓/Enter, focus trap, backdrop click to close, highlight matching text, recent-posts default view
+- `assets/css/blog.css` — section 14: COMMAND PALETTE (~200 lines)
+- `search-data.json` — added `tags` field (additive, non-breaking)
+- `_includes/nav.html` — ⌘K hint pill in desktop nav
+- `_layouts/base.html` — include and script wired
+
+**Rules:**
+- Reuses `/search-data.json` via `window.__searchData` shared with `search.js`
+- 150ms debounce on search input
+- Focus trap + full keyboard nav for accessibility
+- ⌘K hint pill placed next to social chips in desktop nav
+- Tests use semantic selectors (`role="dialog"`, `role="option"`, `aria-selected`) with class-based fallbacks
+
+**Test coverage:** 13 Playwright tests in `tests/command-palette.spec.ts` covering open/close, search, keyboard nav, navigation, discovery hint, and cross-page functionality.
+
+---
+
 ## Governance
 
 - All meaningful changes require team consensus

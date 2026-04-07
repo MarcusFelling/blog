@@ -82,3 +82,13 @@ The homepage’s hero, Pulse panel, recent-card, and archive CTA styling is stil
 ### 2026-04-07 — Added estimated reading time to blog posts
 
 In `_layouts/post.html`: calculated word count via `content | number_of_words`, divided by 200, clamped to a 1-minute floor. Displayed inline after the "Posted on" date, separated by a middle dot (`·`), inside a `.reading-time` span for testability. Added a minimal `.reading-time` rule in `assets/css/blog.css` using `var(--mid-col)` to keep it subtle and consistent with the muted post-meta aesthetic.
+
+### 2026-04-07 — Built command palette (⌘K / Ctrl+K) for quick post navigation
+
+Created `_includes/command-palette.html` (dialog markup with search input, results listbox, ⌘K kbd hint), `assets/js/command-palette.js` (vanilla JS — keyboard shortcut listener, debounced fuzzy search against `/search-data.json`, keyboard nav ↑/↓/Enter, focus trap, backdrop click to close, highlight matching text, recent-posts default view), and appended `/* 14. COMMAND PALETTE */` CSS block to `assets/css/blog.css` (~200 lines — backdrop blur overlay, centered modal with scale animation, scrollable results with accent-col left border on active, tag pills, empty state, responsive mobile layout). Wired into `_layouts/base.html` (include before footer-scripts, script after search.js). Added `tags` field to `search-data.json`. Added a ⌘K hint pill button in `_includes/nav.html` next to the social chips. The JS shares search data with `search.js` via `window.__searchData` when possible, otherwise fetches independently.
+
+**Coordinator fixes applied post-implementation:**
+- Test selector mismatches resolved (dialog role, class naming)
+- Async data loading race condition fixed (re-render results after data loads)
+- Nav hint Ctrl/⌘ platform detection fixed for cross-platform test compatibility
+- 13 Playwright tests in `tests/command-palette.spec.ts` all passing
