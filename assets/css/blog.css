@@ -291,6 +291,98 @@ pre.highlight::before {
   background: transparent;
 }
 
+/* Hide CSS ::before dots when JS toolbar replaces them */
+div.highlight.has-toolbar::before {
+  display: none;
+}
+
+/* ── Code Toolbar (JS-injected replacement for ::before dots) ── */
+.code-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #1c2128;
+  border-bottom: 1px solid var(--card-border);
+  font-family: var(--mono-font);
+  user-select: none;
+}
+
+.code-toolbar-dots {
+  color: #484f58;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+}
+
+.code-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.code-lang-label {
+  font-size: 0.65rem;
+  color: #8b949e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+/* Copy button */
+.copy-code-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+  color: #8b949e;
+  cursor: pointer;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  font-family: var(--mono-font);
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  line-height: 1;
+}
+
+.copy-code-btn:hover {
+  color: var(--text-col);
+  border-color: #8b949e;
+  background: rgba(255,255,255,0.05);
+}
+
+.copy-code-btn:focus-visible {
+  outline: 2px solid var(--accent-col);
+  outline-offset: 2px;
+}
+
+.copy-code-btn.copied {
+  color: #3fb950;
+  border-color: #3fb950;
+}
+
+.copy-code-btn svg {
+  vertical-align: middle;
+}
+
+/* Bare <pre> blocks (not Rouge-highlighted) */
+.code-block-bare {
+  position: relative;
+}
+
+.copy-btn-bare {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.code-block-bare:hover .copy-btn-bare,
+.copy-btn-bare:focus-visible {
+  opacity: 1;
+}
+
 /* ===== 5. CARD STYLES ===== */
 /* Card container layout */
 .post-cards-container {
