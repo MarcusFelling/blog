@@ -1,5 +1,13 @@
 {
   "mcpServers": {
+    "workiq": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@microsoft/workiq",
+        "mcp"
+      ]
+    },
     "EXAMPLE-trello": {
       "command": "npx",
       "args": [
