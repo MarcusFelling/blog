@@ -87,10 +87,13 @@ test.describe('Command Palette', () => {
     await paletteInput(page).fill('DevOps');
     await expect(paletteResults(page).first()).toBeVisible({ timeout: 5000 });
 
+    // Wait for debounce (150ms) to fully settle before sending keys
+    await page.waitForTimeout(300);
+
     await page.keyboard.press('ArrowDown');
 
     const highlighted = palette(page).locator('[aria-selected="true"]');
-    await expect(highlighted).toHaveCount(1);
+    await expect(highlighted).toHaveCount(1, { timeout: 3000 });
   });
 
   test('Enter navigates to the selected post', async ({ page }) => {
