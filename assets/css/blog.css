@@ -1865,3 +1865,8 @@ textarea {
   color: var(--link-col);
   text-decoration: none;
 }
+
+/* ===== READING TIME ===== */
+.reading-time {
+  color: var(--mid-col);
+}
