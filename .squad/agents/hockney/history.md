@@ -95,3 +95,9 @@ McManus removed `remote_theme` from `_config.yml`, dropped `gem "minima"` from `
 - The previously documented RSS link test failure (from `_config-dev.yml` drift) is no longer present — that test was rewritten to validate social chip placement generically rather than asserting a hard-coded RSS link.
 - Slowest tests are in `images.spec.ts`: "images load successfully on latest posts" (1.0 min) and "images use webp format" (51.7s). Both iterate across the latest 10 posts. No flakiness observed — just inherently slow due to multi-page navigation. The 80s test timeout in `playwright.config.ts` accommodates them.
 - No known failures or flaky tests at this time.
+
+### 2026-04-07 — Reading time feature test
+
+- Created `tests/reading-time.spec.ts` (1 test) to verify the new reading time feature on blog posts.
+- Strategy: navigate to the first post from the homepage (same pattern as `post-nav.spec.ts`), then assert `.reading-time` is visible, text matches `/\d+ min read/`, and the parsed minute value is >= 1.
+- Single test covers visibility, format, and reasonableness — no need for multiple tests since they all operate on the same element on the same page.

@@ -53,3 +53,12 @@
 - Extracted `.squad/skills/jekyll-workflow/SKILL.md` (confidence: low) covering local build, test execution, CI workflow, config file roles, and anti-patterns.
 - Key structural facts: Playwright `webServer` auto-starts Jekyll on port 4000; CI is Chromium-only with 4 workers; dev config drift is a documented gotcha from wisdom.md.
 - Skill is now routable — any agent touching templates, CSS, or CI should get it in their spawn prompt.
+
+### 2026-04-07 — Reading time architecture decision
+
+- Decided on pure Liquid approach: `content | number_of_words` divided by 200, rounded up via `divided_by` + `modulo` pattern. No plugins, no JS — GitHub Pages safe.
+- Placement: new `<span class="post-meta reading-time">` immediately after the existing date span in `_layouts/post.html` line 13, separated by `&middot;`.
+- Reuses `.post-meta` styling — no CSS changes needed. Added `.reading-time` as a hook class for future use.
+- Edge case: any post with 1–200 words shows "1 min read". Zero-word posts show "0 min read" but shouldn't exist in production.
+- Rejected alternatives: `jekyll-reading-time` plugin (not on GH Pages allowlist), client-side JS (unnecessary complexity), `_includes` partial (over-engineering for a single call site).
+- Decision filed at `.squad/decisions/inbox/keaton-reading-time.md`.

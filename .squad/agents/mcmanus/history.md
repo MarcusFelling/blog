@@ -79,3 +79,6 @@ Moved the site social links out of `_includes/footer.html` and into `_includes/n
 ### 2026-03-13 — Homepage polish should preserve copy/IA and adjust intensity at the head include source
 
 The homepage’s hero, Pulse panel, recent-card, and archive CTA styling is still primarily controlled by the inline style block in `_includes/head.html`, not by `_layouts/home.html`. For restrained homepage passes, keep the text and section order frozen in `_layouts/home.html` and tune intensity at the source: remove gradient headline treatments, reduce glass/glow strength, and use smaller hover/focus deltas instead of stacking override CSS in `assets/css/blog.css`.
+### 2026-04-07 — Added estimated reading time to blog posts
+
+In `_layouts/post.html`: calculated word count via `content | number_of_words`, divided by 200, clamped to a 1-minute floor. Displayed inline after the "Posted on" date, separated by a middle dot (`·`), inside a `.reading-time` span for testability. Added a minimal `.reading-time` rule in `assets/css/blog.css` using `var(--mid-col)` to keep it subtle and consistent with the muted post-meta aesthetic.

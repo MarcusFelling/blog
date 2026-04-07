@@ -99,6 +99,31 @@ Social links are part of the site chrome and now belong in the navigation system
 
 ---
 
+### Reading Time — Pure Liquid Approach
+
+**Date:** 2026-04-07
+**Authors:** Keaton (Lead), McManus (Frontend Dev)
+
+Blog posts display an estimated reading time calculated with pure Liquid — no plugins, no JavaScript. Fully compatible with GitHub Pages.
+
+**Calculation:** `content | number_of_words` divided by 200 (standard technical reading speed), rounded up. Minimum 1 minute for any non-empty post.
+
+**Placement:** In `_layouts/post.html`, after the "Posted on" date span, separated by ` · `. Wrapped in `<span class="post-meta reading-time">`.
+
+**CSS:** Single rule — `.reading-time { color: var(--mid-col); }` in `assets/css/blog.css`. Inherits font-size/weight from `.post-meta`.
+
+**Files changed:**
+- `_layouts/post.html` — Liquid calculation and display
+- `assets/css/blog.css` — `.reading-time` style
+
+**Rules:**
+- Use 200 wpm; integer division avoids Liquid float issues.
+- No plugins (`jekyll-reading-time` isn't on the GitHub Pages allowlist).
+- No JavaScript — static metadata doesn't need client-side computation.
+- No partial include — 4 lines of Liquid in one template doesn't warrant `_includes/`.
+
+---
+
 ### Jekyll Workflow Skill Extraction
 
 **Date:** 2026-04-07
