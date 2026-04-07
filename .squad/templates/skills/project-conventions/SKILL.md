@@ -1,9 +1,9 @@
 ---
 name: "project-conventions"
 description: "Core conventions and patterns for this codebase"
-domain: "conventions"
+domain: "project-conventions"
 confidence: "medium"
-source: "earned"
+source: "template"
 ---
 
 ## Context
@@ -12,9 +12,9 @@ source: "earned"
 
 ## Patterns
 
-### Liquid snippet reuse across responsive variants
+### [Pattern Name]
 
-If the same link or chip markup needs to appear in both desktop and mobile navigation, capture the shared anchors once with Liquid (`{% capture %}`) inside the include and render that captured snippet in both places. This keeps Jekyll templates aligned while still letting CSS apply different layout rules for navbar vs drawer contexts.
+Describe a key convention or practice used in this codebase. Be specific about what to do and why.
 
 ### Error Handling
 

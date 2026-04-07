@@ -2,13 +2,13 @@ import type { SquadConfig } from '@bradygaster/squad';
 
 /**
  * Squad Configuration for blog
- * 
+ * Optimized for v0.8.18 — cost-first model selection, full feature set
  */
 const config: SquadConfig = {
   version: '1.0.0',
-  
+
   models: {
-    defaultModel: 'claude-opus-4.6',
+    defaultModel: 'claude-sonnet-4.5',
     defaultTier: 'standard',
     fallbackChains: {
       premium: ['claude-opus-4.6', 'claude-opus-4.6-fast', 'claude-opus-4.5', 'claude-sonnet-4.5'],
@@ -18,12 +18,12 @@ const config: SquadConfig = {
     preferSameProvider: true,
     respectTierCeiling: true,
     nuclearFallback: {
-      enabled: false,
+      enabled: true,
       model: 'claude-haiku-4.5',
       maxRetriesBeforeNuclear: 3
     }
   },
-  
+
   routing: {
     rules: [
       {
@@ -59,11 +59,11 @@ const config: SquadConfig = {
     ],
     governance: {
       eagerByDefault: true,
-      scribeAutoRuns: false,
+      scribeAutoRuns: true,
       allowRecursiveSpawn: false
     }
   },
-  
+
   casting: {
     allowlistUniverses: [
       'The Usual Suspects',
@@ -71,12 +71,12 @@ const config: SquadConfig = {
       'The Wire',
       'Firefly'
     ],
-    overflowStrategy: 'generic',
+    overflowStrategy: 'diegetic-thematic-structural',
     universeCapacity: {
       'The Usual Suspects': 6
     }
   },
-  
+
   platforms: {
     vscode: {
       disableModelSelection: false,

@@ -46,3 +46,10 @@
 - Azure DevOps MCP claims are accurate — `create_work_item` with standard ADO fields works as described.
 - Copilot Skills (`SKILL.md`) claims check out against VS Code docs. Auto-discovery, slash commands, three-level loading all confirmed.
 - "Copilot Cowork" has no findable public documentation as of 2026-03-24. All learn.microsoft.com and support URLs return 404. Comparison claims are unverifiable.
+
+### 2026-04-07 — Jekyll workflow skill extraction
+
+- Audited the full build-test-deploy pipeline: `Gemfile`, `_config.yml`, `_config-dev.yml`, `playwright.config.ts`, `package.json`, all 6 test specs, and `.github/workflows/playwright.yml`.
+- Extracted `.squad/skills/jekyll-workflow/SKILL.md` (confidence: low) covering local build, test execution, CI workflow, config file roles, and anti-patterns.
+- Key structural facts: Playwright `webServer` auto-starts Jekyll on port 4000; CI is Chromium-only with 4 workers; dev config drift is a documented gotcha from wisdom.md.
+- Skill is now routable — any agent touching templates, CSS, or CI should get it in their spawn prompt.

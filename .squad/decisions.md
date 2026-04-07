@@ -99,6 +99,19 @@ Social links are part of the site chrome and now belong in the navigation system
 
 ---
 
+### Jekyll Workflow Skill Extraction
+
+**Date:** 2026-04-07
+**Author:** Keaton (Lead)
+
+Created `.squad/skills/jekyll-workflow/SKILL.md` capturing the team's build-test-deploy patterns: local build commands, config file purposes (`_config.yml` vs `_config-dev.yml`), Playwright test setup, CI workflow structure, and known gotchas (dev config drift, tag slug sync, Bootstrap dependency).
+
+**Confidence:** `low` — first formal extraction. Needs confirmation from another agent applying it successfully to bump to `medium`.
+
+**Routing rule:** Any agent touching templates, CSS, tests, or CI should read this skill at spawn time.
+
+---
+
 ### Remove remote_theme Dependency
 
 **Date:** 2026-03-11

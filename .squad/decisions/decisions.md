@@ -5,6 +5,15 @@ Entries are ordered chronologically (newest at top within same date).
 
 ---
 
+## 2026-03-26 — Copilot Packaging Recommendation
+
+### `.prompt.md` preferred over `SKILL.md` for meeting-to-ADO workflow
+**By:** Keaton (Lead)
+**What:** For blog post's "What's Next" section, a `.prompt.md` file is the better packaging recommendation over a `SKILL.md`. The workflow is a deterministic pipeline with MCP dependencies and creates real external resources — it benefits from explicit invocation (`/promptname`) over auto-discovery. A custom agent (`.agent.md`) is the second-best option if tool restriction enforcement is needed. Skills are the weakest fit because auto-discovery is a liability for workflows that create real work items.
+**Why:** Based on analysis of the three Copilot customization primitives against specific workflow characteristics (multi-step, MCP-dependent, human-in-the-loop, creates real resources).
+
+---
+
 ## 2026-03-05 — Unused Code Removal
 
 ### CSS / Template / Config Dead Code Removed
