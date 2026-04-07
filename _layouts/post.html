@@ -64,7 +64,7 @@ layout: base
           </a>
         </li>
         {% endif %}
-        {% if prev_post %}
+        {% if prev_post and _prev_idx >= 0 %}
         <li class="page-item next">
           <a class="page-link" href="{{ prev_post.url | relative_url }}" data-toggle="tooltip" data-placement="top" title="{{ prev_post.title | strip_html | escape }}">
             <span class="d-none d-sm-inline-block">Next Post</span>

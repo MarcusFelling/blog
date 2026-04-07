@@ -81,3 +81,17 @@ McManus removed `remote_theme` from `_config.yml`, dropped `gem "minima"` from `
 
 - For publish-readiness checks on this repo, separate repo-backed findings from public-spec guidance. Example: a missing thumbnail asset under `content/uploads/YYYY/MM/` is a concrete repo issue; guidance from `llmstxt.org` about companion context files is external reference material.
 - When reviewing `llms.txt`, note that the current site output is a flat post list. Absence of `llms-ctx.txt` or `llms-ctx-full.txt` should be reported as a spec-alignment gap or decision input, not as a regression, unless the team has already committed to shipping those artifacts.
+
+### 2026-04-07 — Full test suite audit (Squad v0.8.18 demo)
+
+- **21 tests across 6 spec files, all passing (2.8 min total run).**
+- Coverage breakdown by spec file:
+  - `404.spec.ts` (2 tests): 404 page content, no prev/next nav on 404.
+  - `archives.spec.ts` (6 tests): heading/meta, filter buttons, year groups, tag filtering + reset, hash deep-link activation, link checker (all archive post links return 200).
+  - `images.spec.ts` (3 tests): post images load (naturalWidth > 0 + no HTTP errors), webp format enforcement on `content/uploads` images, homepage card images load with lazy-load decode wait.
+  - `landing.spec.ts` (4 tests): social chips in navbar (placement + href validation + footer exclusion), hero section desktop visibility (Pulse, KPIs), Pulse hidden on mobile, post card structure + Browse Archive button.
+  - `scroll-to-top.spec.ts` (1 test): button visible class on scroll, click returns to top.
+  - `search.spec.ts` (5 tests): search box visibility, results on typing, click-to-navigate, empty results handling, dismiss on outside click.
+- The previously documented RSS link test failure (from `_config-dev.yml` drift) is no longer present — that test was rewritten to validate social chip placement generically rather than asserting a hard-coded RSS link.
+- Slowest tests are in `images.spec.ts`: "images load successfully on latest posts" (1.0 min) and "images use webp format" (51.7s). Both iterate across the latest 10 posts. No flakiness observed — just inherently slow due to multi-page navigation. The 80s test timeout in `playwright.config.ts` accommodates them.
+- No known failures or flaky tests at this time.

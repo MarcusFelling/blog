@@ -1,6 +1,9 @@
 ---
 name: "gitlink-cleanup"
 description: "Diagnose and fix accidental gitlink or broken submodule entries committed without valid .gitmodules metadata"
+domain: "git"
+confidence: "high"
+source: "earned"
 ---
 
 ## Use When
