@@ -48,6 +48,143 @@ layout: base
       </div>
       {% endif %}
 
+      {% comment %}── Related Posts (tag-overlap scoring) ──{% endcomment %}
+      {% if page.tags.size > 0 %}
+        {% assign related_posts = "" | split: "" %}
+        {% assign max_related = 3 %}
+
+        {% comment %}Pass 1: posts with 3+ shared tags{% endcomment %}
+        {% for candidate in site.posts %}
+          {% if candidate.id == page.id %}{% continue %}{% endif %}
+          {% if related_posts.size >= max_related %}{% break %}{% endif %}
+          {% assign shared_count = 0 %}
+          {% for ptag in page.tags %}
+            {% for ctag in candidate.tags %}
+              {% if ptag == ctag %}{% assign shared_count = shared_count | plus: 1 %}{% endif %}
+            {% endfor %}
+          {% endfor %}
+          {% if shared_count >= 3 %}
+            {% assign related_posts = related_posts | push: candidate %}
+          {% endif %}
+        {% endfor %}
+
+        {% comment %}Pass 2: posts with 2 shared tags{% endcomment %}
+        {% if related_posts.size < max_related %}
+          {% for candidate in site.posts %}
+            {% if candidate.id == page.id %}{% continue %}{% endif %}
+            {% if related_posts.size >= max_related %}{% break %}{% endif %}
+            {% assign already = false %}
+            {% for rp in related_posts %}
+              {% if rp.id == candidate.id %}{% assign already = true %}{% break %}{% endif %}
+            {% endfor %}
+            {% if already %}{% continue %}{% endif %}
+            {% assign shared_count = 0 %}
+            {% for ptag in page.tags %}
+              {% for ctag in candidate.tags %}
+                {% if ptag == ctag %}{% assign shared_count = shared_count | plus: 1 %}{% endif %}
+              {% endfor %}
+            {% endfor %}
+            {% if shared_count >= 2 %}
+              {% assign related_posts = related_posts | push: candidate %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% comment %}Pass 3: posts with 1 shared tag{% endcomment %}
+        {% if related_posts.size < max_related %}
+          {% for candidate in site.posts %}
+            {% if candidate.id == page.id %}{% continue %}{% endif %}
+            {% if related_posts.size >= max_related %}{% break %}{% endif %}
+            {% assign already = false %}
+            {% for rp in related_posts %}
+              {% if rp.id == candidate.id %}{% assign already = true %}{% break %}{% endif %}
+            {% endfor %}
+            {% if already %}{% continue %}{% endif %}
+            {% assign shared_count = 0 %}
+            {% for ptag in page.tags %}
+              {% for ctag in candidate.tags %}
+                {% if ptag == ctag %}{% assign shared_count = shared_count | plus: 1 %}{% endif %}
+              {% endfor %}
+            {% endfor %}
+            {% if shared_count >= 1 %}
+              {% assign related_posts = related_posts | push: candidate %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% comment %}Fill remaining slots with recent posts (excluding current){% endcomment %}
+        {% if related_posts.size < max_related %}
+          {% for candidate in site.posts %}
+            {% if candidate.id == page.id %}{% continue %}{% endif %}
+            {% if related_posts.size >= max_related %}{% break %}{% endif %}
+            {% assign already = false %}
+            {% for rp in related_posts %}
+              {% if rp.id == candidate.id %}{% assign already = true %}{% break %}{% endif %}
+            {% endfor %}
+            {% if already %}{% continue %}{% endif %}
+            {% assign related_posts = related_posts | push: candidate %}
+          {% endfor %}
+        {% endif %}
+
+        {% comment %}Render the related posts section{% endcomment %}
+        {% if related_posts.size > 0 %}
+        <section class="related-posts" aria-label="Related posts">
+          <h3 class="related-posts-heading">
+            <i class="fas fa-diagram-project" aria-hidden="true"></i> Related Posts
+          </h3>
+          <div class="related-posts-grid">
+            {% for rpost in related_posts %}
+              {% assign delay = forloop.index0 | times: 0.08 %}
+              <article class="related-post-card fade-in-up" style="animation-delay: {{ delay }}s">
+                <a href="{{ rpost.url | relative_url }}" class="related-post-link">
+                  <div class="related-post-content">
+                    <h4 class="related-post-title">{{ rpost.title | strip_html }}</h4>
+                    <span class="related-post-date">{{ rpost.date | date: "%B %-d, %Y" }}</span>
+                    <div class="related-post-shared-tags">
+                      {% for ptag in page.tags %}
+                        {% for ctag in rpost.tags %}
+                          {% if ptag == ctag %}
+                            {% comment %}Map tag name to its color{% endcomment %}
+                            {% if ptag == "Azure Pipelines" or ptag == "Azure DevOps" %}
+                              {% assign _tag_color = "#0078d4" %}
+                            {% elsif ptag == "CI/CD" %}
+                              {% assign _tag_color = "#f8d57e" %}
+                            {% elsif ptag == "Playwright" %}
+                              {% assign _tag_color = "#2dba8a" %}
+                            {% elsif ptag == "Git" %}
+                              {% assign _tag_color = "#f05033" %}
+                            {% elsif ptag == "GitHub Actions" %}
+                              {% assign _tag_color = "#3fb950" %}
+                            {% elsif ptag == "Octopus Deploy" %}
+                              {% assign _tag_color = "#00b4b4" %}
+                            {% elsif ptag == "Infra as Code" %}
+                              {% assign _tag_color = "#9cdcfe" %}
+                            {% elsif ptag == "Windows" %}
+                              {% assign _tag_color = "#00adef" %}
+                            {% elsif ptag == "VS Code Extensions" %}
+                              {% assign _tag_color = "#007acc" %}
+                            {% elsif ptag == "AI" %}
+                              {% assign _tag_color = "#c678dd" %}
+                            {% else %}
+                              {% assign _tag_color = "#aaaaaa" %}
+                            {% endif %}
+                            <span class="shared-tag" style="--tag-color: {{ _tag_color }}">
+                              <i class="fas fa-link" aria-hidden="true"></i> {{ ptag }}
+                            </span>
+                          {% endif %}
+                        {% endfor %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <span class="related-post-arrow"><i class="fas fa-arrow-right"></i></span>
+                </a>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+        {% endif %}
+      {% endif %}
+
       {% comment %}Prev/Next pagination{% endcomment %}
       {% assign posts = site.posts %}
       {% for i in (0..posts.size) %}
