@@ -69,45 +69,41 @@ jobs:
             }
 
             // Check each file against forbidden path rules
-            // Allow removals ΓÇö deleting forbidden files from protected branches is fine
+            // Allow removals -- deleting forbidden files from protected branches is fine
             //
-            // Allowlist: .squad/ files that workflows need on main at runtime
-            const ALLOWED_SQUAD_FILES = new Set([
-              '.squad/team.md',
-              '.squad/routing.md',
-            ]);
+            // .squad/ is repo infrastructure -- allowed on all branches
 
             const forbidden = files
               .filter(f => f.status !== 'removed')
               .map(f => f.filename)
               .filter(f => {
-                // Allow specific .squad/ files that workflows read at runtime
-                if (ALLOWED_SQUAD_FILES.has(f)) return false;
-                // .ai-team/** and .squad/** ΓÇö team state files (except allowlisted above)
-                if (f === '.ai-team' || f.startsWith('.ai-team/') || f === '.squad' || f.startsWith('.squad/')) return true;
-                // .ai-team-templates/** ΓÇö Squad's own templates, stay on dev
+                // .squad/** -- repo infrastructure, allowed everywhere
+                if (f === '.squad' || f.startsWith('.squad/')) return false;
+                // .ai-team/** -- legacy team state files
+                if (f === '.ai-team' || f.startsWith('.ai-team/')) return true;
+                // .ai-team-templates/** -- Squad's own templates, stay on dev
                 if (f === '.ai-team-templates' || f.startsWith('.ai-team-templates/')) return true;
-                // team-docs/** ΓÇö ALL internal team docs, zero exceptions
+                // team-docs/** -- ALL internal team docs, zero exceptions
                 if (f.startsWith('team-docs/')) return true;
-                // docs/proposals/** ΓÇö internal design proposals, stay on dev
+                // docs/proposals/** -- internal design proposals, stay on dev
                 if (f.startsWith('docs/proposals/')) return true;
                 return false;
               });
 
             if (forbidden.length === 0) {
-              core.info('Γ£à No forbidden paths found in PR ΓÇö all clear.');
+              core.info('No forbidden paths found in PR -- all clear.');
               return;
             }
 
             // Build a clear, actionable error message
             const lines = [
-              '## ≡ƒÜ½ Forbidden files detected in PR to main',
+              '## Forbidden files detected in PR to main',
               '',
               'The following files must NOT be merged into `main`.',
-              '`.ai-team/` and `.squad/` are runtime team state ΓÇö they belong on dev branches only.',
-              '`.ai-team-templates/` is Squad\'s internal planning ΓÇö it belongs on dev branches only.',
-              '`team-docs/` is internal team content ΓÇö it belongs on dev branches only.',
-              '`docs/proposals/` is internal design proposals ΓÇö it belongs on dev branches only.',
+              '`.ai-team/` is legacy team state -- it belongs on dev branches only.',
+              '`.ai-team-templates/` is Squad\'s internal planning -- it belongs on dev branches only.',
+              '`team-docs/` is internal team content -- it belongs on dev branches only.',
+              '`docs/proposals/` is internal design proposals -- it belongs on dev branches only.',
               '',
               '### Forbidden files found:',
               '',
@@ -119,9 +115,6 @@ jobs:
               '# Remove tracked .ai-team/ files (keeps local copies):',
               'git rm --cached -r .ai-team/',
               '',
-              '# Remove tracked .squad/ files (keeps local copies):',
-              'git rm --cached -r .squad/',
-              '',
               '# Remove tracked team-docs/ files:',
               'git rm --cached -r team-docs/',
               '',
@@ -130,7 +123,7 @@ jobs:
               'git push',
               '```',
               '',
-              '> ΓÜá∩╕Å `.ai-team/` and `.squad/` are committed on `dev` and feature branches by design.',
+              '> `.ai-team/` is committed on `dev` and feature branches by design.',
               '> The guard workflow is the enforcement mechanism that keeps these files off `main` and `preview`.',
               '> `git rm --cached` untracks them from this PR without deleting your local copies.',
             ];
