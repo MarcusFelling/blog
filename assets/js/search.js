@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
       posts = data;
       window.__searchDataReady = true;
+      window.__searchData = data;
       dataLoaded = true;
       // Re-run the latest query now that data is available.
       updateResults(latestSearchTerm);

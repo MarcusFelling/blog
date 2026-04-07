@@ -6,21 +6,12 @@ layout: base
   <div class="hero-intro">
     <h1>Learning technology out loud.</h1>
     <p>DevOps, cloud, automation, and lessons learned along the way. Notes, walkthroughs, and the stuff I wish someone told me sooner.</p>
-    <!-- Enhanced search bar -->
-    <div class="search-container" style="margin-top:1.8rem;">
-      <div class="search-input-wrapper">
-        <input 
-          type="text" 
-          id="search-input" 
-          class="search-input" 
-          placeholder="Search posts by keyword..." 
-          aria-label="Search posts" 
-          autocomplete="off"
-        />
-        <i class="fas fa-search search-icon" aria-hidden="true"></i>
-      </div>
-      <div id="search-results" class="search-results" role="listbox" aria-label="Search results"></div>
-    </div>
+    <!-- Search trigger — opens the command palette -->
+    <button class="search-trigger cmd-palette-trigger" aria-label="Search posts" type="button">
+      <i class="fas fa-search search-trigger-icon" aria-hidden="true"></i>
+      <span class="search-trigger-text">Search posts…</span>
+      <kbd class="search-trigger-kbd" aria-hidden="true"><span class="cmd-mod-key">Ctrl+</span>K</kbd>
+    </button>
   </div>
   
   <div class="hero-panel fade-in-up" style="animation-delay:.15s;">
