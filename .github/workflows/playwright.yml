@@ -50,7 +50,7 @@ jobs:
           npx playwright test
 
       - name: Create test summary
-        uses: test-summary/action@v2
+        uses: test-summary/action@v2.6
         if: always()
         with:
           paths: ./test-results/junit.xml
