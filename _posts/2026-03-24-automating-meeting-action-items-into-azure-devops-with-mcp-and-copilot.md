@@ -38,11 +38,11 @@ How it works: you ask a natural-language question about your M365 data, the Work
 
 It's a single MCP server that handles all M365 domains, not separate servers per data type. You query it the way you'd ask a person: "what happened in my last meeting with the platform team?" and it figures out the right Graph calls to make. Work IQ is currently in public preview, so the specific tools and APIs may shift.
 
-For this project, meeting transcripts are what matter. I record most of my meetings, so the transcripts are available. Work IQ can pull the full transcript, which gives GitHub Copilot much richer context for extracting action items. Who said what, what was agreed on, what was left open. That detail matters when you're trying to turn a conversation into structured work items.
+For this project, meeting transcripts are what matter. I record most of my meetings, so the transcripts are sitting there in M365. Work IQ can pull the full transcript, which gives GitHub Copilot much richer context for extracting action items: who said what, what was actually agreed on, and what got left hanging. That level of detail is the difference between a useful work item and a vague one that nobody understands three weeks later.
 
 ## Azure DevOps MCP: Creating Real Work Items
 
-The other half is the [Azure DevOps MCP server](https://github.com/microsoft/azure-devops-mcp). It gives GitHub Copilot the ability to perform actual ADO operations: creating work items, setting fields like title, description, assigned to, area path, iteration, priority. Not generating JSON that you paste somewhere.
+The other half is the [Azure DevOps MCP server](https://github.com/microsoft/azure-devops-mcp). It gives GitHub Copilot the ability to perform actual ADO operations: creating work items and setting fields like title, description, assigned to, area path, iteration, and priority. Real items in the backlog, not a blob of JSON that I have to paste somewhere and tidy up by hand.
 
 ## How It Actually Works
 
@@ -55,7 +55,7 @@ The flow:
 5. I review the draft. Edit titles and descriptions, remove anything that shouldn't be there. Then I approve.
 6. Only after I sign off does GitHub Copilot call the ADO MCP server to create the work items.
 
-I don't let GitHub Copilot create work items unsupervised. Meetings have nuance: speculative ideas, tangential discussions, someone volunteering someone else for work they don't know about yet. An AI reading a transcript doesn't know the difference between a decision and someone thinking out loud. I do.
+I don't let GitHub Copilot create work items unsupervised. Meetings are messy: speculative ideas, tangents, and the time-honored move of someone volunteering a colleague for work that colleague hasn't heard about yet. An AI reading a transcript can't reliably tell a real decision from someone thinking out loud. Someone who was actually in the room usually can.
 
 A couple of things I learned that help a lot:
 
@@ -80,7 +80,7 @@ GitHub Copilot makes the Work IQ tool call, gets the transcript back, parses out
 
 This is the question I keep getting. Microsoft has [Copilot Cowork](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/), built on [Claude Cowork](https://www.anthropic.com/product/claude-cowork), an enterprise work orchestration agent that can [plan multi-step tasks across M365](https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/) (calendar, Teams, Excel, email) with basically zero setup. It supports [skills](https://claude.com/skills), [plugins](https://claude.com/plugins), and [MCP connectors](https://claude.com/connectors), so it's not short on extensibility. For one-off knowledge work across M365, it works well.
 
-But I chose GitHub Copilot + MCP for this, and here's why: it lives where my dev tools already are.
+I went with GitHub Copilot + MCP for one main reason: it lives where my dev tools already are.
 
 **Everything is in the repo.** My custom instructions, prompt files, and skill definitions are files that live in version control. I can diff them, review them in PRs, and share them across the team through normal git workflows. Cowork's skills and plugins exist in their own ecosystem outside of source control.
 
@@ -90,7 +90,7 @@ They solve different problems. Cowork gives you zero-friction M365 orchestration
 
 ## Where I'm Currently At
 
-The setup works. I've used it on a handful of real meetings and the output is good enough that I keep using it. The drafts are usually 80-90% right. I fix a title here, remove a non-actionable item there, adjust an assignment. But the baseline is solid and the review step keeps me in control.
+The setup works. I've run it against a handful of real meetings, and the output is good enough that I keep coming back to it. The drafts land around 80-90% right: I'll fix a title, delete the one item that was never really an action item, and tweak an assignment or two. The baseline is solid, and the review step keeps me in control.
 
 The prompt file is versioned, the instructions are tuned for my ADO setup, and the whole thing runs in about 30 seconds of GitHub Copilot chat plus a minute of review. Beats the 15 minutes of copy-paste-and-forget that it replaced. Or the zero minutes I spent when I just forgot entirely.
 

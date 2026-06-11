@@ -195,35 +195,45 @@
     }
   }
 
-  // --- Intersection Observer for Active Section ---
+  // --- Active Section Tracking ---
   function observeHeadings(headings) {
     var links = document.querySelectorAll('.post-toc-link');
     if (!links.length) return;
 
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            // Remove active from all
-            links.forEach(function (l) { l.classList.remove('active'); });
-            // Set current
-            var id = entry.target.id;
-            var activeLink = document.querySelector('.post-toc-link[data-target="' + id + '"]');
-            if (activeLink) {
-              activeLink.classList.add('active');
-              // Scroll the TOC nav to keep active item visible
-              scrollTocIntoView(activeLink);
-            }
-          }
-        });
-      },
-      {
-        rootMargin: '-' + SCROLL_OFFSET + 'px 0px -65% 0px',
-        threshold: 0
-      }
-    );
+    var ticking = false;
 
-    headings.forEach(function (h) { observer.observe(h); });
+    function updateActive() {
+      // Find the last heading whose top is at or above the scroll threshold
+      var threshold = window.scrollY + SCROLL_OFFSET + 1;
+      var activeHeading = null;
+      for (var i = 0; i < headings.length; i++) {
+        var headingTop = headings[i].getBoundingClientRect().top + window.scrollY;
+        if (headingTop <= threshold) {
+          activeHeading = headings[i];
+        }
+      }
+      links.forEach(function (l) { l.classList.remove('active'); });
+      if (activeHeading) {
+        var activeLink = document.querySelector('.post-toc-link[data-target="' + activeHeading.id + '"]');
+        if (activeLink) {
+          activeLink.classList.add('active');
+          scrollTocIntoView(activeLink);
+        }
+      }
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(function () {
+          updateActive();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+
+    // Run once on init so the active state is correct for any initial scroll position
+    updateActive();
   }
 
   function scrollTocIntoView(link) {
