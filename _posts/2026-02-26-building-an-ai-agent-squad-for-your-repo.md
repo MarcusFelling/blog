@@ -15,7 +15,7 @@ What if your repo had a whole team of AI agents: a lead, a frontend dev, a teste
 
 [Squad](https://github.com/bradygaster/squad) is an open-source framework conceived by [Brady Gaster](https://github.com/bradygaster) that creates an AI development team through GitHub Copilot. You describe what you're building, and Squad proposes a team of specialists that live in your repo as files. They persist across sessions, learn your codebase, share decisions, and get better the more you use them.
 
-It's not a chatbot wearing hats. Each team member runs in its own context, reads only its own knowledge, and writes back what it learned.
+This isn't one chatbot swapping hats between answers. Each team member runs in its own context, reads only its own knowledge, and writes back what it learned.
 
 I set it up for the repo of this blog. Here's what I learned.
 
@@ -84,7 +84,7 @@ Commit this folder. Your team persists. Names persist. It's all in git.
 
 ## Parallel Agents, Not Sequential
 
-This is the part that surprised me most. When you give Squad a task, the coordinator launches every agent that can usefully start, simultaneously:
+This is the part I didn't see coming. When you give Squad a task, the coordinator launches every agent that can usefully start, all at the same time:
 
 ```text
 You: "Team, redesign the blog"
@@ -127,6 +127,6 @@ Squad ties into GitHub Issues with a labeling workflow:
 
 **Boundaries matter more than capabilities.** Clear charters that define what an agent *doesn't* do are more important than what it can do. Overlap is the enemy.
 
-**The Scribe is secretly the most important agent.** Coming back the next day to a searchable log of every decision and session is invaluable. Context is never lost.
+**The Scribe quietly does the most valuable work.** Coming back the next day to a searchable log of every decision and session means I never have to reconstruct what past-me was thinking. Context doesn't get lost.
 
 If you're using GitHub Copilot for your repo(s) today, give Squad a try. The jump from one agent to a coordinated team is pretty awesome, and it all lives in git.
