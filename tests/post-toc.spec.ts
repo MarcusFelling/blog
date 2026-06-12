@@ -104,8 +104,19 @@ test.describe('Post Table of Contents + Reading Progress', () => {
   });
 
   test('active section highlights on scroll', async ({ page }) => {
-    // Scroll to trigger visibility and section tracking
-    await page.evaluate(() => window.scrollTo({ top: 800 }));
+    // Scroll past the first content heading so section tracking marks it active.
+    // Use the heading's real position (not a fixed pixel value) so the test is
+    // robust regardless of how tall the post header/hero is.
+    await page.evaluate(() => {
+      const post = document.querySelector('.blog-post');
+      const heading = post?.querySelector('h2, h3');
+      if (heading) {
+        const top = heading.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: top + 100 });
+      } else {
+        window.scrollTo({ top: 800 });
+      }
+    });
     await page.waitForTimeout(500);
 
     // At least one link should have the active class
