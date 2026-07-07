@@ -16,32 +16,40 @@ test('images load successfully on latest posts', async ({ page }) => {
   const posts = await getLatestPosts(page);
   expect(posts.length, 'Expected to find posts on homepage').toBeGreaterThan(0);
 
+  let totalImagesChecked = 0;
+
   for (const postUrl of posts) {
     const failedImages: string[] = [];
 
-    page.on('response', (response) => {
+    const onResponse = (response: import('@playwright/test').Response) => {
       const url = response.url();
       if (/\.(webp|png|jpg|jpeg|gif|svg)(\?|$)/i.test(url) && response.status() >= 400) {
         failedImages.push(`${response.status()} ${url}`);
       }
-    });
+    };
+    page.on('response', onResponse);
 
     await page.goto(postUrl, { waitUntil: 'load' });
 
     const images = page.locator('.blog-post img');
     const count = await images.count();
 
-    expect(count, `Expected images in ${postUrl}`).toBeGreaterThan(0);
-
+    // Not every recent post has body images (some are text-only). Validate the
+    // images that exist instead of assuming every post contains at least one.
     for (let i = 0; i < count; i++) {
       const img = images.nth(i);
       const src = await img.getAttribute('src');
       const naturalWidth = await img.evaluate((el: HTMLImageElement) => el.naturalWidth);
       expect(naturalWidth, `Image failed to load: ${src}`).toBeGreaterThan(0);
     }
+    totalImagesChecked += count;
 
     expect(failedImages, `Some images returned HTTP errors on ${postUrl}`).toEqual([]);
+    page.off('response', onResponse);
   }
+
+  // Keep the test meaningful: at least one recent post must expose images.
+  expect(totalImagesChecked, 'Expected to validate images on at least one recent post').toBeGreaterThan(0);
 });
 
 test('images use webp format on latest posts', async ({ page }) => {

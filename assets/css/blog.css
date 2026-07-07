@@ -15,35 +15,61 @@
  */
 
 /* ===== 1. VARIABLES ===== */
+/* Single token source — Fenster "distinctive editorial" spec (2026-07-06, M2).
+ * Personality comes from TYPE + LAYOUT + one orange accent. There are no
+ * glass / gradient / glow tokens here by design. Fenster's canonical tokens
+ * come first; the legacy aliases below map the old names (--page-col,
+ * --link-col, --home-*, …) onto them so existing rules keep resolving. */
 :root {
-  /* Core theme variables - dark theme only */
-  --page-col: #0d1117;
-  --text-col: #e6edf3;
-  --link-col: #f97316;
-  --hover-col: #fb923c;
-  --navbar-col: #161b22;
-  --navbar-text-col: #e6edf3;
-  --navbar-border-col: #30363d;
-  --footer-col: #161b22;
-  --footer-text-col: #8b949e;
-  --footer-link-col: #a0b0bf;
-  --footer-hover-col: #fb923c;
-  --mid-col: #8b949e;
-
-  /* Typography */
+  /* ---- Fonts ---- */
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
   --body-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --header-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --header-font: var(--body-font);            /* section headings = Inter */
   --mono-font: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
-  --accent-col: #f97316;
 
-  /* Card specific variables */
-  --card-bg: #161b22;
-  --card-border: #30363d;
-  --card-shadow: rgba(0, 0, 0, 0.3);
-  --card-shadow-hover: rgba(0, 0, 0, 0.5);
-  --card-image-placeholder: #1c2128;
-  --tag-bg: #1c2128;
-  --tag-color: #d0d0d0;
+  /* ---- Color: surfaces & lines (depth from 1px hairlines, not blur) ---- */
+  --page: #0d1117;
+  --surface-raised: #161b22;
+  --surface-inset: #1c2128;
+  --border: #30363d;
+  --border-soft: rgba(255, 255, 255, .06);
+
+  /* ---- Color: text (AA-verified on all three surfaces) ---- */
+  --text: #e6edf3;
+  --text-secondary: #c9d1d9;
+  --text-muted: #8b949e;      /* AA floor — retires #7f93a2 / #6d8394 / #8cafc8 */
+
+  /* ---- Color: the single accent ---- */
+  --accent: #f97316;
+  --accent-hover: #fb923c;
+  --accent-wash: rgba(249, 115, 22, .10);
+  --focus-ring: var(--accent);
+
+  /* ---- Type scale (fluid; display sizes clamp) ---- */
+  --type-hero:     clamp(2.5rem, 1.7rem + 3.6vw, 4rem);
+  --type-title:    clamp(2.1rem, 1.5rem + 2.7vw, 3.25rem);
+  --type-featured: clamp(1.7rem, 1.2rem + 2vw, 2.5rem);
+  --type-h2:       clamp(1.5rem, 1.3rem + 0.9vw, 1.9rem);
+  --type-h3:       clamp(1.2rem, 1.1rem + 0.5vw, 1.45rem);
+  --type-h4:       1.05rem;
+  --type-lead:     clamp(1.1rem, 1.05rem + 0.3vw, 1.25rem);
+  --type-body:     1.0625rem;
+  --type-card:     1.15rem;
+  --type-meta:     0.85rem;
+  --type-eyebrow:  0.75rem;
+  --type-code:     0.9rem;
+  --lh-display: 1.06; --lh-heading: 1.22; --lh-body: 1.7;
+  --measure: 72ch;
+
+  /* ---- Spacing rhythm (4px base) ---- */
+  --space-3xs: .25rem; --space-2xs: .5rem; --space-xs: .75rem; --space-sm: 1rem;
+  --space-md: 1.5rem;  --space-lg: 2rem;   --space-xl: 3rem;   --space-2xl: clamp(3rem, 6vw, 5rem);
+  --radius-sm: 6px; --radius-md: 10px;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 420ms;
+  --transition: 160ms cubic-bezier(.4, .2, .2, 1);
+
+  /* ---- Per-tag palette: KEEP, scoped to archives filters + related-post chips ---- */
   --tag-azure-devops: #0078d4;
   --tag-cicd:         #f8d57e;
   --tag-playwright:   #2dba8a;
@@ -55,6 +81,44 @@
   --tag-vs-code-extensions: #007acc;
   --tag-ai:           #c678dd;
   --tag-other:        #aaaaaa;
+  --tag-bg: var(--surface-inset);
+  --tag-color: #d0d0d0;
+
+  /* ---- Legacy aliases (old names → canonical tokens above) ---- */
+  --page-col: var(--page);
+  --text-col: var(--text);
+  --link-col: var(--accent);
+  --hover-col: var(--accent-hover);
+  --accent-col: var(--accent);
+  --mid-col: var(--text-muted);
+  --navbar-col: var(--surface-raised);
+  --navbar-text-col: var(--text);
+  --navbar-border-col: var(--border);
+  --footer-col: var(--surface-raised);
+  --footer-text-col: var(--text-muted);
+  --footer-link-col: #a0b0bf;
+  --footer-hover-col: var(--accent-hover);
+  --card-bg: var(--surface-raised);
+  --card-border: var(--border);
+  --card-shadow: rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: rgba(0, 0, 0, 0.5);
+  --card-image-placeholder: var(--surface-inset);
+
+  /* Semantic text ramp still consumed by nav/drawer/hero/card/footer chrome */
+  --text-primary: var(--text);
+  --text-tertiary: #9fb2c1;
+  --text-faint: var(--text-muted);   /* floored to AA #8b949e (was #7f93a2) */
+  --chip-fg: #cddae3;
+
+  /* Homepage / card surface set — neutral hairlines + shadows only (no glass) */
+  --home-accent: var(--accent);
+  --home-accent-wash: var(--accent-wash);
+  --home-surface-soft: rgba(255, 255, 255, .035);
+  --home-border: rgba(227, 237, 245, .10);
+  --home-border-strong: rgba(227, 237, 245, .16);
+  --home-shadow: 0 16px 38px -24px rgba(0, 0, 0, .78);
+  --home-shadow-hover: 0 22px 42px -24px rgba(0, 0, 0, .82);
+  --home-focus-ring: rgba(249, 115, 22, .24);
 }
 
 /* ===== 2. BASIC ELEMENTS ===== */
@@ -123,69 +187,120 @@ hr {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
-/* ===== BLOG POST HEADINGS ===== */
+/* ===== BLOG POST HEADINGS — one editorial treatment (Fenster §1.4) ===== */
+/* Personality is type + space, not decoration. The ONLY accent marker is a
+ * short SOLID orange kicker rule above the top heading levels (post title h1 +
+ * in-prose h2). h3/h4 differentiate by size + weight + generous space alone —
+ * no rules, no left-bars, no colored italics, no gradient fades. */
 .blog-post h1,
 .blog-post h2,
 .blog-post h3,
 .blog-post h4 {
   position: relative;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  color: white;
+  color: var(--text);
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 .blog-post h1 {
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  border-bottom: 2px solid var(--accent-col);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-col);
-}
-
-.blog-post p {
-  font-size: 1.0625rem;
-  line-height: 1.85;
-  max-width: 72ch;
-  color: var(--text-col);
+  font-size: var(--type-title);
+  font-weight: 560;
+  line-height: var(--lh-display);
+  letter-spacing: -0.015em;
 }
 
 .blog-post h2 {
-  border-bottom: 2px solid var(--link-col);
-  padding-bottom: 8px;
-}
-
-.blog-post h2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(to right, var(--link-col), transparent);
+  font-size: var(--type-h2);
+  font-weight: 700;
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
 }
 
 .blog-post h3 {
-  border-left: 3px solid var(--link-col);
-  padding-left: 10px;
+  font-size: var(--type-h3);
+  font-weight: 650;
+  line-height: 1.25;
+  margin-top: 1.9rem;
 }
 
 .blog-post h4 {
-  color: var(--link-col);
-  font-style: italic;
+  font-size: var(--type-h4);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  margin-top: 1.6rem;
 }
 
-.hero-intro h1 {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  line-height: 1.15;
-  color: var(--text-col);
+/* The single accent marker: a solid orange kicker rule above title + top sections */
+.post-heading h1::before,
+.blog-post h1::before,
+.blog-post h2::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  margin-bottom: 0.75rem;
+}
+
+.blog-post p {
+  font-size: var(--type-body);
+  line-height: var(--lh-body);
+  max-width: var(--measure);
+  color: var(--text);
+}
+
+/* Extend the reading measure from paragraphs to lists + blockquotes (Fenster §2.6) */
+.blog-post > ul,
+.blog-post > ol,
+.blog-post > blockquote {
+  max-width: var(--measure);
+}
+
+/* Wrap long unbroken URLs/strings in prose so they don't force horizontal
+ * scroll on narrow viewports (matches the .post-heading h1 treatment). */
+.blog-post a {
+  overflow-wrap: anywhere;
+}
+
+/* Post title (page.title) — Fraunces "title voice", no card, no underline */
+.post-heading h1 {
+  font-family: var(--font-display);
+  font-size: var(--type-title);
+  font-weight: 560;
+  line-height: var(--lh-display);
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+/* Post subtitle — Inter italic lead (reuses the already-loaded Inter italic) */
+.post-heading .post-subheading {
+  font-family: var(--body-font);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--type-lead);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 60ch;
+  margin: 0 0 0.75rem;
+}
+
+.post-heading .post-meta {
+  color: var(--text-muted);
+  font-size: var(--type-meta);
+  letter-spacing: 0.02em;
 }
 
 /* ===== 3. CONTAINER STYLING ===== */
+/* Base card look — used by in-prose call-outs (.blog-post .container-md) and
+ * non-post pages (archives / page grid). The post's own structural wrappers
+ * are un-carded below so the page reads as prose at measure, not card-on-card. */
 .container-md {
   background-color: var(--card-bg);
   border-radius: 8px;
@@ -210,11 +325,41 @@ hr {
   border-top-right-radius: 8px;
 }
 
-/* Improve container-md appearance when inside blog-post */
+/* Keep in-prose call-outs carded (authors use these as intentional call-outs) */
 .blog-post .container-md {
   margin-left: auto;
   margin-right: auto;
   max-width: 95%;
+}
+
+/* Un-nest the card-on-card: neutralize card chrome on the two STRUCTURAL
+ * containers only (post header + post body). Bootstrap grid stays (Keaton) —
+ * we remove the card, not the columns. (Fenster §2.6) */
+.header-section .container-md,
+.container-md.post-body {
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+  padding-inline: 0;
+  margin-top: 0;
+}
+.header-section .container-md::before,
+.container-md.post-body::before {
+  content: none;
+}
+
+/* Neutralize Bootstrap's negative row gutters that padding-inline:0 no longer
+ * absorbs on the un-carded containers — stops a small horizontal spill at 320px.
+ * (No card chrome reintroduced; columns/offsets untouched.) */
+.header-section .container-md > .row,
+.container-md.post-body > .row {
+  margin-inline: 0;
+}
+
+/* Reading column — constrain the prose to the editorial measure */
+.blog-post {
+  max-width: var(--measure);
+  margin-inline: auto;
 }
 
 /* ===== TABLES ===== */
@@ -582,6 +727,7 @@ header a:hover {
   font-size: 1.05rem;
 }
 
+/* Flat masthead — depth from a 1px hairline, not blur (Fenster §3) */
 .navbar-modern {
   position: sticky;
   top: 0;
@@ -590,9 +736,8 @@ header a:hover {
   align-items: center;
   gap: 1.25rem;
   padding: 0.75rem clamp(0.9rem, 3vw, 2.25rem);
-  background: rgba(14, 18, 23, 0.72);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(22px) saturate(160%);
+  background: var(--surface-raised);
+  border-bottom: 1px solid var(--border);
 }
 
 .navbar-modern .brand {
@@ -604,18 +749,6 @@ header a:hover {
   font-weight: 600;
   letter-spacing: 0.5px;
   text-decoration: none;
-}
-
-.navbar-modern .brand-badge {
-  background: var(--accent-grad);
-  color: #fff;
-  font-size: 0.55rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  padding: 0.35rem 0.55rem 0.4rem;
-  border-radius: 6px;
-  line-height: 1;
-  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.6);
 }
 
 .nav-utility-group {
@@ -745,8 +878,6 @@ header a:hover {
   color: var(--navbar-text-col) !important;
   text-decoration: none;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 24px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
@@ -1344,11 +1475,6 @@ footer .fas:hover,
     padding: 0.7rem 0.85rem;
   }
 
-  /* Hide hero panel on mobile */
-  .hero-panel {
-    display: none !important;
-  }
-
   .post-card-title {
     font-size: 1.1rem;
   }
@@ -1698,13 +1824,6 @@ pre:focus-within { outline:2px solid #78b3ff; outline-offset:2px; }
   transition: all 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
 }
 
-/* Smooth parallax effect for hero section */
-@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-  .hero-panel {
-    will-change: transform;
-  }
-}
-
 /* Enhanced hover effects with depth */
 .post-card:hover {
   will-change: transform, box-shadow;
@@ -1843,9 +1962,7 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(22, 27, 34, 0.92);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  background: var(--surface-raised);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -2046,51 +2163,44 @@ textarea {
 }
 
 
-/* ===== HERO PANEL EXTRACTED CLASSES ===== */
-.pulse-heading {
-  font-size: 1rem;
-  letter-spacing: .8px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--text-col);
-  margin: 0 0 1.2rem;
-}
-
-.top-pages-box {
-  background: rgba(255,255,255,.06);
-  padding: 1.4rem 1.3rem;
-  border: 1px solid rgba(255,255,255,.1);
-  border-radius: 10px;
-  margin-bottom: 1.5rem;
-}
-
-.top-pages-label {
-  margin: 0 0 .75rem;
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .8px;
-  color: var(--mid-col);
-  text-transform: uppercase;
-}
-
-.top-page-link {
-  color: var(--text-col);
-  text-decoration: none;
+/* ===== POPULAR POSTS (replaces the Pulse / KPI panel) ===== */
+/* A quiet uppercase eyebrow + a plain vertical list of text links from
+ * _data/top_pages.yml. No numbers, counters, emoji, borders or glass —
+ * type + one accent only. (Fenster §2.2) */
+.popular-posts {
   display: flex;
-  gap: .6rem;
-  align-items: flex-start;
-  padding: .4rem .5rem;
-  border-radius: 5px;
-  transition: all 160ms ease;
-  word-wrap: break-word;
-  word-break: break-word;
-  white-space: normal;
+  flex-direction: column;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
-
-.top-page-link:hover {
-  background: rgba(255,255,255,.06);
-  color: var(--link-col);
+.popular-posts-eyebrow {
+  font-size: var(--type-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 0.5rem;
+}
+.popular-post-link {
+  display: block;
+  padding: 0.4rem 0;
+  min-height: 44px;
+  color: var(--text-secondary);
   text-decoration: none;
+  font-size: 0.98rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+  transition: color var(--transition);
+}
+.popular-post-link:hover,
+.popular-post-link:focus-visible {
+  color: var(--accent);
+}
+.popular-post-link:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ===== READING TIME ===== */
@@ -2350,6 +2460,12 @@ body.cmd-palette-open {
   border-color: var(--accent-col);
   box-shadow: 0 0 0 1px var(--accent-col);
   color: var(--text-col);
+}
+/* Branded 2px orange focus ring on the ⌘K trigger + nav hint (Fenster a11y §5) */
+.search-trigger:focus-visible,
+.cmd-palette-hint:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 .search-trigger-icon {
   font-size: 0.85rem;
@@ -2853,4 +2969,193 @@ body.cmd-palette-open {
   .explore-canvas-wrap {
     height: 320px;
   }
+}
+
+/* ===== 15. HOMEPAGE / HERO / CARDS / FOOTER CHROME =====
+ * Home hero, card grid, and footer chrome. Restyled per Fenster's "distinctive
+ * editorial" spec (2026-07-06, M2): the AI-slop chrome is gone — no sheen veil,
+ * no radial page-gradient, no glass backdrop-filters, no blue/purple gradient,
+ * no KPI/Pulse dashboard. Personality is TYPE + LAYOUT + one orange accent.
+ * body.modern's font stays Inter (var(--body-font)) — the M1 fix.
+ */
+body.modern {
+  font-family: var(--body-font);
+  -webkit-font-smoothing: antialiased;
+  background: var(--page);
+  color: var(--text-secondary);
+}
+@media (prefers-reduced-motion: no-preference) {
+  body.modern {
+    scroll-behavior: smooth;
+  }
+}
+/* ===== MOTION — one orchestrated entrance (Fenster §4) =====
+ * transform/opacity only, gated behind prefers-reduced-motion so that under
+ * reduced-motion content renders in its final state (base opacity stays 1).
+ * The stagger comes from an inline --delay on each homepage element. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in-up {
+    animation: rise var(--dur) var(--ease-out) both;
+    animation-delay: calc(var(--delay, 0) * 1ms);
+  }
+}
+/* Container */
+.wrapper { width: min(1250px,94%); margin-inline:auto; }
+/* Skip link */
+.skip-link { position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden; }
+.skip-link:focus { left:50%; top:12px; transform:translateX(-50%); width:auto; height:auto; padding:.6rem 1rem; background:var(--page); color:#fff; border:2px solid var(--accent); border-radius:8px; z-index:1000; }
+/* ===== HERO — asymmetric, left-weighted (Fenster §2.1) =====
+ * A dominant content column (~60%) + the quiet Popular list in the negative
+ * space (~38%). No two-column glass panel, no KPI boxes. */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
+  padding-block: var(--space-2xl) var(--space-lg);
+}
+.hero-intro h1 {
+  font-family: var(--font-display);
+  font-size: var(--type-hero);
+  font-weight: 520;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  max-width: 14ch;
+  margin: 0 0 1.1rem;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+.hero-intro p {
+  font-family: var(--body-font);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--type-lead);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 52ch;
+  margin: 0 0 1.6rem;
+}
+/* The ⌘K trigger (styled in §14) is the hero's quiet inline field. */
+.hero-intro .search-trigger { margin-top: 0.4rem; }
+/* ===== CARD GRID — featured lead + tighter index (Fenster §2.3) ===== */
+.post-cards-container.modern-grid {
+  display: grid;
+  /* 3 -> 2 -> 1 at 1024 / 640. !important beats the legacy §11 column overrides
+   * (this two-class selector outranks the bare .post-cards-container rules). */
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: clamp(1.25rem, 2vw, 2rem);
+  max-width: none;
+  padding-inline: 0;
+  margin: clamp(1.8rem, 2.4vw, 2.4rem) 0 0;
+}
+@media (max-width: 1024px) { .post-cards-container.modern-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 640px)  { .post-cards-container.modern-grid { grid-template-columns: 1fr !important; } }
+
+/* Card surface: flat --surface-raised + 1px hairline (depth from lines, not glass) */
+.post-card.modern-card {
+  position: relative;
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  padding: 0;
+  box-shadow: none;
+  transition: transform .2s var(--ease-out), border-color var(--transition);
+}
+.post-card.modern-card:hover,
+.post-card.modern-card:focus-within {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: none;
+}
+.post-card-link { display:flex; flex-direction:column; height:100%; color:inherit; text-decoration:none; position:relative; z-index:1; }
+.post-card-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: var(--radius-md); }
+/* Post card image */
+.post-card.modern-card .post-card-image-container { background: var(--surface-inset); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:center; overflow:hidden; padding:0; min-height:160px; position:relative; }
+.post-card.modern-card .post-card-image { width:auto; height:auto; max-width:100%; max-height:200px; object-fit:contain; display:block; margin:0 auto; image-rendering:-webkit-optimize-contrast; transition: transform .2s var(--ease-out); }
+.post-card.modern-card:hover .post-card-image,
+.post-card.modern-card:focus-within .post-card-image { transform: scale(1.02); }
+.post-card.modern-card .post-card-image.image-fit-cover { object-fit:cover; width:100%; height:100%; max-height:200px; }
+.post-card.modern-card .post-card-image-placeholder { width:100%; height:160px; display:block; background: var(--surface-inset); }
+.post-card.modern-card .post-card-content { padding:1.2rem 1.15rem 1.3rem; display:flex; flex-direction:column; flex-grow:1; }
+.post-card.modern-card .post-card-title { font-family: var(--body-font); font-size: var(--type-card); font-weight:650; letter-spacing:-.005em; color:var(--text); margin-top:.2rem; line-height:1.3; text-wrap:balance; overflow-wrap:anywhere; transition: color var(--transition); }
+.post-card.modern-card:hover .post-card-title,
+.post-card.modern-card:focus-within .post-card-title { color: var(--accent); }
+.post-card.modern-card .post-card-excerpt { font-size:.9rem; line-height:1.56; color:var(--text-secondary); margin-top:.6rem; flex-grow:1; }
+.post-card.modern-card .post-card-meta { font-size: var(--type-meta); letter-spacing:.02em; color:var(--text-muted); margin-top:.95rem; display:flex; align-items:center; gap:.4rem; }
+
+/* ===== FEATURED (newest) post — full-width lead, Fraunces title (Fenster §2.3) =====
+ * Selectors carry .post-card.modern-card too, so they outrank the base card
+ * rules (which are .post-card.modern-card ...) rather than losing to them. */
+.post-card.modern-card.post-card--featured {
+  grid-column: 1 / -1;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  margin-bottom: clamp(0.25rem, 1vw, 0.75rem);
+}
+.post-card.modern-card.post-card--featured:hover,
+.post-card.modern-card.post-card--featured:focus-within { transform: none; border-color: var(--border); box-shadow: none; }
+.post-card.modern-card.post-card--featured .post-card-link { flex-direction: row-reverse; align-items: stretch; gap: clamp(1.25rem, 3vw, 2.5rem); }
+.post-card.modern-card.post-card--featured .post-card-image-container { flex: 0 0 40%; border: 0; border-radius: var(--radius-md); min-height: 220px; }
+.post-card.modern-card.post-card--featured .post-card-content { flex: 1 1 60%; padding: 0; justify-content: center; }
+.post-card.modern-card.post-card--featured .post-card-title { font-family: var(--font-display); font-size: var(--type-featured); font-weight: 540; line-height: 1.1; letter-spacing: -0.01em; }
+.post-card.modern-card.post-card--featured .post-card-excerpt { font-size: var(--type-body); line-height: var(--lh-body); max-width: 60ch; margin-top: .85rem; }
+.post-card.modern-card.post-card--featured .post-card-meta { margin-top: 1rem; }
+.post-card.modern-card.post-card--featured:hover .post-card-title,
+.post-card.modern-card.post-card--featured:focus-within .post-card-title { color: var(--accent); }
+/* Browse full archive — a single quiet ghost text link (Fenster §2.5) */
+.browse-archive-btn { text-align:center; margin: clamp(2rem, 4vw, 3rem) 0 1.6rem; }
+.browse-archive-btn a { display:inline-flex; align-items:center; gap:.5ch; min-height:44px; padding:.5rem .35rem; color: var(--accent); font-size:.9rem; font-weight:600; letter-spacing:.01em; text-decoration:none; transition: color var(--transition); }
+.browse-archive-btn a:hover, .browse-archive-btn a:focus-visible { color: var(--accent-hover); text-decoration:underline; text-underline-offset:3px; }
+.browse-archive-btn a:focus-visible { outline:2px solid var(--focus-ring); outline-offset:3px; border-radius:4px; }
+/* Footer — flat, one hairline, no blur, no glow (Fenster §3) */
+.footer-modern { margin-top:4rem; background: var(--surface-raised); padding:3.1rem 0 2.2rem; border-top:1px solid var(--border); text-align:center; }
+.footer-inner { width:min(1250px,94%); margin-inline:auto; display:flex; flex-direction:column; align-items:center; gap:2rem; position:relative; }
+.footer-block { max-width:760px; }
+.footer-block h4 { font-size:.8rem; letter-spacing:.8px; font-weight:700; text-transform:uppercase; color:#e3eef6; margin-bottom:.95rem; text-align:center; }
+.footer-block p { margin:0 0 1rem; font-size:.94rem; letter-spacing:.09em; }
+.footer-block ul { list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:.7rem 1rem; justify-content:center; }
+.footer-block a { color:var(--text-tertiary); font-size:.78rem; text-decoration:none; display:inline-flex; gap:.5ch; align-items:center; justify-content:center; }
+.footer-block a:hover, .footer-block a:focus-visible { color:var(--text-primary); }
+.footer-block a:focus-visible { outline:2px solid var(--focus-ring); outline-offset:2px; }
+.footer-meta { margin-top:1.8rem; padding:1.15rem 1.1rem; border:1px solid var(--border); border-radius:12px; background:var(--home-surface-soft); display:flex; flex-direction:column; gap:.75rem; justify-content:center; align-items:center; font-size:.68rem; letter-spacing:.6px; color:var(--text-muted); width:100%; max-width:760px; }
+.social-chips { display:flex; gap:.55rem; flex-wrap:wrap; justify-content:center; }
+.social-chips.compact a { padding:.55rem .65rem .6rem; width:34px; height:34px; justify-content:center; }
+.footer-compact { padding:1.6rem 0 1.4rem; }
+.footer-inner-compact { width:min(1250px,94%); margin-inline:auto; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+.footer-inner-compact .footer-copy { font-size:.7rem; letter-spacing:.6px; color:var(--text-muted); }
+@media (max-width:640px){ .footer-inner-compact { flex-direction:column; justify-content:center; text-align:center; } }
+.social-chips a { --bg:rgba(255,255,255,.07); display:inline-flex; align-items:center; gap:.5ch; padding:.55rem .8rem .6rem; font-size:.65rem; letter-spacing:.6px; text-decoration:none; font-weight:600; text-transform:uppercase; color:var(--chip-fg); background:var(--bg); border:1px solid rgba(255,255,255,.14); border-radius: 999px; transition: background var(--transition), color var(--transition), border-color var(--transition); }
+.social-chips a:hover, .social-chips a:focus-visible { background:var(--accent-wash); color:var(--accent); border-color:var(--accent); }
+.social-chips a:focus-visible { outline:2px solid var(--focus-ring); outline-offset:2px; }
+/* Scrollbar styling (webkit) */
+::-webkit-scrollbar { width:12px; }
+::-webkit-scrollbar-track { background:var(--page); }
+::-webkit-scrollbar-thumb { background:#2d3b46; border:3px solid var(--page); border-radius:14px; }
+::-webkit-scrollbar-thumb:hover { background:#3a4b57; }
+/* Generic link focus for accessibility */
+a:focus-visible { outline:2px solid var(--focus-ring); outline-offset:2px; }
+/* ===== RESPONSIVE (homepage) ===== */
+@media (max-width: 768px) {
+  .hero-grid { grid-template-columns: 1fr; gap: clamp(1.5rem, 4vw, 2.25rem); padding-block: var(--space-lg) var(--space-md); }
+  .post-card.modern-card .post-card-content { padding: 1rem 1rem 1.1rem; }
+  .post-card.modern-card .post-card-excerpt { font-size: .85rem; line-height: 1.5; margin-top: .5rem; }
+}
+@media (max-width: 640px) {
+  .post-card.modern-card.post-card--featured .post-card-link { flex-direction: column; gap: 1rem; }
+  .post-card.modern-card.post-card--featured .post-card-image-container { flex: 0 0 auto; width: 100%; min-height: 180px; }
+  .post-card.modern-card.post-card--featured .post-card-content { padding: 0; }
+}
+@media (max-width: 520px) {
+  .hero-grid { padding-block: var(--space-md) var(--space-sm); }
+  .post-card.modern-card .post-card-image-container { min-height: 140px; }
+  .post-card.modern-card .post-card-image { max-height: 160px; }
 }

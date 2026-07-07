@@ -4,6 +4,72 @@
 
 ---
 
+### Blog Redesign — Distinctive Editorial, Dark-Only (Impeccable Design Skills)
+
+**Date:** 2026-07-06
+**Authors:** Fenster (Design/UX), Keaton (Lead), McManus (Frontend Dev), Hockney (Tester) — direction by Marcus Felling
+**Status:** Implemented + polished & QA-green (12 specs / 71 tests). **STAGED, awaiting Marcus's review.** No commit (No-Auto-Commit directive).
+**Consolidates:** the eight redesign inbox decisions (Fenster discovery + editorial spec, Keaton scope, coordinator direction, McManus M1 + M2, Hockney baseline + regression) plus the two polish-pass drafts (McManus 3-fix, Hockney polish regression).
+
+The blog was redesigned with the impeccable design skills. The redesign **removes the AI-slop chrome and replaces it with editorial confidence expressed through type, layout, and one accent** — not effects.
+
+**Root problem it fixes.** The site ran **two competing design systems**: the intended one in `assets/css/blog.css` (`:root`) and an older one in the `_includes/head.html` inline `<style>` (blue `--accent`, purple→blue `--accent-grad`, glass tokens, `body.modern { font-family:'Open Sans' }`, radial background + animated `sheen` veil). Because `body.modern` is on every page, the older layer sometimes won — and `body.modern` forced the never-loaded Open Sans, so **body copy rendered `system-ui` site-wide**, silently defeating the documented Inter-body decision. Consolidation was a correctness fix, not cosmetics.
+
+#### Direction (Marcus, at the checkpoint)
+
+1. **Boldness = "distinctive editorial"** — personality from **typography + layout rhythm + confident use of the single orange accent**, NOT from re-adding glass/gradients/dashboard-KPI widgets.
+2. **Theme = dark-only** (no light mode).
+3. **References = team discretion.** Concept anchor: **"Engineer's field notes, not a dashboard."**
+4. **Homepage "Pulse" KPI panel → quiet "Popular posts" list** — plain links from `_data/top_pages.yml`, no counters, no emoji.
+
+#### Authoritative design spec (Fenster)
+
+`fenster-editorial-spec.md` is the authoritative design spec and **supersedes** Fenster's earlier discovery draft (`fenster-redesign-direction.md`); the draft's "open questions" are resolved by Marcus's direction above.
+
+- **Typography.** **Fraunces** (variable serif, Google Fonts, one combined request) is the display **"title voice" only** — homepage hero `h1`, post `h1`, and the featured card title. Everything else is **Inter** (body, UI, sections `h2`–`h4`, index cards); code stays **JetBrains Mono**. Fraunces was chosen over the AI-defaults Playfair Display / Space Grotesk. Body root 17px, measure **68–72ch**, fluid `clamp()` heading scale.
+- **One heading treatment.** Collapse the three old in-prose decorations (h2 border + gradient `::after`, h3 orange left-bar, h4 orange italic) into **one** solid orange kicker rule (`2.5rem × 2px`) above `h1` + `h2` only; h3/h4 differ by size/weight/space alone.
+- **Layout.** Asymmetric **left-weighted hero** (~61/39) with the Popular list in the right negative space (stacks below on mobile — adapt, don't amputate). Post grid = **featured (newest, full-width, Fraunces) + Inter index** (`repeat(3,1fr)` → 2 @1024 → 1 @640). Post page **un-nested** — un-card the structural `.container-md` (add `.post-body`), keep the Bootstrap columns (Keaton's constraint), constrain `.blog-post` to 72ch. Remove the redundant per-card "Read Post →" chip.
+- **Color — single-accent discipline.** `#f97316` is the only accent (links, `:focus-visible`, active, the kicker rule, card-title hover). Surface ramp `--page #0d1117` → `--surface-raised #161b22` → `--surface-inset #1c2128`; depth from 1px hairlines, not blur/shadow. **Killed:** blue `--accent`, `--accent-grad`, the `--home-*` glass set, radial background, `sheen`, `pulse-glow`, `.brand-badge` gradient, `body.modern`'s Open Sans. **Blur reserved for genuinely floating layers only** (command palette + mobile drawer). The **per-tag palette is kept but scoped** to Archives filter pills + related-post "shared tag" chips (min 3:1; light tags get `#111` text) — it must not bleed onto the homepage or into post prose.
+- **Motion.** One orchestrated staggered homepage load (`translateY` + opacity, ~420ms, ease-out-quint), plus hover/focus micro-interactions — all under `prefers-reduced-motion: no-preference`, base opacity 1 so reduced-motion renders the final state. No ambient/veil/pulse/parallax/elastic.
+- **A11y (WCAG AA).** Muted-text floor `#8b949e` (retires `#7f93a2` / `#6d8394` / `#8cafc8`, which failed on raised surfaces); text ramp primary `#e6edf3` / secondary `#c9d1d9` / muted `#8b949e`; orange text passes AA; visible `2px` accent focus rings; long-title/overflow handling; touch targets ≥ 44px; no horizontal scroll at 320px.
+
+#### Token system — single source of truth (McManus, M1 gate)
+
+- **All `:root` design tokens + global/homepage styling live in `assets/css/blog.css`.** `_includes/head.html` is **metadata / shared-head only** — never add a `:root` or inline `<style>` there again (that was the split-brain bug). Captured in the `css-token-audit` skill and repo memory `homepage-style-ownership`.
+- Removing a token requires proving zero `var()` consumers first (grep css/html/js). If removing it would change the render, it is a restyle change, not cleanup.
+- M1 was behavior-preserving apart from the deliberate body-font fix (`body.modern { font-family: var(--body-font) }` = Inter, verified in-browser). Cascade-safe technique: moved chrome appended at the end of `blog.css` to preserve the ties the inline block used to win.
+
+#### Test contract & regression (Hockney)
+
+- The **~80-hook Playwright selector contract** is the redesign's API; any rename/removal lands with the matching spec update **in the same PR**, asserting **placement, not hard-coded lists**.
+- Contract delta: **removed** `.hero-panel`, `.hero-kpis`, `.read-more-chip`, `.pulse-heading`, `.top-pages-box/-label`, `.top-page-link` (and the Pulse/"Posts"/"Years" text); **added** `.popular-posts` (+ `.popular-posts-eyebrow`), `.popular-post-link`, `.post-card--featured`; **kept/restyled** `.hero-grid`, `.search-trigger` (+`-kbd/-text/-icon`), `.post-card.modern-card` / `-link` / `-image` / `-title`, `.browse-archive-btn` (now a ghost link, label unchanged). Code-block chrome, `.reading-time`, `#cmd-palette*`, TOC/progress, related-posts, pager, nav social-chips all preserved.
+- **Suite: 12 specs / 71 tests green** (up from 65; landing 4→8 then +1 focus-ring, reading-time 1→2). A **font guard** (computed `font-family` — Fraunces on the three title slots, Inter on body) locks the M1 font fix + the display face and is network-independent. Verified: >1024 index grid = 3 columns, reduced-motion kills the entrance, AA contrast on all new muted text, `footer .social-chip` = 0.
+- **Testing rules (reusable):** image/content specs assert "images that exist load; no broken images," never "every recent post has an image." Classify red/overflow as new-vs-pre-existing by serving both frozen builds (`_site_baseline` + `_site_redesign`) on different ports and probing the same path. Use a fresh `-d` destination + `--no-watch` frozen serve to sidestep the `incremental:true` staleness gotcha and avoid racing live edits; Jekyll's own server (not `python -m http.server`) is required for the real-404 test.
+
+#### Guardrails preserved (unchanged by the redesign)
+
+GitHub Pages plugin allowlist only; no remote theme; navbar social-chip placement (brand → Archives utility pill → lighter social chips → ⌘K; chips in the drawer on mobile, not the top bar); footer minimal (copyright only, zero `.social-chip`); tag-slug `if/elsif` chains in `archives.md` and `_layouts/post.html` stay identical; pure-Liquid reading-time; ⌘K command-palette contract; terminal-chrome code blocks preserved as the signature element; **no auto-commit — stage for Marcus's review.**
+
+#### Polish pass (done — McManus fixes, Hockney verified)
+
+The three non-blocking findings above were cleared in a follow-up pass (two files, additive; personality unchanged). **Staged, not committed.**
+
+1. **Branded `:focus-visible` ring on the ⌘K controls.** `assets/css/blog.css`: `.search-trigger:focus-visible, .cmd-palette-hint:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }` (matches the `.nav-links a:focus-visible` convention). Verified under real keyboard **Tab** (not programmatic `.focus()`, which doesn't engage `:focus-visible` in Chromium): both compute `2px solid rgb(249,115,22)`. Locked by a non-flaky CI test in `landing.spec.ts` that Tab-*searches* to each control (no hard-coded Tab count).
+2. **Long prose links wrap at 320px + un-carded row spill.** `assets/css/blog.css`: `.blog-post a { overflow-wrap: anywhere; }` (load-bearing — A/B toggling it off overflows 23 posts, on it 0) plus zeroing the `.post-body > .row` / `.header-section .container-md > .row` margins (Bootstrap negative-gutter spill; now `0px/0px`, no card chrome reintroduced).
+3. **Dead footer JS removed.** `_includes/footer-scripts.html` is now a Liquid comment placeholder (the `DOMContentLoaded` handler's `[data-delay]` loop and `.read-more-chip` shim were both inert); homepage entrance still animates via CSS (`rise`, staggered, opacity 1), 0 console errors, and `base.html`'s `{% include %}` stays valid.
+
+Verified by Hockney at **12 specs / 71 tests green** (frozen `_site_redesign2` build; +1 focus-ring test, +`tests/redesign/verify-polish.mjs` harness).
+
+#### Standing follow-up (non-blocking, NOT scheduled) — pre-existing content overflow on 9 posts
+
+The polish cleared only the *link* portion of the 320px post-page scroll. The remainder is **pre-existing content, not a regression from the redesign or the polish**, on **9 of 48 posts** (39 fully clean): long unbroken `<em>`/`<code>` prose tokens (e.g. `gitflow-visual-studio-team-services` `*ProjectName*` = +362px), one unconstrained `<img>` (`configuration-management-serverless-microservice-projects` = +39px), and a wide code `<table>` (`versioning-net-assemblies…` = +41px).
+
+- **The mobile drawer is NOT the cause.** McManus's polish draft hypothesized the off-canvas `.mobile-drawer` as the dominant driver (~35px, ~48 posts, via a transformed ancestor). Hockney's isolation measurement (`canScrollRight` with the drawer present vs. hidden) corrects this: the drawer contributes **0px on all 48 posts** — `position:fixed` is viewport-relative and out of document flow, and there is no transformed ancestor above it. It is a red herring.
+- **The standing "no mobile-drawer assertions until stable in CI" decision holds** (reinforced — the drawer is not implicated here). Do not spend effort on a drawer fix; it would needlessly touch the ⌘K/drawer contract.
+- **Fixing the content is a Fenster design call, not a CSS-cleanup edit.** Broadening `overflow-wrap: anywhere` from `.blog-post a` to `.blog-post` would catch the `<em>` tokens but also break inline `<code>` mid-token; the one wide `<img>` / code `<table>` need targeted caps. Not scheduled.
+
+---
+
 ### Tag Slug Normalization Strategy
 
 **Date:** 2026-03-04  

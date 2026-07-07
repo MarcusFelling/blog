@@ -1,8 +1,14 @@
 _site
 _site_full
+_site_baseline
+_site_redesign
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
+
+# Visual regression screenshots (transient binaries; keep the capture scripts tracked)
+tests/baseline/*.png
+tests/redesign/*.png
 .tmp/
 vendor
 node_modules/

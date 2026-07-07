@@ -1,21 +1,6 @@
-<script>
-// Apply staggered animation delays defined in data-delay
-window.addEventListener('DOMContentLoaded',()=>{
-  document.querySelectorAll('[data-delay]').forEach(el=>{
-    const ms=el.getAttribute('data-delay');
-    el.style.animationDelay = ms+'ms';
-  });
-  // Make read-more-chip clickable (acts as link) without nested anchors
-  document.querySelectorAll('.post-card.modern-card').forEach(card=>{
-    const chip = card.querySelector('.read-more-chip');
-    const anchor = card.querySelector('a.post-card-link');
-    if(chip && anchor){
-      chip.setAttribute('role','link');
-      chip.setAttribute('tabindex','0');
-      chip.addEventListener('click',()=> anchor.click());
-      chip.addEventListener('keypress',e=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); anchor.click(); }});
-    }
-  });
-});
-</script>
+{%- comment -%}
+  Footer scripts placeholder. The former DOMContentLoaded stagger/read-more-chip
+  handler was removed: the homepage entrance now runs via CSS (inline --delay +
+  animation-delay) and .read-more-chip no longer exists. Add footer-only JS here.
+{%- endcomment -%}
 
