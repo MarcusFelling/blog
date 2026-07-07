@@ -28,7 +28,10 @@ layout: base
 </section>
 
 <section class="post-cards-container modern-grid" aria-label="Recent blog posts">
-  {% for post in site.posts limit: 12 %}
+  {% comment %}1 featured (full-width lead) + 12 index cards. Index count must be a
+  multiple of LCM(3,2)=6 so the last row is full at both the 3-col (>1024px) and
+  2-col (641-1024px) breakpoints — hence limit:13, not 12.{% endcomment %}
+  {% for post in site.posts limit: 13 %}
     {% if forloop.first %}
     {% comment %}Featured (newest) post — full-width lead, Fraunces title{% endcomment %}
     <article class="post-card modern-card post-card--featured fade-in-up" style="--delay:240;">

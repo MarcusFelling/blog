@@ -5,63 +5,21 @@
 - **Stack:** Jekyll, Liquid templates, HTML/CSS/JS, Playwright (TypeScript), GitHub Pages
 - **Created:** 2026-03-04
 
+## Core Context
+
+Condensed pre-2026-07-06 Lead learnings (full detail in git history):
+
+- **Tag normalization (2026-03-04):** `archives.md` + `_layouts/post.html` normalize multi-word/aliased tags via a Liquid `if/elsif` chain (default `tag | slugify`); the two **must stay in sync**. Any new tag that doesn't slugify to a valid filter slug needs either a new filter button or an `elsif` in both files.
+- **Unused-code audit (2026-03-05):** a full CSS-selector cross-reference found ~23 issues — legacy Bootstrap-era nav/footer classes, an inert scroll-animation system (~58 lines, no JS), a superseded syntax-token block (~100 lines), and 2 unused `_config.yml` vars (`social-share`, `rss-description`). Root cause: the "modern redesign" inline `<style>` in `head.html` introduced new class names; the old parallel selectors in `blog.css` were never cleaned up.
+- **Bootstrap stays (2026-03-05):** `post.html` grid classes are structural — removing mid-redesign is out of scope. Vanilla JS (`scroll-to-top.js`, `search.js`) uses no jQuery; jQuery+Popper+Bootstrap JS load solely for pagination `data-toggle="tooltip"`. Flagged quick-win: swap to native `title` to drop 3 CDN requests.
+- **Reduced-motion scope (2026-03-06):** navbar social-chip breakpoint rules must stay top-level `@media`; nesting inside `@media (prefers-reduced-motion: reduce)` breaks responsive behavior. Reduced-motion overrides carry motion/a11y only — never layout/breakpoint rules.
+- **Work IQ post factual review (2026-03-24):** repo is `microsoft/work-iq` (NOT `-mcp`); it exposes `ask_work_iq` + `accept_eula`, not individual Graph tools; it's one MCP server, not a "family." ADO MCP + Copilot `SKILL.md` claims verified; "Copilot Cowork" has no findable public docs (comparison claims unverifiable).
+- **Jekyll workflow skill (2026-04-07):** extracted `.squad/skills/jekyll-workflow/SKILL.md` (confidence low) — local build, tests, CI, config roles, anti-patterns. Playwright `webServer` auto-starts Jekyll on :4000; CI Chromium-only, 4 workers. Route to any agent touching templates/CSS/CI.
+- **Reading time (2026-04-07):** pure Liquid — `content | number_of_words` ÷ 200, 1-min floor, a `.reading-time` span after the date in `post.html`. Reuses `.post-meta`; no plugin/JS (GH Pages safe). Rejected `jekyll-reading-time` (not on allowlist), client JS, and an `_includes` partial (over-engineering).
+
 ## Learnings
 
 <!-- Append new learnings below. Each entry is something lasting about the project. -->
-
-### 2026-03-04 — Tag normalization in archives.md
-
-- The archives page uses a Liquid `if/elsif` chain in `archives.md` to normalize multi-word/aliased tags to their filter slugs. The default fallback is `tag | slugify`.
-- `GitHub Copilot` → `ai`, `DevOps` → `cicd` were added as explicit mappings.
-- Removed orphaned `Fabric` tag from the hackathon post (no filter button, no sensible mapping).
-- Pattern: any new tag that doesn't produce a valid filter slug via `| slugify` needs either a new filter button or an `elsif` entry in the slug normalization block.
-
-### 2026-03-05 — Unused code audit
-
-- Performed full cross-reference of all CSS selectors in `assets/css/blog.css` against every template, include, layout, post, and page.
-- Found ~23 discrete issues. The largest categories are: (1) legacy Bootstrap-era footer/nav classes (`.navbar-brand`, `.navbar-toggler`, `.dropdown-*`, `.social-list`, `.footer-links`, `.rss-subscribe`, `.copyright`) never applied by the current custom nav and footer templates; (2) a full scroll-animation system (`.scroll-fade-in`, `.scroll-slide-*`, `.scroll-scale-in`, `.post-card.scroll-animate`) with no JS and no class applications — ~58 lines of inert CSS; (3) an overridden first syntax-highlight token block (~100 lines) superseded by the `!important` block at EOF.
-- Key pattern: the "modern redesign" in `_includes/head.html` (large inline `<style>`) introduced new class names for nav, footer, cards, and hero; the parallel selectors for the old names in `blog.css` were never cleaned up.
-- `window.__searchDataReady` in `search.js` is written but never read — UNCERTAIN pending external confirmation.
-- Live bug found during audit: `_layouts/post.html` is missing `DevOps → cicd` and `GitHub Copilot → ai` slug mappings that exist in `archives.md`. Affects one current post (`2026-02-26`). Filed alongside audit findings.
-- Two `_config.yml` variables are unused: `social-share: false` (remote-theme carry-over) and `rss-description` (not read by any template or by `jekyll-feed`).
-
-### 2026-03-05  Bootstrap removal decision
-
-- Assessed Bootstrap 4.4.1 usage across `_layouts/base.html`, `_layouts/post.html`, and both custom JS files.
-- Decision: **Keep Bootstrap this iteration.** Grid classes in `post.html` are structural; removing them mid-redesign is out of scope for an aesthetic pass.
-- Finding: `scroll-to-top.js` and `search.js` are pure vanilla JS  neither uses jQuery. jQuery, Popper.js, and Bootstrap JS are loaded solely to power `data-toggle="tooltip"` on pagination links in `post.html`.
-- Flagged as Phase 2 quick-win: drop Bootstrap JS + Popper + jQuery by replacing pagination tooltips with native `title` attributes. Three CDN requests eliminated, no functional regression.
-- Decision filed at `.squad/decisions/inbox/keaton-bootstrap-decision-2026.md`.
-
-### 2026-03-06 — Keep responsive navbar media queries outside reduced-motion
-
-- The navbar social-chip breakpoint rules in `assets/css/blog.css` must stay as top-level `@media` blocks. Nesting them inside `@media (prefers-reduced-motion: reduce)` breaks responsive navbar/drawer behavior for most users and makes the stylesheet structure misleading.
-- For this codebase, reduced-motion overrides should only contain motion/accessibility adjustments; layout and breakpoint rules belong at the normal top level.
-
-### 2026-03-24 — Factual review of Work IQ MCP + ADO MCP blog post
-
-- Work IQ repo is at `microsoft/work-iq`, NOT `microsoft/work-iq-mcp`. Easy URL mistake.
-- Work IQ MCP exposes `ask_work_iq` (natural language) and `accept_eula` — NOT individual Graph API tools. The blog fabricated tool names like `graph_mail_getMessage`.
-- Work IQ is a single MCP server, not a "family" of domain-specific servers (Mail MCP, Calendar MCP, etc.). Three plugins exist: `workiq`, `microsoft-365-agents-toolkit`, `workiq-productivity`.
-- Azure DevOps MCP claims are accurate — `create_work_item` with standard ADO fields works as described.
-- Copilot Skills (`SKILL.md`) claims check out against VS Code docs. Auto-discovery, slash commands, three-level loading all confirmed.
-- "Copilot Cowork" has no findable public documentation as of 2026-03-24. All learn.microsoft.com and support URLs return 404. Comparison claims are unverifiable.
-
-### 2026-04-07 — Jekyll workflow skill extraction
-
-- Audited the full build-test-deploy pipeline: `Gemfile`, `_config.yml`, `_config-dev.yml`, `playwright.config.ts`, `package.json`, all 6 test specs, and `.github/workflows/playwright.yml`.
-- Extracted `.squad/skills/jekyll-workflow/SKILL.md` (confidence: low) covering local build, test execution, CI workflow, config file roles, and anti-patterns.
-- Key structural facts: Playwright `webServer` auto-starts Jekyll on port 4000; CI is Chromium-only with 4 workers; dev config drift is a documented gotcha from wisdom.md.
-- Skill is now routable — any agent touching templates, CSS, or CI should get it in their spawn prompt.
-
-### 2026-04-07 — Reading time architecture decision
-
-- Decided on pure Liquid approach: `content | number_of_words` divided by 200, rounded up via `divided_by` + `modulo` pattern. No plugins, no JS — GitHub Pages safe.
-- Placement: new `<span class="post-meta reading-time">` immediately after the existing date span in `_layouts/post.html` line 13, separated by `&middot;`.
-- Reuses `.post-meta` styling — no CSS changes needed. Added `.reading-time` as a hook class for future use.
-- Edge case: any post with 1–200 words shows "1 min read". Zero-word posts show "0 min read" but shouldn't exist in production.
-- Rejected alternatives: `jekyll-reading-time` plugin (not on GH Pages allowlist), client-side JS (unnecessary complexity), `_includes` partial (over-engineering for a single call site).
-- Decision filed at `.squad/decisions/inbox/keaton-reading-time.md`.
 
 ### 2026-07-06 — Impeccable redesign scoping
 
@@ -79,3 +37,13 @@
 - **Direction shift to remember:** my scope draft assumed a *restraint/quieter* direction (deferred `bolder`). At the checkpoint Marcus chose **"distinctive editorial"** instead — personality via **type + layout rhythm + one orange accent**, still with the AI-slop chrome removed. Marcus overrode the *direction*, not the *guardrails* — every hard constraint I set (GH Pages allowlist, no remote theme, the ~80-hook selector contract, tag-slug sync, reading-time, ⌘K palette, footer-minimal, no-auto-commit, M1 token consolidation) held.
 - **Outcome:** the redesign is implemented, **QA-green (12 specs / 70 tests)**, and **STAGED** for Marcus. All eight redesign inbox decisions are consolidated into `.squad/decisions.md` under "Blog Redesign — Distinctive Editorial, Dark-Only."
 - **Canonical going forward:** single-source design tokens live in `assets/css/blog.css` (never in `head.html`); **Fraunces** is the display "title voice" only (hero `h1`, post `h1`, featured card title), Inter everywhere else. Three non-blocking polish findings remain open for McManus.
+
+### 2026-07-07 — PR #84 Lead review: approve-worthy (posted as comment)
+
+- Reviewed the redesign PR (`redesign-impeccable-editorial` → `main`, +2046/−639, 1 commit). CI green: Playwright 12 specs / 71 tests + Squad guard. **Verdict: approve-worthy.** Posted as a review COMMENT — GitHub blocks self-approval, so no formal Approve. Merge stays Marcus's call.
+- **Every guardrail held.** Verified directly against the checked-out branch: exactly one `:root` in `blog.css`; `head.html` is metadata/shared-head only (no `<style>`/`:root`); `html,body` font resolves to Inter (Open Sans bug dead, 0 refs); Fraunces scoped to exactly 3 title slots (grep `--font-display` → hero h1 L3022, post h1 L271, featured card title L3109); `--accent:#f97316` single, `--accent-grad`/blue accent gone; only `@keyframes` is `rise` (reduced-motion-gated, base opacity 1); `sheen`/`pulse-glow` gone.
+- **`backdrop-filter` audit:** 4 remaining, all on floating overlays (mobile drawer L981, ⌘K backdrop L2219, mobile TOC sheet L2721, explore tooltip L2877) — none on page chrome. Within the spirit of the "palette + drawer" allowlist; noted the decision language should broaden to "floating overlays."
+- **Key technique confirmed OK to ship:** the legacy-alias token layer (`--*-col`, `--home-*` re-pointed to flat values) is a documented cascade-safety shim, not reintroduced glass. Decision said `--home-*` was "killed" — names persist, values are flat. Non-blocking; future inline cleanup once consumers migrate.
+- **Tag-slug sync guardrail:** `post.html` diff is byte-minimal (`.container-md` → `.container-md post-body` only); the normalization chain is untouched, so sync is preserved. Separately noted a PRE-EXISTING drift (table lists `GitHub Copilot→ai`, `DevOps→cicd` that neither template implements as explicit elsif) — out of scope for this PR, tracked as a nit only, NOT a blocker. Do not block a redesign PR on a chain it doesn't touch.
+- **Tests moved in lockstep:** `landing.spec` enforces the full contract delta with placement assertions + count-0 on removed selectors; computed-`font-family` guard locks the M1 fix network-independently; focus-ring guard Tab-reaches both ⌘K controls; `images.spec` validates images-that-exist (no content-coupling). Good discipline from Hockney.
+- Filed the review decision to `.squad/decisions/inbox/keaton-pr84-review.md`.
