@@ -5,90 +5,36 @@
 - **Stack:** Jekyll, Liquid templates, HTML/CSS/JS, Playwright (TypeScript), GitHub Pages
 - **Created:** 2026-03-04
 
+## Core Context
+
+Condensed pre-2026-07-06 frontend learnings (full detail in git history):
+
+- **`_layouts/post.html` + archives (2026-03-04):** post layout = `layout:base` (title/subtitle/date → body/thumbnail → tags → prev/next). Tag slugs are normalized inline and **must stay in sync with `archives.md` `data-filter`**. Archives JS uses `applyFilter()` + `activateFromHash()` (`/archives#tag` auto-clicks the filter on load + `hashchange`); per-tag `--tag-*` custom props are the single source for tag colors; light-accent active buttons (cicd, infra-as-code, other) use dark `#121212` text.
+- **Unused-code purge (2026-03-05):** removed ~338 lines of dead CSS from `blog.css` (legacy Bootstrap-era nav/footer classes, a superseded syntax-token block, the inert scroll-animation system, unused loading/shimmer) + 2 `_config.yml` vars (`social-share`, `rss-description`) + a redundant `CICD` slug branch. **Lesson:** read the full comma-separated selector list before deleting — several blocks mixed live selectors (`footer .fa`) with dead ones (`.social-icons`); remove only the dead portions.
+- **remote_theme removal (2026-03-11):** removed `remote_theme` + `gem "minima"`; created `_layouts/page.html` (extends `base`) for the `layout:"page"` default; all assets were already local; `github-pages` gem stays. Build verified clean.
+- **Code-block "empty blocks" fix (2026-03-04):** `div.highlight` carries the bg, so the inner `pre`'s `margin:1em 0` punches coloured gaps → remove `.highlight` padding, add `overflow:hidden` (clip `border-radius`), add `.highlight > pre { margin:0 }`. Applies whenever a bg-coloured wrapper holds a block element with vertical margin.
+- **Nav / Liquid gotchas (2026-03-06):** social links live once in `_includes/nav.html` via `{% capture %}`, reused for desktop nav + mobile drawer; nav-specific styling under `.navbar-modern .nav-social` / `.mobile-drawer .nav-social`. Dashed `_config.yml` keys (`navbar-links`, `social-network-links`) need **bracket access** (`site['navbar-links']`) — dot access silently renders empty.
+- **Reading time (2026-04-07):** pure Liquid — `content | number_of_words` ÷ 200, 1-min floor, inline after the date in a `.reading-time` span (`var(--mid-col)`). GH Pages safe, no plugin/JS.
+- **Command palette (2026-04-07):** `_includes/command-palette.html` + `assets/js/command-palette.js` (⌘K/Ctrl+K, debounced fuzzy search on `/search-data.json`, keyboard nav, focus trap, recent-posts default), CSS §14, wired into `base.html`; added `tags` to `search-data.json` + a ⌘K nav hint; shares data via `window.__searchData`. 13 tests.
+- **Redesign M1 — token consolidation (2026-07-06):** collapsed two competing token systems into one. `_includes/head.html` = metadata/shared-head ONLY (never add a `:root`/inline `<style>` there — that was the split-brain bug); `assets/css/blog.css` = single source of truth (tokens + all global/homepage chrome). **Cascade-safe move:** head.html's inline `<style>` loaded *after* blog.css, so append moved rules at the END of blog.css to keep winning equal-specificity ties. Fixed the Inter body-font bug (`body.modern` forced never-loaded Open Sans → body fell back to system-ui; now `font-family: var(--body-font)`). Removing a token requires proving 0 `var()` refs first. Full record in decisions.md + the `css-token-audit` skill.
+- **Redesign M2 — editorial restyle (2026-07-06):** personality from type + layout + one orange accent, no glass/gradient/glow/dashboard. **Fraunces** (Google Fonts variable, added to the one combined `base.html` font request) = title voice ONLY (hero `h1`, post `h1`, featured card title); Inter elsewhere, JetBrains Mono for code. One orange kicker rule (`2.5rem×2px ::before`) replaced the three in-prose heading decorations. Asymmetric hero (~61/39) + Popular `<aside>` list; featured-lead + Inter index grid (3→2→1); post un-carded (`.post-body`, 72ch, Bootstrap grid kept); flat nav/footer (blur kept ONLY on `#cmd-palette*` + `.mobile-drawer`); one `@keyframes rise` staggered via inline `--delay`, reduced-motion-safe (base opacity 1). **Two durable gotchas (also in the `editorial-dark-theme` skill):** (1) featured-card selectors need `.post-card.modern-card.post-card--featured X` (0,4,0) to outrank base `.post-card.modern-card X` (0,3,0); (2) a `<nav>` Popular list picks up generic `nav{}` chrome — use `<aside>`. Full selector delta + token table in decisions.md.
+- **Redesign polish pass (2026-07-06):** three non-blocking fixes, additive, in `blog.css` + `footer-scripts.html`. (1) branded focus ring — `.search-trigger:focus-visible, .cmd-palette-hint:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px }` (§14), matching `.nav-links a:focus-visible`. **Verify with real keyboard Tab** — programmatic `.focus()` does NOT engage `:focus-visible` in Chromium; test the nav hint at ≥ desktop width (hidden on mobile); the integrated browser zooms so check the outline ratio/color, not raw px. (2) `.blog-post a { overflow-wrap: anywhere }` — load-bearing (A/B off = 23 posts overflow a link past the box at 320px); plus `.header-section .container-md > .row, .container-md.post-body > .row { margin-inline: 0 }` to kill Bootstrap negative-gutter spill (no card chrome reintroduced). (3) dead JS — `_includes/footer-scripts.html` reduced to a Liquid comment (its `[data-delay]` loop + `.read-more-chip` shim were both inert; the home entrance is CSS `rise`); the `base.html` include stays valid. **Overflow attribution — Hockney authoritative:** the `.mobile-drawer` contributes **0px** (`position:fixed`, out of flow, no transformed ancestor) — my ~35px drawer hypothesis was a red herring; the residual 320px scroll is **pre-existing content on 9/48 posts** (long `<em>`/`<code>` tokens, 1 `<img>`, 1 code `<table>`), a Fenster call, not a regression.
+
 ## Learnings
 
 <!-- Append new learnings below. Each entry is something lasting about the project. -->
 
-### 2026-03-04 — Recreated `_layouts/post.html` and fixed archives hash routing
+### 2026-07-07 — Homepage grid-completeness: featured-lead needs an index count divisible by every column regime
 
-`_layouts/post.html` was deleted and recreated from scratch. It uses `layout: base`, renders a header section with post title/subtitle/date meta, then the post body and thumbnail, followed by a tag list and prev/next pagination. Tag slugs are normalized inline (e.g. "Azure Pipelines" → `azure-devops`, "GitHub Copilot" → `ai`) to match the slug keys used by the archives filter buttons — this mapping must stay in sync with `archives.md` `data-filter` values. The archives JS was also extended with `activateFromHash()` so that landing on `/archives#ai` (or any tag slug) automatically clicks the matching filter button on page load, and responds to `hashchange` for in-page navigation.
+Marcus spotted an empty card slot in the last row of the homepage grid. Root cause: `_layouts/home.html` looped `{% for post in site.posts limit: 12 %}`, and `forloop.first` renders as the full-width `.post-card--featured` lead (`grid-column: 1 / -1`, its own row), leaving **11** index cards. 11 divides evenly into no multi-column regime → gap in the last row at 3-col (3·3·3·2) and 2-col (2·5+1). **Fix: `limit: 12` → `limit: 13`** (1 featured + **12** index). One-line change plus a `{% comment %}` explaining the math so nobody "tidies" it back to 12.
 
-### 2026-03-04 — Archives page visual refresh (sticky filter bar, per-tag accents, empty state)
+**Row-math rule (durable).** With a full-width featured lead + N index cards flowing in a grid, **N must be a multiple of the LCM of every active column count** or the last row has holes. The homepage grid is `.post-cards-container.modern-grid` = 3 (>1024px) → 2 (641–1024) → 1 (≤640); LCM(3,2)=6. **12 is divisible by 6 — and by 4** — so it fills complete rows at 3-col (4 rows), 2-col (6 rows), *and* the legacy 4-col regime that still governs >1200px (see below). 12 is the robust choice; 11 was the worst possible (divisible by nothing). Rule of thumb: index cards ∈ {6, 12, 18, …}.
 
-Replaced the entire `/* ===== ARCHIVES PAGE ===== */` CSS block in `assets/css/blog.css`. Key patterns introduced: (1) `.archive-filters` now uses `position: sticky; top: 0` with `backdrop-filter: blur(10px)` so the filter bar floats over content while scrolling. (2) Per-tag accent CSS custom properties (`--tag-azure-devops`, `--tag-cicd`, etc.) were added to `:root` and are used for `.tag-filter[data-filter="..."].active` rules and `.archive-post-item[data-tags~="..."]` hover border/pill tints — single source of truth for all tag colors. (3) Year headings got a left accent bar via `::before` pseudo-element and dramatic uppercase treatment. (4) Post rows use `border-left: 3px solid transparent` transitioning to the tag accent on hover with a subtle `padding-left` shift for depth. (5) An `.archive-empty-state` element (`#archive-empty`) was added to `archives.md` after the Liquid `{% endfor %}` and toggled via `.classList.toggle('visible', visible === 0)` in the filter JS. The JS was also refactored into an `applyFilter(filter)` function called by both click handlers and `activateFromHash`, making hash routing cleaner. Note: `cicd`, `infra-as-code`, and `other` active button text uses dark (`#121212`) text because their accent colors are light/yellow.
+**Two grid systems coexist in `blog.css` — know which governs.** Legacy §5/§11 `.post-cards-container` (`repeat(4,1fr)` base; 3/2/2/1 at max-width 1200/992/768/576) is still in the file; the editorial `.post-cards-container.modern-grid` (§ near line 3046: `repeat(3,1fr) !important`; 2 @1024, 1 @640) wins on the homepage by two-class specificity + `!important`. **Caveat I verified:** above **1200px** none of the legacy max-width queries apply, so the winner there is editorial-base-3col-`!important` vs legacy-base-4col-normal → editorial 3-col wins (confirmed 3 tracks at cssWidth 1280). The featured `grid-column: 1 / -1` was verified to span the **full container width** at both breakpoints (`featured.width ≈ grid.width`).
 
-### 2026-03-05 — Template cleanup: nav icons removed, hero panel inline styles extracted
+**Verification gotchas (cost me several wrong readings — all now confirmed):**
+1. **The integrated browser CACHES `blog.css`.** The live `:4000` tab rendered the *pre-redesign 4-col legacy* grid even though `curl http://localhost:4000/assets/css/blog.css` returned the **current** file (byte-identical to source, 85672 B, contains `.post-cards-container.modern-grid`). A stale cached stylesheet masquerades as a cascade bug. **Always** (a) curl the served asset and diff bytes vs source, and (b) verify render on a **fresh port + `forceNew` page** (I built to `_site_check`, served on `:4011`, measured there). Don't trust the long-lived preview tab for CSS-cascade claims.
+2. **Scale factor is ~2/3, not ~0.8.** `setViewportSize({width})` maps to `window.innerWidth = width × 0.667` here (req 1920 → 1280 CSS px; 1200 → 800). Request `target × 1.5` and always read back `window.innerWidth`; never assume the requested width is the CSS width the media queries see. (Refines the earlier "~80% zoom" note.)
+3. **The staggered `fade-in-up` entrance animation skews row detection.** Mid-`translateY`, cards in the same grid row report different `getBoundingClientRect().top`, so top-clustering invents phantom rows (`[3,4,4,1]`). `getAnimations().finish()` right after `goto` was unreliable (elements not yet animating). **Reliable:** `page.addStyleTag({content:'.fade-in-up{animation:none!important;transform:none!important;opacity:1!important}'})` before measuring → clean equal tops per row (`[3,3,3,3]` / `[2,2,2,2,2,2]`).
 
-`_includes/nav.html`: Removed `<i class="fas fa-folder-open"></i>` from every nav link anchor in both `nav-links` and `drawer-links` lists. The house icon on the brand link was intentionally preserved.
-
-`_layouts/home.html`: Extracted four inline style blocks from the Pulse hero panel into CSS classes. `<h2>` got `class="pulse-heading"`, the stats box div got `class="top-pages-box"`, the "Top Page Views" `<p>` got `class="top-pages-label"`, and the `<a>` anchors inside the top pages list got `class="top-page-link"`.
-
-`assets/css/blog.css`: Appended a `/* ===== HERO PANEL EXTRACTED CLASSES ===== */` block with `.pulse-heading`, `.top-pages-box`, `.top-pages-label`, `.top-page-link`, and `.top-page-link:hover`. Color values were converted from hardcoded hex to CSS custom properties (`var(--text-col)`, `var(--mid-col)`, `var(--link-col)`) so the classes are theme-aware by default.
-
----
-
-### 2026-03-05 — Unused code purge across blog.css, _config.yml, _layouts/post.html
-
-Removed all confirmed-unused code identified in Keaton's audit (`keaton-unused-code-audit.md`). Approximate savings: ~338 lines removed from `assets/css/blog.css` (1732 → 1394 lines), 2 lines from `_config.yml`, 2 lines from `_layouts/post.html`.
-
-**CSS removed (by target letter):**
-- **A** — `.anchor-link` block (5 lines) — legacy utility, never referenced in any template
-- **B** — First syntax highlight token block (~100 lines: `.highlight .c` through `.language-json .highlight .attr`) — fully superseded by the later `!important`-qualified Unified Syntax Highlight Theme block
-- **C** — `.read-more` and `.read-more i` (8 lines) — replaced by `.read-more-chip` in home layout
-- **D** — `.view-all-posts` and `.view-all-posts:hover` (18 lines) — class never applied in any template
-- **E** — `.navbar-brand, .site-title` (3 lines) — nav uses `.brand` class; Bootstrap selectors never present
-- **F** — `.dropdown-menu`, `.dropdown-item`, `.dropdown-item:hover/focus` (14 lines) — no dropdown menus in any template
-- **G** — `.navbar-toggler`, `:hover`, `:focus`, `.navbar-toggler-icon` (16 lines) — nav uses `.nav-toggle`, not Bootstrap toggler
-- **H** — `.fa-stack-2x { display: none !important }` (3 lines) — no matching elements in any template
-- **I** — `.copyright` and `footer .copyright` (5 lines) — footer uses `.footer-copy`, not `.copyright`
-- **J** — `.rss-subscribe`, `footer .rss-subscribe`, `.rss-subscribe:hover` (9 lines) — footer uses `.social-chips`
-- **K** — `.social-list`, `.footer-links`, `.social-icons` full selector blocks (21 lines) — legacy Bootstrap-era classes, no matching elements
-- **L** — `.social-icons i,` and `.social-icons a:hover,` prefixes removed from comma-separated selector lists (2 lines) — kept the live `footer .fa` etc. selectors intact
-- **M** — `@media screen and (-ms-high-contrast)` empty block (4 lines) — IE-only, zero declarations
-- **N** — `body.modern .post-header` and `body.modern .page-header` selectors removed from combined rules (5 lines), keeping `body.modern .header-section` intact as it IS used in `_layouts/post.html`
-- **O** — Scroll animation classes: `.scroll-fade-in`, `.scroll-slide-left`, `.scroll-slide-right`, `.scroll-scale-in` (all with `.visible` variants) and `.post-card.scroll-animate` / `.visible` (57 lines) — no JS Intersection Observer implementation, never applied
-- **P** — `@keyframes shimmer`, `.loading` block, and `.loading { animation: none }` override inside `@media (prefers-reduced-motion)` (19 lines) — class never applied; kept the rest of the reduced-motion block untouched
-
-**Config removed:**
-- **Q** — `social-share: false` from posts defaults — `page.social-share` never referenced in any template
-- **R** — `rss-description: "..."` top-level variable — `site.rss-description` never referenced; `jekyll-feed` uses `site.description`
-
-**Liquid removed:**
-- **S** — `{% elsif tag == "CICD" %}` branch in `_layouts/post.html` tag slug normalization — redundant because `"CICD" | slugify` produces `"cicd"` identically via the `else` fallback
-
-Key lesson: when removing selectors from comma-separated lists, always read the full selector before acting — several blocks mixed live selectors (`footer .fa`, `footer .fab`) with dead ones (`.social-icons`), and only the dead portions were removed.
-
-### 2026-03-11 — Removed remote_theme dependency, inlined everything locally
-
-Removed `remote_theme: marcusfelling/blog-theme` from `_config.yml`. All layouts, includes, and assets the blog actually uses were already local — the remote theme was a no-op fetch at build time. Created `_layouts/page.html` (extends `base`, Bootstrap grid, title/subtitle header, content body) to satisfy the `layout: "page"` default in `_config.yml` for non-post pages. Removed `gem "minima"` from `Gemfile` — never used, leftover from Jekyll scaffold. The `github-pages` gem remains (still deploying via GitHub Pages). Build verified clean: no missing layout/include warnings.
-
----
-
-### 2026-03-04 — Code block "empty blocks" fix
-
-Jekyll wraps fenced code blocks in `div.highlight > div.highlight > pre.highlight > code`. The `div.highlight` carries `background-color`, so the `pre`'s default `margin: 1em 0` punches visible coloured gaps above and below the code. Fix: remove `padding` from `.highlight`, add `overflow: hidden` (so `border-radius` clips children correctly), and add `.highlight > pre { margin: 0; }` to collapse those margins. This pattern applies any time a background-coloured wrapper contains a block element with vertical margin.
-
-### 2026-03-06 — Reused social links via Liquid capture for desktop nav and mobile drawer
-
-Moved the site social links out of `_includes/footer.html` and into `_includes/nav.html`, but kept the markup DRY by capturing the anchor list once with `{% capture %}` and reusing it in both the desktop navbar and the mobile drawer. Styling stays in `assets/css/blog.css` using more specific `.navbar-modern .nav-social` and `.mobile-drawer .nav-social` selectors so the nav version can look richer without disturbing the generic `.social-chips` rules already injected from `_includes/head.html`.
-
-### 2026-03-06 — Use bracket-key Liquid access for dashed config keys in nav includes
-
-`_config.yml` stores navigation and social settings under dashed keys like `navbar-links` and `social-network-links`. In `_includes/nav.html`, those values must be read via bracket access (`site['navbar-links']`, `social_links['github']`, etc.) after assigning the parent hashes first; dashed dot access can evaluate incorrectly in Liquid and silently render empty nav lists or empty social chip groups.
-
-### 2026-03-13 — Homepage polish should preserve copy/IA and adjust intensity at the head include source
-
-The homepage’s hero, Pulse panel, recent-card, and archive CTA styling is still primarily controlled by the inline style block in `_includes/head.html`, not by `_layouts/home.html`. For restrained homepage passes, keep the text and section order frozen in `_layouts/home.html` and tune intensity at the source: remove gradient headline treatments, reduce glass/glow strength, and use smaller hover/focus deltas instead of stacking override CSS in `assets/css/blog.css`.
-### 2026-04-07 — Added estimated reading time to blog posts
-
-In `_layouts/post.html`: calculated word count via `content | number_of_words`, divided by 200, clamped to a 1-minute floor. Displayed inline after the "Posted on" date, separated by a middle dot (`·`), inside a `.reading-time` span for testability. Added a minimal `.reading-time` rule in `assets/css/blog.css` using `var(--mid-col)` to keep it subtle and consistent with the muted post-meta aesthetic.
-
-### 2026-04-07 — Built command palette (⌘K / Ctrl+K) for quick post navigation
-
-Created `_includes/command-palette.html` (dialog markup with search input, results listbox, ⌘K kbd hint), `assets/js/command-palette.js` (vanilla JS — keyboard shortcut listener, debounced fuzzy search against `/search-data.json`, keyboard nav ↑/↓/Enter, focus trap, backdrop click to close, highlight matching text, recent-posts default view), and appended `/* 14. COMMAND PALETTE */` CSS block to `assets/css/blog.css` (~200 lines — backdrop blur overlay, centered modal with scale animation, scrollable results with accent-col left border on active, tag pills, empty state, responsive mobile layout). Wired into `_layouts/base.html` (include before footer-scripts, script after search.js). Added `tags` field to `search-data.json`. Added a ⌘K hint pill button in `_includes/nav.html` next to the social chips. The JS shares search data with `search.js` via `window.__searchData` when possible, otherwise fetches independently.
-
-**Coordinator fixes applied post-implementation:**
-- Test selector mismatches resolved (dialog role, class naming)
-- Async data loading race condition fixed (re-render results after data loads)
-- Nav hint Ctrl/⌘ platform detection fixed for cross-platform test compatibility
-- 13 Playwright tests in `tests/command-palette.spec.ts` all passing
+**Test contract:** `tests/landing.spec.ts` does **not** assert a total grid card count — only `.post-card--featured` = 1 (still true) and `cardCount > 0`. No test change needed for the limit bump; flagged in the summary regardless so the coordinator can route to Hockney if a count guard is ever wanted.

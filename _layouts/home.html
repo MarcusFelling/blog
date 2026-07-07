@@ -2,87 +2,93 @@
 layout: base
 ---
 
-<section class="hero-grid fade-in-up">
+<section class="hero-grid">
   <div class="hero-intro">
-    <h1>Learning technology out loud.</h1>
-    <p>DevOps, cloud, automation, and lessons learned along the way. Notes, walkthroughs, and the stuff I wish someone told me sooner.</p>
+    <h1 class="fade-in-up" style="--delay:0;">Learning technology out loud.</h1>
+    <p class="fade-in-up" style="--delay:60;">DevOps, cloud, automation, and lessons learned along the way. Notes, walkthroughs, and the stuff I wish someone told me sooner.</p>
     <!-- Search trigger — opens the command palette -->
-    <button class="search-trigger cmd-palette-trigger" aria-label="Search posts" type="button">
+    <button class="search-trigger cmd-palette-trigger fade-in-up" style="--delay:120;" aria-label="Search posts" type="button">
       <i class="fas fa-search search-trigger-icon" aria-hidden="true"></i>
       <span class="search-trigger-text">Search posts…</span>
       <kbd class="search-trigger-kbd" aria-hidden="true"><span class="cmd-mod-key">Ctrl+</span>K</kbd>
     </button>
   </div>
   
-  <div class="hero-panel fade-in-up" style="animation-delay:.15s;">
-    <h2 class="pulse-heading"><span aria-hidden="true">📊</span> Pulse</h2>
-    
-    {% assign top = site.data.top_pages %}
-    {% if top and top.size > 0 %}
-    <div class="top-pages-box">
-      <p class="top-pages-label"><span aria-hidden="true">🔝</span> Top Page Views</p>
-      <ol style="margin:0; padding-left:1.1rem; font-size:.82rem; line-height:1.7; color:#dfe7ed; display:grid; gap:.5rem; list-style:decimal;">
-        {% for p in top limit:5 %}
-          {% assign path = p.path %}
-          {% unless path %}{% continue %}{% endunless %}
-          <li style="margin:0; padding:0; overflow:visible;">
-            <a href="{{ path | relative_url }}" aria-label="View post: {{ p.title | escape }}" class="top-page-link">
-              <span style="display:block; flex:1; word-wrap:break-word; word-break:break-word;">{{ p.title | default: path }}</span>
-              {% if p.views %}<span style="color:#8cafc8; font-size:.72rem; font-weight:600; letter-spacing:.4px; flex-shrink:0; white-space:nowrap;">{{ p.views }}</span>{% endif %}
-            </a>
-          </li>
-        {% endfor %}
-      </ol>
-    </div>
-    {% endif %}
-    
-    <div class="hero-kpis">
-      <div title="Total blog posts published">
-        <span>{{ site.posts | size }}</span>
-        <div>Posts</div>
-      </div>
-      <div title="Years of blogging">
-        <span>
-          {% assign first_post = site.posts | last %}
-          {% assign last_post = site.posts | first %}
-          {% assign first_year = first_post.date | date: '%Y' %}
-          {% assign last_year = last_post.date | date: '%Y' %}
-          {% assign years_active = last_year | minus: first_year | plus: 1 %}
-          {{ years_active }}+
-        </span>
-        <div>Years Blogging</div>
-      </div>
-    </div>
-  </div>
+  {% assign top = site.data.top_pages %}
+  {% if top and top.size > 0 %}
+  <aside class="popular-posts fade-in-up" style="--delay:180;" aria-label="Popular posts">
+    <p class="popular-posts-eyebrow">Popular</p>
+    {% for p in top limit:5 %}
+      {% assign path = p.path %}
+      {% unless path %}{% continue %}{% endunless %}
+      <a class="popular-post-link" href="{{ path | relative_url }}">{{ p.title | default: path }}</a>
+    {% endfor %}
+  </aside>
+  {% endif %}
 </section>
 
 <section class="post-cards-container modern-grid" aria-label="Recent blog posts">
-  {% for post in site.posts limit: 12 %}
-  <article class="post-card modern-card fade-in-up" data-delay="{{ forloop.index0 | times: 40 | plus: 200 }}" style="--delay: {{ forloop.index0 | times: 80 }};">
-    <a href="{{ post.url | relative_url }}" class="post-card-link" style="text-decoration:none;" aria-label="Read: {{ post.title | escape }}">
-      <div class="post-card-image-container" aria-hidden="true">
-        {% if post.thumbnail-img %}
-          <img src="{{ post.thumbnail-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
-        {% elsif post.cover-img %}
-          <img src="{{ post.cover-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
-        {% else %}
-          <div class="post-card-image-placeholder"></div>
-        {% endif %}
-      </div>
-      <div class="post-card-content">
-        <h2 class="post-card-title">{{ post.title }}</h2>
-        {% if post.excerpt %}
-          <div class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</div>
-        {% endif %}
-        <div class="post-card-meta">
-          <span class="post-card-date">{{ post.date | date: site.date_format }}</span>
+  {% comment %}1 featured (full-width lead) + 12 index cards. Index count must be a
+  multiple of LCM(3,2)=6 so the last row is full at both the 3-col (>1024px) and
+  2-col (641-1024px) breakpoints — hence limit:13, not 12.{% endcomment %}
+  {% for post in site.posts limit: 13 %}
+    {% if forloop.first %}
+    {% comment %}Featured (newest) post — full-width lead, Fraunces title{% endcomment %}
+    <article class="post-card modern-card post-card--featured fade-in-up" style="--delay:240;">
+      <a href="{{ post.url | relative_url }}" class="post-card-link" aria-label="Read: {{ post.title | escape }}">
+        {% if post.thumbnail-img or post.cover-img %}
+        <div class="post-card-image-container" aria-hidden="true">
+          {% if post.thumbnail-img %}
+            <img src="{{ post.thumbnail-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
+          {% else %}
+            <img src="{{ post.cover-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
+          {% endif %}
         </div>
-        <span class="read-more-chip">Read Post <i class="fas fa-arrow-right" style="font-size:.6em;"></i></span>
-      </div>
-    </a>
-  </article>
+        {% endif %}
+        <div class="post-card-content">
+          <h2 class="post-card-title">{{ post.title }}</h2>
+          {% if post.excerpt %}
+            <div class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</div>
+          {% endif %}
+          <div class="post-card-meta">
+            <span class="post-card-date">{{ post.date | date: site.date_format }}</span>
+            {% assign words = post.content | number_of_words %}
+            {% assign minutes = words | divided_by: 200 %}
+            {% if minutes < 1 %}{% assign minutes = 1 %}{% endif %}
+            <span aria-hidden="true">·</span>
+            <span class="reading-time">{{ minutes }} min read</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    {% else %}
+    {% comment %}Index posts — tighter Inter grid{% endcomment %}
+    <article class="post-card modern-card fade-in-up" style="--delay:{{ forloop.index0 | times: 60 | plus: 300 }};">
+      <a href="{{ post.url | relative_url }}" class="post-card-link" aria-label="Read: {{ post.title | escape }}">
+        <div class="post-card-image-container" aria-hidden="true">
+          {% if post.thumbnail-img %}
+            <img src="{{ post.thumbnail-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
+          {% elsif post.cover-img %}
+            <img src="{{ post.cover-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
+          {% else %}
+            <div class="post-card-image-placeholder"></div>
+          {% endif %}
+        </div>
+        <div class="post-card-content">
+          <h2 class="post-card-title">{{ post.title }}</h2>
+          {% if post.excerpt %}
+            <div class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</div>
+          {% endif %}
+          <div class="post-card-meta">
+            <span class="post-card-date">{{ post.date | date: site.date_format }}</span>
+          </div>
+        </div>
+      </a>
+    </article>
+    {% endif %}
   {% endfor %}
 </section>
 
 <div class="browse-archive-btn">
-  <a href="/archives" class="read-more-chip" style="font-size:.75rem; padding:.7rem 1.3rem; display:inline-flex;">Browse Full Archive <i class="fas fa-layer-group" style="font-size:.7em;"></i></a>
+  <a href="/archives">Browse Full Archive <i class="fas fa-arrow-right" aria-hidden="true" style="font-size:.7em;"></i></a>
+</div>

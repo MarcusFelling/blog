@@ -21,3 +21,19 @@ test('blog post should display reading time', async ({ page }) => {
   const minutes = parseInt(text!.match(/(\d+)/)?.[1] ?? '0', 10);
   expect(minutes).toBeGreaterThanOrEqual(1);
 });
+
+test('post title renders Fraunces and article body renders Inter', async ({ page }) => {
+  // Land on the newest post the same way the reading-time test does
+  await page.goto('');
+  const firstPostLink = page.locator('.post-card a[href*="/20"]').first();
+  const href = await firstPostLink.getAttribute('href');
+  expect(href).toBeTruthy();
+  await page.goto(href!);
+
+  const fontOf = (selector: string) =>
+    page.locator(selector).first().evaluate((el) => getComputedStyle(el).fontFamily);
+
+  // Post h1 uses the Fraunces display face; the running body uses Inter.
+  expect(await fontOf('.post-heading h1')).toMatch(/fraunces/i);
+  expect(await fontOf('.blog-post')).toMatch(/inter/i);
+});

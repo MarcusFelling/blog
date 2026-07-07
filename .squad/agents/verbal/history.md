@@ -22,3 +22,17 @@
 - Front matter pattern for 2026 posts: includes `description`, `thumbnail-img`, `nav-short: true`.
 - Tags [AI, Azure DevOps] are valid per the tag slug normalization decisions.
 - When reviewing claims about evolving products (Copilot Cowork, MCP tool names), flag time-sensitive assertions for the author rather than silently passing them.
+
+### 2026-06-16 — De-AI editing pass (vibe analytics post)
+- Marcus's #1 mandate: posts must read human-written, not AI-generated. This overrides polish/SEO advice. When a "fix" would make prose smoother/more quotable, skip it.
+- Biggest AI tell in long posts: every section ending on a punchy mic-drop/aphorism ("does more damage than no number at all", "a brilliant demo", "still the job"). Fix: keep only one or two of the best across the whole post; let most sections end on a plain, ordinary sentence. Vary the rhythm so it isn't engineered.
+- Other tells removed: rule-of-three triads baked into sentences (break to two or four items occasionally); "not just X, but Y" / "it's not about X, it's about Y" constructions (rewrite as plain statements); over-balanced symmetrical sentence pairs where both halves mirror (make one half lopsided); throat-clearing transitions ("What I didn't appreciate", "Here's the thing"); em-dash-for-drama (this post had none — don't add them).
+- Reconciled a number contradiction (intro "a tenth" vs takeaways "easy 20%") by aligning intro to "a fifth of the work". Always grep a post for its own internal stats before shipping.
+- A named-then-forgotten proper noun (the "Report Whisperer" agent name) reads like marketing fanfare; cutting it and calling it "the agent" was more natural than forcing a second mention.
+- Tag confirmed: `GitHub Copilot` slugs to existing `ai` slug per decisions.md, so adding it is zero-cost and safe. Never add a new multi-word tag without a slug mapping.
+- Saved a reusable checklist to `.squad/skills/de-ai-prose/SKILL.md`.
+
+### 2026-07-06 — [Scribe] Blog redesign changed the post reading experience (type system)
+
+- The blog was redesigned to "distinctive editorial" (dark-only), implemented and staged for Marcus's review. What matters for content work: **post titles now render in Fraunces** (a display serif) — long, punchy titles read differently in a serif than in the old sans, so eyeball a new title's wrap. **Body copy is Inter** at a ~68–72ch measure; **code is JetBrains Mono** (terminal-chrome blocks preserved). The **single accent is orange `#f97316`**, used only for links/focus and a short kicker rule above `h1`/`h2` — don't expect per-heading color variety anymore.
+- Full record in `.squad/decisions.md` ("Blog Redesign — Distinctive Editorial, Dark-Only"). No copy/IA rewrites were part of this pass — the hero copy and post content are unchanged.
