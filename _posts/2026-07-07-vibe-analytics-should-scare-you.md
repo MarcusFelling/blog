@@ -59,13 +59,19 @@ Most of it is not AI. That is the interesting part.
 
 I currently support 3 agent tools/experiences (GitHub Copilot, Copilot Cowork, and MS Scout). It started out as a [GitHub Copilot custom agent](https://code.visualstudio.com/docs/agent-customization/custom-agents) wired up with several [MCP servers](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). [MCP](https://modelcontextprotocol.io/docs/getting-started/intro), the Model Context Protocol, is the open standard that lets an agent talk to external tools in a consistent way.
 
+### The MCP servers
+
 - The core is [Power BI's remote MCP server](https://learn.microsoft.com/en-us/power-bi/developer/mcp/remote-mcp-server-get-started) (in preview). It keeps two steps apart: generating a [DAX](https://learn.microsoft.com/en-us/dax/) query from a plain-English question, and executing DAX against a [semantic model](https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand) under your identity. A one-off question gets a query generated on the spot, inside the guardrails the cheat sheet sets: the right measures, the required filters. The bigger briefings skip generation and run pre-written DAX straight from the cheat sheets.
-- Some servers suppliment the experience: filing a bug (Azure DevOps) when something looks broken, fetching external market intelligence ([Web IQ](https://webiq.microsoft.ai/)), and
-[Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/) brings in the work context around the numbers. It is Microsoft 365's intelligence layer over your mail, meetings, files, and chats. It pulls that context together for the agent instead of making me stitch it in by hand, so a narrative can put a metric next to what a recent business review actually said about it. Like the Power BI server, it runs scoped to your identity, so it only reaches what you can already see (e.g. meeting recordings).
+- Some servers suppliment the experience:
+    - Azure DevOps: filing a bug when something looks broken
+    -  ([Web IQ](https://webiq.microsoft.ai/)): fetching external market intelligence
+    - [Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/): brings in the work context around the numbers. It is Microsoft 365's intelligence layer over your mail, meetings, files, and chats. It pulls that context together for the agent instead of making me stitch it in by hand, so a narrative can put a metric next to what a recent business review actually said about it. Like the Power BI server, it runs scoped to your identity, so it only reaches what you can already see (e.g. meeting recordings).
+
+### The governed model
 
 The part that makes any of this trustworthy is not the llm, it is the governed semantic model it queries: each one encodes certified business logic, the measures, the agreed definitions of things like revenue and conversion, and the row-level security that decides who sees which slice. It is the shared source of truth, and it is what separates a number you can act on from one that merely looks right. In a medallion architecture, data lands raw (bronze), gets cleaned and conformed (silver), then is shaped into business-ready governed tables (gold), which is the tier you actually let people report on. My team's semantic models live on our Microsoft Fabric gold layer. What I built is a thin natural-language layer that sits on top of these models and queries them in place.
 
-Some of the main components are:
+### The main components
 
 **The agent file.** Routing, workflow, and every mode/command.
 
@@ -73,14 +79,7 @@ Some of the main components are:
 
 **Per-model cheat sheets.** One prompt file per report, in plain markdown, encoding the institutional knowledge: which filters have to go on every single time, which measures are named inconsistently across tables, which dimension value looks like a total but is not, and which measures are quietly wrong and must never feed a narrative. This is the actual product. The LLM is just the thing that reads it.
 
-
 **The execution layer.** Where the query runs: the Power BI remote MCP server in GitHub Copilot, or [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/overview) in the case of Cowork.
-
-Two design decisions that paid off:
-
-**It runs as you.** The Power BI server generates and executes the DAX under your signed-in identity, so any row-level security on the model is enforced by the engine, not the agent. It can't hand back a value your access doesn't already allow. That single property made a lot of security conversations very short.
-
-**The query is opt-in visible.** Ask it to show the query and you get the exact filters, measures, and model it used. No black box, no "just trust the robot."
 
 ## One brain, three front doors
 
