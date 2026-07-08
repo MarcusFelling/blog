@@ -3,6 +3,7 @@ id: 1289
 title: 'An AI Analyst That Shows Its Work'
 date: '2026-07-07'
 description: 'A natural-language analyst that routes plain-English questions to the right governed model, applies the filters people would forget, runs the query under your identity, and shows its work. The twist: most of it is not AI. The real product is institutional knowledge, written down as markdown.'
+excerpt: 'A natural-language analyst that routes plain-English questions to the right governed model, applies the filters people would forget, runs the query under your identity, and shows its work.'
 layout: post
 guid: 'https://marcusfelling.com/?p=1289'
 permalink: /blog/2026/ai-analyst-that-shows-its-work
