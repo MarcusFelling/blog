@@ -10,15 +10,16 @@ thumbnail-img: /content/uploads/2026/07/ask-not-dashboard.webp
 nav-short: true
 tags: [AI, Power BI, Fabric, GitHub Copilot]
 ---
-[Vibe coding](https://en.wikipedia.org/wiki/Vibe_coding) is Andrej Karpathy's term, from a February 2025 post: you describe what you want, the AI writes the code, and, in his words, you "Accept All" and stop reading the diffs.
+To set some context:
 
-[Vibe analytics](https://mitsloan.mit.edu/ideas-made-to-matter/working-definitions/what-is-vibe-analytics) is the same idea pointed at data. MIT Sloan's Michael Schrage calls it vibe coding's cousin: ask a question in plain English and take the answer. That is the part worth questioning. A wrong number looks exactly like a right number, right up until someone acts on it in a leadership meeting.
+- [Vibe coding](https://en.wikipedia.org/wiki/Vibe_coding) is Andrej Karpathy's term, from a February 2025 post: you describe what you want, the AI writes the code, and, in his words, you "Accept All" and stop reading the diffs.
+- [Vibe analytics](https://mitsloan.mit.edu/ideas-made-to-matter/working-definitions/what-is-vibe-analytics) is the same idea pointed at data. MIT Sloan's Michael Schrage calls it vibe coding's cousin: ask a question in plain English and take the answer. That is the part worth questioning. A wrong number looks exactly like a right number, right up until someone acts on it in a leadership meeting.
 
 With this in mind, I built an AI analyst that shows its work. You can ask a business question or generate a briefing; it pulls data across relevant models, grades each area against a performance framework, and writes an actual decision brief: what happened, why it matters, and what to do about it, ending in a ranked action list with owners. This started as a side project around 3 months ago and turned out useful enough that people started using it across our org. It is far enough along now that I want to talk about how it works.
 
 Some context for anyone reading from outside my world: I work at Microsoft, on the analytics team behind the direct-to-consumer Microsoft Store (Microsoft.com), where we sell Surface, Xbox, and Microsoft 365. We aren't short on data. However, it can be a pain in the ass to find where the data lives, stitch it together across a bunch of reports and one-off spreadsheets, and then craft a story out of it.
 
-The goal was never to replace the reports or the analysts. It is to make the trusted layer, built on our Microsoft Fabric gold layer, easier to use, cut the manual stitching, capture the tribal knowledge that makes a number trustworthy, and give us more time to actually make decisions.
+The goal was not to replace the reports or the analysts. It is to make the trusted layer, built on our Microsoft Fabric gold layer, easier to use, cut the manual stitching, capture the tribal knowledge that makes a number trustworthy, and give us more time to actually make decisions.
 
 ## Using it
 
@@ -30,7 +31,7 @@ Three sizes of question, one place to ask.
 
 **Large: an executive readout.** One prompt and it pulls data across every relevant model, grades each area against a performance framework, and writes an actual decision brief: what happened, why it matters, and what to do about it, ending in a ranked action list with owners.
 
-That last one is the kind of readout that could eat up a ton of analyst hours: open a stack of reports, wrangle them into a narrative, reformat for leadership, question a few life choices along the way. Now it comes back in a couple of minutes with its sources attached. Every answer, at every size, can show you the exact query behind it, because "trust me" is not a feature.
+That last one is the kind of readout that could eat up a ton of analyst hours: open a stack of reports, wrangle them into a narrative, reformat for leadership, etc. Now it comes back in a couple of minutes with its sources attached. Every answer, at every size, can show you the exact query behind it, because "trust me" is not a feature.
 
 Here is what that looks like. Ask a plain-English question and the number comes back with its receipt, the source, filters, and period it used:
 
@@ -62,7 +63,7 @@ I currently support 3 agent tools/experiences (GitHub Copilot, Copilot Cowork, a
 - Some servers suppliment the experience: filing a bug (Azure DevOps) when something looks broken, fetching external market intelligence ([Web IQ](https://webiq.microsoft.ai/)), and
 [Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/) brings in the work context around the numbers. It is Microsoft 365's intelligence layer over your mail, meetings, files, and chats. It pulls that context together for the agent instead of making me stitch it in by hand, so a narrative can put a metric next to what a recent business review actually said about it. Like the Power BI server, it runs scoped to your identity, so it only reaches what you can already see (e.g. meeting recordings).
 
-The part that makes any of this trustworthy is not the llml, it is the governed semantic model it queries: each one encodes certified business logic, the measures, the agreed definitions of things like revenue and conversion, and the row-level security that decides who sees which slice. It is the shared source of truth, and it is what separates a number you can act on from one that merely looks right. In a medallion architecture, data lands raw (bronze), gets cleaned and conformed (silver), then is shaped into business-ready governed tables (gold), which is the tier you actually let people report on. My team's semantic models live on our Microsoft Fabric gold layer. What I built is a thin natural-language layer that sits on top of these models and queries them in place.
+The part that makes any of this trustworthy is not the llm, it is the governed semantic model it queries: each one encodes certified business logic, the measures, the agreed definitions of things like revenue and conversion, and the row-level security that decides who sees which slice. It is the shared source of truth, and it is what separates a number you can act on from one that merely looks right. In a medallion architecture, data lands raw (bronze), gets cleaned and conformed (silver), then is shaped into business-ready governed tables (gold), which is the tier you actually let people report on. My team's semantic models live on our Microsoft Fabric gold layer. What I built is a thin natural-language layer that sits on top of these models and queries them in place.
 
 Some of the main components are:
 
@@ -101,7 +102,7 @@ After that, the roadmap is to add more data sources, and deeper embedding into t
 
 ## Stuff I learned
 
-**The AI was the easy part.** Not the twist you expect from a post tagged "AI,". Drop an LLM on your data and you get a confident, plausible, occasionally very wrong number. The hard and valuable work was writing down or being able to reference the tribal knowledge that makes an answer correct; that is the moat.
+**The AI was the easy part.** Drop an LLM on your data and you get a confident, plausible, occasionally very wrong number. The hard and valuable work was writing down or being able to reference the tribal knowledge that makes an answer correct; that is the moat.
 
 **"Show me the query" helps skeptics.** People do not trust a black box, and they are right not to. Letting anyone pop the hood and check the filters and measures converted skeptics faster than any claim I could make about accuracy.
 
