@@ -28,7 +28,38 @@ layout: base
     <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
       <div class="blog-post">
         {% if page.thumbnail-img %}
-          <img src="{{ page.thumbnail-img | relative_url }}" alt="{{ page.thumbnail-alt | default: '' | escape }}" class="img-fluid">
+          {% if page.thumbnail-zoom %}
+            <a href="{{ page.thumbnail-img | relative_url }}" class="image-zoom-trigger" data-image-zoom-trigger aria-haspopup="dialog" aria-controls="image-zoom-dialog" aria-label="Open full-size image: {{ page.thumbnail-alt | default: 'Article image' | escape }}">
+              <img src="{{ page.thumbnail-img | relative_url }}" alt="{{ page.thumbnail-alt | default: '' | escape }}" class="img-fluid">
+              <span class="image-zoom-affordance" aria-hidden="true"><i class="fas fa-expand"></i></span>
+            </a>
+            <dialog class="image-zoom-dialog" id="image-zoom-dialog" data-image-zoom-dialog aria-label="Full-size image viewer">
+              <div class="image-zoom-shell">
+                <div class="image-zoom-toolbar" aria-label="Image zoom controls">
+                  <button type="button" class="image-zoom-control" data-image-zoom-out aria-label="Zoom out" title="Zoom out">
+                    <i class="fas fa-minus" aria-hidden="true"></i>
+                  </button>
+                  <output class="image-zoom-level" data-image-zoom-level aria-live="polite">100%</output>
+                  <button type="button" class="image-zoom-control" data-image-zoom-in aria-label="Zoom in" title="Zoom in">
+                    <i class="fas fa-plus" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="image-zoom-control" data-image-zoom-reset aria-label="Fit image to screen" title="Fit image to screen">
+                    <i class="fas fa-expand-arrows-alt" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="image-zoom-control image-zoom-close" data-image-zoom-close aria-label="Close image viewer" title="Close">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="image-zoom-viewport" data-image-zoom-viewport>
+                  <div class="image-zoom-stage" data-image-zoom-stage>
+                    <img src="{{ page.thumbnail-img | relative_url }}" alt="{{ page.thumbnail-alt | default: '' | escape }}" class="image-zoom-full" data-image-zoom-full>
+                  </div>
+                </div>
+              </div>
+            </dialog>
+          {% else %}
+            <img src="{{ page.thumbnail-img | relative_url }}" alt="{{ page.thumbnail-alt | default: '' | escape }}" class="img-fluid">
+          {% endif %}
         {% endif %}
         {{ content }}
       </div>

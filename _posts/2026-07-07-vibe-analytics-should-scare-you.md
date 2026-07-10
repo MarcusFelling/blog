@@ -7,8 +7,9 @@ excerpt: 'A natural-language analyst that connects evidence across the data land
 layout: post
 guid: 'https://marcusfelling.com/?p=1289'
 permalink: /blog/2026/ai-analyst-that-shows-its-work
-thumbnail-img: /content/uploads/2026/07/ask-not-dashboard.webp
-thumbnail-alt: 'AI analyst interface answering a weekly revenue question with a sourced result and a show-the-query option.'
+thumbnail-img: /content/uploads/2026/07/ai-analyst-data-landscape.webp
+thumbnail-alt: 'Architecture diagram showing GitHub Copilot, Microsoft 365 Copilot Cowork, and Microsoft Scout sharing a canonical agent spec, connected to a combined Power BI remote MCP and Fabric IQ layer with governed semantic models, plus Work IQ, Web IQ, and Azure DevOps MCP.'
+thumbnail-zoom: true
 nav-short: true
 tags: [AI, Power BI, Fabric, GitHub Copilot]
 ---

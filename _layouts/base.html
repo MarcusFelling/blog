@@ -54,6 +54,9 @@ common-ext-js:
   <script src="{{ '/assets/js/search.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/command-palette.js' | relative_url }}"></script>
   <script src="{{ '/assets/js/post-toc.js' | relative_url }}"></script>
+  {% if page.thumbnail-zoom %}
+    <script src="{{ '/assets/js/image-zoom.js' | relative_url }}"></script>
+  {% endif %}
   <script src="{{ '/assets/js/google-analytics.js' | relative_url }}"></script>
 </body>
 </html>

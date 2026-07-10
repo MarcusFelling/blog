@@ -93,9 +93,73 @@ test('homepage card images load successfully', async ({ page }) => {
 test('AI analyst post thumbnail has descriptive alternative text', async ({ page }) => {
   await page.goto('/blog/2026/ai-analyst-that-shows-its-work');
 
-  const thumbnail = page.locator('.blog-post > img').first();
+  const thumbnail = page.locator('.blog-post > .image-zoom-trigger img').first();
   await expect(thumbnail).toHaveAttribute(
     'alt',
-    'AI analyst interface answering a weekly revenue question with a sourced result and a show-the-query option.'
+    'Architecture diagram showing GitHub Copilot, Microsoft 365 Copilot Cowork, and Microsoft Scout sharing a canonical agent spec, connected to a combined Power BI remote MCP and Fabric IQ layer with governed semantic models, plus Work IQ, Web IQ, and Azure DevOps MCP.'
   );
+});
+
+test('AI analyst thumbnail zoom is accessible and limited to its post', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('[data-image-zoom-trigger]')).toHaveCount(0);
+  await expect(page.locator('script[src$="/assets/js/image-zoom.js"]')).toHaveCount(0);
+
+  await page.goto('/blog/2026/ai-analyst-that-shows-its-work');
+
+  const trigger = page.locator('[data-image-zoom-trigger]');
+  const dialog = page.locator('[data-image-zoom-dialog]');
+  const fullImage = page.locator('[data-image-zoom-full]');
+
+  await expect(trigger).toHaveAttribute('aria-haspopup', 'dialog');
+  await trigger.click();
+  await expect(dialog).toBeVisible();
+
+  const initialWidth = await fullImage.evaluate((image: HTMLImageElement) => image.getBoundingClientRect().width);
+  await page.locator('[data-image-zoom-in]').click();
+  await expect(page.locator('[data-image-zoom-level]')).toHaveText('150%');
+  const zoomedWidth = await fullImage.evaluate((image: HTMLImageElement) => image.getBoundingClientRect().width);
+  expect(zoomedWidth).toBeGreaterThan(initialWidth);
+
+  await page.keyboard.press('Escape');
+  await expect(dialog).not.toBeVisible();
+  await expect(trigger).toBeFocused();
+});
+
+test('AI analyst thumbnail zoom remains usable on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/blog/2026/ai-analyst-that-shows-its-work');
+
+  const pageWidth = await page.evaluate(() => ({
+    client: document.documentElement.clientWidth,
+    scroll: document.documentElement.scrollWidth,
+  }));
+  expect(pageWidth.scroll).toBe(pageWidth.client);
+
+  await page.locator('[data-image-zoom-trigger]').click();
+  await expect(page.locator('[data-image-zoom-dialog]')).toBeVisible();
+  await expect(page.locator('[data-image-zoom-level]')).toHaveText('150%');
+
+  const layout = await page.locator('[data-image-zoom-dialog]').evaluate((dialog) => {
+    const toolbar = dialog.querySelector('.image-zoom-toolbar') as HTMLElement;
+    const viewport = dialog.querySelector('[data-image-zoom-viewport]') as HTMLElement;
+    const controls = Array.from(dialog.querySelectorAll('.image-zoom-control')) as HTMLElement[];
+
+    return {
+      toolbarRight: toolbar.getBoundingClientRect().right,
+      dialogRight: dialog.getBoundingClientRect().right,
+      hasHorizontalPan: viewport.scrollWidth > viewport.clientWidth,
+      controlSizes: controls.map((control) => ({
+        width: control.getBoundingClientRect().width,
+        height: control.getBoundingClientRect().height,
+      })),
+    };
+  });
+
+  expect(layout.toolbarRight).toBeLessThanOrEqual(layout.dialogRight);
+  expect(layout.hasHorizontalPan).toBe(true);
+  for (const size of layout.controlSizes) {
+    expect(size.width).toBeGreaterThanOrEqual(44);
+    expect(size.height).toBeGreaterThanOrEqual(44);
+  }
 });
