@@ -28,7 +28,7 @@ layout: base
     <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
       <div class="blog-post">
         {% if page.thumbnail-img %}
-          <img src="{{ page.thumbnail-img | relative_url }}" alt="Thumbnail Image" class="img-fluid">
+          <img src="{{ page.thumbnail-img | relative_url }}" alt="{{ page.thumbnail-alt | default: '' | escape }}" class="img-fluid">
         {% endif %}
         {{ content }}
       </div>

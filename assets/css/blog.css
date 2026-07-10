@@ -725,6 +725,7 @@ header a:hover {
   font-weight: 800;
   letter-spacing: -0.5px;
   font-size: 1.05rem;
+  white-space: nowrap;
 }
 
 /* Flat masthead — depth from a 1px hairline, not blur (Fenster §3) */
@@ -744,11 +745,13 @@ header a:hover {
   display: flex;
   align-items: center;
   gap: 0.55rem;
+  min-width: 0;
   color: #f1f6fa !important;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-utility-group {
@@ -1540,6 +1543,15 @@ footer .fas:hover,
 
 /* Extra small devices - better handling */
 @media (max-width: 400px) {
+  .post-heading h1 {
+    font-size: 1.9rem;
+    line-height: 1.1;
+  }
+
+  .brand span {
+    font-size: 0.95rem;
+  }
+
   .post-card-image-container {
     height: 160px;
   }
@@ -2206,6 +2218,7 @@ textarea {
 /* ===== READING TIME ===== */
 .reading-time {
   color: var(--mid-col);
+  white-space: nowrap;
 }
 
 /* ===== 14. COMMAND PALETTE ===== */
