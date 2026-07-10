@@ -96,6 +96,6 @@ test('AI analyst post thumbnail has descriptive alternative text', async ({ page
   const thumbnail = page.locator('.blog-post > img').first();
   await expect(thumbnail).toHaveAttribute(
     'alt',
-    'AI analyst interface answering a weekly revenue question with a sourced result and a show-the-query option.'
+    'Architecture diagram showing GitHub Copilot, Microsoft 365 Copilot Cowork, and Microsoft Scout sharing a canonical agent spec, connected to a combined Power BI remote MCP and Fabric IQ layer with governed semantic models, plus Work IQ, Web IQ, and Azure DevOps MCP.'
   );
 });
