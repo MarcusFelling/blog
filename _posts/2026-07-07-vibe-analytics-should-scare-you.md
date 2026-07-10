@@ -132,6 +132,6 @@ After that, the roadmap is to add more data sources and embed the analyst more d
 
 ## Wrapping up
 
-The useful lesson is not that an LLM can write a briefing. It is that governed models, explicit routing, documented exceptions, and reviewable queries can turn a plain-English answer into something a person can verify. The hard problem now is testing that contract end to end.
+The useful lesson is not that an LLM can write a briefing. It is that governed models, explicit routing, documented exceptions, and reviewable queries can turn a plain-English answer into something a person can verify. What I still need to automate is checking the whole run: that the agent picks the right model, keeps the required filters, and only writes numbers returned by a query.
 
 If you are building something similar, I would like to compare how you encode business rules and test that every narrative claim traces back to a query result.
