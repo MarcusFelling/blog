@@ -64,7 +64,7 @@ I currently support three hosts: GitHub Copilot, Microsoft 365 Copilot Cowork, a
 
 - The core is [Power BI's remote MCP server](https://learn.microsoft.com/en-us/power-bi/developer/mcp/remote-mcp-server-get-started) (in preview). It separates two steps: generating a [DAX](https://learn.microsoft.com/en-us/dax/) query from a plain-English question and executing it against a [semantic model](https://learn.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand) under your identity. A one-off question gets a query generated inside the guardrails set by the model guidance: the right measures and required filters. Bigger briefings skip generation and run prewritten DAX from those files.
 - Other tools extend the workflow:
-    - Azure DevOps files a bug when something looks broken.
+    - The [Azure DevOps MCP Server](https://github.com/microsoft/azure-devops-mcp) files a bug when something looks broken.
     - [Web IQ](https://webiq.microsoft.ai/) fetches external market intelligence.
     - [Work IQ](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/) brings in work context from Microsoft 365, such as files, meetings, mail, and chats. It runs under your identity, so it only reaches content you can already access.
 
