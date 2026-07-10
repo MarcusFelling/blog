@@ -32,7 +32,7 @@ Three sizes of question, one place to ask.
 
 **Large: an executive readout.** One prompt and it pulls data across every relevant model, grades each area against a performance framework, and writes an actual decision brief: what happened, why it matters, and what to do about it, ending in a ranked action list with owners.
 
-That last one is the kind of readout that can consume hours: open a stack of reports, wrangle them into a narrative, and format it for leadership. Now it comes back in a couple of minutes with its sources attached. Every answer, at every size, can show you the exact query behind it, because "trust me" is not a feature.
+The executive readout is where this saves the most time. Before this, putting one together meant opening a stack of reports, lining up the numbers, writing the narrative, and formatting it for leadership. The agent can do that in a couple of minutes and attach the sources. You can still inspect the query behind any answer, because "trust me" is not a feature.
 
 Here is what that looks like. Ask a plain-English question and the number comes back with its receipt, the source, filters, and period it used:
 
