@@ -89,3 +89,13 @@ test('homepage card images load successfully', async ({ page }) => {
     }).toPass({ timeout: 5000 });
   }
 });
+
+test('AI analyst post thumbnail has descriptive alternative text', async ({ page }) => {
+  await page.goto('/blog/2026/ai-analyst-that-shows-its-work');
+
+  const thumbnail = page.locator('.blog-post > img').first();
+  await expect(thumbnail).toHaveAttribute(
+    'alt',
+    'AI analyst interface answering a weekly revenue question with a sourced result and a show-the-query option.'
+  );
+});
