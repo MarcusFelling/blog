@@ -132,6 +132,6 @@ After that, the roadmap is to add more data sources and embed the analyst more d
 
 ## Wrapping up
 
-The useful lesson is not that an LLM can write a briefing. It is that governed models, explicit routing, documented exceptions, and reviewable queries can turn a plain-English answer into something a person can verify. What I still need to automate is checking the whole run: that the agent picks the right model, keeps the required filters, and only writes numbers returned by a query.
+This is how I want data questions to work: ask in plain English, pull the answer from the right governed models, and keep the evidence attached. The source, filters, and query are already there when you need to review it.
 
-If you are building something similar, I would like to compare how you encode business rules and test that every narrative claim traces back to a query result.
+If you are building something similar, I would love to compare notes on how you encode business rules and keep the work reviewable.
