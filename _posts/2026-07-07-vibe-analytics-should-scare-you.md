@@ -2,7 +2,7 @@
 id: 1289
 title: 'An AI Analyst That Shows Its Work'
 date: '2026-07-07'
-description: 'A natural-language analyst that connects evidence across the data landscape, routes questions to governed models, applies the required filters, runs queries under your identity, and shows its work. The twist: most of it is not AI. The real product is institutional knowledge, written down as markdown.'
+description: 'A natural-language analyst that connects evidence across the data landscape, routes questions to governed models, applies the required filters, runs queries under your identity, and shows its work. The LLM handles the conversation; governed models and model-specific guidance determine how each question is answered.'
 excerpt: 'A natural-language analyst that connects evidence across the data landscape, routes questions to governed models, and shows its work.'
 layout: post
 guid: 'https://marcusfelling.com/?p=1289'
@@ -56,7 +56,7 @@ ROW( "Metric A",
 
 ## How it actually works
 
-Most of it is not AI. That is the interesting part.
+The LLM handles the conversation. Routing, model guidance, and query execution are what make the answers useful.
 
 I currently support three hosts: GitHub Copilot, Microsoft 365 Copilot Cowork, and Microsoft Scout. It started as a [GitHub Copilot custom agent](https://code.visualstudio.com/docs/agent-customization/custom-agents) wired up with several [MCP servers](https://code.visualstudio.com/docs/copilot/chat/mcp-servers). [MCP](https://modelcontextprotocol.io/docs/getting-started/intro), the Model Context Protocol, is the open standard that lets an agent talk to external tools in a consistent way.
 
