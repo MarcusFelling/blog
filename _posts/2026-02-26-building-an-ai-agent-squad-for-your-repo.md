@@ -11,13 +11,13 @@ nav-short: true
 tags: [AI]
 ---
 
-What if your repo had a whole team of AI agents: a lead, a frontend dev, a tester, a content writer, each with their own context window, persistent memory, and defined boundaries? That's exactly what [Squad](https://github.com/bradygaster/squad) gives you.
+[Squad](https://github.com/bradygaster/squad) gives your repo a team of AI agents: a lead, a frontend dev, a tester, and a content writer, each with a separate context window, persistent memory, and defined boundaries.
 
-[Squad](https://github.com/bradygaster/squad) is an open-source framework conceived by [Brady Gaster](https://github.com/bradygaster) that creates an AI development team through GitHub Copilot. You describe what you're building, and Squad proposes a team of specialists that live in your repo as files. They persist across sessions, learn your codebase, share decisions, and get better the more you use them.
+[Brady Gaster](https://github.com/bradygaster) created the open-source framework to build AI development teams through GitHub Copilot. You describe what you're building, and Squad proposes a team of specialists that live in your repo as files. They persist across sessions, learn your codebase, share decisions, and improve as you use them.
 
-This isn't one chatbot swapping hats between answers. Each team member runs in its own context, reads only its own knowledge, and writes back what it learned.
+Each team member runs in its own context, reads its own knowledge, and writes back what it learned.
 
-I set it up for the repo of this blog. Here's what I learned.
+I set it up for the repo behind this blog.
 
 ## Installing Squad
 
@@ -36,7 +36,7 @@ Then open Copilot in VS Code, type `@squad`, and tell it what you're building:
 I'm starting a new project. Set up the team.
 ```
 
-Squad proposes a team, each member named from a persistent thematic cast. You say yes. They're ready.
+Squad proposes a team with names from a persistent thematic cast. Once you approve it, the team is ready.
 
 ## The Team
 
@@ -49,9 +49,9 @@ Squad generated a team tailored to my blog's needs:
 - 📋 **Scribe** / Session logger: decisions, session summaries
 - 🔄 **Ralph** / Work monitor: backlog, issue triage, CI monitoring
 
-The names come from a persistent casting system. Once assigned, they stick. Anyone who clones the repo gets the same team with the same cast.
+The casting system keeps each name after assignment, so a teammate who clones the repo gets the same team and cast.
 
-Each agent has a **charter** (`charter.md`) that defines scope and boundaries: what they own, what files they can modify, and critically, what they *don't* touch. Kaylee owns CSS but never writes tests. Wash owns blog posts but never touches layout. These boundaries prevent agents from stepping on each other.
+Each agent has a **charter** (`charter.md`) that defines scope and boundaries: what they own, what files they can modify, and what they *don't* touch. Kaylee owns CSS but never writes tests. Wash owns blog posts but never touches layout. These boundaries prevent agents from stepping on each other.
 
 ## What Gets Created
 
@@ -80,11 +80,11 @@ Everything lives in a `.squad/` directory:
 └── log/               # Session history
 ```
 
-Commit this folder. Your team persists. Names persist. It's all in git.
+Commit this folder, and the team's names and knowledge persist in git.
 
 ## Parallel Agents, Not Sequential
 
-This is the part I didn't see coming. When you give Squad a task, the coordinator launches every agent that can usefully start, all at the same time:
+I did not expect Squad to run work in parallel. When you give it a task, the coordinator launches all relevant agents at once:
 
 ```text
 You: "Team, redesign the blog"
@@ -94,9 +94,9 @@ You: "Team, redesign the blog"
   📋 Scribe → logging everything
 ```
 
-When agents finish, the coordinator immediately chains follow-up work. Tests reveal edge cases, another agent picks them up, no waiting for you to ask.
+As agents finish, the coordinator chains follow-up work. A test can expose an edge case, and another agent can pick it up without waiting for you to ask.
 
-Each agent gets its own context window. With Claude Sonnet 4 or Claude Opus 4's 200K token window, and the coordinator kept thin, each agent has ~78–83% of its context available for actual work. Fan out to 5 agents and you're working with ~1M tokens of total reasoning capacity.
+Each agent gets its own context window. With Claude Sonnet 4 or Claude Opus 4's 200K token window, a lightweight coordinator leaves each agent ~78–83% of its context for project work. Fan out to 5 agents and you're working with ~1M tokens of total reasoning capacity.
 
 ## Knowledge That Compounds
 
@@ -117,16 +117,16 @@ Framework, first cases → Edge case catalog → Regression patterns, coverage g
 
 Squad ties into GitHub Issues with a labeling workflow:
 
-1. Label an issue `squad`. The Lead auto-triages it, determines who should handle it, and applies the right `squad:{member}` label.
-2. The assigned member picks up the issue in their next Copilot session (or automatically if Copilot coding agent is enabled).
-3. Labels sync automatically from your team roster via the `sync-squad-labels` workflow.
+1. Label an issue `squad`. The Lead triages it, determines who should handle it, and applies the right `squad:{member}` label.
+2. The assigned member picks up the issue in their next Copilot session. Copilot coding agent can pick it up sooner when enabled.
+3. The `sync-squad-labels` workflow syncs labels from your team roster.
 
-## What I Learned
+## Lessons From Using It
 
 **The first session is the least capable.** Knowledge compounds. By the third or fourth session, agents were making decisions based on prior context without me having to repeat anything.
 
-**Boundaries matter more than capabilities.** Clear charters that define what an agent *doesn't* do are more important than what it can do. Overlap is the enemy.
+**Clear charters need explicit exclusions.** Define what each agent owns and what it cannot touch. That separation keeps agents from duplicating or conflicting with one another.
 
-**The Scribe quietly does the most valuable work.** Coming back the next day to a searchable log of every decision and session means I never have to reconstruct what past-me was thinking. Context doesn't get lost.
+**The Scribe does the most valuable work for me.** Its searchable log of decisions and sessions saves me from reconstructing what past-me was thinking the next day.
 
-If you're using GitHub Copilot for your repo(s) today, give Squad a try. The jump from one agent to a coordinated team is pretty awesome, and it all lives in git.
+If you're using GitHub Copilot for your repo today, give Squad a try. It splits work across separate contexts while keeping the team configuration in git.
