@@ -1,8 +1,8 @@
 ---
 id: 1276
-title: 'Shipping an AI Agent MVP: What Actually Worked'
+title: 'Shipping an AI Agent MVP: What Worked'
 date: '2026-01-20'
-description: 'Shipping an AI Agent MVP: What Actually Worked'
+description: 'Shipping an AI Agent MVP: What Worked'
 layout: post
 guid: 'https://marcusfelling.com/?p=1276'
 permalink: /blog/2026/three-day-hackathon-shipping-ai-agent-mvps
@@ -11,58 +11,56 @@ nav-short: true
 tags: [AI]
 ---
 
-I recently led a 3 day hackathon to build an AI solution that streamlines our monthly business reviews for our Microsoft direct sales ecommerce store (think Surface devices, M365, Xbox). Our team had been spending way too much time talking at high levels and planning what to build; this was an opportunity to dive in and start executing. In this post I'll summarize the practical lessons learned from the experience.
+I led a three-day hackathon to build an AI solution that streamlines monthly business reviews for our Microsoft direct-sales ecommerce store, including Surface devices, Microsoft 365, and Xbox. Our team had spent too much time on high-level planning. The hackathon gave us three days to move from planning to execution.
 
-To set some context, our team builds on [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview) (data analytics SaaS platform) which recently announced [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/overview) that included new features/capabilities such as Ontology and Data Agents, so the timing worked out great to kick the tires on what's actually possible in practice.
+Our team builds on [Microsoft Fabric](https://learn.microsoft.com/en-us/fabric/fundamentals/microsoft-fabric-overview), a data analytics SaaS platform. Microsoft announced [Fabric IQ](https://learn.microsoft.com/en-us/fabric/iq/overview), including Ontology and Data Agents, before the hackathon, so we tested those capabilities in a real scenario.
 
 ---
 
 ## TL;DR
 
-- **Start with the real problem**, not the tools
-- **Cut scope ruthlessly** and ship something valuable, not everything
-- **Keep the delivery simple** while you're figuring out if it even works
+- **Start with the business problem**
+- **Cut scope to a useful MVP**
+- **Use a simple delivery path for the first test**
 - **Break big agents into smaller**, more focused sub agents
 - **Engage stakeholders** throughout the process
 - **Test often** and iterate fast
 
 ## Begin With a Clear Business Problem
 
-Instead of jumping straight into tool selection, we focused on understanding the problem first. Before the hack, we had a brainstorming session to come up with a list of high impact use cases we could tackle. We landed on preparing monthly business reviews, specifically, analyzing KPI shifts, and writing up narratives. This takes our team a lot of time (hundreds of hours) and a lot of it gets repeated every single month. That helped us figure out what actually needed automating and what value an AI agent could realistically add in three days.
+We began by defining the problem. Before the hack, we listed candidate use cases and chose monthly business review preparation: analyzing KPI shifts and writing narratives. The team spends hundreds of hours on this work each month. We used that scope to identify what needed automation and what an AI agent could deliver in three days.
 
-When we talked to stakeholders, they were pretty clear about what they needed: spot the biggest KPI moves, connect those changes to contextual factors, and provide concise summaries for leadership review. Those requirements told us which agent capabilities actually mattered and confirmed that building KPI and commentary prototypes was worth the effort.
+Stakeholders asked us to spot the biggest KPI moves, connect those changes to contextual factors, and provide concise summaries for leadership review. We used those requirements to prioritize KPI analysis and commentary prototypes.
 
-## Reduce Scope Early and Create a Practical MVP
+## Reduce Scope and Create a Practical MVP
 
-There are a ton of options when it comes to user experience and how stakeholders would interact with our agents. To keep it simple, we decided the MVP would generate insights on a schedule and deliver them by email. It was more important that we get the outputs in the hands of the stakeholders ASAP to provide feedback and validate, than spend a bunch of time on a polished interface that provided garbage outputs.
+We needed a way for stakeholders to receive the agent's output. For the MVP, we scheduled insight generation and delivered the result by email. Email put outputs in stakeholders' hands fast, so they could validate the content before we invested in a polished interface.
 
-From a tooling perspective, this allowed us to leverage tools we already had experience with to move fast: we chose Logic Apps to orchestrate Fabric data agents, passing outputs as variables, and merging them together to send the final email. There was quite a learning curve that came with ramping up on AI native orchestrators (Copilot Studio, AI Foundry, etc.) and environment setup, that just wasn't realistic for a 3 day timeline.
+We also chose tools we knew. Logic Apps orchestrated the Fabric data agents, passed outputs as variables, and merged them into the final email. Learning Copilot Studio or AI Foundry and setting up their environments would have consumed most of the three-day hackathon.
 
 ## Break Big Agents Into Smaller, More Focused Sub Agents
 
-We started with a plan for two big agents: one for KPI analysis, one for writing narratives. As we threw more and more data sources at our agents, we found their accuracy turned to slop. We moved to finely scoped sub agents that were specialized for their tasks. We stripped out tables and measures we didn't need, cleaned up the filtering logic, and set the agents to use narrower data sources. Those tweaks stabilized things and made sure each piece was actually doing what it was supposed to do. When we split up the work and trimmed unnecessary complexity from the agents, **accuracy went way up**. We now have 6 (and growing) specialized agents...
+We started with a plan for two big agents: one for KPI analysis and one for writing narratives. As we added data sources, their accuracy turned to slop. We split them into specialized subagents with narrow scopes. We stripped out tables and measures we didn't need, cleaned up the filtering logic, and set the agents to use narrower data sources. Narrowing the scope this way stabilized the output and improved accuracy. The prototype grew to six specialized agents.
 
 ### Lessons Learned: Fabric Data Agents
 
-Specific to Fabric data agents, we experienced issues like using incorrect DAX queries and tables/columns that weren't even in scope. To overcome this, we implemented a few practices:
+Fabric data agents sometimes generated incorrect DAX or referenced tables and columns outside their scope. We responded with four practices:
 
 > **Good Practices for Fabric Data Agents:**
 > 
-> - Keep the Semantic Model as clear as possible, especially custom DAX measures
+> - Keep the semantic model and its custom DAX measures clear
 > - Use the [Prepare your data for AI](https://learn.microsoft.com/en-us/power-bi/create-reports/copilot-prepare-data-ai) tool on the published semantic model
-> - Select only the essential measures and tables when creating the agent
+> - Select the essential measures and tables when creating the agent
 > - Provide explicit instructions to the agent about when it should perform its own calculations
 
 ## Engage Stakeholders Throughout the Process
 
-Having stakeholders involved throughout the hackathon was **extremely valuable**. This helped us continuously validate what we were building and speed up the feedback loop. Which KPI moves actually mattered, how they wanted the summaries written, and what context was missing, etc. Bringing them in early meant we didn't waste time building stuff nobody wanted. We could pivot fast based on what they told us.
-
-> **Key Insight:** Early stakeholder engagement turned potential weeks of rework into hours of quick adjustments. Their feedback directly shaped which agents we prioritized and how we structured the outputs.
+Stakeholders reviewed the work throughout the hackathon, which shortened the feedback loop. They told us which KPI moves mattered, how they wanted the summaries written, and what context was missing. Their early feedback kept us from building features nobody wanted and let us adjust the prototypes during the hackathon.
 
 ---
 
 ## Closing Thoughts
 
-Three days gave us a chance to see what AI-powered agents could actually do. And honestly, it showed that with a tight timeline, you can still ship something real if you **nail the problem**, **keep scope tight**, and **iterate like crazy**.
+In three days, we tested AI agents against a real monthly-review workflow. A clear problem and tight scope let us ship a working prototype. Stakeholder feedback guided each adjustment.
 
-Since the hackathon, we've come a long way with our solution but this gave us a jump start on the work.
+The three-day prototype gave us the starting point for the solution we continued to build.
