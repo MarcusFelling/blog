@@ -15,13 +15,13 @@ tags: [AI, Power BI, Fabric, GitHub Copilot]
 ---
 Ask an AI tool a data question and you can get an answer that sounds finished while using the wrong measure, skipping assumed filters, or querying the wrong source. [Vibe analytics](https://mitsloan.mit.edu/ideas-made-to-matter/working-definitions/what-is-vibe-analytics) means taking that answer at face value. The name borrows from [vibe coding](https://en.wikipedia.org/wiki/Vibe_coding), Andrej Karpathy's term for letting AI write code and accepting it without reading the diffs.
 
-I built this analyst to keep the speed and expose the work. For a focused question, it finds the governed semantic model that owns the answer. For a broader briefing, it can pull evidence together across the data landscape. The analyst runs queries under the user's identity and includes its sources, periods, and filters with each answer. Type `show dax` to see the query. The LLM handles the conversation; institutional knowledge defines what a correct answer requires.
+I built an AI analyst to keep the speed and expose the work. For a focused question, it finds the governed semantic model that owns the answer. For a broader briefing, it can pull evidence together across the data landscape. The analyst runs queries under the user's identity and includes its sources, periods, and filters with each answer. Type `show dax` to see the query. The LLM handles the conversation; institutional knowledge defines what a correct answer requires.
 
 I started this as a side project around three months ago. People across our org use it, and I want to explain how it works.
 
 I work at Microsoft on an analytics team supporting a large ecommerce business. We have plenty of data. Finding where it lives, stitching it together across reports and one-off spreadsheets, and crafting a story can be a pain in the ass.
 
-The analyst complements reports and analysts. It makes the governed semantic models built over our Microsoft Fabric gold layer easier to use, cuts the manual stitching, captures the institutional knowledge that makes a number trustworthy, and gives us more time to make decisions.
+The AI analyst complements reports and human analysts. It makes the governed semantic models built over our Microsoft Fabric gold layer easier to use, cuts the manual stitching, captures the institutional knowledge that makes a number trustworthy, and gives us more time to make decisions.
 
 ## Using it
 
