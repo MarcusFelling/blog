@@ -25,7 +25,7 @@ The AI analyst complements reports and human analysts. It makes the governed sem
 
 ## Using it
 
-I use it for three sizes of question in one place.
+It handles three sizes of question in one place.
 
 **Small: a single metric.** "What was yesterday's value for Metric A?" It picks the right semantic model and hands you the number.
 
@@ -33,7 +33,7 @@ I use it for three sizes of question in one place.
 
 **Large: an executive readout.** One prompt pulls data across each relevant model, grades each area against a performance framework, and writes a decision brief: what happened, why it matters, and what to do about it, ending in a ranked action list with owners.
 
-The executive readout saves me the most time. Before the agent, putting one together meant opening a stack of reports, lining up the numbers, writing the narrative, and formatting it for leadership. The agent can do that in a couple of minutes and attach the sources. I can inspect the query behind any answer and verify its filters and measures.
+I built the executive readout for people who need to turn a stack of reports into a leadership brief. Doing that manually means lining up the numbers, writing the narrative, and formatting the result. The agent can do that in a couple of minutes and attach the sources. Users can inspect the query behind any answer and verify its filters and measures.
 
 Ask a plain-English question and the answer includes its receipt: the source, filters, and period used.
 
