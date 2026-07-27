@@ -68,6 +68,48 @@ test('should render the newest post as the full-width featured lead card', async
   await expect(page.locator('.post-card--featured')).toHaveCount(1);
 });
 
+test('the featured lead is labelled and offers a read affordance', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('');
+
+  const featured = page.locator('.post-card--featured');
+
+  // Without the eyebrow the Fraunces title reads as a second hero headline
+  // (uppercased via CSS, so assert the source text case-insensitively)
+  await expect(featured.locator('.post-card-eyebrow')).toHaveText(/^latest post$/i);
+  await expect(featured.locator('.post-card-cta')).toBeVisible();
+
+  // The CTA is a span, not a nested link — the whole card is already one anchor
+  await expect(featured.locator('a')).toHaveCount(1);
+});
+
+test('the featured lead image fills its column instead of letterboxing', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('', { waitUntil: 'load' });
+
+  const container = page.locator('.post-card--featured .post-card-image-container');
+  if ((await container.count()) === 0) return; // newest post has no thumbnail
+
+  const img = page.locator('.post-card--featured .post-card-image');
+  await expect(async () => {
+    const w = await img.evaluate((el: HTMLImageElement) => el.naturalWidth);
+    expect(w).toBeGreaterThan(0);
+  }).toPass({ timeout: 5000 });
+
+  const box = await container.boundingBox();
+  const imgBox = await img.boundingBox();
+  expect(box).not.toBeNull();
+  expect(imgBox).not.toBeNull();
+
+  // object-fit:contain matches one axis exactly; the index-card max-height:200px
+  // and the legacy height:180px must not cap the lead (that left ~70px of dead
+  // gutter either side of a 1440x800 asset).
+  const fillsWidth = imgBox!.width >= box!.width * 0.97;
+  const fillsHeight = imgBox!.height >= box!.height * 0.97;
+  expect(fillsWidth || fillsHeight).toBe(true);
+  expect(imgBox!.height).toBeGreaterThan(200);
+});
+
 test('should render a plain Popular list of links (no counters, no emoji)', async ({ page }) => {
   await page.goto('');
 

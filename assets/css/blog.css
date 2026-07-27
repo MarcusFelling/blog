@@ -3277,7 +3277,7 @@ body.modern {
 .post-card.modern-card .post-card-excerpt { font-size:.9rem; line-height:1.56; color:var(--text-secondary); margin-top:.6rem; flex-grow:1; }
 .post-card.modern-card .post-card-meta { font-size: var(--type-meta); letter-spacing:.02em; color:var(--text-muted); margin-top:.95rem; display:flex; align-items:center; gap:.4rem; }
 
-/* ===== FEATURED (newest) post — full-width lead, Fraunces title (Fenster §2.3) =====
+/* ===== FEATURED (newest) post — labelled full-width lead (Fenster §2.3) =====
  * Selectors carry .post-card.modern-card too, so they outrank the base card
  * rules (which are .post-card.modern-card ...) rather than losing to them. */
 .post-card.modern-card.post-card--featured {
@@ -3291,14 +3291,72 @@ body.modern {
 }
 .post-card.modern-card.post-card--featured:hover,
 .post-card.modern-card.post-card--featured:focus-within { transform: none; border-color: var(--border); box-shadow: none; }
-.post-card.modern-card.post-card--featured .post-card-link { flex-direction: row-reverse; align-items: stretch; gap: clamp(1.25rem, 3vw, 2.5rem); }
-.post-card.modern-card.post-card--featured .post-card-image-container { flex: 0 0 40%; border: 0; border-radius: var(--radius-md); min-height: 220px; }
+.post-card.modern-card.post-card--featured .post-card-link { flex-direction: row-reverse; align-items: center; gap: clamp(1.5rem, 3.5vw, 3rem); }
+/* The image fills its column. Without these overrides the index-card rules
+ * (max-height:200px, width/height:auto) cap the lead — a 1440x800 asset landed
+ * at 360x200 inside a 500px column, leaving ~70px of dead gutter either side. */
+.post-card.modern-card.post-card--featured .post-card-image-container {
+  flex: 0 0 40%;
+  border: 0;
+  border-radius: var(--radius-md);
+  /* height:auto is load-bearing — the legacy §7 `.post-card-image-container
+   * { height: 180px }` otherwise wins (nothing else sets `height`) and
+   * aspect-ratio never gets to size the box. */
+  height: auto;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+}
+.post-card.modern-card.post-card--featured .post-card-image {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: none;
+  object-fit: contain;
+}
 .post-card.modern-card.post-card--featured .post-card-content { flex: 1 1 60%; padding: 0; justify-content: center; }
-.post-card.modern-card.post-card--featured .post-card-title { font-family: var(--font-display); font-size: var(--type-featured); font-weight: 540; line-height: 1.1; letter-spacing: -0.01em; }
-.post-card.modern-card.post-card--featured .post-card-excerpt { font-size: var(--type-body); line-height: var(--lh-body); max-width: 60ch; margin-top: .85rem; }
+/* The eyebrow is what tells a reader this is the newest post rather than a
+ * second hero headline; the orange rule is the site's one heading marker. */
+.post-card.modern-card.post-card--featured .post-card-eyebrow {
+  font-size: var(--type-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 0.7rem;
+}
+.post-card.modern-card.post-card--featured .post-card-eyebrow::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  margin-bottom: 0.75rem;
+}
+.post-card.modern-card.post-card--featured .post-card-title { font-family: var(--font-display); font-size: var(--type-featured); font-weight: 540; line-height: 1.1; letter-spacing: -0.01em; margin-top: 0; }
+/* flex-grow:0 undoes the index-card rule that otherwise strands the meta line
+ * at the bottom of the column, away from the copy it belongs to. */
+.post-card.modern-card.post-card--featured .post-card-excerpt { font-size: var(--type-body); line-height: var(--lh-body); max-width: 60ch; margin-top: .85rem; flex-grow: 0; }
 .post-card.modern-card.post-card--featured .post-card-meta { margin-top: 1rem; }
+.post-card.modern-card.post-card--featured .post-card-cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: .5ch;
+  margin-top: 1.1rem;
+  color: var(--accent);
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+.post-card.modern-card.post-card--featured .post-card-cta i { font-size: .7em; transition: transform .2s var(--ease-out); }
+.post-card.modern-card.post-card--featured:hover .post-card-cta i,
+.post-card.modern-card.post-card--featured:focus-within .post-card-cta i { transform: translateX(3px); }
 .post-card.modern-card.post-card--featured:hover .post-card-title,
 .post-card.modern-card.post-card--featured:focus-within .post-card-title { color: var(--accent); }
+/* No thumbnail: use the full measure instead of leaving the image column empty. */
+.post-card.modern-card.post-card--featured-text .post-card-link { display: block; }
+.post-card.modern-card.post-card--featured-text .post-card-excerpt { max-width: var(--measure); }
 /* Browse full archive — a single quiet ghost text link (Fenster §2.5) */
 .browse-archive-btn { text-align:center; margin: clamp(2rem, 4vw, 3rem) 0 1.6rem; }
 .browse-archive-btn a { display:inline-flex; align-items:center; gap:.5ch; min-height:44px; padding:.5rem .35rem; color: var(--accent); font-size:.9rem; font-weight:600; letter-spacing:.01em; text-decoration:none; transition: color var(--transition); }
@@ -3339,7 +3397,7 @@ a:focus-visible { outline:2px solid var(--focus-ring); outline-offset:2px; }
 }
 @media (max-width: 640px) {
   .post-card.modern-card.post-card--featured .post-card-link { flex-direction: column; gap: 1rem; }
-  .post-card.modern-card.post-card--featured .post-card-image-container { flex: 0 0 auto; width: 100%; min-height: 180px; }
+  .post-card.modern-card.post-card--featured .post-card-image-container { flex: 0 0 auto; width: 100%; }
   .post-card.modern-card.post-card--featured .post-card-content { padding: 0; }
 }
 @media (max-width: 520px) {
