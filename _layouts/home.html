@@ -33,19 +33,23 @@ layout: base
   2-col (641-1024px) breakpoints — hence limit:13, not 12.{% endcomment %}
   {% for post in site.posts limit: 13 %}
     {% if forloop.first %}
-    {% comment %}Featured (newest) post — full-width lead, Fraunces title{% endcomment %}
-    <article class="post-card modern-card post-card--featured fade-in-up" style="--delay:240;">
-      <a href="{{ post.url | relative_url }}" class="post-card-link" aria-label="Read: {{ post.title | escape }}">
+    {% comment %}Featured (newest) post — labelled full-width lead, Fraunces title.
+    Without a thumbnail the card gets .post-card--featured-text so the copy uses the
+    full measure instead of leaving the 40% image column empty.{% endcomment %}
+    <article class="post-card modern-card post-card--featured{% unless post.thumbnail-img or post.cover-img %} post-card--featured-text{% endunless %} fade-in-up" style="--delay:240;">
+      <a href="{{ post.url | relative_url }}" class="post-card-link" aria-label="Latest post: {{ post.title | escape }}">
         {% if post.thumbnail-img or post.cover-img %}
+        {% comment %}Above the fold, so this is the LCP element — never lazy-loaded.{% endcomment %}
         <div class="post-card-image-container" aria-hidden="true">
           {% if post.thumbnail-img %}
-            <img src="{{ post.thumbnail-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
+            <img src="{{ post.thumbnail-img | relative_url }}" alt="" class="post-card-image" loading="eager" fetchpriority="high" decoding="async" />
           {% else %}
-            <img src="{{ post.cover-img | relative_url }}" alt="" class="post-card-image" loading="lazy" />
+            <img src="{{ post.cover-img | relative_url }}" alt="" class="post-card-image" loading="eager" fetchpriority="high" decoding="async" />
           {% endif %}
         </div>
         {% endif %}
         <div class="post-card-content">
+          <p class="post-card-eyebrow">Latest post</p>
           <h2 class="post-card-title">{{ post.title }}</h2>
           {% if post.excerpt %}
             <div class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 32 }}</div>
@@ -58,6 +62,8 @@ layout: base
             <span aria-hidden="true">·</span>
             <span class="reading-time">{{ minutes }} min read</span>
           </div>
+          {% comment %}A span, not a link — the whole card is already one anchor.{% endcomment %}
+          <span class="post-card-cta">Read the post <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
         </div>
       </a>
     </article>
