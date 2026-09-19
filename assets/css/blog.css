@@ -2708,6 +2708,87 @@ body.cmd-palette-open {
 }
 
 /* ===== READING PROGRESS BAR ===== */
+.blog-post .post-heading-linked {
+  position: relative;
+  padding-inline-end: 48px;
+  scroll-margin-top: 96px;
+}
+
+.blog-post .section-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  color: var(--mid-col);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 160ms ease-out, color 160ms ease-out;
+}
+
+.blog-post .post-heading-linked:hover .section-link,
+.blog-post .section-link:focus-visible,
+.blog-post .section-link.is-copied {
+  opacity: 1;
+}
+
+.blog-post .section-link:hover,
+.blog-post .section-link:focus-visible,
+.blog-post .section-link.is-copied {
+  color: var(--accent-col);
+  text-decoration: none;
+}
+
+.blog-post .section-link:focus-visible {
+  outline: 2px solid var(--accent-col);
+  outline-offset: 2px;
+}
+
+.blog-post .section-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  right: 0;
+  z-index: 2;
+  padding: 7px 9px;
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  background: var(--card-bg);
+  color: var(--text-col);
+  font-family: var(--body-font);
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.blog-post .section-link:hover::after,
+.blog-post .section-link:focus-visible::after,
+.blog-post .section-link.is-copied::after {
+  opacity: 1;
+}
+
+@media (hover: none), (max-width: 768px) {
+  .blog-post .section-link {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-post .section-link {
+    transition: none !important;
+  }
+}
+
 .reading-progress {
   position: fixed;
   top: 0;
