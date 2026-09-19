@@ -6,6 +6,7 @@ layout: post
 guid: 'https://marcusfelling.com/?p=230'
 permalink: /blog/2017/simple-explanation-private-pipeline-billing-vsts/
 nav-short: true
+tags: [Azure DevOps, CICD]
 ---
 
 **Update: Unlimited private pipelines are now free for Build!!**
