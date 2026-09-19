@@ -7,7 +7,7 @@ guid: 'https://marcusfelling.com/?p=454'
 permalink: /blog/2017/create-vsts-pull-request-via-vsts-rest-api/
 thumbnail-img: /content/uploads/2017/10/VisualStudioGit.png
 nav-short: true
-tags: [Azure DevOps, CICD]
+tags: [Azure DevOps, CICD, Git]
 ---
 
 

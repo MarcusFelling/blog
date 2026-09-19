@@ -7,7 +7,7 @@ guid: 'https://marcusfelling.com/?p=546'
 permalink: /blog/2018/versioning-net-assemblies-using-tfs-vsts-build-buildid/
 thumbnail-img: /content/uploads/2018/03/semVer.png
 nav-short: true
-tags: [Azure Pipelines]
+tags: [Azure Pipelines, CICD]
 ---
 
 

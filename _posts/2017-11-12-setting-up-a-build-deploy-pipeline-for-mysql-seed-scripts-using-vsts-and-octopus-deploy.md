@@ -6,7 +6,7 @@ layout: post
 guid: 'https://marcusfelling.com/?p=467'
 permalink: /blog/2017/setting-up-a-build-deploy-pipeline-for-mysql-seed-scripts-using-vsts-and-octopus-deploy/
 nav-short: true
-tags: [Octopus Deploy, CICD]
+tags: [Octopus Deploy, CICD, Azure DevOps]
 ---
 
 My team wanted the ability to populate test data into new data warehouse instances (MySQL on Linux) that are created via [Infrastructure as Code](https://en.wikipedia.org/wiki/Infrastructure_as_Code) (CloudFormation and Chef). They already had the SQL scripts they used for local development, so I would just need to setup a process to package and deploy them. This process would then be automatically triggered when a new instance is created.
