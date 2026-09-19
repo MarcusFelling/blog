@@ -33,9 +33,10 @@
 
 ## Model
 
-- **Preferred:** claude-opus-4.6
-- **Rationale:** User directive — claude-opus-4.6 for all agents
-- **Fallback:** Default chain — the coordinator handles fallback automatically
+- **Preferred:** GPT-6 Astra
+- **Reasoning Effort:** high
+- **Rationale:** Template and interaction changes need implementation reasoning; use medium for isolated, well-understood CSS or markup edits.
+- **Fallback:** Follow the repository model policy in `.squad/routing.md`.
 
 ## Collaboration
 

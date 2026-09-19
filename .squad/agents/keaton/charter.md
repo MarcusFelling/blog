@@ -35,9 +35,10 @@
 
 ## Model
 
-- **Preferred:** claude-opus-4.6
-- **Rationale:** User directive — claude-opus-4.6 for all agents
-- **Fallback:** Default chain — the coordinator handles fallback automatically
+- **Preferred:** GPT-6 Astra
+- **Reasoning Effort:** high
+- **Rationale:** Architecture and high-risk reviews need deeper analysis; reserve xhigh for unusually complex security or cross-cutting decisions.
+- **Fallback:** Follow the repository model policy in `.squad/routing.md`.
 
 ## Collaboration
 

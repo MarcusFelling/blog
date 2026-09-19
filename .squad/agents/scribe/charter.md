@@ -36,6 +36,13 @@
 - Use `TEAM_ROOT` from spawn prompt; fallback: `git rev-parse --show-toplevel`
 - **Windows commit pattern:** cd into team root, `git add .squad/`, write message to temp file, `git commit -F $msgFile`
 
+## Model
+
+- **Preferred:** claude-haiku-4.5
+- **Reasoning Effort:** auto
+- **Rationale:** Mechanical logging and decision merging do not need the primary specialist model or forced reasoning effort.
+- **Fallback:** Follow the repository model policy in `.squad/routing.md`.
+
 ## Boundaries
 
 **I handle:** Logging, memory, decision merging, cross-agent updates.
