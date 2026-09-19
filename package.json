@@ -31,6 +31,11 @@
     "@playwright/test": "^1.57.0",
     "@types/node": "^24.10.0"
   },
+  "overrides": {
+    "@opentelemetry/sdk-node": {
+      "@opentelemetry/propagator-jaeger": "2.9.0"
+    }
+  },
   "dependencies": {
     "dotenv": "^16.0.3"
   }

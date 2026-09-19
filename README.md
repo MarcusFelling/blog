@@ -103,6 +103,20 @@ Recheck that dependency before upgrading; do not force an unsupported override.
 4. Run `npm run squad:check`, `npm run squad:doctor`, and `npm run test:list`. Review `npm audit` separately;
    the pinned Squad toolchain currently has dependency advisories. Do not apply `npm audit fix --force` blindly.
 
+### Dependency Security
+
+The OpenTelemetry dependency uses a scoped override for `@opentelemetry/propagator-jaeger@2.9.0`
+to fix malformed-header denial of service (GHSA-45rx-2jwx-cxfr). Remove the override when Squad's
+dependency tree resolves a patched propagator without it. Use `npm ci` so the lockfile and override apply.
+
+As of September 19, 2026, `npm audit` still reports nine affected packages (five moderate, four high)
+in the Squad development-tool dependency tree. Compatible patched releases are unavailable for
+the affected Hono, Hono Node adapter, fast-uri, ip-address, and qs dependencies in the configured registry.
+`npm audit fix` does not resolve them; its forced alternative downgrades Squad to 0.9.4.
+These dependencies are not shipped in the static Jekyll site, but remain a risk for local and CI tooling.
+Keep the optional MCP bridge on local stdio, do not expose it as a network service, and rerun
+`npm audit` when upgrading. This mitigation is not a substitute for patched dependencies.
+
 ## CI/CD
 
 - **GitHub Pages** — the site is built and deployed automatically on push to `main`.
