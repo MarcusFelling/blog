@@ -154,6 +154,87 @@ test.describe('Post TOC - posts with few headings', () => {
 
     const progressBar = page.locator('.reading-progress');
     await expect(progressBar).not.toBeAttached();
+    await expect(page.locator('.section-link')).not.toBeAttached();
+  });
+});
+
+test.describe('Post section links', () => {
+  test('copies the exact section URL without changing heading or TOC text', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+    await page.goto(POST_WITH_HEADINGS);
+    const heading = page.locator('.blog-post h2, .blog-post h3').first();
+    const link = heading.locator('.section-link');
+    const label = (await heading.textContent())!.trim();
+    const sectionUrl = new URL(POST_WITH_HEADINGS, page.url());
+    sectionUrl.hash = encodeURIComponent((await heading.getAttribute('id'))!);
+
+    await expect(link).toHaveAccessibleName('Copy link to section: ' + label);
+    await expect(page.locator('.post-toc-link').first()).toHaveText(label);
+    await heading.hover();
+    await link.click();
+    await expect(link).toHaveAttribute('data-tooltip', 'Copied!');
+    await expect.poll(() => page.evaluate(() => navigator.clipboard.readText())).toBe(sectionUrl.href);
+    await expect(page.locator('[role="status"]')).toHaveText('Link copied to section: ' + label);
+    await expect(heading).toHaveText(label);
+    await expect(link).toHaveAttribute('data-tooltip', 'Copy link');
+  });
+
+  test('falls back to a section anchor if clipboard access is denied', async ({ page }) => {
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'clipboard', {
+        value: { writeText: () => Promise.reject(new Error('Permission denied')) }
+      });
+    });
+    await page.goto(POST_WITH_HEADINGS);
+    const heading = page.locator('.blog-post h2, .blog-post h3').first();
+    const link = heading.locator('.section-link');
+    await heading.hover();
+    await link.click();
+    await expect.poll(() => new URL(page.url()).hash).toBe(await link.getAttribute('href'));
+    await expect(link).not.toHaveClass(/is-copied/);
+    await expect(link).toHaveAttribute('data-tooltip', 'Link in address bar');
+    await expect.poll(() => heading.evaluate(element => element.getBoundingClientRect().top)).toBeGreaterThan(70);
+  });
+
+  test('is keyboard accessible and respects reduced motion', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto(POST_WITH_HEADINGS);
+    const link = page.locator('.section-link').first();
+    await link.focus();
+    await expect(link).toBeFocused();
+    await expect(link).toHaveCSS('opacity', '1');
+    await expect(link).toHaveCSS('outline-style', 'solid');
+    await expect(link).toHaveCSS('transition-duration', '0s');
+  });
+
+  test('works on short posts and without a clipboard API', async ({ page }) => {
+    await page.route('**/short-section-links', route => route.fulfill({
+      contentType: 'text/html',
+      body: '<link rel="stylesheet" href="/assets/css/blog.css"><div class="blog-post"><h2 id="existing-section">Existing section</h2><h3>Another section</h3></div><script src="/assets/js/post-toc.js"></script>'
+    }));
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'clipboard', { value: undefined });
+    });
+    await page.goto('/short-section-links');
+    await expect(page.locator('.section-link')).toHaveCount(2);
+    await expect(page.locator('.post-toc')).not.toBeAttached();
+    await expect(page.locator('.section-link').first()).toHaveAttribute('href', '#existing-section');
+    await expect(page.locator('.section-link').nth(1)).toHaveAttribute('href', '#heading-1-another-section');
+    await page.locator('.section-link').first().click();
+    await expect.poll(() => new URL(page.url()).hash).toBe('#existing-section');
+  });
+
+  test('stays visible and inside the article on mobile', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.goto(POST_WITH_HEADINGS);
+    const heading = page.locator('.blog-post h2, .blog-post h3').first();
+    const link = heading.locator('.section-link');
+    await heading.scrollIntoViewIfNeeded();
+    await expect(link).toHaveCSS('opacity', '1');
+    const bounds = await link.boundingBox();
+    expect(bounds!.width).toBe(44);
+    expect(bounds!.x).toBeGreaterThanOrEqual(0);
+    expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(375);
   });
 });
 

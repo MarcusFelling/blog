@@ -24,19 +24,80 @@
     if (!post) return;
 
     const headings = Array.from(post.querySelectorAll(HEADING_SELECTOR));
-    if (headings.length < MIN_HEADINGS) return;
 
     // Ensure every heading has an id for anchor linking
-    headings.forEach(function (h, i) {
-      if (!h.id) {
-        h.id = 'heading-' + i + '-' + slugify(h.textContent);
+    headings.forEach(function (heading, index) {
+      if (!heading.id) {
+        heading.id = 'heading-' + index + '-' + slugify(heading.textContent);
       }
     });
+
+    createSectionLinks(headings);
+    if (headings.length < MIN_HEADINGS) return;
 
     createProgressBar();
     createTOC(headings);
     observeHeadings(headings);
     trackProgress(post);
+  }
+
+  function createSectionLinks(headings) {
+    if (!headings.length) return;
+
+    var status = document.createElement('span');
+    status.className = 'sr-only';
+    status.setAttribute('role', 'status');
+    document.body.appendChild(status);
+
+    headings.forEach(function (heading) {
+      var label = heading.textContent.trim();
+      var link = document.createElement('a');
+      link.className = 'section-link';
+      link.href = '#' + encodeURIComponent(heading.id);
+      link.setAttribute('aria-label', 'Copy link to section: ' + label);
+      link.setAttribute('data-tooltip', 'Copy link');
+
+      var icon = document.createElement('i');
+      icon.className = 'fas fa-link';
+      icon.setAttribute('aria-hidden', 'true');
+      link.appendChild(icon);
+      heading.classList.add('post-heading-linked');
+      heading.appendChild(link);
+
+      var resetTimer;
+      function showFeedback(copied) {
+        window.clearTimeout(resetTimer);
+        link.classList.toggle('is-copied', copied);
+        icon.className = copied ? 'fas fa-check' : 'fas fa-link';
+        link.setAttribute('data-tooltip', copied ? 'Copied!' : 'Link in address bar');
+        status.textContent = copied
+          ? 'Link copied to section: ' + label
+          : 'Could not copy. The section link is in your address bar.';
+        resetTimer = window.setTimeout(function () {
+          link.classList.remove('is-copied');
+          icon.className = 'fas fa-link';
+          link.setAttribute('data-tooltip', 'Copy link');
+          status.textContent = '';
+        }, 2000);
+      }
+
+      link.addEventListener('click', function (event) {
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (!navigator.clipboard || !window.isSecureContext) {
+          showFeedback(false);
+          return;
+        }
+
+        event.preventDefault();
+        status.textContent = '';
+        navigator.clipboard.writeText(link.href).then(function () {
+          showFeedback(true);
+        }).catch(function () {
+          window.location.hash = link.hash;
+          showFeedback(false);
+        });
+      });
+    });
   }
 
   // --- Reading Progress Bar ---
