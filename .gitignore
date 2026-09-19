@@ -17,5 +17,25 @@ node_modules/
 /playwright/.cache/
 .env 
 
-# Squad templates are scaffolding — not team state, safe to gitignore
+# Squad runtime state is private; only reviewed team configuration is shareable.
 .squad-templates/
+.squad/*
+!.squad/config.json
+!.squad/team.md
+!.squad/routing.md
+!.squad/ceremonies.md
+!.squad/agents/
+.squad/agents/**
+!.squad/agents/*/
+!.squad/agents/*/charter.md
+!.squad/casting/
+.squad/casting/*
+!.squad/casting/policy.json
+!.squad/casting/registry.json
+!.squad/plugins/
+.squad/plugins/*
+!.squad/plugins/marketplaces.json
+!.squad/templates/
+.copilot/skills/
+.squad-workstream
+.github/agents/*.local-backup
