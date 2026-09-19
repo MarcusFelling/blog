@@ -13,7 +13,6 @@ test.describe('Archives Page', () => {
 
     await expect(page).toHaveTitle(/Archives/);
     await expect(page.getByRole('heading', { level: 1, name: 'Archives' })).toBeVisible();
-    // archives.md uses layout: post but is NOT a posts-collection page
     await expect(page.locator('text=Posted on')).toHaveCount(0);
   });
 
@@ -88,6 +87,69 @@ test.describe('Archives Page', () => {
       expect(tags).toContain('ai');
     }
   });
+
+  test('topic controls and post topics work from the keyboard', async ({ page }) => {
+    await page.goto('/archives');
+
+    const allButton = page.getByRole('button', { name: 'All', exact: true });
+    const azureButton = page.getByRole('button', { name: 'Azure DevOps', exact: true });
+    await allButton.focus();
+    await page.keyboard.press('Tab');
+    await expect(azureButton).toBeFocused();
+    await expect(azureButton).toHaveCSS('outline-style', 'solid');
+    await page.keyboard.press('Enter');
+    await expect(azureButton).toHaveAttribute('aria-pressed', 'true');
+    await expect(allButton).toHaveAttribute('aria-pressed', 'false');
+    await expect(page.getByRole('status')).toContainText('posts');
+
+    await allButton.focus();
+    await page.keyboard.press('Space');
+    await expect(allButton).toHaveAttribute('aria-pressed', 'true');
+
+    const aiTopic = page.locator('a.archive-tag[data-filter="ai"]').first();
+    await aiTopic.focus();
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('button', { name: 'AI', exact: true })).toHaveAttribute('aria-pressed', 'true');
+    const visibleItems = page.locator('.archive-post-item:visible');
+    await expect(visibleItems.first()).toBeVisible();
+    for (const item of await visibleItems.all()) {
+      await expect(item).toHaveAttribute('data-tags', /\bai\b/);
+    }
+    await expect(page.locator('#visible-count')).toHaveText(String(await visibleItems.count()));
+    for (const group of await page.locator('.archive-year-group:visible').all()) {
+      await expect(group.locator('.archive-post-item:visible').first()).toBeVisible();
+    }
+  });
+
+  for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }, { width: 320, height: 740 }]) {
+    test(`compact archive layout fits at ${viewport.width}px`, async ({ page }) => {
+      await page.setViewportSize(viewport);
+      await page.goto('/archives');
+
+      const header = page.locator('.archive-header');
+      await expect(header).toHaveCSS('background-color', 'rgba(0, 0, 0, 0)');
+      const headingBounds = await page.getByRole('heading', { level: 1 }).boundingBox();
+      const countBounds = await page.getByRole('status').boundingBox();
+      expect(headingBounds!.x + headingBounds!.width).toBeLessThan(countBounds!.x);
+
+      const headerBounds = await header.boundingBox();
+      const filtersBounds = await page.locator('.archive-filters').boundingBox();
+      expect(filtersBounds!.y - headerBounds!.y - headerBounds!.height).toBeLessThan(40);
+      const firstPostBounds = await page.locator('.archive-post-item').first().boundingBox();
+      expect(firstPostBounds!.y).toBeLessThan(viewport.height * 0.65);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(viewport.width);
+
+      for (const filter of await page.locator('.tag-filter').all()) {
+        const bounds = await filter.boundingBox();
+        expect(bounds!.height).toBeGreaterThanOrEqual(44);
+        expect(bounds!.x).toBeGreaterThanOrEqual(0);
+        expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(viewport.width);
+      }
+      for (const date of await page.locator('.archive-post-date').all()) {
+        await expect(date).toHaveAttribute('datetime', /^\d{4}-\d{2}-\d{2}$/);
+      }
+    });
+  }
 
   test('every archive post link returns 200', async ({ page, request }) => {
     test.slow();
