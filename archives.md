@@ -1,12 +1,18 @@
 ﻿---
 id: 492
 title: Archives
-layout: post
+layout: base
 nav-short: true
 guid: 'https://marcusfelling.com/?page_id=492'
 ---
 
-<div class="archive-filters">
+<div class="archive-page">
+<header class="archive-header">
+  <h1>{{ page.title }}</h1>
+  <p class="archive-count" role="status"><span id="visible-count">{{ site.posts | size }}</span> of {{ site.posts | size }} posts</p>
+</header>
+
+<div class="archive-filters" role="group" aria-label="Filter posts by topic">
   <button class="tag-filter active" data-filter="all">All</button>
   <button class="tag-filter" data-filter="azure-devops">Azure DevOps</button>
   <button class="tag-filter" data-filter="cicd">CI/CD</button>
@@ -21,8 +27,7 @@ guid: 'https://marcusfelling.com/?page_id=492'
   <button class="tag-filter" data-filter="other">Other</button>
 </div>
 
-<p class="archive-count"><span id="visible-count">{{ site.posts | size }}</span> of {{ site.posts | size }} posts</p>
-
+{% assign archive_topics = "azure-devops,cicd,playwright,git,github-actions,octopus-deploy,infra-as-code,windows,vs-code-extensions,ai,other" | split: "," %}
 {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 {% for year_group in posts_by_year %}
 <section class="archive-year-group">
@@ -45,6 +50,7 @@ guid: 'https://marcusfelling.com/?page_id=492'
     {% endfor %}
     {% if _tag_slugs == "" %}{% assign _tag_slugs = "other" %}{% endif %}
     <li class="archive-post-item" data-tags="{{ _tag_slugs }}">
+      <time class="archive-post-date" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%b %d" }}</time>
       <a class="archive-post-title" href="{{ post.url }}">{{ post.title }}</a>
       <span class="archive-meta">
         {% for tag in post.tags %}
@@ -55,9 +61,13 @@ guid: 'https://marcusfelling.com/?page_id=492'
           {% else %}
             {% assign _atag_slug = tag | slugify %}
           {% endif %}
-          <span class="archive-tag" data-filter="{{ _atag_slug }}">{{ tag }}</span>
+          {% if archive_topics contains _atag_slug %}
+            <a class="archive-tag" href="#{{ _atag_slug }}" data-filter="{{ _atag_slug }}">{{ tag }}</a>
+          {% else %}
+            <span class="archive-tag">{{ tag }}</span>
+          {% endif %}
         {% endfor %}
-        {% if post.tags.size == 0 %}<span class="archive-tag" data-filter="other">Other</span>{% endif %}
+        {% if post.tags.size == 0 %}<a class="archive-tag" href="#other" data-filter="other">Other</a>{% endif %}
       </span>
     </li>
     {% endfor %}
@@ -66,6 +76,7 @@ guid: 'https://marcusfelling.com/?page_id=492'
 {% endfor %}
 
 <p class="archive-empty-state" id="archive-empty">No posts match this filter.</p>
+</div>
 
 <script>
 (function () {
@@ -103,9 +114,14 @@ guid: 'https://marcusfelling.com/?page_id=492'
   }
 
   filters.forEach(function (btn) {
+    btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
     btn.addEventListener('click', function () {
-      filters.forEach(function (b) { b.classList.remove('active'); });
+      filters.forEach(function (button) {
+        button.classList.remove('active');
+        button.setAttribute('aria-pressed', 'false');
+      });
       this.classList.add('active');
+      this.setAttribute('aria-pressed', 'true');
       applyFilter(this.dataset.filter);
     });
   });
@@ -113,6 +129,7 @@ guid: 'https://marcusfelling.com/?page_id=492'
   document.addEventListener('click', function (e) {
     var tag = e.target.closest('.archive-tag[data-filter]');
     if (!tag) return;
+    e.preventDefault();
     var slug = tag.dataset.filter;
     var matchBtn = null;
     filters.forEach(function (b) { if (b.dataset.filter === slug) matchBtn = b; });
