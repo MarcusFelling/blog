@@ -77,10 +77,10 @@ exclude:
   - playwright-report
   - playwright.config.ts
   - tests/
+  - scripts/
   - package.json
   - vendor
   - package-lock.json
-  - squad.config.ts
   - .github/
   - .gitignore
   - .squad/

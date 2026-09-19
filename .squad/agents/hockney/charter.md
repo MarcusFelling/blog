@@ -33,9 +33,10 @@
 
 ## Model
 
-- **Preferred:** claude-opus-4.6
-- **Rationale:** User directive — claude-opus-4.6 for all agents
-- **Fallback:** Default chain — the coordinator handles fallback automatically
+- **Preferred:** GPT-6 Astra
+- **Reasoning Effort:** high
+- **Rationale:** Failure diagnosis and regression coverage need causal reasoning; use medium for straightforward test additions and low for running known checks.
+- **Fallback:** Follow the repository model policy in `.squad/routing.md`.
 
 ## Collaboration
 
