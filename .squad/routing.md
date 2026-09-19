@@ -12,43 +12,30 @@ How to decide who handles what.
 | Tests and quality | Hockney | Playwright specs, edge case coverage, CI reliability |
 | Visual design and UX | Fenster | Typography, spacing, color, reader experience, accessibility |
 | Community and promotion | Kobayashi | Social copy, post announcements, discoverability, open graph |
-| Async issue work (bugs, tests, small features) | @copilot 🤖 | Well-defined tasks matching capability profile |
-| Session logging | Scribe | Automatic — never needs routing |
+| Session decisions | Scribe | Durable decisions after substantial work; no transcript dumps |
 
-## Issue Routing
+## On-Demand Workflows
 
-| Label | Action | Who |
-|-------|--------|-----|
-| `squad` | Triage: analyze issue, evaluate @copilot fit, assign `squad:{member}` label | Lead |
-| `squad:{name}` | Pick up issue and complete the work | Named member |
-| `squad:copilot` | Assign to @copilot for autonomous work (if enabled) | @copilot 🤖 |
+GitHub Issues are not used. No issue intake, labels, auto-assignment, heartbeat, or scheduled team work.
 
-### How Issue Assignment Works
+| Request | Owner | Additional help when needed | Completion check |
+|---------|-------|-----------------------------|------------------|
+| Review a draft or post | Verbal | Hockney for rendering/link regressions; fact-checker for sourced claims | Existing front matter and URLs preserved; unsupported claims flagged |
+| Fix a template or interaction | McManus | Hockney for scoped Playwright coverage; Fenster for visual changes | Relevant tests pass; responsive and keyboard behavior checked |
+| Review the local diff | Keaton | Relevant domain owner for concrete risks | Findings with file references; no edits or commits unless requested |
+| Diagnose a test failure | Hockney | McManus when the failure is in site behavior | Reproduce the failure, repair the owning slice, rerun the failing test |
+| Prepare post promotion | Kobayashi | Verbal for voice and evidence | Draft copy only; no publishing without approval |
+| Check Squad health | Coordinator | Keaton only if diagnostics expose a problem | Run `npm run squad:check` and `npm run squad:doctor`; report failures |
 
-1. When a GitHub issue gets the `squad` label, the **Lead** triages it — analyzing content, evaluating @copilot's capability profile, assigning the right `squad:{member}` label, and commenting with triage notes.
-2. **@copilot evaluation:** The Lead checks if the issue matches @copilot's capability profile (🟢 good fit / 🟡 needs review / 🔴 not suitable). If it's a good fit, the Lead may route to `squad:copilot` instead of a squad member.
-3. When a `squad:{member}` label is applied, that member picks up the issue in their next session.
-4. When `squad:copilot` is applied and auto-assign is enabled, `@copilot` is assigned on the issue and picks it up autonomously.
-5. Members can reassign by removing their label and adding another member's label.
-6. The `squad` label is the "inbox" — untriaged issues waiting for Lead review.
-
-### Lead Triage Guidance for @copilot
-
-When triaging, the Lead should ask:
-
-1. **Is this well-defined?** Clear title, reproduction steps or acceptance criteria, bounded scope → likely 🟢
-2. **Does it follow existing patterns?** Adding a test, fixing a known bug, updating a dependency → likely 🟢
-3. **Does it need design judgment?** Architecture, API design, UX decisions → likely 🔴
-4. **Is it security-sensitive?** Auth, encryption, access control → always 🔴
-5. **Is it medium complexity with specs?** Feature with clear requirements, refactoring with tests → likely 🟡
+VS Code shortcuts: `/squad-review` for the current diff and `/squad-post` for a selected post.
 
 ## Rules
 
-1. **Eager by default** — spawn all agents who could usefully start work, including anticipatory downstream work.
-2. **Scribe always runs** after substantial work, always as `mode: "background"`. Never blocks.
-3. **Quick facts → coordinator answers directly.** Don't spawn an agent for "what port does the server run on?"
-4. **When two agents could handle it**, pick the one whose domain is the primary concern.
-5. **"Team, ..." → fan-out.** Spawn all relevant agents in parallel as `mode: "background"`.
-6. **Anticipate downstream work.** If a feature is being built, spawn the tester to write test cases from requirements simultaneously.
-7. **Issue-labeled work** — when a `squad:{member}` label is applied to an issue, route to that member. The Lead handles all `squad` (base label) triage.
-8. **@copilot routing** — when evaluating issues, check @copilot's capability profile in `team.md`. Route 🟢 good-fit tasks to `squad:copilot`. Flag 🟡 needs-review tasks for PR review. Keep 🔴 not-suitable tasks with squad members.
+1. Quick facts and narrow mechanical tasks stay with the coordinator. Otherwise start with one domain owner.
+2. Add a reviewer or tester only when the task's risk warrants it. Do not start speculative downstream work or automatically launch the whole team.
+3. Parallel tasks must have independent outcomes and non-overlapping write ownership. Pass explicit paths, acceptance criteria, and the relevant skill, not the entire repo history.
+4. Keep each agent's existing model preference. Task sizing and selective context loading are the default efficiency controls.
+5. Scribe records decisions and session context only in ignored local state. Never commit histories, logs, decisions, learned skills, or prompt quotations. Use foreground handoff when background execution is unavailable; do not repeatedly spawn Scribe for trivial answers.
+6. Ralph is on-demand only and inactive by default. Do not inspect remote issues or start an unattended loop to find more work.
+7. Stay on the current branch and preserve unrelated edits. No automatic commit, push, issue creation, publication, PR completion, or auto-merge.
+8. Finish with the result, checks actually run, and unresolved blockers. For reviews, lead with actionable findings; for prose, distinguish evidence from facts needing confirmation.
