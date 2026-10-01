@@ -36,7 +36,7 @@ Stakeholders asked us to spot the biggest KPI moves, connect those changes to co
 
 We needed a way for stakeholders to receive the agent's output. For the MVP, we scheduled insight generation and delivered the result by email. Email put outputs in stakeholders' hands fast, so they could validate the content before we invested in a polished interface.
 
-We also chose tools we knew. Logic Apps orchestrated the Fabric data agents, passed outputs as variables, and merged them into the final email. Learning Copilot Studio or AI Foundry and setting up their environments would have consumed most of the three-day hackathon.
+We also chose tools we knew. Logic Apps orchestrated the Fabric data agents, passed outputs as variables, and merged them into the final email. Learning Copilot Studio or Microsoft Foundry and setting up their environments would have consumed most of the three-day hackathon.
 
 ## Break Big Agents Into Smaller, More Focused Sub Agents
 
