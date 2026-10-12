@@ -8,7 +8,7 @@ argument-hint: "Post path or draft to review"
 
 Review the post or draft identified by the user. If none is identifiable from the request or editor context,
 ask for the path. Follow the [repo instructions](../../copilot-instructions.md) and
-[routing](../../.squad/routing.md). Verbal owns this review.
+[routing](../../../.squad/routing.md). Verbal owns this review.
 
 Check clarity, structure, front matter, local image and internal link targets, and consistency with supplied
 technical evidence. Name tools precisely. Never invent Marcus's experiences, emotions, opinions, results,

@@ -7,7 +7,7 @@ argument-hint: "Optional files or scope to review"
 # Squad Local Diff Review
 
 Review the user's specified files, or the current staged and unstaged diff if no scope is given.
-Follow the [repo instructions](../../copilot-instructions.md) and [routing](../../.squad/routing.md).
+Follow the [repo instructions](../../copilot-instructions.md) and [routing](../../../.squad/routing.md).
 
 Keaton owns the review. Add only the specialist needed for a concrete risk; do not launch the entire team.
 Read the changed code and nearby callers/tests. Prioritize broken reader journeys, Liquid/Jekyll output,
